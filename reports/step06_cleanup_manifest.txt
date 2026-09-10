@@ -1,0 +1,344 @@
+================================================================================
+STEP 6 — TRAIN/TEST DATASET CLEANUP MANIFEST GENERATION (READ-ONLY)
+================================================================================
+Project Root:           D:\Areca
+Target Train Directory: D:\Areca\Data\train
+Target Test Directory:  D:\Areca\Data\test
+--------------------------------------------------------------------------------
+CRITICAL SCOPE ENFORCEMENT:
+  [VERIFIED] Analyzed strictly: D:\Areca\Data\train and D:\Areca\Data\test.
+  [VERIFIED] D:\Areca\Data\final_testing-20230830T042904Z-001 was ABSOLUTELY NOT accessed.
+  [VERIFIED] READ-ONLY AUDIT: No dataset files will be modified, moved, or deleted.
+================================================================================
+Loading Step 5 confirmed duplicate & leakage records...
+
+Consolidating confirmed TRAIN removals...
+Executing safety validations on all proposed removals...
+Safety validation PASSED for all 421 unique TRAIN removals.
+============================================================
+SECTION 1 — SUMMARY
+============================================================
+Original TRAIN image count:                     6530
+Original TEST image count:                      1635
+Number of TRAIN images proposed for removal:    421
+Number of TEST images proposed for removal:     0 (Preserved as Reference Set)
+Number of exact leakage groups:                 122
+Number of confirmed near-duplicate pairs:       525
+Number of likely leakage groups (Review Only):  293
+Number of possible leakage groups (Pending):    336
+Number of confirmed class conflicts:            0
+Number of cross-split clusters:                 328
+Number of UNIQUE TRAIN files proposed for removal: 421
+================================================================================
+SECTION 2 — EXACT LEAKAGE REMOVALS
+Total exact cross-split pairings: 188
+Policy: REMOVE_FROM_TRAIN | KEEP_IN_TEST
+--------------------------------------------------------------------------------
+  [EXACT_GRP_0001] SHA-256: 66803df3b028f86f...
+    TRAIN (Healthy_Leaf): D:\Areca\Data\train\Healthy_Leaf\Healthy_Leaf_original_51.jpg_f3da5869-d091-4130-813e-6f3da49f64f8.jpg -> ACTION: REMOVE_FROM_TRAIN
+    TEST  (Healthy_Leaf):  D:\Areca\Data\test\Healthy_Leaf\Healthy_Leaf_original_51.jpg_c595199b-e3c2-463f-8c9e-5a513a7f473c.jpg -> ACTION: KEEP_IN_TEST
+  [EXACT_GRP_0002] SHA-256: 8630da889d9ca0e3...
+    TRAIN (Healthy_Leaf): D:\Areca\Data\train\Healthy_Leaf\Healthy_Leaf_original_510.jpg_455dd9c4-9c3c-4f7a-947d-dc5fb20485f9.jpg -> ACTION: REMOVE_FROM_TRAIN
+    TEST  (Healthy_Leaf):  D:\Areca\Data\test\Healthy_Leaf\Healthy_Leaf_original_510.jpg_98d3a0c9-e6db-4539-bf7f-c4193f1eee8e.jpg -> ACTION: KEEP_IN_TEST
+  [EXACT_GRP_0003] SHA-256: f7c888226931a1a9...
+    TRAIN (Healthy_Leaf): D:\Areca\Data\train\Healthy_Leaf\Healthy_Leaf_original_524.jpg_26d9db50-babb-44e9-9d10-8077ecb4b8c9.jpg -> ACTION: REMOVE_FROM_TRAIN
+    TEST  (Healthy_Leaf):  D:\Areca\Data\test\Healthy_Leaf\Healthy_Leaf_original_524.jpg_3afd14b0-07a5-4ad9-8ae7-212ccbcc1211.jpg -> ACTION: KEEP_IN_TEST
+  [EXACT_GRP_0003] SHA-256: f7c888226931a1a9...
+    TRAIN (Healthy_Leaf): D:\Areca\Data\train\Healthy_Leaf\Healthy_Leaf_original_524.jpg_d76d7735-0417-44bf-b241-9f027d01c439.jpg -> ACTION: REMOVE_FROM_TRAIN
+    TEST  (Healthy_Leaf):  D:\Areca\Data\test\Healthy_Leaf\Healthy_Leaf_original_524.jpg_3afd14b0-07a5-4ad9-8ae7-212ccbcc1211.jpg -> ACTION: KEEP_IN_TEST
+  [EXACT_GRP_0004] SHA-256: acf36d8502f5e9b4...
+    TRAIN (Healthy_Leaf): D:\Areca\Data\train\Healthy_Leaf\Healthy_Leaf_original_553.jpg_b4ebe95a-9387-4771-9ab9-3f9dfecd6002.jpg -> ACTION: REMOVE_FROM_TRAIN
+    TEST  (Healthy_Leaf):  D:\Areca\Data\test\Healthy_Leaf\Healthy_Leaf_original_553.jpg_75376997-aca1-4ef0-b96f-6e113db93575.jpg -> ACTION: KEEP_IN_TEST
+  [EXACT_GRP_0005] SHA-256: ac604206e4a26117...
+    TRAIN (Healthy_Leaf): D:\Areca\Data\train\Healthy_Leaf\Healthy_Leaf_original_558.jpg_3eda851a-20e1-4413-91d0-32edd3e08397.jpg -> ACTION: REMOVE_FROM_TRAIN
+    TEST  (Healthy_Leaf):  D:\Areca\Data\test\Healthy_Leaf\Healthy_Leaf_original_558.jpg_b1f5d070-79af-4c68-a82b-469fb8034991.jpg -> ACTION: KEEP_IN_TEST
+  [EXACT_GRP_0006] SHA-256: 7a3f86dcf1b43dec...
+    TRAIN (Healthy_Leaf): D:\Areca\Data\train\Healthy_Leaf\Healthy_Leaf_original_560.jpg_24965540-7e3c-44fd-a034-f5b1cb4f2b6b.jpg -> ACTION: REMOVE_FROM_TRAIN
+    TEST  (Healthy_Leaf):  D:\Areca\Data\test\Healthy_Leaf\Healthy_Leaf_original_560.jpg_6fffcd28-cc9f-42e9-b8f4-3a609b6456c9.jpg -> ACTION: KEEP_IN_TEST
+  [EXACT_GRP_0006] SHA-256: 7a3f86dcf1b43dec...
+    TRAIN (Healthy_Leaf): D:\Areca\Data\train\Healthy_Leaf\Healthy_Leaf_original_560.jpg_5738a18e-7df8-4906-8e4d-8c13d147ecb5.jpg -> ACTION: REMOVE_FROM_TRAIN
+    TEST  (Healthy_Leaf):  D:\Areca\Data\test\Healthy_Leaf\Healthy_Leaf_original_560.jpg_6fffcd28-cc9f-42e9-b8f4-3a609b6456c9.jpg -> ACTION: KEEP_IN_TEST
+  [EXACT_GRP_0007] SHA-256: ebb6dc0fb46c7d0e...
+    TRAIN (Healthy_Leaf): D:\Areca\Data\train\Healthy_Leaf\Healthy_Leaf_original_571.jpg_2229e137-e887-44f5-91af-987c5484e720.jpg -> ACTION: REMOVE_FROM_TRAIN
+    TEST  (Healthy_Leaf):  D:\Areca\Data\test\Healthy_Leaf\Healthy_Leaf_original_571.jpg_f94a2726-a9ce-43be-a166-b7f5fcabff5f.jpg -> ACTION: KEEP_IN_TEST
+  [EXACT_GRP_0008] SHA-256: a6181092339ed66d...
+    TRAIN (Healthy_Leaf): D:\Areca\Data\train\Healthy_Leaf\Healthy_Leaf_original_573.jpg_4fee0b7a-ed25-4b2b-8d8f-5271ee07d911.jpg -> ACTION: REMOVE_FROM_TRAIN
+    TEST  (Healthy_Leaf):  D:\Areca\Data\test\Healthy_Leaf\Healthy_Leaf_original_573.jpg_5ad5e32a-1167-4a2f-825c-9a74b14cb82c.jpg -> ACTION: KEEP_IN_TEST
+  ... and 178 more exact leakage pairings (see JSON/CSV)
+================================================================================
+SECTION 3 — CONFIRMED NEAR-DUPLICATE REMOVALS
+Total confirmed near-duplicate leakage pairs: 525
+Policy: REMOVE_FROM_TRAIN | KEEP_IN_TEST
+--------------------------------------------------------------------------------
+  [TT_PAIR_00001] pHash=0, dHash=0, SSIM=1.000, NCC=1.000
+    TRAIN (Healthy_Leaf): D:\Areca\Data\train\Healthy_Leaf\Healthy_Leaf_original_51.jpg_f3da5869-d091-4130-813e-6f3da49f64f8.jpg -> ACTION: REMOVE_FROM_TRAIN
+    TEST  (Healthy_Leaf):  D:\Areca\Data\test\Healthy_Leaf\Healthy_Leaf_original_51.jpg_c595199b-e3c2-463f-8c9e-5a513a7f473c.jpg -> ACTION: KEEP_IN_TEST
+  [TT_PAIR_00002] pHash=0, dHash=0, SSIM=1.000, NCC=1.000
+    TRAIN (Healthy_Leaf): D:\Areca\Data\train\Healthy_Leaf\Healthy_Leaf_original_51.jpg_f3da5869-d091-4130-813e-6f3da49f64f8.jpg -> ACTION: REMOVE_FROM_TRAIN
+    TEST  (Healthy_Leaf):  D:\Areca\Data\test\Healthy_Leaf\Healthy_Leaf_original_524.jpg_3afd14b0-07a5-4ad9-8ae7-212ccbcc1211.jpg -> ACTION: KEEP_IN_TEST
+  [TT_PAIR_00003] pHash=0, dHash=0, SSIM=1.000, NCC=1.000
+    TRAIN (Healthy_Leaf): D:\Areca\Data\train\Healthy_Leaf\Healthy_Leaf_original_510.jpg_455dd9c4-9c3c-4f7a-947d-dc5fb20485f9.jpg -> ACTION: REMOVE_FROM_TRAIN
+    TEST  (Healthy_Leaf):  D:\Areca\Data\test\Healthy_Leaf\Healthy_Leaf_original_510.jpg_98d3a0c9-e6db-4539-bf7f-c4193f1eee8e.jpg -> ACTION: KEEP_IN_TEST
+  [TT_PAIR_00004] pHash=0, dHash=1, SSIM=1.000, NCC=1.000
+    TRAIN (Healthy_Leaf): D:\Areca\Data\train\Healthy_Leaf\Healthy_Leaf_original_511.jpg_35ab6449-649b-458f-8d23-b692f4e9c5fd.jpg -> ACTION: REMOVE_FROM_TRAIN
+    TEST  (Healthy_Leaf):  D:\Areca\Data\test\Healthy_Leaf\Healthy_Leaf_original_563.jpg_39185880-274b-41d4-8393-e2240388c2c2.jpg -> ACTION: KEEP_IN_TEST
+  [TT_PAIR_00005] pHash=0, dHash=0, SSIM=1.000, NCC=1.000
+    TRAIN (Healthy_Leaf): D:\Areca\Data\train\Healthy_Leaf\Healthy_Leaf_original_524.jpg_26d9db50-babb-44e9-9d10-8077ecb4b8c9.jpg -> ACTION: REMOVE_FROM_TRAIN
+    TEST  (Healthy_Leaf):  D:\Areca\Data\test\Healthy_Leaf\Healthy_Leaf_original_51.jpg_c595199b-e3c2-463f-8c9e-5a513a7f473c.jpg -> ACTION: KEEP_IN_TEST
+  [TT_PAIR_00006] pHash=0, dHash=0, SSIM=1.000, NCC=1.000
+    TRAIN (Healthy_Leaf): D:\Areca\Data\train\Healthy_Leaf\Healthy_Leaf_original_524.jpg_26d9db50-babb-44e9-9d10-8077ecb4b8c9.jpg -> ACTION: REMOVE_FROM_TRAIN
+    TEST  (Healthy_Leaf):  D:\Areca\Data\test\Healthy_Leaf\Healthy_Leaf_original_524.jpg_3afd14b0-07a5-4ad9-8ae7-212ccbcc1211.jpg -> ACTION: KEEP_IN_TEST
+  [TT_PAIR_00007] pHash=0, dHash=0, SSIM=1.000, NCC=1.000
+    TRAIN (Healthy_Leaf): D:\Areca\Data\train\Healthy_Leaf\Healthy_Leaf_original_524.jpg_d76d7735-0417-44bf-b241-9f027d01c439.jpg -> ACTION: REMOVE_FROM_TRAIN
+    TEST  (Healthy_Leaf):  D:\Areca\Data\test\Healthy_Leaf\Healthy_Leaf_original_51.jpg_c595199b-e3c2-463f-8c9e-5a513a7f473c.jpg -> ACTION: KEEP_IN_TEST
+  [TT_PAIR_00008] pHash=0, dHash=0, SSIM=1.000, NCC=1.000
+    TRAIN (Healthy_Leaf): D:\Areca\Data\train\Healthy_Leaf\Healthy_Leaf_original_524.jpg_d76d7735-0417-44bf-b241-9f027d01c439.jpg -> ACTION: REMOVE_FROM_TRAIN
+    TEST  (Healthy_Leaf):  D:\Areca\Data\test\Healthy_Leaf\Healthy_Leaf_original_524.jpg_3afd14b0-07a5-4ad9-8ae7-212ccbcc1211.jpg -> ACTION: KEEP_IN_TEST
+  [TT_PAIR_00009] pHash=0, dHash=0, SSIM=1.000, NCC=1.000
+    TRAIN (Healthy_Leaf): D:\Areca\Data\train\Healthy_Leaf\Healthy_Leaf_original_553.jpg_b4ebe95a-9387-4771-9ab9-3f9dfecd6002.jpg -> ACTION: REMOVE_FROM_TRAIN
+    TEST  (Healthy_Leaf):  D:\Areca\Data\test\Healthy_Leaf\Healthy_Leaf_original_553.jpg_75376997-aca1-4ef0-b96f-6e113db93575.jpg -> ACTION: KEEP_IN_TEST
+  [TT_PAIR_00010] pHash=0, dHash=0, SSIM=1.000, NCC=1.000
+    TRAIN (Healthy_Leaf): D:\Areca\Data\train\Healthy_Leaf\Healthy_Leaf_original_558.jpg_3eda851a-20e1-4413-91d0-32edd3e08397.jpg -> ACTION: REMOVE_FROM_TRAIN
+    TEST  (Healthy_Leaf):  D:\Areca\Data\test\Healthy_Leaf\Healthy_Leaf_original_558.jpg_b1f5d070-79af-4c68-a82b-469fb8034991.jpg -> ACTION: KEEP_IN_TEST
+  ... and 515 more confirmed near-duplicate pairs
+================================================================================
+SECTION 4 — LIKELY CASES
+Total likely near-duplicate leakage pairs: 293
+Action: REVIEW_REQUIRED (NOT automatically marked for deletion)
+Reason: While structural similarity is elevated, conservative policy requires explicit manual review before removal.
+================================================================================
+SECTION 5 — POSSIBLE CASES
+Total possible near-duplicate pairs: 336
+Action: KEEP_PENDING_REVIEW (Retained in training set)
+Reason: Moderate structural similarity could represent natural agricultural visual patterns or distinct plants.
+================================================================================
+SECTION 6 — REFUTED CASES
+Total refuted / different candidate pairs: 566
+Action: NO_ACTION (Confirmed distinct photographs)
+================================================================================
+SECTION 7 — WITHIN-TEST DUPLICATES
+Total exact duplicate groups within TEST: 22
+Action: REVIEW_REQUIRED (NOT automatically deleted)
+Reason: TEST set is preserved as the independent benchmark. Deduplication of TEST requires separate evaluation.
+================================================================================
+SECTION 8 — WITHIN-TRAIN DUPLICATES
+Action: RETAINED (Unless leaking into TEST)
+Reason: Within-train duplicate clusters not leaking to TEST are preserved to avoid aggressive dataset compression.
+================================================================================
+SECTION 9 — CLASS CONFLICTS
+Report: 0 CONFIRMED_LABEL_CONFLICT
+No relabeling is proposed.
+================================================================================
+============================================================
+FINAL PROPOSED TRAIN REMOVAL LIST
+============================================================
+[REMOVE_0001]
+TRAIN:          D:\Areca\Data\train\Healthy_Leaf\Healthy_Leaf_original_51.jpg_f3da5869-d091-4130-813e-6f3da49f64f8.jpg
+CLASS:          Healthy_Leaf
+REASON:         Exact byte-for-byte duplicate (SHA-256: 66803df3b028f86f...) of TEST image; Confirmed near-duplicate (SSIM=1.000, NCC=1.000, pHash=0) of TEST image; Confirmed near-duplicate (SSIM=1.000, NCC=1.000, pHash=0) of TEST image
+TEST REFERENCE: D:\Areca\Data\test\Healthy_Leaf\Healthy_Leaf_original_51.jpg_c595199b-e3c2-463f-8c9e-5a513a7f473c.jpg
+CLUSTER:        CLUSTER_0015
+CONFIDENCE:     CONFIRMED
+--------------------------------------------------------------------------------
+[REMOVE_0002]
+TRAIN:          D:\Areca\Data\train\Healthy_Leaf\Healthy_Leaf_original_510.jpg_455dd9c4-9c3c-4f7a-947d-dc5fb20485f9.jpg
+CLASS:          Healthy_Leaf
+REASON:         Exact byte-for-byte duplicate (SHA-256: 8630da889d9ca0e3...) of TEST image; Confirmed near-duplicate (SSIM=1.000, NCC=1.000, pHash=0) of TEST image
+TEST REFERENCE: D:\Areca\Data\test\Healthy_Leaf\Healthy_Leaf_original_510.jpg_98d3a0c9-e6db-4539-bf7f-c4193f1eee8e.jpg
+CLUSTER:        CLUSTER_0016
+CONFIDENCE:     CONFIRMED
+--------------------------------------------------------------------------------
+[REMOVE_0003]
+TRAIN:          D:\Areca\Data\train\Healthy_Leaf\Healthy_Leaf_original_511.jpg_35ab6449-649b-458f-8d23-b692f4e9c5fd.jpg
+CLASS:          Healthy_Leaf
+REASON:         Confirmed near-duplicate (SSIM=1.000, NCC=1.000, pHash=0) of TEST image
+TEST REFERENCE: D:\Areca\Data\test\Healthy_Leaf\Healthy_Leaf_original_563.jpg_39185880-274b-41d4-8393-e2240388c2c2.jpg
+CLUSTER:        CLUSTER_0435
+CONFIDENCE:     CONFIRMED
+--------------------------------------------------------------------------------
+[REMOVE_0004]
+TRAIN:          D:\Areca\Data\train\Healthy_Leaf\Healthy_Leaf_original_524.jpg_26d9db50-babb-44e9-9d10-8077ecb4b8c9.jpg
+CLASS:          Healthy_Leaf
+REASON:         Exact byte-for-byte duplicate (SHA-256: f7c888226931a1a9...) of TEST image; Confirmed near-duplicate (SSIM=1.000, NCC=1.000, pHash=0) of TEST image; Confirmed near-duplicate (SSIM=1.000, NCC=1.000, pHash=0) of TEST image
+TEST REFERENCE: D:\Areca\Data\test\Healthy_Leaf\Healthy_Leaf_original_524.jpg_3afd14b0-07a5-4ad9-8ae7-212ccbcc1211.jpg
+CLUSTER:        CLUSTER_0015
+CONFIDENCE:     CONFIRMED
+--------------------------------------------------------------------------------
+[REMOVE_0005]
+TRAIN:          D:\Areca\Data\train\Healthy_Leaf\Healthy_Leaf_original_524.jpg_d76d7735-0417-44bf-b241-9f027d01c439.jpg
+CLASS:          Healthy_Leaf
+REASON:         Exact byte-for-byte duplicate (SHA-256: f7c888226931a1a9...) of TEST image; Confirmed near-duplicate (SSIM=1.000, NCC=1.000, pHash=0) of TEST image; Confirmed near-duplicate (SSIM=1.000, NCC=1.000, pHash=0) of TEST image
+TEST REFERENCE: D:\Areca\Data\test\Healthy_Leaf\Healthy_Leaf_original_524.jpg_3afd14b0-07a5-4ad9-8ae7-212ccbcc1211.jpg
+CLUSTER:        CLUSTER_0015
+CONFIDENCE:     CONFIRMED
+--------------------------------------------------------------------------------
+[REMOVE_0006]
+TRAIN:          D:\Areca\Data\train\Healthy_Leaf\Healthy_Leaf_original_553.jpg_b4ebe95a-9387-4771-9ab9-3f9dfecd6002.jpg
+CLASS:          Healthy_Leaf
+REASON:         Exact byte-for-byte duplicate (SHA-256: acf36d8502f5e9b4...) of TEST image; Confirmed near-duplicate (SSIM=1.000, NCC=1.000, pHash=0) of TEST image
+TEST REFERENCE: D:\Areca\Data\test\Healthy_Leaf\Healthy_Leaf_original_553.jpg_75376997-aca1-4ef0-b96f-6e113db93575.jpg
+CLUSTER:        CLUSTER_0183
+CONFIDENCE:     CONFIRMED
+--------------------------------------------------------------------------------
+[REMOVE_0007]
+TRAIN:          D:\Areca\Data\train\Healthy_Leaf\Healthy_Leaf_original_558.jpg_3eda851a-20e1-4413-91d0-32edd3e08397.jpg
+CLASS:          Healthy_Leaf
+REASON:         Exact byte-for-byte duplicate (SHA-256: ac604206e4a26117...) of TEST image; Confirmed near-duplicate (SSIM=1.000, NCC=1.000, pHash=0) of TEST image
+TEST REFERENCE: D:\Areca\Data\test\Healthy_Leaf\Healthy_Leaf_original_558.jpg_b1f5d070-79af-4c68-a82b-469fb8034991.jpg
+CLUSTER:        CLUSTER_0399
+CONFIDENCE:     CONFIRMED
+--------------------------------------------------------------------------------
+[REMOVE_0008]
+TRAIN:          D:\Areca\Data\train\Healthy_Leaf\Healthy_Leaf_original_560.jpg_24965540-7e3c-44fd-a034-f5b1cb4f2b6b.jpg
+CLASS:          Healthy_Leaf
+REASON:         Exact byte-for-byte duplicate (SHA-256: 7a3f86dcf1b43dec...) of TEST image; Confirmed near-duplicate (SSIM=1.000, NCC=1.000, pHash=0) of TEST image
+TEST REFERENCE: D:\Areca\Data\test\Healthy_Leaf\Healthy_Leaf_original_560.jpg_6fffcd28-cc9f-42e9-b8f4-3a609b6456c9.jpg
+CLUSTER:        CLUSTER_0099
+CONFIDENCE:     CONFIRMED
+--------------------------------------------------------------------------------
+[REMOVE_0009]
+TRAIN:          D:\Areca\Data\train\Healthy_Leaf\Healthy_Leaf_original_560.jpg_5738a18e-7df8-4906-8e4d-8c13d147ecb5.jpg
+CLASS:          Healthy_Leaf
+REASON:         Exact byte-for-byte duplicate (SHA-256: 7a3f86dcf1b43dec...) of TEST image; Confirmed near-duplicate (SSIM=1.000, NCC=1.000, pHash=0) of TEST image
+TEST REFERENCE: D:\Areca\Data\test\Healthy_Leaf\Healthy_Leaf_original_560.jpg_6fffcd28-cc9f-42e9-b8f4-3a609b6456c9.jpg
+CLUSTER:        CLUSTER_0099
+CONFIDENCE:     CONFIRMED
+--------------------------------------------------------------------------------
+[REMOVE_0010]
+TRAIN:          D:\Areca\Data\train\Healthy_Leaf\Healthy_Leaf_original_561.jpg_f2af6041-e978-4c85-a53b-0950db78a71a.jpg
+CLASS:          Healthy_Leaf
+REASON:         Confirmed near-duplicate (SSIM=0.957, NCC=0.957, pHash=2) of TEST image; Confirmed near-duplicate (SSIM=0.959, NCC=0.959, pHash=2) of TEST image
+TEST REFERENCE: D:\Areca\Data\test\Healthy_Leaf\Healthy_Leaf_original_510.jpg_98d3a0c9-e6db-4539-bf7f-c4193f1eee8e.jpg
+CLUSTER:        CLUSTER_0016
+CONFIDENCE:     CONFIRMED
+--------------------------------------------------------------------------------
+[REMOVE_0011]
+TRAIN:          D:\Areca\Data\train\Healthy_Leaf\Healthy_Leaf_original_57.jpg_5e8505fe-a2ac-4f81-b7fe-3ec9ae54e026.jpg
+CLASS:          Healthy_Leaf
+REASON:         Confirmed near-duplicate (SSIM=0.954, NCC=0.954, pHash=0) of TEST image
+TEST REFERENCE: D:\Areca\Data\test\Healthy_Leaf\Healthy_Leaf_original_57.jpg_dc85b091-c55d-4196-8f4f-abefebd9cce5.jpg
+CLUSTER:        CLUSTER_0436
+CONFIDENCE:     CONFIRMED
+--------------------------------------------------------------------------------
+[REMOVE_0012]
+TRAIN:          D:\Areca\Data\train\Healthy_Leaf\Healthy_Leaf_original_571.jpg_2229e137-e887-44f5-91af-987c5484e720.jpg
+CLASS:          Healthy_Leaf
+REASON:         Exact byte-for-byte duplicate (SHA-256: ebb6dc0fb46c7d0e...) of TEST image; Confirmed near-duplicate (SSIM=1.000, NCC=1.000, pHash=0) of TEST image
+TEST REFERENCE: D:\Areca\Data\test\Healthy_Leaf\Healthy_Leaf_original_571.jpg_f94a2726-a9ce-43be-a166-b7f5fcabff5f.jpg
+CLUSTER:        CLUSTER_0184
+CONFIDENCE:     CONFIRMED
+--------------------------------------------------------------------------------
+[REMOVE_0013]
+TRAIN:          D:\Areca\Data\train\Healthy_Leaf\Healthy_Leaf_original_573.jpg_1f037f8e-3947-4404-9bdf-a7d083030272.jpg
+CLASS:          Healthy_Leaf
+REASON:         Confirmed near-duplicate (SSIM=1.000, NCC=1.000, pHash=2) of TEST image
+TEST REFERENCE: D:\Areca\Data\test\Healthy_Leaf\Healthy_Leaf_original_535.jpg_70c03e7a-b612-483b-a531-fa884a80d597.jpg
+CLUSTER:        CLUSTER_0073
+CONFIDENCE:     CONFIRMED
+--------------------------------------------------------------------------------
+[REMOVE_0014]
+TRAIN:          D:\Areca\Data\train\Healthy_Leaf\Healthy_Leaf_original_573.jpg_4fee0b7a-ed25-4b2b-8d8f-5271ee07d911.jpg
+CLASS:          Healthy_Leaf
+REASON:         Exact byte-for-byte duplicate (SHA-256: a6181092339ed66d...) of TEST image; Confirmed near-duplicate (SSIM=1.000, NCC=1.000, pHash=0) of TEST image
+TEST REFERENCE: D:\Areca\Data\test\Healthy_Leaf\Healthy_Leaf_original_573.jpg_5ad5e32a-1167-4a2f-825c-9a74b14cb82c.jpg
+CLUSTER:        CLUSTER_0400
+CONFIDENCE:     CONFIRMED
+--------------------------------------------------------------------------------
+[REMOVE_0015]
+TRAIN:          D:\Areca\Data\train\Healthy_Leaf\Healthy_Leaf_original_573.jpg_5e46b3b6-4f9e-42cc-bf0b-b2a211d19c9e.jpg
+CLASS:          Healthy_Leaf
+REASON:         Confirmed near-duplicate (SSIM=1.000, NCC=1.000, pHash=2) of TEST image
+TEST REFERENCE: D:\Areca\Data\test\Healthy_Leaf\Healthy_Leaf_original_535.jpg_70c03e7a-b612-483b-a531-fa884a80d597.jpg
+CLUSTER:        CLUSTER_0073
+CONFIDENCE:     CONFIRMED
+--------------------------------------------------------------------------------
+[REMOVE_0016]
+TRAIN:          D:\Areca\Data\train\Healthy_Leaf\Healthy_Leaf_original_573.jpg_8b88f0c0-720c-4bcc-9d52-37b636ca4033.jpg
+CLASS:          Healthy_Leaf
+REASON:         Confirmed near-duplicate (SSIM=1.000, NCC=1.000, pHash=2) of TEST image
+TEST REFERENCE: D:\Areca\Data\test\Healthy_Leaf\Healthy_Leaf_original_535.jpg_70c03e7a-b612-483b-a531-fa884a80d597.jpg
+CLUSTER:        CLUSTER_0073
+CONFIDENCE:     CONFIRMED
+--------------------------------------------------------------------------------
+[REMOVE_0017]
+TRAIN:          D:\Areca\Data\train\Healthy_Leaf\Healthy_Leaf_original_58.jpg_759828df-635f-4f8f-a476-559e821f413b.jpg
+CLASS:          Healthy_Leaf
+REASON:         Confirmed near-duplicate (SSIM=1.000, NCC=1.000, pHash=0) of TEST image
+TEST REFERENCE: D:\Areca\Data\test\Healthy_Leaf\Healthy_Leaf_original_560.jpg_6fffcd28-cc9f-42e9-b8f4-3a609b6456c9.jpg
+CLUSTER:        CLUSTER_0099
+CONFIDENCE:     CONFIRMED
+--------------------------------------------------------------------------------
+[REMOVE_0018]
+TRAIN:          D:\Areca\Data\train\Healthy_Leaf\Healthy_Leaf_original_59.jpg_5546d69e-8482-442f-860c-acc2b8d32127.jpg
+CLASS:          Healthy_Leaf
+REASON:         Confirmed near-duplicate (SSIM=0.957, NCC=0.957, pHash=2) of TEST image; Confirmed near-duplicate (SSIM=0.959, NCC=0.959, pHash=2) of TEST image
+TEST REFERENCE: D:\Areca\Data\test\Healthy_Leaf\Healthy_Leaf_original_510.jpg_98d3a0c9-e6db-4539-bf7f-c4193f1eee8e.jpg
+CLUSTER:        CLUSTER_0016
+CONFIDENCE:     CONFIRMED
+--------------------------------------------------------------------------------
+[REMOVE_0019]
+TRAIN:          D:\Areca\Data\train\Healthy_Leaf\Healthy_Leaf_original_59.jpg_b0d13b98-fa54-4dc3-87fd-21668cea5a58.jpg
+CLASS:          Healthy_Leaf
+REASON:         Confirmed near-duplicate (SSIM=0.946, NCC=0.946, pHash=2) of TEST image
+TEST REFERENCE: D:\Areca\Data\test\Healthy_Leaf\Healthy_Leaf_original_561.jpg_1f74df33-d79b-41f8-8992-3c80a93c8e47.jpg
+CLUSTER:        CLUSTER_0016
+CONFIDENCE:     CONFIRMED
+--------------------------------------------------------------------------------
+[REMOVE_0020]
+TRAIN:          D:\Areca\Data\train\Healthy_Leaf\Healthy_Leaf_original_59.jpg_ded20ca5-54aa-4451-88cd-d9ae849ccc04.jpg
+CLASS:          Healthy_Leaf
+REASON:         Exact byte-for-byte duplicate (SHA-256: ef44509345c5837a...) of TEST image; Confirmed near-duplicate (SSIM=1.000, NCC=1.000, pHash=0) of TEST image
+TEST REFERENCE: D:\Areca\Data\test\Healthy_Leaf\Healthy_Leaf_original_59.jpg_ef7af87f-9430-48ad-b962-08085adb02ac.jpg
+CLUSTER:        CLUSTER_0100
+CONFIDENCE:     CONFIRMED
+--------------------------------------------------------------------------------
+[REMOVE_0021]
+TRAIN:          D:\Areca\Data\train\Healthy_Leaf\Healthy_Leaf_original_59.jpg_e8ead456-a677-422b-9a48-a66e3b6577a9.jpg
+CLASS:          Healthy_Leaf
+REASON:         Exact byte-for-byte duplicate (SHA-256: ef44509345c5837a...) of TEST image; Confirmed near-duplicate (SSIM=1.000, NCC=1.000, pHash=0) of TEST image
+TEST REFERENCE: D:\Areca\Data\test\Healthy_Leaf\Healthy_Leaf_original_59.jpg_ef7af87f-9430-48ad-b962-08085adb02ac.jpg
+CLUSTER:        CLUSTER_0100
+CONFIDENCE:     CONFIRMED
+--------------------------------------------------------------------------------
+[REMOVE_0022]
+TRAIN:          D:\Areca\Data\train\Healthy_Leaf\Healthy_Leaf_original_IMG_20230819_174511.jpg_5b1a9677-4b3d-4cdb-8199-d5fa850bc43f.jpg
+CLASS:          Healthy_Leaf
+REASON:         Exact byte-for-byte duplicate (SHA-256: d761d2a4478e876a...) of TEST image; Confirmed near-duplicate (SSIM=1.000, NCC=1.000, pHash=0) of TEST image
+TEST REFERENCE: D:\Areca\Data\test\Healthy_Leaf\Healthy_Leaf_original_IMG_20230819_174511.jpg_c818e4e9-05a8-4c6a-8299-8b7153fec7b9.jpg
+CLUSTER:        CLUSTER_0401
+CONFIDENCE:     CONFIRMED
+--------------------------------------------------------------------------------
+[REMOVE_0023]
+TRAIN:          D:\Areca\Data\train\Healthy_Nut\Healthy_Nut_original_41.jpg_d05fb757-1af5-4284-a1b9-f21cfdd81fc3.jpg
+CLASS:          Healthy_Nut
+REASON:         Confirmed near-duplicate (SSIM=0.948, NCC=0.950, pHash=2) of TEST image; Confirmed near-duplicate (SSIM=0.994, NCC=0.994, pHash=4) of TEST image
+TEST REFERENCE: D:\Areca\Data\test\Healthy_Nut\Healthy_Nut_original_493.jpg_37fee421-fe4c-4441-bf6d-07fd7b010c63.jpg
+CLUSTER:        CLUSTER_0217
+CONFIDENCE:     CONFIRMED
+--------------------------------------------------------------------------------
+[REMOVE_0024]
+TRAIN:          D:\Areca\Data\train\Healthy_Nut\Healthy_Nut_original_4110.jpg_a5562896-4c68-49af-830f-3a9e8f13ab83.jpg
+CLASS:          Healthy_Nut
+REASON:         Confirmed near-duplicate (SSIM=1.000, NCC=1.000, pHash=0) of TEST image
+TEST REFERENCE: D:\Areca\Data\test\Healthy_Nut\Healthy_Nut_original_427.jpg_8ae2bb48-b6d1-4681-85ca-34f916290db5.jpg
+CLUSTER:        CLUSTER_0063
+CONFIDENCE:     CONFIRMED
+--------------------------------------------------------------------------------
+[REMOVE_0025]
+TRAIN:          D:\Areca\Data\train\Healthy_Nut\Healthy_Nut_original_4113.jpg_0b8f87c5-2659-4115-bf3f-7f8d31ca9583.jpg
+CLASS:          Healthy_Nut
+REASON:         Confirmed near-duplicate (SSIM=0.947, NCC=0.947, pHash=2) of TEST image
+TEST REFERENCE: D:\Areca\Data\test\Healthy_Nut\Healthy_Nut_original_4113.jpg_4a77d683-dc95-4e26-ac01-5ab4376e3c61.jpg
+CLUSTER:        CLUSTER_0218
+CONFIDENCE:     CONFIRMED
+--------------------------------------------------------------------------------
+... and 396 more unique proposed removals (full list in D:\Areca\reports\step06_cleanup_manifest.json and D:\Areca\reports\step06_cleanup_manifest.csv)
+--------------------------------------------------------------------------------
+TOTALS BY CLASS:
+  Healthy_Leaf        : 22 proposed removals
+  Healthy_Nut         : 115 proposed removals
+  Mahali_Koleroga     : 246 proposed removals
+  yellow leaf disease : 38 proposed removals
+--------------------------------------------------------------------------------
+TOTAL: 421 unique TRAIN images proposed for removal
+================================================================================

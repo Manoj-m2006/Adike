@@ -1,0 +1,190 @@
+{% extends "predictor/base.html" %}
+
+{% block title %}Diagnosis Result: {{ prediction.predicted_display_name }}{% endblock %}
+
+{% block content %}
+<!-- Section Title -->
+<section class="hero-section" style="margin-bottom: 2rem;">
+  <div class="hero-pill">🔍 Explainable AI Diagnostics</div>
+  <h1 class="hero-title">ARECANUT <span>DISEASE DETECTION</span></h1>
+  <p class="hero-description">
+    ResNet-50 with Grad-CAM Visualization — Model Interpretation & 4-Class Pathology Assessment
+  </p>
+</section>
+
+<!-- 3-Column Result Grid (Responsive: 3 columns on Desktop, stacked on Mobile/Tablet) -->
+<div class="result-tri-grid">
+  
+  <!-- =========================================================================
+       CARD 1 (LEFT): ORIGINAL UPLOADED IMAGE
+       ========================================================================= -->
+  <div class="card result-col-card">
+    <div class="card-header">
+      <h2 class="card-title">
+        <span>📸</span> Original Specimen
+      </h2>
+      <p class="card-subtitle">{{ filename }}</p>
+    </div>
+
+    <div class="result-image-box">
+      <img src="{{ image_data_uri }}" alt="Original Uploaded Arecanut Specimen" class="specimen-img">
+    </div>
+
+    <div class="image-caption-tag">
+      <span>Original Image</span>
+    </div>
+
+    <table class="image-meta-table">
+      <tr>
+        <td>Specimen Resolution</td>
+        <td>{{ image_width }} × {{ image_height }} px</td>
+      </tr>
+      <tr>
+        <td>Tensor Input</td>
+        <td>224 × 224 (RGB)</td>
+      </tr>
+      <tr>
+        <td>Format / Size</td>
+        <td>{{ image_format }} • {{ image_size_kb }} KB</td>
+      </tr>
+    </table>
+
+    <div style="margin-top: auto; padding-top: 1.25rem;">
+      <a href="{% url 'predictor:home' %}" class="btn btn-secondary" style="width: 100%;">
+        <span>⬅️</span> Analyze Another Image
+      </a>
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       CARD 2 (CENTER): GRAD-CAM HEATMAP OVERLAY VISUALIZATION
+       ========================================================================= -->
+  <div class="card result-col-card">
+    <div class="card-header">
+      <h2 class="card-title">
+        <span>🔥</span> Grad-CAM Attention
+      </h2>
+      <p class="card-subtitle">Gradient-weighted Class Activation Map</p>
+    </div>
+
+    <div class="result-image-box gradcam-box">
+      <img src="{{ gradcam_data_uri }}" alt="Grad-CAM Heatmap Overlay on Specimen" class="specimen-img">
+    </div>
+
+    <div class="image-caption-tag">
+      <span>Grad-CAM Model Attention</span>
+    </div>
+
+    <!-- Scientific Colormap Legend (Jet Palette) -->
+    <div class="gradcam-legend-wrapper">
+      <div class="legend-scale-bar"></div>
+      <div class="legend-labels">
+        <span>Low Importance (Cold)</span>
+        <span>High Importance (Hot)</span>
+      </div>
+    </div>
+
+    <div class="target-layer-pill">
+      <span>Target Layer: <strong>ResNet-50 layer4</strong> (2048-ch Conv)</span>
+    </div>
+
+    <div style="margin-top: auto; padding-top: 1.25rem;">
+      <a href="{{ gradcam_data_uri }}" download="gradcam_{{ prediction.predicted_class }}.png" class="btn btn-secondary" style="width: 100%;">
+        <span>⬇️</span> Download Grad-CAM
+      </a>
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       CARD 3 (RIGHT): PREDICTION RESULT & 4-CLASS PROBABILITIES
+       ========================================================================= -->
+  <div class="card result-col-card">
+    <div class="card-header">
+      <h2 class="card-title">
+        <span>📊</span> Diagnostic Assessment
+      </h2>
+      <p class="card-subtitle">Predicted State & Softmax Probability Distribution</p>
+    </div>
+
+    <!-- Primary Prediction Banner -->
+    <div class="prediction-banner {% if prediction.status == 'Healthy' %}banner-success{% elif prediction.predicted_class == 'Mahali_Koleroga' %}banner-danger{% else %}banner-warning{% endif %}">
+      <div>
+        <div class="prediction-label-title">Predicted State</div>
+        <div class="prediction-name">{{ prediction.predicted_display_name }}</div>
+        <div style="margin-top: 0.35rem;">
+          <span class="badge {{ prediction.badge_class }}">{{ prediction.status }}</span>
+          <span class="badge badge-secondary">{{ prediction.category }}</span>
+        </div>
+      </div>
+      <div class="confidence-chip">
+        <div class="confidence-val {% if prediction.status == 'Healthy' %}text-success{% elif prediction.predicted_class == 'Mahali_Koleroga' %}text-danger{% else %}text-warning{% endif %}">
+          {{ prediction.confidence_percentage }}%
+        </div>
+        <div class="confidence-text">Confidence</div>
+      </div>
+    </div>
+
+    <!-- 4-Class Probability Breakdown -->
+    <div class="probability-breakdown">
+      <h3 style="font-size: 0.9rem; font-weight: 700; margin-bottom: 0.75rem; color: var(--text-main);">
+        Class Probabilities (All 4 Classes)
+      </h3>
+
+      {% for prob in prediction.probabilities %}
+      <div class="prob-item">
+        <div class="prob-header">
+          <div class="prob-name">
+            {% if prob.is_predicted %}<span>🎯</span>{% endif %}
+            {{ prob.display_name }}
+            {% if prob.is_predicted %}
+            <span class="badge {{ prob.badge_class }}" style="font-size: 0.65rem;">Predicted</span>
+            {% endif %}
+          </div>
+          <div class="prob-value">{{ prob.percentage }}%</div>
+        </div>
+        <div class="progress-track">
+          <div class="progress-fill {% if 'Healthy' in prob.internal_name %}fill-healthy{% elif prob.internal_name == 'Mahali_Koleroga' %}fill-mahalo{% else %}fill-yellow{% endif %}" 
+               style="width: {{ prob.percentage }}%;"></div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+
+    <!-- Hardware / Compute Metadata -->
+    <div class="inference-meta" style="margin-top: auto; padding-top: 0.75rem;">
+      <span class="meta-pill">🧠 Model: ResNet-50</span>
+      <span class="meta-pill">⚡ {{ prediction.device_name }}</span>
+      <span class="meta-pill">⏱️ {{ prediction.latency_ms }} ms</span>
+    </div>
+  </div>
+
+</div>
+
+<!-- Full-Width Explainability & Agronomic Guidance Section -->
+<div class="card" style="margin-top: 2rem;">
+  <div class="card-header">
+    <h2 class="card-title">
+      <span>💡</span> Model Interpretation & Agronomic Guidance
+    </h2>
+  </div>
+
+  <!-- Mandatory Wording Box -->
+  <div class="explainability-box">
+    <div class="explain-icon">ℹ️</div>
+    <div class="explain-text">
+      <strong>Explainable AI Interpretation:</strong>
+      Grad-CAM highlights image regions that contributed most strongly to the model's prediction. It is an explainability visualization and should not be interpreted as a precise disease-segmentation mask.
+    </div>
+  </div>
+
+  <div class="management-box" style="margin-top: 1.25rem; margin-bottom: 0;">
+    <h4>📋 Pathological Characteristics & Recommended Action</h4>
+    <p style="margin-bottom: 0.6rem;">{{ prediction.description }}</p>
+    {% if prediction.management %}
+    <div style="font-size: 0.85rem; color: #1e293b; background: #ffffff; padding: 0.85rem; border-radius: 8px; border: 1px solid var(--border-color);">
+      <strong>Recommended Agronomic Action:</strong> {{ prediction.management }}
+    </div>
+    {% endif %}
+  </div>
+</div>
+{% endblock %}

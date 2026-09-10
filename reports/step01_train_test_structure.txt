@@ -1,0 +1,141 @@
+================================================================================
+STEP 1 — TRAIN/TEST DATASET STRUCTURE AUDIT REPORT
+================================================================================
+Project Root: D:\Areca
+Target Train Directory: D:\Areca\Data\train
+Target Test Directory:  D:\Areca\Data\test
+--------------------------------------------------------------------------------
+CRITICAL SCOPE ENFORCEMENT:
+  [VERIFIED] ONLY train and test directories were analyzed.
+  [VERIFIED] D:\Areca\Data\final_testing-20230830T042904Z-001 was ABSOLUTELY NOT inspected.
+================================================================================
+1. Train Directory Exists: YES (D:\Areca\Data\train)
+2. Test Directory Exists:  YES (D:\Areca\Data\test)
+--------------------------------------------------------------------------------
+3. COMPLETE DIRECTORY STRUCTURE (TRAIN):
+  train/
+    ├── Healthy_Leaf/ (604 files)
+    │   ├── Healthy_Leaf_original_50.jpg_a7ef5bf8-33dc-4eb2-bc48-e39e473f9fb3.jpg
+    │   ├── Healthy_Leaf_original_50.jpg_bae33ce1-874c-4b42-a80b-02d2f4e72a49.jpg
+    │   ├── Healthy_Leaf_original_50.jpg_ee0b0dcd-3bda-48b8-b073-22cd6686d000.jpg
+    │   ├── Healthy_Leaf_original_51.jpg_274c01c1-2429-422a-8cee-7e0aa450376f.jpg
+    │   ├── Healthy_Leaf_original_51.jpg_5760b002-442c-4e73-aef1-41df2c80116d.jpg
+    │   └── ... [599 more files]
+    ├── Healthy_Nut/ (1886 files)
+    │   ├── Healthy_Nut_original_40.jpg_1011b733-9796-4c06-87c3-a005f8a464ae.jpg
+    │   ├── Healthy_Nut_original_40.jpg_1ef184ae-34aa-4ee9-af5c-edb6768e098f.jpg
+    │   ├── Healthy_Nut_original_40.jpg_5633f58e-804d-4528-a727-407f89b0d7e2.jpg
+    │   ├── Healthy_Nut_original_40.jpg_62154cdf-23ff-4ecf-87b9-f99b453b6a23.jpg
+    │   ├── Healthy_Nut_original_40.jpg_64e672c0-010d-435c-b813-5ce2d8cfdce8.jpg
+    │   └── ... [1881 more files]
+    ├── Mahali_Koleroga/ (2563 files)
+    │   ├── Mahali_Koleroga_original_19.jpg_0dec721c-e9ed-4371-b3a9-93830cb69360.jpg
+    │   ├── Mahali_Koleroga_original_19.jpg_6edf7a2a-4fed-4ded-a4ac-513a7e5ba33c.jpg
+    │   ├── Mahali_Koleroga_original_19.jpg_783c3944-b4a9-43c6-915d-d5c19331f4d2.jpg
+    │   ├── Mahali_Koleroga_original_19.jpg_afeede0b-48ea-4cb2-8b86-6021ffeb0278.jpg
+    │   ├── Mahali_Koleroga_original_70.jpg_0b3bb212-bd2b-432c-95f9-6dc0c702ea4c.jpg
+    │   └── ... [2558 more files]
+    ├── yellow leaf disease/ (1477 files)
+    │   ├── yellow leaf disease_original_910.jpg_4b44226d-df6a-4cc7-8520-b152e14ed082.jpg
+    │   ├── yellow leaf disease_original_910.jpg_5d25ffe8-dbce-4bf2-be9e-3940bae4d511.jpg
+    │   ├── yellow leaf disease_original_910.jpg_5dbba39b-1dbe-4ca2-beb6-dfd308f0b9c4.jpg
+    │   ├── yellow leaf disease_original_910.jpg_b0af5fcc-0ade-4f32-9ab5-2207f990fd77.jpg
+    │   ├── yellow leaf disease_original_9100.jpg_03706c11-1d39-41e6-b645-6b9b9c1c16c3.jpg
+    │   └── ... [1472 more files]
+--------------------------------------------------------------------------------
+4. COMPLETE DIRECTORY STRUCTURE (TEST):
+  test/
+    ├── Healthy_Leaf/ (152 files)
+    │   ├── Healthy_Leaf_original_50.jpg_8fd3cca6-b7bd-4702-a574-a7f9f115290b.jpg
+    │   ├── Healthy_Leaf_original_50.jpg_f275427b-25f9-4365-9d97-c237e95d48b3.jpg
+    │   ├── Healthy_Leaf_original_51.jpg_c595199b-e3c2-463f-8c9e-5a513a7f473c.jpg
+    │   ├── Healthy_Leaf_original_51.jpg_d5051ed5-73ee-417d-9aed-7b8600480222.jpg
+    │   ├── Healthy_Leaf_original_510.jpg_98d3a0c9-e6db-4539-bf7f-c4193f1eee8e.jpg
+    │   └── ... [147 more files]
+    ├── Healthy_Nut/ (472 files)
+    │   ├── Healthy_Nut_original_40.jpg_d7e32f70-4251-454e-8539-4dcbb93d3122.jpg
+    │   ├── Healthy_Nut_original_41.jpg_642e6ef1-4781-431b-9af5-7090ba8fc6ec.jpg
+    │   ├── Healthy_Nut_original_410.jpg_8802e566-c977-49a7-8490-6cb919734039.jpg
+    │   ├── Healthy_Nut_original_4101.jpg_0e1e81b8-afdc-4f63-86fc-35dd9cd79d18.jpg
+    │   ├── Healthy_Nut_original_4101.jpg_3715486e-2ad6-4da8-8fa7-e5bdcd41396c.jpg
+    │   └── ... [467 more files]
+    ├── Mahali_Koleroga/ (641 files)
+    │   ├── Mahali_Koleroga_original_19.jpg_01e315e5-83d0-4379-8ba9-6f8e1ed28069.jpg
+    │   ├── Mahali_Koleroga_original_19.jpg_1ac0a46f-dc1d-4dba-bc14-0900ccf47c60.jpg
+    │   ├── Mahali_Koleroga_original_19.jpg_3a95e648-e7ad-4945-aef1-f383dd87a03e.jpg
+    │   ├── Mahali_Koleroga_original_19.jpg_46e93620-b454-41f7-94ed-9c637d7a4c1a.jpg
+    │   ├── Mahali_Koleroga_original_19.jpg_66dd0a89-38d8-44c5-aacf-f6751cdb6163.jpg
+    │   └── ... [636 more files]
+    ├── yellow leaf disease/ (370 files)
+    │   ├── yellow leaf disease_original_910.jpg_04f9f63e-cd24-40fc-a76e-7fac61769d1f.jpg
+    │   ├── yellow leaf disease_original_910.jpg_74f902a1-51c5-42ff-9495-011854b5e6f8.jpg
+    │   ├── yellow leaf disease_original_910.jpg_89695866-bca8-4ed9-baef-0b9e085ea654.jpg
+    │   ├── yellow leaf disease_original_9100.jpg_22fbe3f3-3c0c-4d7f-87d8-0827afb6b482.jpg
+    │   ├── yellow leaf disease_original_9101.jpg_4b02610b-b219-45b6-ab46-50f9e078644b.jpg
+    │   └── ... [365 more files]
+================================================================================
+5. CLASS FOLDERS FOUND IN TRAIN:
+   1. Healthy_Leaf
+   2. Healthy_Nut
+   3. Mahali_Koleroga
+   4. yellow leaf disease
+--------------------------------------------------------------------------------
+6. CLASS FOLDERS FOUND IN TEST:
+   1. Healthy_Leaf
+   2. Healthy_Nut
+   3. Mahali_Koleroga
+   4. yellow leaf disease
+--------------------------------------------------------------------------------
+7. NUMBER OF IMAGE FILES IN EVERY TRAIN CLASS:
+   - Healthy_Leaf: 604 images
+   - Healthy_Nut: 1886 images
+   - Mahali_Koleroga: 2563 images
+   - yellow leaf disease: 1477 images
+--------------------------------------------------------------------------------
+8. NUMBER OF IMAGE FILES IN EVERY TEST CLASS:
+   - Healthy_Leaf: 152 images
+   - Healthy_Nut: 472 images
+   - Mahali_Koleroga: 641 images
+   - yellow leaf disease: 370 images
+--------------------------------------------------------------------------------
+ 9. Total Number of Train Images:        6530
+10. Total Number of Test Images:         1635
+11. Total Number of Images (Train+Test): 8165
+--------------------------------------------------------------------------------
+12. IMAGE / FILE EXTENSIONS PRESENT:
+    Train extensions: ['.jpg']
+    Test extensions:  ['.jpg']
+    Combined extensions present: ['.jpg']
+--------------------------------------------------------------------------------
+13. NON-IMAGE FILES PRESENT: 0 found
+    None (All files are valid image extensions)
+--------------------------------------------------------------------------------
+14. EMPTY DIRECTORIES: 0 found
+    None
+--------------------------------------------------------------------------------
+15. DUPLICATE FILENAMES WITHIN TRAIN: 0 duplicate filename sets
+    None (All filenames within train are unique)
+--------------------------------------------------------------------------------
+16. DUPLICATE FILENAMES WITHIN TEST: 0 duplicate filename sets
+    None (All filenames within test are unique)
+--------------------------------------------------------------------------------
+17. FILENAMES OCCURRING IN BOTH TRAIN AND TEST: 0 filenames overlap
+    None (No filename overlap between train and test)
+--------------------------------------------------------------------------------
+18. UNEXPECTED DIRECTORY NESTING: 0 issue(s) detected
+    None (Structure matches exact 1-level class folder hierarchy)
+--------------------------------------------------------------------------------
+19. CLASS NAMES ALIGNMENT CHECK:
+    Train Classes (4): ['Healthy_Leaf', 'Healthy_Nut', 'Mahali_Koleroga', 'yellow leaf disease']
+    Test Classes  (4): ['Healthy_Leaf', 'Healthy_Nut', 'Mahali_Koleroga', 'yellow leaf disease']
+    Exact Match: YES
+--------------------------------------------------------------------------------
+20. SCOPE CONFIRMATION STATEMENT:
+    D:\Areca\Data\final_testing-20230830T042904Z-001 was NOT inspected or accessed in any way.
+================================================================================
+AUDIT SUMMARY:
+>>> OVERALL STATUS: [PASS] <<<
+All directory structures, class alignments, and filename checks passed standard structure expectations.
+================================================================================
+Report saved to: D:\Areca\reports\step01_train_test_structure.txt
+================================================================================

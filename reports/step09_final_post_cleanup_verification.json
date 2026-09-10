@@ -1,0 +1,58 @@
+{
+  "step": "STEP 09 - Final Post-Cleanup Duplicate & Leakage Verification",
+  "scope": {
+    "project_root": "D:\\Areca",
+    "train_dir": "D:\\Areca\\Data\\train",
+    "test_dir": "D:\\Areca\\Data\\test",
+    "quarantine_dir": "D:\\Areca\\cleanup_backup_step08",
+    "final_testing_excluded": true
+  },
+  "summary": {
+    "train_total": 6109,
+    "test_total": 1635,
+    "quarantine_total": 421,
+    "train_class_counts": {
+      "Healthy_Leaf": 582,
+      "Healthy_Nut": 1771,
+      "Mahali_Koleroga": 2317,
+      "yellow leaf disease": 1439
+    },
+    "test_class_counts": {
+      "Healthy_Leaf": 152,
+      "Healthy_Nut": 472,
+      "Mahali_Koleroga": 641,
+      "yellow leaf disease": 370
+    },
+    "quarantine_class_counts": {
+      "Healthy_Leaf": 22,
+      "Healthy_Nut": 115,
+      "Mahali_Koleroga": 246,
+      "yellow leaf disease": 38
+    },
+    "exact_leakage_pairs_count": 0,
+    "confirmed_near_duplicate_leakage_count": 0,
+    "likely_near_duplicate_count": 233,
+    "possible_near_duplicate_count": 285,
+    "refuted_pairs_count": 465,
+    "confirmed_class_conflicts_count": 0,
+    "final_status": "STATUS: PASS \u2014 DATASET READY FOR TRAINING"
+  },
+  "checklist": {
+    "TRAIN total = 6109": true,
+    "TEST total = 1635": true,
+    "TRAIN class counts match expected values": true,
+    "TEST class counts match expected values": true,
+    "TRAIN image integrity = 100%": true,
+    "TEST image integrity = 100%": true,
+    "Exact TRAIN <-> TEST leakage = 0": true,
+    "Confirmed near-duplicate TRAIN <-> TEST leakage = 0": true,
+    "Confirmed class conflicts = 0": true,
+    "Quarantine contains exactly 421 files": true,
+    "All 421 quarantined files absent from TRAIN": true,
+    "TEST preserved": true,
+    "Protected final_testing not accessed": true
+  },
+  "exact_leakage_pairs": [],
+  "confirmed_near_dup_leakage": [],
+  "integrity_errors": []
+}

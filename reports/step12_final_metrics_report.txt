@@ -1,0 +1,153 @@
+=====================================================================================
+STEP 12 — FINAL MODEL METRICS, CURVES & PERFORMANCE VISUALIZATION REPORT
+ARECANUT DISEASE CLASSIFICATION PROJECT (ResNet-50)
+=====================================================================================
+
+A. MODEL INFORMATION
+-------------------------------------------------------------------------------------
+Architecture             : ResNet-50 (Pretrained ImageNet, Fine-Tuned Head + Backbone)
+Model Checkpoint Path    : D:\Areca\models\areca_resnet50_best.pth
+Best Epoch               : 48 (Best Val Loss: 0.0000964, Best Val Acc: 100.0%)
+
+B. DATASET INFORMATION
+-------------------------------------------------------------------------------------
+Total Cleaned Train Set  : 6,109 images (4,885 Training / 1,224 Validation)
+Total Untouched Test Set : 1,635 images
+Classes (4 Total)        : 0=Healthy_Leaf, 1=Healthy_Nut, 2=Mahali_Koleroga, 3=yellow leaf disease
+Protected Scope Status   : final_testing-20230830T042904Z-001 REMAINED UNTOUCHED / UNACCESSED
+
+C. TRAINING CONFIGURATION
+-------------------------------------------------------------------------------------
+Image Size               : 224 x 224
+Batch Size               : 32
+Random Seed              : 42 (Reproducible Split & Augmentation)
+Class-Weighted Loss      : YES (Balanced Class Weights Applied to CrossEntropyLoss)
+Optimizer                : AdamW (Weight Decay = 0.0001)
+Phase 1 (Epochs 1–30)    : Frozen Backbone, Classifier Head Training (LR = 0.001)
+Phase 2 (Epochs 31–50)   : Full Backbone Unfrozen, Fine-Tuning (LR = 0.00001)
+Total Epochs Completed   : 50 / 50
+Early Stopping Patience  : 5
+
+D. TRAINING / VALIDATION LOSS SUMMARY
+-------------------------------------------------------------------------------------
+Initial Train Loss (Ep 1): 0.4148  | Initial Val Loss (Ep 1): 0.1572
+Phase 1 End (Ep 30)      : Train Loss = 0.0098 | Val Loss = 0.0075
+Phase 2 End (Ep 50)      : Train Loss = 0.0002 | Val Loss = 0.000100
+Best Val Loss (Ep 48)    : 0.0000964
+
+E. TRAINING / VALIDATION ACCURACY SUMMARY
+-------------------------------------------------------------------------------------
+Initial Train Acc (Ep 1) : 92.30% | Initial Val Acc (Ep 1) : 97.47%
+Phase 1 End (Ep 30)      : Train Acc = 99.98% | Val Acc = 99.92%
+Phase 2 End (Ep 50)      : Train Acc = 100.00% | Val Acc = 100.00%
+Best Val Accuracy        : 100.00% (Epoch 48)
+
+F. TEST ACCURACY
+-------------------------------------------------------------------------------------
+TEST Accuracy            : 100.00% (1635 / 1635)
+
+G. TEST LOSS
+-------------------------------------------------------------------------------------
+TEST CrossEntropy Loss   : 0.000100
+
+H. TEST CONFUSION MATRIX
+-------------------------------------------------------------------------------------
+Actual \ Predicted        | Healthy_Leaf   | Healthy_Nut    | Mahali_Koleroga  | yellow leaf disease 
+-------------------------------------------------------------------------------------
+Healthy_Leaf              | 152            | 0              | 0                | 0                   
+Healthy_Nut               | 0              | 472            | 0                | 0                   
+Mahali_Koleroga           | 0              | 0              | 641              | 0                   
+yellow leaf disease       | 0              | 0              | 0                | 370                 
+-------------------------------------------------------------------------------------
+
+I. ONE-VS-REST TRUE/FALSE POSITIVES & NEGATIVES (TP / FP / FN / TN)
+-------------------------------------------------------------------------------------
+Class                     | TP     | FP     | FN     | TN    
+-------------------------------------------------------------------------------------
+Healthy_Leaf              | 152    | 0      | 0      | 1483  
+Healthy_Nut               | 472    | 0      | 0      | 1163  
+Mahali_Koleroga           | 641    | 0      | 0      | 994   
+yellow leaf disease       | 370    | 0      | 0      | 1265  
+-------------------------------------------------------------------------------------
+
+J. FALSE POSITIVE RATE (FPR)
+-------------------------------------------------------------------------------------
+Class                     | FPR       
+-------------------------------------------------------------------------------------
+Healthy_Leaf              | 0.0000    
+Healthy_Nut               | 0.0000    
+Mahali_Koleroga           | 0.0000    
+yellow leaf disease       | 0.0000    
+-------------------------------------------------------------------------------------
+
+K. PER-CLASS PRECISION
+-------------------------------------------------------------------------------------
+Class                     | Precision 
+-------------------------------------------------------------------------------------
+Healthy_Leaf              | 1.0000    
+Healthy_Nut               | 1.0000    
+Mahali_Koleroga           | 1.0000    
+yellow leaf disease       | 1.0000    
+-------------------------------------------------------------------------------------
+
+L. PER-CLASS RECALL
+-------------------------------------------------------------------------------------
+Class                     | Recall    
+-------------------------------------------------------------------------------------
+Healthy_Leaf              | 1.0000    
+Healthy_Nut               | 1.0000    
+Mahali_Koleroga           | 1.0000    
+yellow leaf disease       | 1.0000    
+-------------------------------------------------------------------------------------
+
+M. PER-CLASS F1-SCORE
+-------------------------------------------------------------------------------------
+Class                     | F1-Score   | Support 
+-------------------------------------------------------------------------------------
+Healthy_Leaf              | 1.0000     | 152     
+Healthy_Nut               | 1.0000     | 472     
+Mahali_Koleroga           | 1.0000     | 641     
+yellow leaf disease       | 1.0000     | 370     
+-------------------------------------------------------------------------------------
+
+N. ROC / AUC ANALYSIS
+-------------------------------------------------------------------------------------
+Class                     | AUC       
+-------------------------------------------------------------------------------------
+Healthy_Leaf              | 1.0000    
+Healthy_Nut               | 1.0000    
+Mahali_Koleroga           | 1.0000    
+yellow leaf disease       | 1.0000    
+Macro-Average AUC         | 1.0000    
+-------------------------------------------------------------------------------------
+
+O. OVERALL TEST METRICS SUMMARY
+-------------------------------------------------------------------------------------
+Total TEST Images        : 1635
+Correct Predictions      : 1635
+Incorrect Predictions    : 0
+Test Accuracy            : 100.00%
+Test Loss                : 0.000100
+Macro Precision          : 1.0000
+Macro Recall             : 1.0000
+Macro F1-Score           : 1.0000
+Weighted Precision       : 1.0000
+Weighted Recall          : 1.0000
+Weighted F1-Score        : 1.0000
+Macro ROC AUC            : 1.0000
+
+GENERATED ARTIFACTS & PLOTS:
+1. Training vs Validation Loss Plot       : D:\Areca\plots\step12_training_validation_loss.png
+2. Training vs Validation Accuracy Plot   : D:\Areca\plots\step12_training_validation_accuracy.png
+3. TEST Confusion Matrix Heatmap          : D:\Areca\plots\step12_test_confusion_matrix.png
+4. Multi-Class ROC Curves & AUC Plot      : D:\Areca\plots\step12_test_roc_curve.png
+5. Per-Class F1 Scores Bar Chart          : D:\Areca\plots\step12_test_f1_scores.png
+6. Per-Class Precision Bar Chart          : D:\Areca\plots\step12_test_precision.png
+7. False Positive Analysis CSV            : D:\Areca\reports\step12_false_positive_analysis.csv
+8. Comprehensive Final Metrics CSV        : D:\Areca\reports\step12_final_metrics.csv
+9. Final Metrics JSON Report              : D:\Areca\reports\step12_final_metrics_report.json
+10. Final Metrics Text Report             : D:\Areca\reports\step12_final_metrics_report.txt
+
+=====================================================================================
+END OF STEP 12 FINAL METRICS REPORT
+=====================================================================================

@@ -1,0 +1,74 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% block title %}Arecanut Disease Detection{% endblock %} | ResNet-50 Classifier</title>
+  
+  <!-- Modern Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+  
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="{% static 'predictor/css/style.css' %}">
+  {% block extra_css %}{% endblock %}
+</head>
+<body>
+  <!-- Header / Navigation -->
+  <header class="navbar">
+    <div class="nav-container">
+      <a href="{% url 'predictor:home' %}" class="brand-logo">
+        <div class="brand-icon">🌴</div>
+        <div>
+          <div class="brand-title">ARECANUT AI</div>
+          <div class="brand-subtitle">Disease Classification</div>
+        </div>
+      </a>
+      
+      <nav class="nav-links">
+        <a href="{% url 'predictor:home' %}" class="nav-link {% if request.resolver_match.url_name == 'home' %}active{% endif %}">Home</a>
+        <a href="{% url 'predictor:about' %}" class="nav-link {% if request.resolver_match.url_name == 'about' %}active{% endif %}">Model & Methodology</a>
+        <div class="badge-tag pulse-green">
+          <span class="badge-dot"></span>
+          <span>ResNet-50 Active</span>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Flash Messages -->
+  <div class="main-wrapper">
+    {% if messages %}
+    <div class="alert-container">
+      {% for message in messages %}
+      <div class="alert {% if message.tags == 'error' %}alert-error{% else %}alert-success{% endif %}">
+        <span>{% if message.tags == 'error' %}⚠️{% else %}✓{% endif %}</span>
+        <div>{{ message }}</div>
+      </div>
+      {% endfor %}
+    </div>
+    {% endif %}
+
+    <!-- Page Content -->
+    {% block content %}{% endblock %}
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-credits">
+        <strong>Arecanut Palm Pathology Classification System</strong> • ResNet-50 Deep Transfer Learning
+      </div>
+      <div class="footer-links">
+        <span>4-Class Taxonomy: Healthy Leaf, Healthy Nut, Mahali Koleroga, Yellow Leaf Disease</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Main JavaScript -->
+  <script src="{% static 'predictor/js/main.js' %}"></script>
+  {% block extra_js %}{% endblock %}
+</body>
+</html>

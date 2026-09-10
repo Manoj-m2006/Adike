@@ -1,0 +1,77 @@
+================================================================================
+STEP 11 — ARECANUT RESNET-50 FINAL TEST EVALUATION
+================================================================================
+Project Root:            D:\Areca
+Target TEST Directory:   D:\Areca\Data\test
+Evaluated Checkpoint:    D:\Areca\models\areca_resnet50_best.pth
+--------------------------------------------------------------------------------
+CRITICAL SCOPE ENFORCEMENT:
+  [VERIFIED] Operating strictly on: D:\Areca\Data\test.
+  [VERIFIED] Evaluation-Only: Zero backprop, zero weight updates, zero image modifications.
+  [VERIFIED] D:\Areca\Data\final_testing-20230830T042904Z-001 was ABSOLUTELY NOT accessed.
+================================================================================
+ENVIRONMENT & HARDWARE:
+  - PyTorch Version:       2.14.0+cu130
+  - Torchvision Version:   0.29.0+cu130
+  - CUDA Available:        True
+  - Compute Device:        cuda
+  - GPU Name:              NVIDIA GeForce RTX 4050 Laptop GPU
+--------------------------------------------------------------------------------
+DATA INTEGRITY SAFETY CHECKS (TEST DATASET):
+  - Healthy_Leaf        :  152 (Expected:  152) [OK]
+  - Healthy_Nut         :  472 (Expected:  472) [OK]
+  - Mahali_Koleroga     :  641 (Expected:  641) [OK]
+  - yellow leaf disease :  370 (Expected:  370) [OK]
+  Total TEST Images:       1635 (100% verified)
+  TEST Integrity Checks:   PASSED
+--------------------------------------------------------------------------------
+RECONSTRUCTING MODEL & LOADING CHECKPOINT:
+  - Architecture:          ResNet-50 (Pretrained ImageNet Head Modified to 4 Outputs)
+  - Checkpoint Loaded:     D:\Areca\models\areca_resnet50_best.pth
+  - Checkpoint Best Epoch: 48
+  - Checkpoint Val Loss:   9.642573448907724e-05
+  - Checkpoint Val Acc:    1.0
+  - Model Mode:            model.eval() [VERIFIED]
+--------------------------------------------------------------------------------
+EXECUTING INFERENCE ON ALL 1,635 TEST IMAGES...
+================================================================================
+FINAL TEST EVALUATION RESULTS SUMMARY
+================================================================================
+Inference Duration:        81.51s (20.1 images/sec)
+Total Test Images:         1635
+Correct Predictions:       1635
+Incorrect Predictions:     0
+Test Loss (CrossEntropy):  0.0001
+TEST ACCURACY:             100.00%
+--------------------------------------------------------------------------------
+OVERALL CLASSIFICATION REPORT:
+  - Macro Precision:       1.0000
+  - Macro Recall:          1.0000
+  - Macro F1-Score:        1.0000
+  - Weighted Precision:    1.0000
+  - Weighted Recall:       1.0000
+  - Weighted F1-Score:     1.0000
+--------------------------------------------------------------------------------
+PER-CLASS TEST PERFORMANCE BREAKDOWN:
+Class Name             | Support | Correct | Incorrect | Accuracy | Precision | Recall | F1-Score
+-----------------------------------------------------------------------------------------------
+Healthy_Leaf           |     152 |     152 |         0 |  100.00% |    1.0000 | 1.0000 |   1.0000
+Healthy_Nut            |     472 |     472 |         0 |  100.00% |    1.0000 | 1.0000 |   1.0000
+Mahali_Koleroga        |     641 |     641 |         0 |  100.00% |    1.0000 | 1.0000 |   1.0000
+yellow leaf disease    |     370 |     370 |         0 |  100.00% |    1.0000 | 1.0000 |   1.0000
+--------------------------------------------------------------------------------
+CONFUSION MATRIX (True \ Predicted):
+                       | Healthy_Leaf |  Healthy_Nut | Mahali_Koler | yellow leaf 
+--------------------------------------------------------------------------------
+Healthy_Leaf           |          152 |            0 |            0 |            0
+Healthy_Nut            |            0 |          472 |            0 |            0
+Mahali_Koleroga        |            0 |            0 |          641 |            0
+yellow leaf disease    |            0 |            0 |            0 |          370
+--------------------------------------------------------------------------------
+PREDICTION CONFIDENCE ANALYSIS:
+  - Overall Confidence:    Mean=0.9999, Min=0.9428, Max=1.0000, Std=0.0019
+  - Correct Predictions:   Mean=0.9999, Min=0.9428, Max=1.0000
+  - Incorrect Predictions: 0 (100% Perfect Test Accuracy)
+--------------------------------------------------------------------------------
+MISCLASSIFICATION DETAILS: None (Zero misclassifications on unseen TEST set).
+================================================================================

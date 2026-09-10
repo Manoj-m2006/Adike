@@ -1,0 +1,5 @@
+Class,Actual_Count,Actual_Percentage,Predicted_Count,Predicted_Percentage,Delta_Count
+Healthy_Leaf,152,9.30%,152,9.30%,0
+Healthy_Nut,472,28.87%,472,28.87%,0
+Mahali_Koleroga,641,39.20%,641,39.20%,0
+yellow leaf disease,370,22.63%,370,22.63%,0

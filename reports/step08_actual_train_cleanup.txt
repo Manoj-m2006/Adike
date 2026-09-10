@@ -1,0 +1,115 @@
+================================================================================
+STEP 8 — APPROVED TRAIN DATASET CLEANUP (QUARANTINE MOVE)
+================================================================================
+Project Root:           D:\Areca
+Target Train Directory: D:\Areca\Data\train
+Target Test Directory:  D:\Areca\Data\test
+Quarantine Backup Dir:  D:\Areca\cleanup_backup_step08
+--------------------------------------------------------------------------------
+CRITICAL SCOPE ENFORCEMENT:
+  [VERIFIED] Operating strictly on: D:\Areca\Data\train.
+  [VERIFIED] TEST set is PRESERVED and completely UNTOUCHED.
+  [VERIFIED] D:\Areca\Data\final_testing-20230830T042904Z-001 was ABSOLUTELY NOT accessed.
+================================================================================
+Loading authoritative Step 6 cleanup manifest...
+
+Executing Pre-Flight Safety Checks...
+Pre-flight safety checks PASSED (All 421 files verified & hashed).
+--------------------------------------------------------------------------------
+Moving 421 files to Quarantine Directory: D:\Areca\cleanup_backup_step08 ...
+Quarantine move complete: 421 files processed.
+--------------------------------------------------------------------------------
+Executing Post-Cleanup Dataset Validation...
+============================================================
+STEP 8 SUMMARY REPORT
+============================================================
+Original TRAIN Count:                       6530
+Files Quarantined:                          421
+Remaining TRAIN Count:                      6109 (Expected: 6109)
+TEST Count (Untouched):                     1635 (Expected: 1635)
+Quarantine Backup Count:                    421 (Expected: 421)
+SHA-256 Identity Integrity Check:           100% VERIFIED
+--------------------------------------------------------------------------------
+POST-CLEANUP TRAIN CLASS BREAKDOWN:
+  - Healthy_Leaf        :  582 remaining (Removed:  22) [OK]
+  - Healthy_Nut         : 1771 remaining (Removed: 115) [OK]
+  - Mahali_Koleroga     : 2317 remaining (Removed: 246) [OK]
+  - yellow leaf disease : 1439 remaining (Removed:  38) [OK]
+--------------------------------------------------------------------------------
+POST-CLEANUP TEST CLASS BREAKDOWN (UNTOUCHED):
+  - Healthy_Leaf        :  152 (100% Retained)
+  - Healthy_Nut         :  472 (100% Retained)
+  - Mahali_Koleroga     :  641 (100% Retained)
+  - yellow leaf disease :  370 (100% Retained)
+================================================================================
+SAMPLE MOVED & QUARANTINED FILES (First 15):
+  [REMOVE_0001] Healthy_Leaf | Healthy_Leaf_original_51.jpg_f3da5869-d091-4130-813e-6f3da49f64f8.jpg
+      Source:      D:\Areca\Data\train\Healthy_Leaf\Healthy_Leaf_original_51.jpg_f3da5869-d091-4130-813e-6f3da49f64f8.jpg
+      Quarantine:  D:\Areca\cleanup_backup_step08\Healthy_Leaf\Healthy_Leaf_original_51.jpg_f3da5869-d091-4130-813e-6f3da49f64f8.jpg
+      SHA-256:     66803df3b028f86f... [VERIFIED]
+  [REMOVE_0002] Healthy_Leaf | Healthy_Leaf_original_510.jpg_455dd9c4-9c3c-4f7a-947d-dc5fb20485f9.jpg
+      Source:      D:\Areca\Data\train\Healthy_Leaf\Healthy_Leaf_original_510.jpg_455dd9c4-9c3c-4f7a-947d-dc5fb20485f9.jpg
+      Quarantine:  D:\Areca\cleanup_backup_step08\Healthy_Leaf\Healthy_Leaf_original_510.jpg_455dd9c4-9c3c-4f7a-947d-dc5fb20485f9.jpg
+      SHA-256:     8630da889d9ca0e3... [VERIFIED]
+  [REMOVE_0003] Healthy_Leaf | Healthy_Leaf_original_511.jpg_35ab6449-649b-458f-8d23-b692f4e9c5fd.jpg
+      Source:      D:\Areca\Data\train\Healthy_Leaf\Healthy_Leaf_original_511.jpg_35ab6449-649b-458f-8d23-b692f4e9c5fd.jpg
+      Quarantine:  D:\Areca\cleanup_backup_step08\Healthy_Leaf\Healthy_Leaf_original_511.jpg_35ab6449-649b-458f-8d23-b692f4e9c5fd.jpg
+      SHA-256:     932f532deb78d1a3... [VERIFIED]
+  [REMOVE_0004] Healthy_Leaf | Healthy_Leaf_original_524.jpg_26d9db50-babb-44e9-9d10-8077ecb4b8c9.jpg
+      Source:      D:\Areca\Data\train\Healthy_Leaf\Healthy_Leaf_original_524.jpg_26d9db50-babb-44e9-9d10-8077ecb4b8c9.jpg
+      Quarantine:  D:\Areca\cleanup_backup_step08\Healthy_Leaf\Healthy_Leaf_original_524.jpg_26d9db50-babb-44e9-9d10-8077ecb4b8c9.jpg
+      SHA-256:     f7c888226931a1a9... [VERIFIED]
+  [REMOVE_0005] Healthy_Leaf | Healthy_Leaf_original_524.jpg_d76d7735-0417-44bf-b241-9f027d01c439.jpg
+      Source:      D:\Areca\Data\train\Healthy_Leaf\Healthy_Leaf_original_524.jpg_d76d7735-0417-44bf-b241-9f027d01c439.jpg
+      Quarantine:  D:\Areca\cleanup_backup_step08\Healthy_Leaf\Healthy_Leaf_original_524.jpg_d76d7735-0417-44bf-b241-9f027d01c439.jpg
+      SHA-256:     f7c888226931a1a9... [VERIFIED]
+  [REMOVE_0006] Healthy_Leaf | Healthy_Leaf_original_553.jpg_b4ebe95a-9387-4771-9ab9-3f9dfecd6002.jpg
+      Source:      D:\Areca\Data\train\Healthy_Leaf\Healthy_Leaf_original_553.jpg_b4ebe95a-9387-4771-9ab9-3f9dfecd6002.jpg
+      Quarantine:  D:\Areca\cleanup_backup_step08\Healthy_Leaf\Healthy_Leaf_original_553.jpg_b4ebe95a-9387-4771-9ab9-3f9dfecd6002.jpg
+      SHA-256:     acf36d8502f5e9b4... [VERIFIED]
+  [REMOVE_0007] Healthy_Leaf | Healthy_Leaf_original_558.jpg_3eda851a-20e1-4413-91d0-32edd3e08397.jpg
+      Source:      D:\Areca\Data\train\Healthy_Leaf\Healthy_Leaf_original_558.jpg_3eda851a-20e1-4413-91d0-32edd3e08397.jpg
+      Quarantine:  D:\Areca\cleanup_backup_step08\Healthy_Leaf\Healthy_Leaf_original_558.jpg_3eda851a-20e1-4413-91d0-32edd3e08397.jpg
+      SHA-256:     ac604206e4a26117... [VERIFIED]
+  [REMOVE_0008] Healthy_Leaf | Healthy_Leaf_original_560.jpg_24965540-7e3c-44fd-a034-f5b1cb4f2b6b.jpg
+      Source:      D:\Areca\Data\train\Healthy_Leaf\Healthy_Leaf_original_560.jpg_24965540-7e3c-44fd-a034-f5b1cb4f2b6b.jpg
+      Quarantine:  D:\Areca\cleanup_backup_step08\Healthy_Leaf\Healthy_Leaf_original_560.jpg_24965540-7e3c-44fd-a034-f5b1cb4f2b6b.jpg
+      SHA-256:     7a3f86dcf1b43dec... [VERIFIED]
+  [REMOVE_0009] Healthy_Leaf | Healthy_Leaf_original_560.jpg_5738a18e-7df8-4906-8e4d-8c13d147ecb5.jpg
+      Source:      D:\Areca\Data\train\Healthy_Leaf\Healthy_Leaf_original_560.jpg_5738a18e-7df8-4906-8e4d-8c13d147ecb5.jpg
+      Quarantine:  D:\Areca\cleanup_backup_step08\Healthy_Leaf\Healthy_Leaf_original_560.jpg_5738a18e-7df8-4906-8e4d-8c13d147ecb5.jpg
+      SHA-256:     7a3f86dcf1b43dec... [VERIFIED]
+  [REMOVE_0010] Healthy_Leaf | Healthy_Leaf_original_561.jpg_f2af6041-e978-4c85-a53b-0950db78a71a.jpg
+      Source:      D:\Areca\Data\train\Healthy_Leaf\Healthy_Leaf_original_561.jpg_f2af6041-e978-4c85-a53b-0950db78a71a.jpg
+      Quarantine:  D:\Areca\cleanup_backup_step08\Healthy_Leaf\Healthy_Leaf_original_561.jpg_f2af6041-e978-4c85-a53b-0950db78a71a.jpg
+      SHA-256:     d07f5b3bec07f2ae... [VERIFIED]
+  [REMOVE_0011] Healthy_Leaf | Healthy_Leaf_original_57.jpg_5e8505fe-a2ac-4f81-b7fe-3ec9ae54e026.jpg
+      Source:      D:\Areca\Data\train\Healthy_Leaf\Healthy_Leaf_original_57.jpg_5e8505fe-a2ac-4f81-b7fe-3ec9ae54e026.jpg
+      Quarantine:  D:\Areca\cleanup_backup_step08\Healthy_Leaf\Healthy_Leaf_original_57.jpg_5e8505fe-a2ac-4f81-b7fe-3ec9ae54e026.jpg
+      SHA-256:     bec9db79d27f4a59... [VERIFIED]
+  [REMOVE_0012] Healthy_Leaf | Healthy_Leaf_original_571.jpg_2229e137-e887-44f5-91af-987c5484e720.jpg
+      Source:      D:\Areca\Data\train\Healthy_Leaf\Healthy_Leaf_original_571.jpg_2229e137-e887-44f5-91af-987c5484e720.jpg
+      Quarantine:  D:\Areca\cleanup_backup_step08\Healthy_Leaf\Healthy_Leaf_original_571.jpg_2229e137-e887-44f5-91af-987c5484e720.jpg
+      SHA-256:     ebb6dc0fb46c7d0e... [VERIFIED]
+  [REMOVE_0013] Healthy_Leaf | Healthy_Leaf_original_573.jpg_1f037f8e-3947-4404-9bdf-a7d083030272.jpg
+      Source:      D:\Areca\Data\train\Healthy_Leaf\Healthy_Leaf_original_573.jpg_1f037f8e-3947-4404-9bdf-a7d083030272.jpg
+      Quarantine:  D:\Areca\cleanup_backup_step08\Healthy_Leaf\Healthy_Leaf_original_573.jpg_1f037f8e-3947-4404-9bdf-a7d083030272.jpg
+      SHA-256:     b5579e20ec3d23f0... [VERIFIED]
+  [REMOVE_0014] Healthy_Leaf | Healthy_Leaf_original_573.jpg_4fee0b7a-ed25-4b2b-8d8f-5271ee07d911.jpg
+      Source:      D:\Areca\Data\train\Healthy_Leaf\Healthy_Leaf_original_573.jpg_4fee0b7a-ed25-4b2b-8d8f-5271ee07d911.jpg
+      Quarantine:  D:\Areca\cleanup_backup_step08\Healthy_Leaf\Healthy_Leaf_original_573.jpg_4fee0b7a-ed25-4b2b-8d8f-5271ee07d911.jpg
+      SHA-256:     a6181092339ed66d... [VERIFIED]
+  [REMOVE_0015] Healthy_Leaf | Healthy_Leaf_original_573.jpg_5e46b3b6-4f9e-42cc-bf0b-b2a211d19c9e.jpg
+      Source:      D:\Areca\Data\train\Healthy_Leaf\Healthy_Leaf_original_573.jpg_5e46b3b6-4f9e-42cc-bf0b-b2a211d19c9e.jpg
+      Quarantine:  D:\Areca\cleanup_backup_step08\Healthy_Leaf\Healthy_Leaf_original_573.jpg_5e46b3b6-4f9e-42cc-bf0b-b2a211d19c9e.jpg
+      SHA-256:     b5579e20ec3d23f0... [VERIFIED]
+  ... and 406 more files (full details in JSON/CSV)
+================================================================================
+============================================================
+FINAL STATUS
+============================================================
+STATUS: PASS — All 421 approved files safely quarantined & verified
+============================================================
+SCOPE CONFIRMATION:
+  final_testing-20230830T042904Z-001 was NOT accessed.
+============================================================

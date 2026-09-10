@@ -1,0 +1,59 @@
+{
+  "step": "STEP 07 - Pre-Cleanup Simulation and Verification",
+  "scope": {
+    "project_root": "D:\\Areca",
+    "train_dir": "D:\\Areca\\Data\\train",
+    "test_dir": "D:\\Areca\\Data\\test",
+    "final_testing_excluded": true
+  },
+  "before_cleanup": {
+    "total_train_images": 6530,
+    "total_test_images": 1635,
+    "train_class_breakdown": {
+      "Healthy_Leaf": 604,
+      "Healthy_Nut": 1886,
+      "Mahali_Koleroga": 2563,
+      "yellow leaf disease": 1477
+    },
+    "test_class_breakdown": {
+      "Healthy_Leaf": 152,
+      "Healthy_Nut": 472,
+      "Mahali_Koleroga": 641,
+      "yellow leaf disease": 370
+    },
+    "exact_leakage_pairings_count": 188,
+    "confirmed_near_duplicate_pairs_count": 525,
+    "cross_split_clusters_count": 328
+  },
+  "proposed_removals": {
+    "total_removals_count": 421,
+    "removals_by_class": {
+      "Healthy_Leaf": 22,
+      "Healthy_Nut": 115,
+      "Mahali_Koleroga": 246,
+      "yellow leaf disease": 38
+    }
+  },
+  "simulated_after_cleanup": {
+    "simulated_train_images_count": 6109,
+    "simulated_test_images_count": 1635,
+    "train_class_breakdown": {
+      "Healthy_Leaf": 582,
+      "Healthy_Nut": 1771,
+      "Mahali_Koleroga": 2317,
+      "yellow leaf disease": 1439
+    },
+    "remaining_exact_leakage_count": 0,
+    "remaining_confirmed_near_dup_count": 0,
+    "remaining_cross_split_clusters_count": 161
+  },
+  "safety_validation": {
+    "all_files_exist": true,
+    "all_files_in_train": true,
+    "test_files_touched": false,
+    "final_testing_touched": false,
+    "violations_count": 0,
+    "violations": []
+  },
+  "final_status": "REVIEW REQUIRED \u2014 confirmed leakage remains"
+}

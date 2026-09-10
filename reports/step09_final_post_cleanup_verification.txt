@@ -1,0 +1,98 @@
+================================================================================
+STEP 9 — FINAL POST-CLEANUP DUPLICATE & LEAKAGE VERIFICATION
+================================================================================
+Project Root:           D:\Areca
+Target Train Directory: D:\Areca\Data\train
+Target Test Directory:  D:\Areca\Data\test
+Quarantine Backup Dir:  D:\Areca\cleanup_backup_step08
+--------------------------------------------------------------------------------
+CRITICAL SCOPE ENFORCEMENT:
+  [VERIFIED] Analyzed strictly: D:\Areca\Data\train, D:\Areca\Data\test, and D:\Areca\cleanup_backup_step08.
+  [VERIFIED] D:\Areca\Data\final_testing-20230830T042904Z-001 was ABSOLUTELY NOT accessed.
+  [VERIFIED] READ-ONLY AUDIT: Zero filesystem modifications.
+================================================================================
+PART 1: DIRECTORY STRUCTURE & FILE ENUMERATION
+  - TRAIN Structure Issues: 0
+  - TEST Structure Issues:  0
+  - Part 1 Verdict:         [PASS]
+--------------------------------------------------------------------------------
+PART 2: IMAGE COUNT VALIDATION
+  TRAIN: Healthy_Leaf        :  582 (Expected:  582) [OK]
+  TRAIN: Healthy_Nut         : 1771 (Expected: 1771) [OK]
+  TRAIN: Mahali_Koleroga     : 2317 (Expected: 2317) [OK]
+  TRAIN: yellow leaf disease : 1439 (Expected: 1439) [OK]
+  TRAIN Total: 6109 (Expected: 6109) -> [PASS]
+
+  TEST:  Healthy_Leaf        :  152 (Expected:  152) [OK]
+  TEST:  Healthy_Nut         :  472 (Expected:  472) [OK]
+  TEST:  Mahali_Koleroga     :  641 (Expected:  641) [OK]
+  TEST:  yellow leaf disease :  370 (Expected:  370) [OK]
+  TEST Total:  1635 (Expected: 1635) -> [PASS]
+  Combined Dataset Size: 7744 (Expected: 7744)
+--------------------------------------------------------------------------------
+PART 3: IMAGE INTEGRITY VALIDATION & HASH EXTRACTION
+Processing and validating all 7744 images...
+  - Completed in:             59.00s
+  - Successfully Decoded:     7744/7744 (100.0%)
+  - Failed / Corrupt Images:  0
+  - Part 3 Verdict:           [PASS]
+--------------------------------------------------------------------------------
+PART 4: EXACT DUPLICATE VERIFICATION (SHA-256)
+  - Within-TRAIN Exact Duplicate Groups: 205
+  - Within-TEST Exact Duplicate Groups:  31
+  - EXACT TRAIN <-> TEST LEAKAGE PAIRS:  0 (Expected: 0)
+  - Part 4 Verdict:                      [PASS]
+--------------------------------------------------------------------------------
+PART 5: NEAR-DUPLICATE LEAKAGE VERIFICATION
+Performing vectorized candidate search between TRAIN and TEST...
+  - Total TRAIN <-> TEST Candidate Pairs Examined: 983
+  - CONFIRMED NEAR-DUPLICATE LEAKAGE PAIRS:        0 (Expected: 0)
+  - Likely Near-Duplicate Pairs (Isolated):        233
+  - Possible Similarity Pairs (Background):        285
+  - Refuted Distinct Photographs:                  465
+  - Part 5 Verdict:                                [PASS]
+--------------------------------------------------------------------------------
+PART 6: CLASS-CONFLICT CHECK
+  - Confirmed Class Conflicts: 0 (Expected: 0)
+  - Part 6 Verdict:            [PASS]
+--------------------------------------------------------------------------------
+PART 7: QUARANTINE CROSS-CHECK
+  - Total Quarantine Files:                421 (Expected: 421)
+      * Healthy_Leaf        : 22/22
+      * Healthy_Nut         : 115/115
+      * Mahali_Koleroga     : 246/246
+      * yellow leaf disease : 38/38
+  - Quarantined Files Persisting in TRAIN: 0 (Expected: 0)
+  - Part 7 Verdict:                        [PASS]
+--------------------------------------------------------------------------------
+PART 8: TEST IMMUTABILITY CHECK
+  - TEST Image Count:     1635 (Preserved)
+  - Class Proportions:    100% Unchanged
+  - Part 8 Verdict:       [PASS]
+--------------------------------------------------------------------------------
+PART 9: SAFETY SCOPE VALIDATION
+  - D:\Areca\Data\train:                   ACCESSED (Read-Only)
+  - D:\Areca\Data\test:                    ACCESSED (Read-Only)
+  - D:\Areca\cleanup_backup_step08:         ACCESSED (Read-Only)
+  - D:\Areca\Data\final_testing-...:       ABSOLUTELY NOT ACCESSED
+  - Part 9 Verdict:                          [PASS]
+================================================================================
+============================================================
+PART 10 — FINAL VERIFICATION CHECKLIST
+============================================================
+  [PASS]  TRAIN total = 6109
+  [PASS]  TEST total = 1635
+  [PASS]  TRAIN class counts match expected values
+  [PASS]  TEST class counts match expected values
+  [PASS]  TRAIN image integrity = 100%
+  [PASS]  TEST image integrity = 100%
+  [PASS]  Exact TRAIN <-> TEST leakage = 0
+  [PASS]  Confirmed near-duplicate TRAIN <-> TEST leakage = 0
+  [PASS]  Confirmed class conflicts = 0
+  [PASS]  Quarantine contains exactly 421 files
+  [PASS]  All 421 quarantined files absent from TRAIN
+  [PASS]  TEST preserved
+  [PASS]  Protected final_testing not accessed
+================================================================================
+STATUS: PASS — DATASET READY FOR TRAINING
+============================================================

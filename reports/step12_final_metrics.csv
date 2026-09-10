@@ -1,0 +1,21 @@
+--- OVERALL DATASET & MODEL TEST METRICS ---,
+Metric,Value
+Total Test Images,1635
+Correct Predictions,1635
+Incorrect Predictions,0
+Test Accuracy,1.0000
+Test Loss,0.000100
+Macro Precision,1.0000
+Macro Recall,1.0000
+Macro F1-Score,1.0000
+Weighted Precision,1.0000
+Weighted Recall,1.0000
+Weighted F1-Score,1.0000
+Macro ROC AUC,1.0000
+
+--- PER-CLASS METRICS & ONE-VS-REST BREAKDOWN ---,,,,,,,,,,
+Class,Precision,Recall,F1,Support,TP,FP,FN,TN,FPR,AUC
+Healthy_Leaf,1.0000,1.0000,1.0000,152,152,0,0,1483,0.0000,1.0000
+Healthy_Nut,1.0000,1.0000,1.0000,472,472,0,0,1163,0.0000,1.0000
+Mahali_Koleroga,1.0000,1.0000,1.0000,641,641,0,0,994,0.0000,1.0000
+yellow leaf disease,1.0000,1.0000,1.0000,370,370,0,0,1265,0.0000,1.0000

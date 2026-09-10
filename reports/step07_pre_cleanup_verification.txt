@@ -1,0 +1,232 @@
+================================================================================
+STEP 7 — PRE-CLEANUP SIMULATION & LEAKAGE ELIMINATION VERIFICATION
+================================================================================
+Project Root:           D:\Areca
+Target Train Directory: D:\Areca\Data\train
+Target Test Directory:  D:\Areca\Data\test
+--------------------------------------------------------------------------------
+CRITICAL SCOPE ENFORCEMENT:
+  [VERIFIED] Analyzed strictly: D:\Areca\Data\train and D:\Areca\Data\test.
+  [VERIFIED] D:\Areca\Data\final_testing-20230830T042904Z-001 was ABSOLUTELY NOT accessed.
+  [VERIFIED] READ-ONLY AUDIT: No files will be modified, moved, or deleted.
+================================================================================
+Loading Step 5 confirmed leakage and Step 6 cleanup manifest...
+============================================================
+1. BEFORE CLEANUP
+============================================================
+TRAIN Image Count:                          6530
+TEST Image Count:                           1635
+Combined Total Images:                      8165
+Exact TRAIN <-> TEST Leakage Pairings:      188
+Confirmed Near-Duplicate Leakage Pairs:     525
+Cross-Split Multi-Image Clusters:           328
+
+TRAIN Class Breakdown Before Cleanup:
+  - Healthy_Leaf        : 604
+  - Healthy_Nut         : 1886
+  - Mahali_Koleroga     : 2563
+  - yellow leaf disease : 1477
+================================================================================
+2. PROPOSED 421 TRAIN REMOVALS (FROM STEP 6 MANIFEST)
+Total Unique TRAIN Removals:                421
+Removals by Class:
+  - Healthy_Leaf        : 22 files
+  - Healthy_Nut         : 115 files
+  - Mahali_Koleroga     : 246 files
+  - yellow leaf disease : 38 files
+--------------------------------------------------------------------------------
+3. SIMULATED AFTER CLEANUP
+Simulated TRAIN Image Count:                6109 (Original 6530 - 421)
+TEST Image Count (Preserved Benchmark):     1635
+Simulated Total Dataset Size:               7744
+
+TRAIN Class Breakdown After Simulated Cleanup:
+  - Healthy_Leaf        :  582 images remaining (Removed  22, Retained  96.4%)
+  - Healthy_Nut         : 1771 images remaining (Removed 115, Retained  93.9%)
+  - Mahali_Koleroga     : 2317 images remaining (Removed 246, Retained  90.4%)
+  - yellow leaf disease : 1439 images remaining (Removed  38, Retained  97.4%)
+================================================================================
+4. REMAINING EXACT LEAKAGE: 0
+  [VERIFIED] 0 exact train-test leakage pairings remain.
+--------------------------------------------------------------------------------
+5. REMAINING CONFIRMED NEAR-DUPLICATE LEAKAGE: 0
+  [VERIFIED] 0 confirmed near-duplicate train-test leakage pairs remain.
+--------------------------------------------------------------------------------
+6. REMAINING CROSS-SPLIT CLUSTERS: 161
+  [1] Cluster CLUSTER_0001 still contains 8 train and 4 test images
+  [2] Cluster CLUSTER_0002 still contains 2 train and 3 test images
+  [3] Cluster CLUSTER_0004 still contains 2 train and 3 test images
+  [4] Cluster CLUSTER_0005 still contains 5 train and 3 test images
+  [5] Cluster CLUSTER_0007 still contains 2 train and 3 test images
+  [6] Cluster CLUSTER_0008 still contains 4 train and 1 test images
+  [7] Cluster CLUSTER_0009 still contains 3 train and 3 test images
+  [8] Cluster CLUSTER_0010 still contains 5 train and 1 test images
+  [9] Cluster CLUSTER_0011 still contains 1 train and 2 test images
+  [10] Cluster CLUSTER_0012 still contains 3 train and 2 test images
+  [11] Cluster CLUSTER_0013 still contains 1 train and 1 test images
+  [12] Cluster CLUSTER_0014 still contains 2 train and 1 test images
+  [13] Cluster CLUSTER_0015 still contains 2 train and 2 test images
+  [14] Cluster CLUSTER_0018 still contains 4 train and 1 test images
+  [15] Cluster CLUSTER_0019 still contains 1 train and 1 test images
+  [16] Cluster CLUSTER_0020 still contains 3 train and 2 test images
+  [17] Cluster CLUSTER_0021 still contains 2 train and 1 test images
+  [18] Cluster CLUSTER_0022 still contains 4 train and 1 test images
+  [19] Cluster CLUSTER_0027 still contains 4 train and 1 test images
+  [20] Cluster CLUSTER_0028 still contains 1 train and 2 test images
+  [21] Cluster CLUSTER_0029 still contains 2 train and 1 test images
+  [22] Cluster CLUSTER_0030 still contains 1 train and 3 test images
+  [23] Cluster CLUSTER_0031 still contains 1 train and 1 test images
+  [24] Cluster CLUSTER_0034 still contains 1 train and 1 test images
+  [25] Cluster CLUSTER_0037 still contains 3 train and 2 test images
+  [26] Cluster CLUSTER_0038 still contains 5 train and 1 test images
+  [27] Cluster CLUSTER_0041 still contains 4 train and 1 test images
+  [28] Cluster CLUSTER_0046 still contains 4 train and 1 test images
+  [29] Cluster CLUSTER_0047 still contains 3 train and 1 test images
+  [30] Cluster CLUSTER_0051 still contains 1 train and 1 test images
+  [31] Cluster CLUSTER_0052 still contains 4 train and 1 test images
+  [32] Cluster CLUSTER_0056 still contains 3 train and 1 test images
+  [33] Cluster CLUSTER_0060 still contains 1 train and 2 test images
+  [34] Cluster CLUSTER_0063 still contains 3 train and 1 test images
+  [35] Cluster CLUSTER_0064 still contains 2 train and 2 test images
+  [36] Cluster CLUSTER_0065 still contains 2 train and 2 test images
+  [37] Cluster CLUSTER_0068 still contains 1 train and 1 test images
+  [38] Cluster CLUSTER_0069 still contains 2 train and 1 test images
+  [39] Cluster CLUSTER_0070 still contains 3 train and 1 test images
+  [40] Cluster CLUSTER_0071 still contains 4 train and 1 test images
+  [41] Cluster CLUSTER_0079 still contains 3 train and 1 test images
+  [42] Cluster CLUSTER_0081 still contains 1 train and 1 test images
+  [43] Cluster CLUSTER_0095 still contains 2 train and 2 test images
+  [44] Cluster CLUSTER_0097 still contains 3 train and 1 test images
+  [45] Cluster CLUSTER_0098 still contains 1 train and 2 test images
+  [46] Cluster CLUSTER_0100 still contains 1 train and 1 test images
+  [47] Cluster CLUSTER_0101 still contains 1 train and 1 test images
+  [48] Cluster CLUSTER_0102 still contains 1 train and 1 test images
+  [49] Cluster CLUSTER_0104 still contains 1 train and 1 test images
+  [50] Cluster CLUSTER_0106 still contains 1 train and 1 test images
+  [51] Cluster CLUSTER_0107 still contains 1 train and 1 test images
+  [52] Cluster CLUSTER_0108 still contains 2 train and 1 test images
+  [53] Cluster CLUSTER_0118 still contains 2 train and 1 test images
+  [54] Cluster CLUSTER_0119 still contains 1 train and 2 test images
+  [55] Cluster CLUSTER_0120 still contains 1 train and 1 test images
+  [56] Cluster CLUSTER_0121 still contains 2 train and 1 test images
+  [57] Cluster CLUSTER_0122 still contains 2 train and 1 test images
+  [58] Cluster CLUSTER_0123 still contains 1 train and 1 test images
+  [59] Cluster CLUSTER_0124 still contains 2 train and 1 test images
+  [60] Cluster CLUSTER_0125 still contains 2 train and 1 test images
+  [61] Cluster CLUSTER_0126 still contains 2 train and 1 test images
+  [62] Cluster CLUSTER_0127 still contains 2 train and 1 test images
+  [63] Cluster CLUSTER_0128 still contains 2 train and 1 test images
+  [64] Cluster CLUSTER_0129 still contains 2 train and 1 test images
+  [65] Cluster CLUSTER_0130 still contains 3 train and 1 test images
+  [66] Cluster CLUSTER_0139 still contains 2 train and 1 test images
+  [67] Cluster CLUSTER_0169 still contains 2 train and 1 test images
+  [68] Cluster CLUSTER_0182 still contains 1 train and 2 test images
+  [69] Cluster CLUSTER_0184 still contains 1 train and 1 test images
+  [70] Cluster CLUSTER_0198 still contains 1 train and 1 test images
+  [71] Cluster CLUSTER_0208 still contains 1 train and 1 test images
+  [72] Cluster CLUSTER_0216 still contains 1 train and 1 test images
+  [73] Cluster CLUSTER_0218 still contains 1 train and 1 test images
+  [74] Cluster CLUSTER_0221 still contains 1 train and 1 test images
+  [75] Cluster CLUSTER_0225 still contains 1 train and 1 test images
+  [76] Cluster CLUSTER_0228 still contains 1 train and 1 test images
+  [77] Cluster CLUSTER_0229 still contains 1 train and 1 test images
+  [78] Cluster CLUSTER_0230 still contains 1 train and 1 test images
+  [79] Cluster CLUSTER_0231 still contains 1 train and 1 test images
+  [80] Cluster CLUSTER_0232 still contains 1 train and 1 test images
+  [81] Cluster CLUSTER_0233 still contains 1 train and 1 test images
+  [82] Cluster CLUSTER_0235 still contains 1 train and 1 test images
+  [83] Cluster CLUSTER_0236 still contains 2 train and 1 test images
+  [84] Cluster CLUSTER_0237 still contains 2 train and 1 test images
+  [85] Cluster CLUSTER_0238 still contains 2 train and 1 test images
+  [86] Cluster CLUSTER_0239 still contains 2 train and 1 test images
+  [87] Cluster CLUSTER_0240 still contains 2 train and 1 test images
+  [88] Cluster CLUSTER_0241 still contains 2 train and 1 test images
+  [89] Cluster CLUSTER_0242 still contains 2 train and 1 test images
+  [90] Cluster CLUSTER_0243 still contains 2 train and 1 test images
+  [91] Cluster CLUSTER_0244 still contains 2 train and 1 test images
+  [92] Cluster CLUSTER_0483 still contains 1 train and 1 test images
+  [93] Cluster CLUSTER_0484 still contains 1 train and 1 test images
+  [94] Cluster CLUSTER_0485 still contains 1 train and 1 test images
+  [95] Cluster CLUSTER_0486 still contains 1 train and 1 test images
+  [96] Cluster CLUSTER_0487 still contains 1 train and 1 test images
+  [97] Cluster CLUSTER_0488 still contains 1 train and 1 test images
+  [98] Cluster CLUSTER_0489 still contains 1 train and 1 test images
+  [99] Cluster CLUSTER_0490 still contains 1 train and 1 test images
+  [100] Cluster CLUSTER_0491 still contains 1 train and 1 test images
+  [101] Cluster CLUSTER_0492 still contains 1 train and 1 test images
+  [102] Cluster CLUSTER_0493 still contains 1 train and 1 test images
+  [103] Cluster CLUSTER_0494 still contains 1 train and 1 test images
+  [104] Cluster CLUSTER_0495 still contains 1 train and 1 test images
+  [105] Cluster CLUSTER_0496 still contains 1 train and 1 test images
+  [106] Cluster CLUSTER_0497 still contains 1 train and 1 test images
+  [107] Cluster CLUSTER_0498 still contains 1 train and 1 test images
+  [108] Cluster CLUSTER_0499 still contains 1 train and 1 test images
+  [109] Cluster CLUSTER_0500 still contains 1 train and 1 test images
+  [110] Cluster CLUSTER_0501 still contains 1 train and 1 test images
+  [111] Cluster CLUSTER_0502 still contains 1 train and 1 test images
+  [112] Cluster CLUSTER_0503 still contains 1 train and 1 test images
+  [113] Cluster CLUSTER_0504 still contains 1 train and 1 test images
+  [114] Cluster CLUSTER_0505 still contains 1 train and 1 test images
+  [115] Cluster CLUSTER_0506 still contains 1 train and 1 test images
+  [116] Cluster CLUSTER_0507 still contains 1 train and 1 test images
+  [117] Cluster CLUSTER_0508 still contains 1 train and 1 test images
+  [118] Cluster CLUSTER_0509 still contains 1 train and 1 test images
+  [119] Cluster CLUSTER_0510 still contains 1 train and 1 test images
+  [120] Cluster CLUSTER_0511 still contains 1 train and 1 test images
+  [121] Cluster CLUSTER_0512 still contains 1 train and 1 test images
+  [122] Cluster CLUSTER_0513 still contains 1 train and 1 test images
+  [123] Cluster CLUSTER_0514 still contains 1 train and 1 test images
+  [124] Cluster CLUSTER_0515 still contains 1 train and 1 test images
+  [125] Cluster CLUSTER_0516 still contains 1 train and 1 test images
+  [126] Cluster CLUSTER_0517 still contains 1 train and 1 test images
+  [127] Cluster CLUSTER_0518 still contains 1 train and 1 test images
+  [128] Cluster CLUSTER_0519 still contains 1 train and 1 test images
+  [129] Cluster CLUSTER_0520 still contains 1 train and 1 test images
+  [130] Cluster CLUSTER_0521 still contains 1 train and 1 test images
+  [131] Cluster CLUSTER_0522 still contains 1 train and 1 test images
+  [132] Cluster CLUSTER_0523 still contains 1 train and 1 test images
+  [133] Cluster CLUSTER_0524 still contains 1 train and 1 test images
+  [134] Cluster CLUSTER_0525 still contains 1 train and 1 test images
+  [135] Cluster CLUSTER_0526 still contains 1 train and 1 test images
+  [136] Cluster CLUSTER_0527 still contains 1 train and 1 test images
+  [137] Cluster CLUSTER_0528 still contains 1 train and 1 test images
+  [138] Cluster CLUSTER_0529 still contains 1 train and 1 test images
+  [139] Cluster CLUSTER_0530 still contains 1 train and 1 test images
+  [140] Cluster CLUSTER_0531 still contains 1 train and 1 test images
+  [141] Cluster CLUSTER_0532 still contains 1 train and 1 test images
+  [142] Cluster CLUSTER_0533 still contains 1 train and 1 test images
+  [143] Cluster CLUSTER_0534 still contains 1 train and 1 test images
+  [144] Cluster CLUSTER_0535 still contains 1 train and 1 test images
+  [145] Cluster CLUSTER_0536 still contains 1 train and 1 test images
+  [146] Cluster CLUSTER_0537 still contains 1 train and 1 test images
+  [147] Cluster CLUSTER_0538 still contains 1 train and 1 test images
+  [148] Cluster CLUSTER_0539 still contains 1 train and 1 test images
+  [149] Cluster CLUSTER_0540 still contains 1 train and 1 test images
+  [150] Cluster CLUSTER_0541 still contains 1 train and 1 test images
+  [151] Cluster CLUSTER_0542 still contains 1 train and 1 test images
+  [152] Cluster CLUSTER_0543 still contains 1 train and 1 test images
+  [153] Cluster CLUSTER_0544 still contains 1 train and 1 test images
+  [154] Cluster CLUSTER_0545 still contains 1 train and 1 test images
+  [155] Cluster CLUSTER_0546 still contains 1 train and 1 test images
+  [156] Cluster CLUSTER_0547 still contains 1 train and 1 test images
+  [157] Cluster CLUSTER_0548 still contains 1 train and 1 test images
+  [158] Cluster CLUSTER_0549 still contains 1 train and 1 test images
+  [159] Cluster CLUSTER_0550 still contains 1 train and 1 test images
+  [160] Cluster CLUSTER_0551 still contains 1 train and 1 test images
+  [161] Cluster CLUSTER_0552 still contains 1 train and 1 test images
+--------------------------------------------------------------------------------
+7. SAFETY VALIDATION:
+  - Files in removal list verified existing on disk: 421/421
+  - All removal paths strictly within TRAIN:         YES
+  - Zero removals inside TEST directory:             YES
+  - Zero removals inside final_testing directory:    YES
+  - Safety validation violations detected:           0
+================================================================================
+============================================================
+8. FINAL STATUS
+============================================================
+STATUS: REVIEW REQUIRED — confirmed leakage remains
+============================================================
+SCOPE CONFIRMATION:
+  final_testing-20230830T042904Z-001 was NOT accessed.
+============================================================

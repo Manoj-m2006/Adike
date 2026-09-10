@@ -1,0 +1,152 @@
+{
+  "report_title": "Step 12 \u2014 Final Model Metrics, Curves & Performance Visualization",
+  "project": "Arecanut Disease Classification (ResNet-50)",
+  "scope": {
+    "model_architecture": "ResNet-50",
+    "model_checkpoint": "D:\\Areca\\models\\areca_resnet50_best.pth",
+    "train_dataset_path": "D:\\Areca\\Data\\train",
+    "test_dataset_path": "D:\\Areca\\Data\\test",
+    "prohibited_dataset_status": "D:\\Areca\\Data\\final_testing-20230830T042904Z-001 (UNTOUCHED / NOT ACCESSED)"
+  },
+  "training_configuration": {
+    "model": "ResNet-50",
+    "num_classes": 4,
+    "image_size": 224,
+    "batch_size": 32,
+    "random_seed": 42,
+    "total_cleaned_train_images": 6109,
+    "stratified_training_split": 4885,
+    "stratified_validation_split": 1224,
+    "phase1_configuration": "30 epochs, frozen backbone, learning rate = 0.001, AdamW optimizer",
+    "phase2_configuration": "20 epochs, unfrozen backbone, learning rate = 1e-05, AdamW optimizer",
+    "total_epochs_completed": 50,
+    "early_stopping_patience": 5,
+    "class_weighted_loss": true,
+    "best_checkpoint_epoch": 48,
+    "best_validation_loss": 9.64e-05,
+    "best_validation_accuracy": 1.0
+  },
+  "test_evaluation_summary": {
+    "Total Test Images": 1635,
+    "Correct Predictions": 1635,
+    "Incorrect Predictions": 0,
+    "Test Accuracy": 1.0,
+    "Test Loss": 0.0001,
+    "Macro Precision": 1.0,
+    "Macro Recall": 1.0,
+    "Macro F1-Score": 1.0,
+    "Weighted Precision": 1.0,
+    "Weighted Recall": 1.0,
+    "Weighted F1-Score": 1.0,
+    "Macro ROC AUC": 1.0
+  },
+  "confusion_matrix": {
+    "class_order": [
+      "Healthy_Leaf",
+      "Healthy_Nut",
+      "Mahali_Koleroga",
+      "yellow leaf disease"
+    ],
+    "matrix": [
+      [
+        152,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        472,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        641,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        370
+      ]
+    ]
+  },
+  "one_vs_rest_per_class_metrics": {
+    "Healthy_Leaf": {
+      "tp": 152,
+      "fp": 0,
+      "fn": 0,
+      "tn": 1483,
+      "precision": 1.0,
+      "recall": 1.0,
+      "fpr": 0.0,
+      "f1": 1.0,
+      "support": 152,
+      "auc": 1.0
+    },
+    "Healthy_Nut": {
+      "tp": 472,
+      "fp": 0,
+      "fn": 0,
+      "tn": 1163,
+      "precision": 1.0,
+      "recall": 1.0,
+      "fpr": 0.0,
+      "f1": 1.0,
+      "support": 472,
+      "auc": 1.0
+    },
+    "Mahali_Koleroga": {
+      "tp": 641,
+      "fp": 0,
+      "fn": 0,
+      "tn": 994,
+      "precision": 1.0,
+      "recall": 1.0,
+      "fpr": 0.0,
+      "f1": 1.0,
+      "support": 641,
+      "auc": 1.0
+    },
+    "yellow leaf disease": {
+      "tp": 370,
+      "fp": 0,
+      "fn": 0,
+      "tn": 1265,
+      "precision": 1.0,
+      "recall": 1.0,
+      "fpr": 0.0,
+      "f1": 1.0,
+      "support": 370,
+      "auc": 1.0
+    }
+  },
+  "roc_auc_analysis": {
+    "per_class_auc": {
+      "Healthy_Leaf": 1.0,
+      "Healthy_Nut": 1.0,
+      "Mahali_Koleroga": 1.0,
+      "yellow leaf disease": 1.0
+    },
+    "macro_average_auc": 1.0
+  },
+  "generated_artifacts": {
+    "plots": [
+      "D:\\Areca\\plots\\step12_training_validation_loss.png",
+      "D:\\Areca\\plots\\step12_training_validation_accuracy.png",
+      "D:\\Areca\\plots\\step12_test_confusion_matrix.png",
+      "D:\\Areca\\plots\\step12_test_roc_curve.png",
+      "D:\\Areca\\plots\\step12_test_f1_scores.png",
+      "D:\\Areca\\plots\\step12_test_precision.png"
+    ],
+    "reports": [
+      "D:\\Areca\\reports\\step12_false_positive_analysis.csv",
+      "D:\\Areca\\reports\\step12_final_metrics.csv",
+      "D:\\Areca\\reports\\step12_final_metrics_report.txt",
+      "D:\\Areca\\reports\\step12_final_metrics_report.json"
+    ]
+  }
+}

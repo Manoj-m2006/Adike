@@ -1,0 +1,119 @@
+{
+  "step": "STEP 11 \u2014 Arecanut ResNet-50 Final Test Evaluation",
+  "scope": {
+    "test_dir": "D:\\Areca\\Data\\test",
+    "checkpoint_evaluated": "D:\\Areca\\models\\areca_resnet50_best.pth",
+    "final_testing_excluded": true
+  },
+  "environment": {
+    "device": "cuda",
+    "gpu_name": "NVIDIA GeForce RTX 4050 Laptop GPU",
+    "pytorch_version": "2.14.0+cu130",
+    "torchvision_version": "0.29.0+cu130"
+  },
+  "summary": {
+    "total_test_images": 1635,
+    "correct_predictions": 1635,
+    "incorrect_predictions": 0,
+    "test_accuracy": 1.0,
+    "test_loss": 0.0001,
+    "evaluation_duration_seconds": 81.51,
+    "macro_precision": 1.0,
+    "macro_recall": 1.0,
+    "macro_f1": 1.0,
+    "weighted_precision": 1.0,
+    "weighted_recall": 1.0,
+    "weighted_f1": 1.0,
+    "confidence_statistics": {
+      "overall": {
+        "mean": 0.9999,
+        "min": 0.9428,
+        "max": 1.0,
+        "std": 0.0019
+      },
+      "correct": {
+        "mean": 0.9999,
+        "min": 0.9428,
+        "max": 1.0
+      },
+      "incorrect": {
+        "count": 0,
+        "mean": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      }
+    }
+  },
+  "per_class_metrics": {
+    "Healthy_Leaf": {
+      "support": 152,
+      "correct": 152,
+      "incorrect": 0,
+      "accuracy": 1.0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1_score": 1.0
+    },
+    "Healthy_Nut": {
+      "support": 472,
+      "correct": 472,
+      "incorrect": 0,
+      "accuracy": 1.0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1_score": 1.0
+    },
+    "Mahali_Koleroga": {
+      "support": 641,
+      "correct": 641,
+      "incorrect": 0,
+      "accuracy": 1.0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1_score": 1.0
+    },
+    "yellow leaf disease": {
+      "support": 370,
+      "correct": 370,
+      "incorrect": 0,
+      "accuracy": 1.0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1_score": 1.0
+    }
+  },
+  "confusion_matrix": [
+    [
+      152,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      472,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      641,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      370
+    ]
+  ],
+  "class_mapping": {
+    "Healthy_Leaf": 0,
+    "Healthy_Nut": 1,
+    "Mahali_Koleroga": 2,
+    "yellow leaf disease": 3
+  },
+  "misclassifications_count": 0,
+  "misclassifications": []
+}

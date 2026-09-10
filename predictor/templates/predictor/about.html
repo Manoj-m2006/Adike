@@ -1,0 +1,76 @@
+{% extends "predictor/base.html" %}
+
+{% block title %}Model & Methodology{% endblock %}
+
+{% block content %}
+<section class="hero-section" style="margin-bottom: 2rem;">
+  <div class="hero-pill">📖 Technical Overview & Architecture</div>
+  <h1 class="hero-title">MODEL <span>METHODOLOGY</span></h1>
+  <p class="hero-description">
+    Comprehensive background on the deep transfer learning framework, dataset cleaning protocol, and diagnostic taxonomy.
+  </p>
+</section>
+
+<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-bottom: 2rem;">
+  <!-- Deep Learning Pipeline Card -->
+  <div class="card">
+    <div class="card-header">
+      <h2 class="card-title"><span>🧠</span> Deep Neural Network Architecture</h2>
+      <p class="card-subtitle">Transfer learning with deep residual feature representations</p>
+    </div>
+    <ul style="list-style-type: none; font-size: 0.9rem; line-height: 1.8; color: var(--text-main);">
+      <li><strong>Backbone:</strong> Pretrained ResNet-50 (50 layers with bottleneck residual blocks)</li>
+      <li><strong>Classification Head:</strong> Modified 4-output linear layer (2048 in_features &rarr; 4 classes)</li>
+      <li><strong>Input Tensor:</strong> 224 &times; 224 &times; 3 (RGB normalized via standard ImageNet mean/std)</li>
+      <li><strong>Loss Function:</strong> Weighted Cross-Entropy Loss (balanced for class distribution)</li>
+      <li><strong>Optimizer:</strong> AdamW with Cosine Annealing Learning Rate Scheduler</li>
+      <li><strong>Inference Mode:</strong> Stateless deterministic forward pass under <code>torch.no_grad()</code></li>
+    </ul>
+  </div>
+
+  <!-- Two-Phase Training Card -->
+  <div class="card">
+    <div class="card-header">
+      <h2 class="card-title"><span>⚙️</span> Two-Phase Training Protocol</h2>
+      <p class="card-subtitle">Stable feature extraction followed by full fine-tuning</p>
+    </div>
+    <div style="font-size: 0.875rem; color: var(--text-muted); line-height: 1.6;">
+      <div style="margin-bottom: 1rem; padding: 0.75rem; background: var(--surface-alt); border-radius: 8px;">
+        <strong style="color: var(--text-main);">Phase 1: Feature Extraction (30 Epochs)</strong><br>
+        The convolutional backbone layers are frozen to retain general visual representations, while only the 4-class classification head is trained with learning rate 1e-3.
+      </div>
+      <div style="padding: 0.75rem; background: var(--surface-alt); border-radius: 8px;">
+        <strong style="color: var(--text-main);">Phase 2: Full Fine-Tuning (20 Epochs)</strong><br>
+        All 50 residual layers are unfrozen and trained end-to-end at a gentle learning rate of 1e-5 to adapt low- and high-level filters to specific arecanut pathology features.
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Disease Details Grid -->
+<div class="card" style="margin-bottom: 2rem;">
+  <div class="card-header">
+    <h2 class="card-title"><span>🌿</span> 4-Class Pathological Taxonomy</h2>
+    <p class="card-subtitle">Detailed characteristics and diagnostic indicators for each class</p>
+  </div>
+
+  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.25rem;">
+    {% for cls in classes_list %}
+    <div style="background: var(--surface-alt); border: 1px solid var(--border-color); border-radius: 12px; padding: 1.25rem;">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+        <span class="badge {{ cls.badge_class }}">{{ cls.status }}</span>
+        <span style="font-size: 0.75rem; font-weight: 700; color: var(--text-muted);">Class {{ forloop.counter0 }}</span>
+      </div>
+      <h3 style="font-size: 1.05rem; font-weight: 700; color: var(--text-main); margin-bottom: 0.25rem;">{{ cls.display_name }}</h3>
+      <div style="font-size: 0.8rem; font-weight: 600; color: var(--primary-color); margin-bottom: 0.5rem;">{{ cls.category }}</div>
+      <p style="font-size: 0.8rem; color: var(--text-muted); line-height: 1.5; margin-bottom: 0.75rem;">{{ cls.description }}</p>
+      {% if cls.management %}
+      <div style="font-size: 0.75rem; background: #ffffff; padding: 0.5rem; border-radius: 6px; border: 1px solid var(--border-color);">
+        <strong>Control:</strong> {{ cls.management }}
+      </div>
+      {% endif %}
+    </div>
+    {% endfor %}
+  </div>
+</div>
+{% endblock %}

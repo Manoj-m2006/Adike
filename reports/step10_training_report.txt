@@ -1,0 +1,123 @@
+================================================================================
+STEP 10 — SINGLE 4-CLASS RESNET-50 TWO-PHASE TRAINING
+================================================================================
+Phase 1: 30 epochs (Feature Extraction / Frozen Backbone, lr=0.001)
+Phase 2: 20 epochs (Full Fine-Tuning / Unfrozen Backbone, lr=1e-05)
+Total Maximum: 50 epochs | Early Stopping Patience: 5
+================================================================================
+Dataset Summary:
+  - Total Cleaned Images:     6109
+  - Training Split (80%):     4885
+  - Validation Split (20%):   1224
+  - Class Mapping:            {'Healthy_Leaf': 0, 'Healthy_Nut': 1, 'Mahali_Koleroga': 2, 'yellow leaf disease': 3}
+  - Training Class Counts:    {3: 1151, 2: 1853, 1: 1416, 0: 465}
+  - Computed Class Weights:   [2.626300096511841, 0.862500011920929, 0.6590999960899353, 1.0609999895095825]
+  - Device:                   cuda
+--------------------------------------------------------------------------------
+
+>>> STARTING PHASE 1: FEATURE EXTRACTION (30 EPOCHS MAX) <<<
+Freezing backbone layers; training only classifier head (model.fc)...
+[Phase 1] Epoch 01/30 (Overall 01) | Train Loss: 0.4148 - Acc: 0.9230 | Val Loss: 0.1572 - Acc: 0.9747
+  --> Best Phase 1 checkpoint saved (Val Loss: 0.1572)
+[Phase 1] Epoch 02/30 (Overall 02) | Train Loss: 0.1282 - Acc: 0.9828 | Val Loss: 0.0853 - Acc: 0.9845
+  --> Best Phase 1 checkpoint saved (Val Loss: 0.0853)
+[Phase 1] Epoch 03/30 (Overall 03) | Train Loss: 0.0821 - Acc: 0.9889 | Val Loss: 0.0563 - Acc: 0.9918
+  --> Best Phase 1 checkpoint saved (Val Loss: 0.0563)
+[Phase 1] Epoch 04/30 (Overall 04) | Train Loss: 0.0587 - Acc: 0.9916 | Val Loss: 0.0435 - Acc: 0.9943
+  --> Best Phase 1 checkpoint saved (Val Loss: 0.0435)
+[Phase 1] Epoch 05/30 (Overall 05) | Train Loss: 0.0498 - Acc: 0.9934 | Val Loss: 0.0343 - Acc: 0.9959
+  --> Best Phase 1 checkpoint saved (Val Loss: 0.0343)
+[Phase 1] Epoch 06/30 (Overall 06) | Train Loss: 0.0359 - Acc: 0.9963 | Val Loss: 0.0278 - Acc: 0.9959
+  --> Best Phase 1 checkpoint saved (Val Loss: 0.0278)
+[Phase 1] Epoch 07/30 (Overall 07) | Train Loss: 0.0342 - Acc: 0.9963 | Val Loss: 0.0225 - Acc: 0.9992
+  --> Best Phase 1 checkpoint saved (Val Loss: 0.0225)
+[Phase 1] Epoch 08/30 (Overall 08) | Train Loss: 0.0278 - Acc: 0.9965 | Val Loss: 0.0236 - Acc: 0.9959
+[Phase 1] Epoch 09/30 (Overall 09) | Train Loss: 0.0232 - Acc: 0.9980 | Val Loss: 0.0180 - Acc: 0.9992
+  --> Best Phase 1 checkpoint saved (Val Loss: 0.0180)
+[Phase 1] Epoch 10/30 (Overall 10) | Train Loss: 0.0223 - Acc: 0.9973 | Val Loss: 0.0166 - Acc: 0.9992
+  --> Best Phase 1 checkpoint saved (Val Loss: 0.0166)
+[Phase 1] Epoch 11/30 (Overall 11) | Train Loss: 0.0204 - Acc: 0.9986 | Val Loss: 0.0153 - Acc: 0.9984
+  --> Best Phase 1 checkpoint saved (Val Loss: 0.0153)
+[Phase 1] Epoch 12/30 (Overall 12) | Train Loss: 0.0202 - Acc: 0.9980 | Val Loss: 0.0135 - Acc: 0.9984
+  --> Best Phase 1 checkpoint saved (Val Loss: 0.0135)
+[Phase 1] Epoch 13/30 (Overall 13) | Train Loss: 0.0186 - Acc: 0.9973 | Val Loss: 0.0118 - Acc: 0.9992
+  --> Best Phase 1 checkpoint saved (Val Loss: 0.0118)
+[Phase 1] Epoch 14/30 (Overall 14) | Train Loss: 0.0166 - Acc: 0.9982 | Val Loss: 0.0132 - Acc: 0.9984
+[Phase 1] Epoch 15/30 (Overall 15) | Train Loss: 0.0152 - Acc: 0.9973 | Val Loss: 0.0106 - Acc: 0.9992
+  --> Best Phase 1 checkpoint saved (Val Loss: 0.0106)
+[Phase 1] Epoch 16/30 (Overall 16) | Train Loss: 0.0170 - Acc: 0.9977 | Val Loss: 0.0102 - Acc: 0.9992
+  --> Best Phase 1 checkpoint saved (Val Loss: 0.0102)
+[Phase 1] Epoch 17/30 (Overall 17) | Train Loss: 0.0127 - Acc: 0.9994 | Val Loss: 0.0100 - Acc: 0.9992
+  --> Best Phase 1 checkpoint saved (Val Loss: 0.0100)
+[Phase 1] Epoch 18/30 (Overall 18) | Train Loss: 0.0127 - Acc: 0.9992 | Val Loss: 0.0091 - Acc: 0.9992
+  --> Best Phase 1 checkpoint saved (Val Loss: 0.0091)
+[Phase 1] Epoch 19/30 (Overall 19) | Train Loss: 0.0136 - Acc: 0.9977 | Val Loss: 0.0079 - Acc: 0.9992
+  --> Best Phase 1 checkpoint saved (Val Loss: 0.0079)
+[Phase 1] Epoch 20/30 (Overall 20) | Train Loss: 0.0116 - Acc: 0.9988 | Val Loss: 0.0078 - Acc: 0.9992
+  --> Best Phase 1 checkpoint saved (Val Loss: 0.0078)
+[Phase 1] Epoch 21/30 (Overall 21) | Train Loss: 0.0136 - Acc: 0.9977 | Val Loss: 0.0079 - Acc: 0.9992
+[Phase 1] Epoch 22/30 (Overall 22) | Train Loss: 0.0113 - Acc: 0.9986 | Val Loss: 0.0084 - Acc: 0.9992
+[Phase 1] Epoch 23/30 (Overall 23) | Train Loss: 0.0117 - Acc: 0.9988 | Val Loss: 0.0074 - Acc: 0.9992
+  --> Best Phase 1 checkpoint saved (Val Loss: 0.0074)
+[Phase 1] Epoch 24/30 (Overall 24) | Train Loss: 0.0099 - Acc: 0.9994 | Val Loss: 0.0080 - Acc: 0.9992
+[Phase 1] Epoch 25/30 (Overall 25) | Train Loss: 0.0130 - Acc: 0.9984 | Val Loss: 0.0073 - Acc: 0.9992
+  --> Best Phase 1 checkpoint saved (Val Loss: 0.0073)
+[Phase 1] Epoch 26/30 (Overall 26) | Train Loss: 0.0123 - Acc: 0.9988 | Val Loss: 0.0069 - Acc: 0.9992
+  --> Best Phase 1 checkpoint saved (Val Loss: 0.0069)
+[Phase 1] Epoch 27/30 (Overall 27) | Train Loss: 0.0099 - Acc: 0.9994 | Val Loss: 0.0073 - Acc: 0.9992
+[Phase 1] Epoch 28/30 (Overall 28) | Train Loss: 0.0117 - Acc: 0.9982 | Val Loss: 0.0082 - Acc: 0.9992
+[Phase 1] Epoch 29/30 (Overall 29) | Train Loss: 0.0110 - Acc: 0.9998 | Val Loss: 0.0070 - Acc: 0.9992
+[Phase 1] Epoch 30/30 (Overall 30) | Train Loss: 0.0098 - Acc: 0.9998 | Val Loss: 0.0075 - Acc: 0.9992
+
+>>> STARTING PHASE 2: FULL FINE-TUNING (20 EPOCHS MAX) <<<
+Unfreezing all backbone layers for full fine-tuning with differential learning rate...
+Loaded best Phase 1 model weights (Val Loss: 0.0069) for Phase 2 initialization.
+[Phase 2] Epoch 01/20 (Overall 31) | Train Loss: 0.0083 - Acc: 0.9982 | Val Loss: 0.0035 - Acc: 0.9992
+  --> Best overall checkpoint saved: areca_resnet50_best.pth (Val Loss: 0.0035)
+[Phase 2] Epoch 02/20 (Overall 32) | Train Loss: 0.0041 - Acc: 0.9998 | Val Loss: 0.0018 - Acc: 1.0000
+  --> Best overall checkpoint saved: areca_resnet50_best.pth (Val Loss: 0.0018)
+[Phase 2] Epoch 03/20 (Overall 33) | Train Loss: 0.0022 - Acc: 0.9996 | Val Loss: 0.0009 - Acc: 1.0000
+  --> Best overall checkpoint saved: areca_resnet50_best.pth (Val Loss: 0.0009)
+[Phase 2] Epoch 04/20 (Overall 34) | Train Loss: 0.0015 - Acc: 1.0000 | Val Loss: 0.0009 - Acc: 1.0000
+  --> Best overall checkpoint saved: areca_resnet50_best.pth (Val Loss: 0.0009)
+[Phase 2] Epoch 05/20 (Overall 35) | Train Loss: 0.0019 - Acc: 0.9998 | Val Loss: 0.0004 - Acc: 1.0000
+  --> Best overall checkpoint saved: areca_resnet50_best.pth (Val Loss: 0.0004)
+[Phase 2] Epoch 06/20 (Overall 36) | Train Loss: 0.0019 - Acc: 0.9996 | Val Loss: 0.0006 - Acc: 1.0000
+[Phase 2] Epoch 07/20 (Overall 37) | Train Loss: 0.0015 - Acc: 0.9996 | Val Loss: 0.0008 - Acc: 0.9992
+[Phase 2] Epoch 08/20 (Overall 38) | Train Loss: 0.0006 - Acc: 0.9998 | Val Loss: 0.0008 - Acc: 0.9992
+[Phase 2] Epoch 09/20 (Overall 39) | Train Loss: 0.0007 - Acc: 1.0000 | Val Loss: 0.0002 - Acc: 1.0000
+  --> Best overall checkpoint saved: areca_resnet50_best.pth (Val Loss: 0.0002)
+[Phase 2] Epoch 10/20 (Overall 40) | Train Loss: 0.0005 - Acc: 1.0000 | Val Loss: 0.0002 - Acc: 1.0000
+  --> Best overall checkpoint saved: areca_resnet50_best.pth (Val Loss: 0.0002)
+[Phase 2] Epoch 11/20 (Overall 41) | Train Loss: 0.0005 - Acc: 1.0000 | Val Loss: 0.0002 - Acc: 1.0000
+  --> Best overall checkpoint saved: areca_resnet50_best.pth (Val Loss: 0.0002)
+[Phase 2] Epoch 12/20 (Overall 42) | Train Loss: 0.0004 - Acc: 1.0000 | Val Loss: 0.0002 - Acc: 1.0000
+  --> Best overall checkpoint saved: areca_resnet50_best.pth (Val Loss: 0.0002)
+[Phase 2] Epoch 13/20 (Overall 43) | Train Loss: 0.0003 - Acc: 1.0000 | Val Loss: 0.0002 - Acc: 1.0000
+[Phase 2] Epoch 14/20 (Overall 44) | Train Loss: 0.0003 - Acc: 1.0000 | Val Loss: 0.0002 - Acc: 1.0000
+[Phase 2] Epoch 15/20 (Overall 45) | Train Loss: 0.0005 - Acc: 1.0000 | Val Loss: 0.0002 - Acc: 1.0000
+[Phase 2] Epoch 16/20 (Overall 46) | Train Loss: 0.0005 - Acc: 1.0000 | Val Loss: 0.0002 - Acc: 1.0000
+[Phase 2] Epoch 17/20 (Overall 47) | Train Loss: 0.0002 - Acc: 1.0000 | Val Loss: 0.0001 - Acc: 1.0000
+  --> Best overall checkpoint saved: areca_resnet50_best.pth (Val Loss: 0.0001)
+[Phase 2] Epoch 18/20 (Overall 48) | Train Loss: 0.0006 - Acc: 0.9998 | Val Loss: 0.0001 - Acc: 1.0000
+  --> Best overall checkpoint saved: areca_resnet50_best.pth (Val Loss: 0.0001)
+[Phase 2] Epoch 19/20 (Overall 49) | Train Loss: 0.0005 - Acc: 1.0000 | Val Loss: 0.0002 - Acc: 1.0000
+[Phase 2] Epoch 20/20 (Overall 50) | Train Loss: 0.0002 - Acc: 1.0000 | Val Loss: 0.0001 - Acc: 1.0000
+--------------------------------------------------------------------------------
+TWO-PHASE TRAINING RESULTS SUMMARY
+  - Total Training Duration:   15567.40s
+  - Total Epochs Completed:    50 (Phase 1: 30, Phase 2: 20)
+  - Best Overall Epoch:        48
+  - Best Validation Loss:      0.0001
+  - Best Validation Accuracy:  100.00%
+  - Macro Precision:           1.0000
+  - Macro Recall:              1.0000
+  - Macro F1-Score:            1.0000
+  - Weighted F1-Score:         1.0000
+
+Per-Class Validation Performance:
+    * Healthy_Leaf        : Precision=1.0000, Recall=1.0000, F1=1.0000 (Support=117)
+    * Healthy_Nut         : Precision=1.0000, Recall=1.0000, F1=1.0000 (Support=355)
+    * Mahali_Koleroga     : Precision=1.0000, Recall=1.0000, F1=1.0000 (Support=464)
+    * yellow leaf disease : Precision=1.0000, Recall=1.0000, F1=1.0000 (Support=288)
+--------------------------------------------------------------------------------

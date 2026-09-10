@@ -1,0 +1,5 @@
+Class,TP,FP,FN,TN,Precision,Recall,F1,FPR
+Healthy_Leaf,152,0,0,1483,1.0000,1.0000,1.0000,0.0000
+Healthy_Nut,472,0,0,1163,1.0000,1.0000,1.0000,0.0000
+Mahali_Koleroga,641,0,0,994,1.0000,1.0000,1.0000,0.0000
+yellow leaf disease,370,0,0,1265,1.0000,1.0000,1.0000,0.0000

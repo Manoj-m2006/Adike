@@ -1,0 +1,89 @@
+{% extends "predictor/base.html" %}
+
+{% block title %}Disease Classification{% endblock %}
+
+{% block content %}
+<!-- Hero Header -->
+<section class="hero-section">
+  <div class="hero-pill">🌿 Deep Learning Pathology Diagnostics</div>
+  <h1 class="hero-title">ARECANUT <span>DISEASE DETECTION</span></h1>
+  <p class="hero-description">
+    ResNet-50 Based 4-Class Classification System for automated diagnosis of healthy fronds, healthy nuts, Mahali (Koleroga / Fruit Rot), and Yellow Leaf Disease.
+  </p>
+</section>
+
+<!-- Main Grid Layout -->
+<div class="app-grid">
+  <!-- Upload Card -->
+  <div class="card">
+    <div class="card-header">
+      <h2 class="card-title">
+        <span>📸</span> Upload Specimen Image
+      </h2>
+      <p class="card-subtitle">Select or drag & drop a high-resolution photo of an arecanut palm frond or nut bunch.</p>
+    </div>
+
+    <form id="disease-upload-form" method="POST" enctype="multipart/form-data" action="{% url 'predictor:home' %}">
+      {% csrf_token %}
+      
+      <div class="upload-dropzone" id="upload-dropzone">
+        {{ form.image }}
+        <div class="upload-icon-wrapper">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+            <polyline points="17 8 12 3 7 8"></polyline>
+            <line x1="12" y1="3" x2="12" y2="15"></line>
+          </svg>
+        </div>
+        <div class="upload-prompt">
+          <span>Click to browse</span> or drag and drop image here
+        </div>
+        <div class="upload-formats">
+          Supported formats: <strong>JPG, JPEG, PNG</strong> (Max file size: 10 MB)
+        </div>
+      </div>
+
+      <!-- Live Client-side Preview Box -->
+      <div id="preview-container" class="preview-container">
+        <div class="preview-box">
+          <img id="preview-image" src="#" alt="Selected Specimen Preview">
+        </div>
+        <div id="preview-info" class="preview-details"></div>
+      </div>
+
+      <button type="submit" id="submit-btn" class="btn btn-primary">
+        <span>🔍</span> Analyze & Classify Specimen
+      </button>
+    </form>
+  </div>
+
+  <!-- Taxonomy / Supported Classes Card -->
+  <div class="card">
+    <div class="card-header">
+      <h2 class="card-title">
+        <span>🏷️</span> Classification Taxonomy
+      </h2>
+      <p class="card-subtitle">The underlying ResNet-50 model is trained to identify 4 specific states:</p>
+    </div>
+
+    <div class="taxonomy-list">
+      {% for cls in classes_list %}
+      <div class="taxonomy-item">
+        <div class="taxonomy-num">{{ forloop.counter0 }}</div>
+        <div class="taxonomy-info">
+          <h4>
+            {{ cls.display_name }}
+            <span class="badge {{ cls.badge_class }}">{{ cls.status }}</span>
+          </h4>
+          <p>{{ cls.description }}</p>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+
+    <div style="margin-top: 1.5rem; padding-top: 1rem; border-top: 1px solid var(--border-color); font-size: 0.8rem; color: var(--text-muted);">
+      <strong>Pretrained Model Backbone:</strong> ResNet-50 with 4-output linear classification head trained via two-phase transfer learning (30 epochs frozen backbone + 20 epochs fine-tuning).
+    </div>
+  </div>
+</div>
+{% endblock %}
