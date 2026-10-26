@@ -18,8 +18,8 @@ db.sqlite3-journal
 media/
 
 # Dataset / Raw Data (large files > 5GB)
-Data/
-cleanup_backup_step08/
+/Data/
+/cleanup_backup_step08/
 
 # IDE / Editor folders
 .vscode/
@@ -30,3 +30,6 @@ cleanup_backup_step08/
 # OS files
 .DS_Store
 Thumbs.db
+
+# Temporary update scripts
+update_main_js.js

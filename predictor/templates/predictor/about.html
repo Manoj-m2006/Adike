@@ -1,72 +1,133 @@
 {% extends "predictor/base.html" %}
 
-{% block title %}Model & Methodology{% endblock %}
+{% block title %}Methodology & AI Architecture — ArecaLens{% endblock %}
 
 {% block content %}
-<section class="hero-section" style="margin-bottom: 2rem;">
-  <div class="hero-pill">📖 Technical Overview & Architecture</div>
-  <h1 class="hero-title">MODEL <span>METHODOLOGY</span></h1>
-  <p class="hero-description">
-    Comprehensive background on the deep transfer learning framework, dataset cleaning protocol, and diagnostic taxonomy.
-  </p>
+<section class="hero-banner" style="margin-bottom: 2.5rem;">
+  <div class="hero-banner-inner">
+    <div class="hero-content">
+      <div class="hero-pill">
+        <span>📖</span>
+        <span data-i18n="about_tag">Phytosanitary AI Methodology</span>
+      </div>
+      <h1 class="hero-title" data-i18n="about_title">Technical Architecture & Pathology</h1>
+      <p class="hero-desc" data-i18n="about_desc">
+        Comprehensive specification of the transfer-learned ResNet-50 architecture, Grad-CAM layer4 explainability engine, and 4-class agronomic pathology taxonomy.
+      </p>
+      <div class="hero-buttons">
+        <a href="{% url 'predictor:home' %}" class="btn-hero-primary" data-i18n="about_launch_btn">Launch Screening</a>
+        <a href="{% url 'predictor:home' %}" class="btn-hero-secondary" data-i18n="about_guide_btn">Explore Field Guide ↗</a>
+      </div>
+    </div>
+
+    <div class="hero-art-stamp">
+      <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" style="width:44px;height:44px;max-width:44px;max-height:44px;">
+        <path d="M12 2L12 22"></path>
+        <path d="M12 7C8 7 4 9 4 13C4 17 8 19 12 19"></path>
+        <path d="M12 7C16 7 20 9 20 13C20 17 16 19 12 19"></path>
+      </svg>
+      <span>Areca Lens</span>
+    </div>
+  </div>
 </section>
 
-<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-bottom: 2rem;">
-  <!-- Deep Learning Pipeline Card -->
+<!-- Dual Column Methodology Specifications -->
+<div class="app-two-col" style="margin-bottom: 2.5rem;">
+  <!-- Neural Network Architecture Card -->
   <div class="card">
-    <div class="card-header">
-      <h2 class="card-title"><span>🧠</span> Deep Neural Network Architecture</h2>
-      <p class="card-subtitle">Transfer learning with deep residual feature representations</p>
+    <div class="card-top-header">
+      <div class="card-title-group">
+        <h2>
+          <span>🧠</span> <span data-i18n="about_card1_title">Neural Network Architecture</span>
+        </h2>
+        <p data-i18n="about_card1_sub">Transfer learning with deep residual feature representations</p>
+      </div>
+      <span class="tag-badge">ResNet-50</span>
     </div>
-    <ul style="list-style-type: none; font-size: 0.9rem; line-height: 1.8; color: var(--text-main);">
-      <li><strong>Backbone:</strong> Pretrained ResNet-50 (50 layers with bottleneck residual blocks)</li>
-      <li><strong>Classification Head:</strong> Modified 4-output linear layer (2048 in_features &rarr; 4 classes)</li>
-      <li><strong>Input Tensor:</strong> 224 &times; 224 &times; 3 (RGB normalized via standard ImageNet mean/std)</li>
-      <li><strong>Loss Function:</strong> Weighted Cross-Entropy Loss (balanced for class distribution)</li>
-      <li><strong>Optimizer:</strong> AdamW with Cosine Annealing Learning Rate Scheduler</li>
-      <li><strong>Inference Mode:</strong> Stateless deterministic forward pass under <code>torch.no_grad()</code></li>
-    </ul>
+
+    <div style="font-size: 0.88rem; line-height: 1.8; color: var(--c-text-body); margin-top: 0.5rem;">
+      <p style="margin-bottom: 0.85rem;" data-i18n="about_card1_p1">
+        ArecaLens utilizes a fine-tuned deep residual network (ResNet-50) pretrained on ImageNet and specialized for foliar and nut pathologies of the <em>Areca catechu</em> palm.
+      </p>
+      <ul style="list-style-type: none; display: flex; flex-direction: column; gap: 0.6rem;">
+        <li style="display: flex; gap: 0.5rem; align-items: baseline;">
+          <strong style="color: var(--c-dark-green); min-width: 140px;" data-i18n="about_backbone_label">Backbone:</strong>
+          <span data-i18n="about_backbone_desc">50 convolutional layers with residual shortcut connections</span>
+        </li>
+        <li style="display: flex; gap: 0.5rem; align-items: baseline;">
+          <strong style="color: var(--c-dark-green); min-width: 140px;" data-i18n="about_head_label">Classification Head:</strong>
+          <span data-i18n="about_head_desc">Modified 4-output linear layer (2048 &rarr; 4 classes)</span>
+        </li>
+        <li style="display: flex; gap: 0.5rem; align-items: baseline;">
+          <strong style="color: var(--c-dark-green); min-width: 140px;" data-i18n="about_tensor_label">Input Tensor:</strong>
+          <span data-i18n="about_tensor_desc">224 &times; 224 &times; 3 (RGB normalized via ImageNet &mu;=[0.485, 0.456, 0.406], &sigma;=[0.229, 0.224, 0.225])</span>
+        </li>
+        <li style="display: flex; gap: 0.5rem; align-items: baseline;">
+          <strong style="color: var(--c-dark-green); min-width: 140px;" data-i18n="about_xai_label">Explainability:</strong>
+          <span data-i18n="about_xai_desc">Grad-CAM targeted at the terminal residual block (layer4, 2048 channels)</span>
+        </li>
+        <li style="display: flex; gap: 0.5rem; align-items: baseline;">
+          <strong style="color: var(--c-dark-green); min-width: 140px;" data-i18n="about_infer_label">Inference Mode:</strong>
+          <span data-i18n="about_infer_desc">Deterministic forward evaluation under torch.no_grad() with sub-100ms latency</span>
+        </li>
+      </ul>
+    </div>
   </div>
 
-  <!-- Two-Phase Training Card -->
+  <!-- Explainable AI (Grad-CAM) Mathematical Formulation -->
   <div class="card">
-    <div class="card-header">
-      <h2 class="card-title"><span>⚙️</span> Two-Phase Training Protocol</h2>
-      <p class="card-subtitle">Stable feature extraction followed by full fine-tuning</p>
+    <div class="card-top-header">
+      <div class="card-title-group">
+        <h2>
+          <span>🔍</span> <span data-i18n="about_card2_title">Explainable AI (Grad-CAM)</span>
+        </h2>
+        <p data-i18n="about_card2_sub">Gradient-weighted Class Activation Mapping</p>
+      </div>
+      <span class="tag-badge">XAI Protocol</span>
     </div>
-    <div style="font-size: 0.875rem; color: var(--text-muted); line-height: 1.6;">
-      <div style="margin-bottom: 1rem; padding: 0.75rem; background: var(--surface-alt); border-radius: 8px;">
-        <strong style="color: var(--text-main);">Phase 1: Feature Extraction (30 Epochs)</strong><br>
-        The convolutional backbone layers are frozen to retain general visual representations, while only the 4-class classification head is trained with learning rate 1e-3.
+
+    <div style="font-size: 0.86rem; color: var(--c-text-body); line-height: 1.7; margin-top: 0.5rem;">
+      <p style="margin-bottom: 0.75rem;" data-i18n="about_card2_p1">
+        To provide actionable transparency for growers, the model computes neuron importance weights by taking gradients of the class score with respect to feature activation maps of the final convolutional layer:
+      </p>
+      <div style="background: #e8f5ec; padding: 0.85rem 1.15rem; border-radius: 10px; border: 1px solid #d8f3dc; font-family: monospace; font-size: 0.88rem; color: #1b4332; margin-bottom: 0.85rem;">
+        &alpha;<sub>k</sub><sup>c</sup> = (1/Z) &sum;<sub>i</sub> &sum;<sub>j</sub> (&part; y<sup>c</sup> / &part; A<sub>i,j</sub><sup>k</sup>)<br>
+        L<sub>Grad-CAM</sub><sup>c</sup> = ReLU( &sum;<sub>k</sub> &alpha;<sub>k</sub><sup>c</sup> A<sup>k</sup> )
       </div>
-      <div style="padding: 0.75rem; background: var(--surface-alt); border-radius: 8px;">
-        <strong style="color: var(--text-main);">Phase 2: Full Fine-Tuning (20 Epochs)</strong><br>
-        All 50 residual layers are unfrozen and trained end-to-end at a gentle learning rate of 1e-5 to adapt low- and high-level filters to specific arecanut pathology features.
-      </div>
+      <p data-i18n="about_card2_p2">
+        The positive rectification (ReLU) isolates visual features that contribute positively to the predicted pathology, rendered as a continuous thermal heatmap blended over the original image at 45% default opacity.
+      </p>
     </div>
   </div>
 </div>
 
-<!-- Disease Details Grid -->
-<div class="card" style="margin-bottom: 2rem;">
-  <div class="card-header">
-    <h2 class="card-title"><span>🌿</span> 4-Class Pathological Taxonomy</h2>
-    <p class="card-subtitle">Detailed characteristics and diagnostic indicators for each class</p>
+<!-- 4-Class Pathological Taxonomy Grid -->
+<div class="card" style="margin-bottom: 2.5rem;">
+  <div class="card-top-header">
+    <div class="card-title-group">
+      <h2>
+        <span>🌿</span> <span data-i18n="about_tax_title">4-Class Pathological Taxonomy</span>
+      </h2>
+      <p data-i18n="about_tax_sub">Agronomic characteristics, etiology, and intervention standards</p>
+    </div>
   </div>
 
-  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.25rem;">
+  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.25rem; margin-top: 1rem;">
     {% for cls in classes_list %}
-    <div style="background: var(--surface-alt); border: 1px solid var(--border-color); border-radius: 12px; padding: 1.25rem;">
-      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
-        <span class="badge {{ cls.badge_class }}">{{ cls.status }}</span>
-        <span style="font-size: 0.75rem; font-weight: 700; color: var(--text-muted);">Class {{ forloop.counter0 }}</span>
+    <div style="background: #ffffff; border: 1.5px solid var(--c-card-border); border-radius: var(--radius-md); padding: 1.35rem; display: flex; flex-direction: column; box-shadow: 0 2px 8px rgba(0,0,0,0.03);">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.65rem;">
+        <span class="status-badge-pill {% if cls.status == 'Healthy' %}status-success{% else %}status-danger{% endif %}" data-i18n="status_{{ cls.status|lower }}">
+          {{ cls.status }}
+        </span>
+        <span style="font-size: 0.75rem; font-weight: 700; color: var(--c-text-muted);">Class {{ forloop.counter0 }}</span>
       </div>
-      <h3 style="font-size: 1.05rem; font-weight: 700; color: var(--text-main); margin-bottom: 0.25rem;">{{ cls.display_name }}</h3>
-      <div style="font-size: 0.8rem; font-weight: 600; color: var(--primary-color); margin-bottom: 0.5rem;">{{ cls.category }}</div>
-      <p style="font-size: 0.8rem; color: var(--text-muted); line-height: 1.5; margin-bottom: 0.75rem;">{{ cls.description }}</p>
+      <h3 style="font-family: var(--font-display); font-size: 1.12rem; font-weight: 700; color: var(--c-dark-green); margin-bottom: 0.25rem;" class="cls-name-transizable">{{ cls.display_name }}</h3>
+      <div style="font-size: 0.8rem; font-weight: 600; color: var(--c-accent-green); margin-bottom: 0.65rem;">{{ cls.category }}</div>
+      <p style="font-size: 0.84rem; color: var(--c-text-body); line-height: 1.6; margin-bottom: 1rem; flex: 1;" data-i18n="desc_{{ cls.internal_name }}">{{ cls.description }}</p>
       {% if cls.management %}
-      <div style="font-size: 0.75rem; background: #ffffff; padding: 0.5rem; border-radius: 6px; border: 1px solid var(--border-color);">
-        <strong>Control:</strong> {{ cls.management }}
+      <div style="font-size: 0.78rem; background: #f7f9f6; padding: 0.75rem; border-radius: 8px; border: 1px solid #e2ece3; color: var(--c-text-muted);">
+        <strong style="color: var(--c-dark-green);" data-i18n="recom_action_label">Recommended Action:</strong>
+        <span data-i18n="mgmt_{{ cls.internal_name }}">{{ cls.management }}</span>
       </div>
       {% endif %}
     </div>

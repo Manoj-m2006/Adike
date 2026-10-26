@@ -91,6 +91,7 @@ def home_view(request):
             "category": info.get("category", ""),
             "badge_class": info.get("badge_class", "badge-secondary"),
             "description": info.get("description", ""),
+            "management": info.get("management", ""),
         })
 
     context = {
@@ -121,3 +122,80 @@ def about_view(request):
         "classes_list": classes_list,
     }
     return render(request, "predictor/about.html", context)
+
+
+@require_http_methods(["POST", "GET"])
+def translate_api_view(request):
+    """
+    Translates a set of UI strings using Gemini or returns cached translations.
+    Expects JSON: { "keys": { "key_name": "English text" }, "target_lang": "kn", "lang_name": "Kannada" }
+    """
+    from django.http import JsonResponse
+    import json
+    from predictor.gemini_service import translate_keys_with_gemini, get_gemini_api_key, load_translation_cache
+
+    try:
+        if request.method == "POST":
+            data = json.loads(request.body.decode('utf-8'))
+        else:
+            data = request.GET
+
+        target_lang = data.get('target_lang', 'en').lower()
+        lang_name = data.get('lang_name', '')
+        keys = data.get('keys', {})
+
+        if isinstance(keys, str):
+            try:
+                keys = json.loads(keys)
+            except Exception:
+                keys = {}
+
+        # If no keys were explicitly provided, return entire cache for target_lang if available
+        if not keys:
+            cache = load_translation_cache()
+            cached_lang = cache.get(target_lang, {})
+            return JsonResponse({
+                "success": True,
+                "target_lang": target_lang,
+                "translations": cached_lang,
+                "has_gemini_key": bool(get_gemini_api_key()),
+            })
+
+        translations = translate_keys_with_gemini(keys, target_lang, lang_name)
+        return JsonResponse({
+            "success": True,
+            "target_lang": target_lang,
+            "translations": translations,
+            "has_gemini_key": bool(get_gemini_api_key()),
+        })
+
+    except Exception as e:
+        logger.exception("Error in translate_api_view: %s", e)
+        return JsonResponse({
+            "success": False,
+            "error": str(e),
+            "has_gemini_key": bool(get_gemini_api_key()),
+        }, status=400)
+
+
+@require_http_methods(["POST"])
+def save_gemini_key_view(request):
+    """
+    Safely saves a user-provided Gemini API key to .env and updates the runtime configuration.
+    """
+    from django.http import JsonResponse
+    import json
+    from predictor.gemini_service import save_gemini_api_key
+
+    try:
+        data = json.loads(request.body.decode('utf-8'))
+        api_key = data.get('api_key', '').strip()
+        if not api_key:
+            return JsonResponse({"success": False, "error": "No API key provided."}, status=400)
+
+        ok, msg = save_gemini_api_key(api_key)
+        return JsonResponse({"success": ok, "message": msg, "has_gemini_key": True})
+    except Exception as e:
+        logger.exception("Error saving Gemini API key: %s", e)
+        return JsonResponse({"success": False, "error": str(e)}, status=500)
+

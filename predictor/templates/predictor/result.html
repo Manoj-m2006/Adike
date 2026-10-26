@@ -1,190 +1,805 @@
 {% extends "predictor/base.html" %}
 
-{% block title %}Diagnosis Result: {{ prediction.predicted_display_name }}{% endblock %}
+{% block title %}Screening Result: {{ prediction.predicted_display_name }} | ArecaLens Compendium{% endblock %}
 
 {% block content %}
-<!-- Section Title -->
-<section class="hero-section" style="margin-bottom: 2rem;">
-  <div class="hero-pill">🔍 Explainable AI Diagnostics</div>
-  <h1 class="hero-title">ARECANUT <span>DISEASE DETECTION</span></h1>
-  <p class="hero-description">
-    ResNet-50 with Grad-CAM Visualization — Model Interpretation & 4-Class Pathology Assessment
-  </p>
-</section>
+<div class="book-wrapper">
 
-<!-- 3-Column Result Grid (Responsive: 3 columns on Desktop, stacked on Mobile/Tablet) -->
-<div class="result-tri-grid">
-  
-  <!-- =========================================================================
-       CARD 1 (LEFT): ORIGINAL UPLOADED IMAGE
-       ========================================================================= -->
-  <div class="card result-col-card">
-    <div class="card-header">
-      <h2 class="card-title">
-        <span>📸</span> Original Specimen
-      </h2>
-      <p class="card-subtitle">{{ filename }}</p>
-    </div>
-
-    <div class="result-image-box">
-      <img src="{{ image_data_uri }}" alt="Original Uploaded Arecanut Specimen" class="specimen-img">
-    </div>
-
-    <div class="image-caption-tag">
-      <span>Original Image</span>
-    </div>
-
-    <table class="image-meta-table">
-      <tr>
-        <td>Specimen Resolution</td>
-        <td>{{ image_width }} × {{ image_height }} px</td>
-      </tr>
-      <tr>
-        <td>Tensor Input</td>
-        <td>224 × 224 (RGB)</td>
-      </tr>
-      <tr>
-        <td>Format / Size</td>
-        <td>{{ image_format }} • {{ image_size_kb }} KB</td>
-      </tr>
-    </table>
-
-    <div style="margin-top: auto; padding-top: 1.25rem;">
-      <a href="{% url 'predictor:home' %}" class="btn btn-secondary" style="width: 100%;">
-        <span>⬅️</span> Analyze Another Image
-      </a>
-    </div>
-  </div>
+  <!-- Hidden data element for client-side localStorage history tracking -->
+  <div id="scan-result-data" 
+       data-image-thumb="{{ image_data_uri }}"
+       data-disease="{{ prediction.predicted_display_name }}"
+       data-confidence="{{ prediction.confidence_percentage }}%"
+       data-filename="{{ filename }}"
+       style="display: none;"></div>
 
   <!-- =========================================================================
-       CARD 2 (CENTER): GRAD-CAM HEATMAP OVERLAY VISUALIZATION
+       BOOK CHAPTER STEPPER RIBBON (Universal Inspection Navigator)
        ========================================================================= -->
-  <div class="card result-col-card">
-    <div class="card-header">
-      <h2 class="card-title">
-        <span>🔥</span> Grad-CAM Attention
-      </h2>
-      <p class="card-subtitle">Gradient-weighted Class Activation Map</p>
-    </div>
+  <nav class="book-stepper-bar" aria-label="Compendium Chapter Stepper">
+    <ol class="book-stepper-list">
+      <li class="book-step-item completed" data-step="1" title="Chapter 1: Welcome & Overview">
+        <a href="{% url 'predictor:home' %}" style="text-decoration:none; display:flex; align-items:center; gap:0.55rem; color:inherit;">
+          <div class="book-step-num">✓</div>
+          <span class="book-step-title" data-i18n="step_welcome">Welcome</span>
+        </a>
+      </li>
+      <li class="step-divider-line"></li>
 
-    <div class="result-image-box gradcam-box">
-      <img src="{{ gradcam_data_uri }}" alt="Grad-CAM Heatmap Overlay on Specimen" class="specimen-img">
-    </div>
+      <li class="book-step-item completed" data-step="2" title="Chapter 2: Specimen Input Studio">
+        <a href="{% url 'predictor:home' %}" style="text-decoration:none; display:flex; align-items:center; gap:0.55rem; color:inherit;">
+          <div class="book-step-num">✓</div>
+          <span class="book-step-title" data-i18n="step_input">Specimen Input</span>
+        </a>
+      </li>
+      <li class="step-divider-line"></li>
 
-    <div class="image-caption-tag">
-      <span>Grad-CAM Model Attention</span>
-    </div>
+      <li class="book-step-item completed" data-step="3" title="Chapter 3: Neural Analysis & XAI HUD">
+        <div class="book-step-num">✓</div>
+        <span class="book-step-title" data-i18n="step_analyzing">Analysis HUD</span>
+      </li>
+      <li class="step-divider-line"></li>
 
-    <!-- Scientific Colormap Legend (Jet Palette) -->
-    <div class="gradcam-legend-wrapper">
-      <div class="legend-scale-bar"></div>
-      <div class="legend-labels">
-        <span>Low Importance (Cold)</span>
-        <span>High Importance (Hot)</span>
-      </div>
-    </div>
+      <li class="book-step-item active" id="stepper-step-4" data-step="4" title="Chapter 4: Results & Explainable AI">
+        <div class="book-step-num">4</div>
+        <span class="book-step-title" data-i18n="step_results">Results & XAI</span>
+      </li>
+      <li class="step-divider-line"></li>
 
-    <div class="target-layer-pill">
-      <span>Target Layer: <strong>ResNet-50 layer4</strong> (2048-ch Conv)</span>
-    </div>
-
-    <div style="margin-top: auto; padding-top: 1.25rem;">
-      <a href="{{ gradcam_data_uri }}" download="gradcam_{{ prediction.predicted_class }}.png" class="btn btn-secondary" style="width: 100%;">
-        <span>⬇️</span> Download Grad-CAM
-      </a>
-    </div>
-  </div>
+      <li class="book-step-item" id="stepper-step-5" data-step="5" title="Chapter 5: Comprehensive Disease Dossier">
+        <div class="book-step-num">5</div>
+        <span class="book-step-title" data-i18n="step_dossier">Disease Dossier</span>
+      </li>
+    </ol>
+  </nav>
 
   <!-- =========================================================================
-       CARD 3 (RIGHT): PREDICTION RESULT & 4-CLASS PROBABILITIES
+       PAGE 4: RESULTS & EXPLAINABLE AI (XAI) STUDIO
        ========================================================================= -->
-  <div class="card result-col-card">
-    <div class="card-header">
-      <h2 class="card-title">
-        <span>📊</span> Diagnostic Assessment
-      </h2>
-      <p class="card-subtitle">Predicted State & Softmax Probability Distribution</p>
+  <section id="book-page-4" class="book-page active" data-page="4">
+    <div class="book-page-meta">
+      <span class="book-chapter-badge" data-i18n="vol_chap_4">VOLUME I • CHAPTER 4</span>
+      <span class="book-page-indicator" data-i18n="page_4_of_5">Page 4 of 5</span>
     </div>
 
-    <!-- Primary Prediction Banner -->
-    <div class="prediction-banner {% if prediction.status == 'Healthy' %}banner-success{% elif prediction.predicted_class == 'Mahali_Koleroga' %}banner-danger{% else %}banner-warning{% endif %}">
-      <div>
-        <div class="prediction-label-title">Predicted State</div>
-        <div class="prediction-name">{{ prediction.predicted_display_name }}</div>
-        <div style="margin-top: 0.35rem;">
-          <span class="badge {{ prediction.badge_class }}">{{ prediction.status }}</span>
-          <span class="badge badge-secondary">{{ prediction.category }}</span>
+    <!-- Re-upload mini notice bar -->
+    <div class="card" style="margin-bottom: 1.5rem; padding: 0.85rem 1.25rem;">
+      <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 0.75rem;">
+        <div style="display: flex; align-items: center; gap: 0.85rem;">
+          <span style="font-size: 1.2rem;">🔬</span>
+          <div style="font-size: 0.86rem; color: var(--c-text-body);">
+            <span data-i18n="showing_diagnosis">Showing automated screening diagnosis for</span> <strong>{{ filename }}</strong>.
+          </div>
+        </div>
+        <div>
+          <a href="{% url 'predictor:home' %}" class="btn-choose-file" style="pointer-events: auto; text-decoration: none; padding: 0.45rem 1rem; font-size: 0.82rem;">
+            <span data-i18n="analyze_another_photo">Analyze another photo ➔</span>
+          </a>
         </div>
       </div>
-      <div class="confidence-chip">
-        <div class="confidence-val {% if prediction.status == 'Healthy' %}text-success{% elif prediction.predicted_class == 'Mahali_Koleroga' %}text-danger{% else %}text-warning{% endif %}">
-          {{ prediction.confidence_percentage }}%
-        </div>
-        <div class="confidence-text">Confidence</div>
-      </div>
     </div>
 
-    <!-- 4-Class Probability Breakdown -->
-    <div class="probability-breakdown">
-      <h3 style="font-size: 0.9rem; font-weight: 700; margin-bottom: 0.75rem; color: var(--text-main);">
-        Class Probabilities (All 4 Classes)
-      </h3>
-
-      {% for prob in prediction.probabilities %}
-      <div class="prob-item">
-        <div class="prob-header">
-          <div class="prob-name">
-            {% if prob.is_predicted %}<span>🎯</span>{% endif %}
-            {{ prob.display_name }}
-            {% if prob.is_predicted %}
-            <span class="badge {{ prob.badge_class }}" style="font-size: 0.65rem;">Predicted</span>
+    <!-- Two-Column Results Dashboard -->
+    <div class="results-dashboard-grid">
+      <!-- Left Card: Your screening result -->
+      <div class="card">
+        <div class="result-header-row">
+          <div>
+            {% if prediction.status == 'Diseased' %}
+              <span class="status-badge-pill status-danger">
+                <span>⚠️</span>
+                <span data-i18n="badge_suspected">Disease pattern suspected</span>
+              </span>
+            {% elif prediction.confidence_percentage < 75.0 %}
+              <span class="status-badge-pill status-warning">
+                <span>⚠️</span>
+                <span data-i18n="badge_review">This photo needs another look.</span>
+              </span>
+            {% else %}
+              <span class="status-badge-pill status-success">
+                <span>✓</span>
+                <span data-i18n="badge_healthy">Healthy plant</span>
+              </span>
             {% endif %}
           </div>
-          <div class="prob-value">{{ prob.percentage }}%</div>
+
+          <div style="display: flex; align-items: center; gap: 0.5rem;">
+            <button type="button" id="print-report-btn" class="btn-card-action" title="Print Agronomist Diagnostic Report (PDF)">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 6 2 18 2 18 9"></polyline>
+                <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path>
+                <rect x="6" y="14" width="12" height="8"></rect>
+              </svg>
+            </button>
+            <a href="{{ image_data_uri }}" download="specimen_{{ filename }}" class="btn-card-action" title="Download original photo">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                <polyline points="7 10 12 15 17 10"></polyline>
+                <line x1="12" y1="15" x2="12" y2="3"></line>
+              </svg>
+            </a>
+          </div>
         </div>
-        <div class="progress-track">
-          <div class="progress-fill {% if 'Healthy' in prob.internal_name %}fill-healthy{% elif prob.internal_name == 'Mahali_Koleroga' %}fill-mahalo{% else %}fill-yellow{% endif %}" 
-               style="width: {{ prob.percentage }}%;"></div>
+
+        <!-- Main Predicted Disease Title -->
+        <h2 class="result-main-disease">{{ prediction.predicted_display_name }}</h2>
+        <p class="result-advisory-caption" data-i18n="advisory_caption">
+          A suggestion from this photo. Check the plant and consider expert advice.
+        </p>
+
+        <!-- Circular Score Gauge -->
+        <div class="score-indicator-wrap">
+          <div class="circular-gauge">
+            <svg width="88" height="88" viewBox="0 0 88 88">
+              <circle class="gauge-bg" cx="44" cy="44" r="38"></circle>
+              <circle class="gauge-val" cx="44" cy="44" r="38" data-percentage="{{ prediction.confidence_percentage }}"></circle>
+            </svg>
+            <div class="gauge-text">{{ prediction.confidence_percentage }}%</div>
+          </div>
+          <div>
+            <div class="score-details-label" data-i18n="score_label">Relative model score</div>
+            <div class="score-details-sub" data-i18n="score_sub">
+              Across compare four model classes. It is not the chance that the diagnosis is correct.
+            </div>
+          </div>
+        </div>
+
+        <!-- Collapsible All 4 Model Scores Accordion (Expanded for transparency) -->
+        <button type="button" id="toggle-scores-btn" class="scores-accordion-toggle">
+          <span data-i18n="see_all_scores">▴ Hide four model scores</span>
+        </button>
+
+        <div id="all-scores-panel" class="all-scores-panel open">
+          {% for prob in prediction.probabilities %}
+          <div class="class-prob-row">
+            <div class="class-prob-header">
+              <span>
+                {{ prob.display_name }}
+                {% if prob.is_predicted %}<span class="predicted-tag" data-i18n="primary_match">PRIMARY MATCH</span>{% endif %}
+              </span>
+              <span style="font-weight: 700; color: {% if prob.is_predicted %}var(--c-forest-green){% else %}var(--c-text-muted){% endif %};">{{ prob.percentage }}%</span>
+            </div>
+            <div class="class-prob-bar-track">
+              <div class="class-prob-bar-fill {% if prob.is_predicted %}predicted{% endif %}" style="width: {{ prob.percentage }}%;"></div>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+
+        <!-- Understanding this result -->
+        <div class="result-understanding-box">
+          <div class="understanding-title" style="display: flex; align-items: center; justify-content: space-between;">
+            <div style="display: flex; align-items: center; gap: 0.45rem;">
+              <span>🔍</span>
+              <span data-i18n="understanding_title">Understanding this result</span>
+            </div>
+            <button type="button" id="copy-advisory-btn" class="btn-card-action" title="Copy Advisory to Clipboard" style="font-size: 0.72rem; padding: 0.25rem 0.6rem; width: auto; height: auto; display: inline-flex; align-items: center; gap: 0.35rem; border-radius: 9999px;">
+              <span>📋</span>
+              <span id="copy-advisory-text" data-i18n="copy_advisory">Copy Advisory</span>
+            </button>
+          </div>
+          <ul class="understanding-bullets">
+            <li>The model strongly favors this class: <strong>{{ prediction.predicted_display_name }}</strong> (relative score: {{ prediction.confidence_percentage }}%). This does not confirm a diagnosis.</li>
+            <li>{{ prediction.description }}</li>
+            {% if prediction.management %}
+            <li><strong>Recommended care:</strong> {{ prediction.management }}</li>
+            {% endif %}
+            <li>Take another photo in daylight, hold the camera steady and fill the frame with the leaf or nut. Photograph the same plant from another angle.</li>
+            <li>If you are worried, show the palm to an agricultural officer or a KVK.</li>
+            <li>The heatmap shows where the model looked. It does not prove the cause of the problem. Only an expert can confirm a disease.</li>
+          </ul>
         </div>
       </div>
-      {% endfor %}
+
+      <!-- Right Card: What influenced the result? (Grad-CAM XAI) -->
+      <div class="card">
+        <div class="result-header-row">
+          <!-- Interactive View Tabs -->
+          <div class="gradcam-view-tabs">
+            <button type="button" class="cam-tab-btn" data-mode="input" data-i18n="tab_model_input">Model input</button>
+            <button type="button" class="cam-tab-btn active" data-mode="overlay" data-i18n="tab_cam_overlay">CAM overlay</button>
+            <button type="button" class="cam-tab-btn" data-mode="compare" data-i18n="tab_compare">Compare</button>
+            <button type="button" class="cam-tab-btn" data-mode="curtain" title="Interactive curtain comparison slider" data-i18n="tab_curtain">Curtain ◂▸</button>
+          </div>
+
+          <a href="{{ gradcam_data_uri }}" download="gradcam_{{ prediction.predicted_class }}.png" class="btn-card-action" title="Download Grad-CAM Overlay">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+              <polyline points="7 10 12 15 17 10"></polyline>
+              <line x1="12" y1="15" x2="12" y2="3"></line>
+            </svg>
+          </a>
+        </div>
+
+        <div style="font-family: var(--font-display); font-size: 1.15rem; font-weight: 700; color: var(--c-text-title); margin-bottom: 0.75rem;" data-i18n="influenced_title">
+          What influenced the result?
+        </div>
+
+        <!-- Main Grad-CAM Visual Display Stage -->
+        <div id="cam-display-stage" class="cam-display-stage">
+          <div class="cam-substage" id="cam-substage-base">
+            <img id="cam-base-layer" class="cam-layer base-image" src="{{ image_data_uri }}" alt="Base Specimen Image">
+            <span class="cam-compare-label" style="display:none;" data-i18n="tab_model_input">Model input</span>
+          </div>
+          <div class="cam-substage" id="cam-substage-overlay">
+            <img id="cam-overlay-layer" class="cam-layer overlay-image" src="{{ gradcam_data_uri }}" alt="Grad-CAM Overlay">
+            <span class="cam-compare-label" style="display:none;" data-i18n="tab_cam_overlay">CAM overlay</span>
+          </div>
+        </div>
+
+        <!-- Interactive Split-Curtain Slider -->
+        <div id="curtain-slider-stage" class="curtain-container" style="display: none;">
+          <img class="curtain-img" src="{{ image_data_uri }}" alt="Original Specimen">
+          <span class="curtain-badge right" data-i18n="curtain_model_input">Model Input</span>
+          <div class="curtain-overlay-wrap" id="curtain-overlay-wrap">
+            <img class="curtain-img" src="{{ gradcam_data_uri }}" alt="Heatmap Overlay">
+            <span class="curtain-badge left" data-i18n="curtain_heatmap">Grad-CAM Heatmap</span>
+          </div>
+          <div class="curtain-divider-line" id="curtain-divider-line">
+            <div class="curtain-handle-knob">◂ ▸</div>
+          </div>
+        </div>
+
+        <!-- Opacity Slider -->
+        <div class="opacity-slider-row" id="opacity-slider-container">
+          <span data-i18n="overlay_opacity">Overlay opacity</span>
+          <input type="range" id="overlay-opacity-slider" class="opacity-slider" min="0" max="100" value="100">
+          <span id="opacity-val-text">100%</span>
+        </div>
+
+        <!-- Jet Colormap Scale Bar -->
+        <div class="cam-scale-wrapper">
+          <div class="cam-gradient-bar"></div>
+          <div class="cam-scale-labels">
+            <span data-i18n="less_contrib">Less contribution</span>
+            <span data-i18n="more_contrib">More contribution</span>
+          </div>
+        </div>
+
+        <div class="cam-explanation-text" data-i18n="cam_caption">
+          Warm colours show stronger contribution to the chosen class. They do not confirm a diseased area or its cause.
+        </div>
+
+        <div style="margin-top: auto; padding-top: 0.85rem; font-size: 0.72rem; color: var(--c-text-muted); display: flex; justify-content: space-between;">
+          <span data-i18n="layer_tag">Layer: ResNet-50 • layer4</span>
+          <span><span data-i18n="latency_tag">Latency:</span> {{ prediction.latency_ms }} ms</span>
+        </div>
+      </div>
     </div>
 
-    <!-- Hardware / Compute Metadata -->
-    <div class="inference-meta" style="margin-top: auto; padding-top: 0.75rem;">
-      <span class="meta-pill">🧠 Model: ResNet-50</span>
-      <span class="meta-pill">⚡ {{ prediction.device_name }}</span>
-      <span class="meta-pill">⏱️ {{ prediction.latency_ms }} ms</span>
+    <!-- Navigation Footer -->
+    <div class="book-nav-footer">
+      <a href="{% url 'predictor:home' %}" class="btn-book-turn prev" style="text-decoration:none;">
+        <span data-i18n="btn_scan_another">◂ Scan Another Specimen</span>
+      </a>
+      <button type="button" class="btn-book-turn next" id="result-to-dossier-btn">
+        <span data-i18n="btn_turn_dossier">Turn to Disease Dossier (Page 5)</span>
+        <span>➔</span>
+      </button>
     </div>
-  </div>
+  </section>
 
-</div>
-
-<!-- Full-Width Explainability & Agronomic Guidance Section -->
-<div class="card" style="margin-top: 2rem;">
-  <div class="card-header">
-    <h2 class="card-title">
-      <span>💡</span> Model Interpretation & Agronomic Guidance
-    </h2>
-  </div>
-
-  <!-- Mandatory Wording Box -->
-  <div class="explainability-box">
-    <div class="explain-icon">ℹ️</div>
-    <div class="explain-text">
-      <strong>Explainable AI Interpretation:</strong>
-      Grad-CAM highlights image regions that contributed most strongly to the model's prediction. It is an explainability visualization and should not be interpreted as a precise disease-segmentation mask.
+  <!-- =========================================================================
+       PAGE 5: IN-DEPTH DISEASE DOSSIER & COMPREHENSIVE CARE ENCYCLOPEDIA
+       ========================================================================= -->
+  <section id="book-page-5" class="book-page" data-page="5">
+    <div class="book-page-meta">
+      <span class="book-chapter-badge" data-i18n="vol_chap_5">VOLUME I • CHAPTER 5</span>
+      <span class="book-page-indicator" data-i18n="page_5_of_5">Page 5 of 5</span>
     </div>
-  </div>
 
-  <div class="management-box" style="margin-top: 1.25rem; margin-bottom: 0;">
-    <h4>📋 Pathological Characteristics & Recommended Action</h4>
-    <p style="margin-bottom: 0.6rem;">{{ prediction.description }}</p>
-    {% if prediction.management %}
-    <div style="font-size: 0.85rem; color: #1e293b; background: #ffffff; padding: 0.85rem; border-radius: 8px; border: 1px solid var(--border-color);">
-      <strong>Recommended Agronomic Action:</strong> {{ prediction.management }}
+    <div class="dossier-hero-header">
+      <h2 class="dossier-title" data-i18n="dossier_headline">Phytosanitary Compendium & Agronomic Dossier</h2>
+      <p class="dossier-lead" data-i18n="dossier_lead">
+        Comprehensive biological analysis of the diagnosed condition: causal pathogen, symptom progression, ICAR-CPCRI agronomic management steps, and comparative strategy trade-offs.
+      </p>
     </div>
-    {% endif %}
-  </div>
+
+    <!-- 4 Pathology Selector Tabs (Initialized to diagnosed class) -->
+    <div class="dossier-selector-tabs">
+      <button type="button" class="dossier-tab-btn {% if prediction.predicted_class == 'mahali' %}active{% endif %}" data-dossier-class="mahali" data-i18n="tab_dossier_mahali">🍄 Mahali / Koleroga (Fruit Rot)</button>
+      <button type="button" class="dossier-tab-btn {% if prediction.predicted_class == 'yld' %}active{% endif %}" data-dossier-class="yld" data-i18n="tab_dossier_yld">🍂 Yellow Leaf Disease (YLD)</button>
+      <button type="button" class="dossier-tab-btn {% if prediction.predicted_class == 'healthy_nut' %}active{% endif %}" data-dossier-class="healthy_nut" data-i18n="tab_dossier_healthy_nut">🌰 Healthy Nut (Control)</button>
+      <button type="button" class="dossier-tab-btn {% if prediction.predicted_class == 'healthy_leaf' %}active{% endif %}" data-dossier-class="healthy_leaf" data-i18n="tab_dossier_healthy_leaf">🍃 Healthy Leaf (Control)</button>
+    </div>
+
+    <!-- DOSSIER PANEL 1: MAHALI / KOLEROGA -->
+    <div class="dossier-content-panel {% if prediction.predicted_class == 'mahali' or not prediction.predicted_class in 'yld,healthy_nut,healthy_leaf' %}active{% endif %}" id="dossier-panel-mahali">
+      <div class="dossier-sections-grid">
+        <div class="dossier-block">
+          <h3 class="dossier-block-title">
+            <span>🔬</span>
+            <span>1. What Causes It (Etiology & Epidemiology)</span>
+          </h3>
+          <p class="dossier-block-text">
+            Mahali (universally known as Koleroga in Karnataka) is caused by the destructive oomycete pathogen <strong><em>Phytophthora meadii</em> McRae</strong>.
+          </p>
+          <ul class="dossier-bullets">
+            <li><strong>Climatic Triggers:</strong> High relative humidity (>90%), continuous rain and overcast skies, low temperature (20°C - 24°C) during the southwest monsoon season (June to September).</li>
+            <li><strong>Mode of Spread:</strong> Rain splashes readily detach and disperse sporangia and motile zoospores across neighboring bunches and adjacent palms.</li>
+            <li><strong>Survival Mechanism:</strong> The pathogen overwinters as resting oospores in dried mummified nut bunches, tree crown crevices, and rotting nuts on the plantation floor.</li>
+          </ul>
+        </div>
+
+        <div class="dossier-block">
+          <h3 class="dossier-block-title">
+            <span>⚠️</span>
+            <span>2. How It Affects the Palm (Pathological Progression & Yield Loss)</span>
+          </h3>
+          <p class="dossier-block-text">
+            Infection initiates rapid necrotic decay of the reproductive bunch and can advance systemically into the palm crown:
+          </p>
+          <ul class="dossier-bullets">
+            <li><strong>Initial Symptoms:</strong> Water-soaked, dark green, translucent lesions emerge near the perianth (calyx end) of young tender nuts.</li>
+            <li><strong>Advanced Fruit Rot:</strong> Infected nuts rapidly darken, lose their turgidity, rot, and shed in immense numbers (premature button and nut shedding). Fallen nuts develop a conspicuous dense white cottony fungal mycelial felt.</li>
+            <li><strong>Crown Rot & Bud Rot:</strong> If rain washes pathogen propagules into the terminal bud/crown, the central growing spindle wilts, turns necrotic brown, collapses, and completely destroys the palm crown, resulting in tree mortality.</li>
+            <li><strong>Economic Loss:</strong> In unmanaged gardens, fruit rot destroys between <strong>50% and 90%</strong> of the seasonal crop harvest.</li>
+          </ul>
+        </div>
+
+        <div class="dossier-block">
+          <h3 class="dossier-block-title">
+            <span>🛡️</span>
+            <span>3. How to Overcome (ICAR-CPCRI Management Protocols)</span>
+          </h3>
+          <p class="dossier-block-text">
+            Integrated phytosanitary management certified by ICAR-CPCRI combines chemical prophylaxis, physical barriers, and cultural sanitation:
+          </p>
+          <ul class="dossier-bullets">
+            <li><strong>Prophylactic Bordeaux Mixture (1%):</strong> Prepare by dissolving 1 kg copper sulfate and 1 kg slaked lime in 100 liters of water. Spray finely over all bunches:
+              <br>• <em>1st Spray:</em> Immediately before the onset of monsoon showers (May-June).
+              <br>• <em>2nd Spray:</em> 40 to 45 days later during a monsoon break (July-August).
+              <br>• <em>3rd Spray:</em> If rains continue late into September.
+            </li>
+            <li><strong>Polythene Bunch Covering:</strong> Tie 125-gauge polythene covers (75 × 60 cm) over the entire bunch prior to the onset of monsoon showers. Bunch covering provides complete mechanical defense against rain-borne fungal zoospores.</li>
+            <li><strong>Field Hygiene & Sanitation:</strong> Collect and incinerate all fallen, rotten nuts and diseased rachis debris; never leave them to decompose in the plantation.</li>
+            <li><strong>Soil Drainage:</strong> Excavate 2-3 feet deep drainage ditches between rows to prevent water saturation around palm root zones.</li>
+          </ul>
+        </div>
+
+        <div class="dossier-block">
+          <h3 class="dossier-block-title">
+            <span>⚖️</span>
+            <span>4. Comparative Trade-offs (Advantages vs. Disadvantages)</span>
+          </h3>
+          <div class="tradeoff-table-wrap">
+            <table class="tradeoff-table">
+              <thead>
+                <tr>
+                  <th>Management Strategy</th>
+                  <th>Key Advantages (Benefits)</th>
+                  <th>Key Disadvantages (Limitations)</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="strategy-name">1% Bordeaux Mixture Spray</td>
+                  <td>
+                    <span class="tag-adv">✓ High Efficacy:</span> Broad-spectrum fungicidal barrier.<br>
+                    <span class="tag-adv">✓ Cost-Effective:</span> Standard proven ICAR recommendation.<br>
+                    <span class="tag-adv">✓ Canopy Coverage:</span> Protects entire surface area of bunches.
+                  </td>
+                  <td>
+                    <span class="tag-dis">✗ Rain Wash-off:</span> Torrential downpours immediately after spraying can wash away deposits.<br>
+                    <span class="tag-dis">✗ Labor Heavy:</span> Requires skilled tree climbers or power rocker sprayers.<br>
+                    <span class="tag-dis">✗ Timing Sensitive:</span> Ineffective if applied late after systemic rot begins.
+                  </td>
+                </tr>
+                <tr>
+                  <td class="strategy-name">Polythene Bunch Covering</td>
+                  <td>
+                    <span class="tag-adv">✓ 100% Chemical-Free:</span> Zero chemical residue on nuts.<br>
+                    <span class="tag-adv">✓ Rainproof Barrier:</span> Stops all rain splash spore transmission.<br>
+                    <span class="tag-adv">✓ Single Application:</span> Done once before monsoon season.
+                  </td>
+                  <td>
+                    <span class="tag-dis">✗ Initial Labor:</span> Requires climbing every palm to securely tie covers.<br>
+                    <span class="tag-dis">✗ Condensation Risk:</span> Improper tying can trap internal humidity.<br>
+                    <span class="tag-dis">✗ Post-Season Removal:</span> Covers must be removed after rains.
+                  </td>
+                </tr>
+                <tr>
+                  <td class="strategy-name">Cultural Phytosanitation</td>
+                  <td>
+                    <span class="tag-adv">✓ Inoculum Reduction:</span> Breaks the overwintering fungal lifecycle.<br>
+                    <span class="tag-adv">✓ Zero Material Cost:</span> Requires only routine orchard collection.<br>
+                    <span class="tag-adv">✓ Permanent Benefit:</span> Lowers plantation pathogen pressure year-round.
+                  </td>
+                  <td>
+                    <span class="tag-dis">✗ Community Dependent:</span> Ineffective if adjacent neglected orchards harbor active disease.<br>
+                    <span class="tag-dis">✗ Non-Curative:</span> Does not prevent airborne spores from settling on palms during storms.
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="dossier-block">
+          <h3 class="dossier-block-title">
+            <span>🏛️</span>
+            <span>5. Research Authority & Extension Support</span>
+          </h3>
+          <p class="dossier-block-text">
+            Technical guidance adapted from <strong>ICAR-Central Plantation Crops Research Institute (CPCRI)</strong>, Kasaragod, Kerala & Regional Station Vittal, Karnataka.
+            <br><em>Official Helpline:</em> Contact your local Krishi Vigyan Kendra (KVK) or Assistant Director of Horticulture for chemical dosage verification.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- DOSSIER PANEL 2: YELLOW LEAF DISEASE (YLD) -->
+    <div class="dossier-content-panel {% if prediction.predicted_class == 'yld' %}active{% endif %}" id="dossier-panel-yld">
+      <div class="dossier-sections-grid">
+        <div class="dossier-block">
+          <h3 class="dossier-block-title">
+            <span>🔬</span>
+            <span>1. What Causes It (Etiology & Vectors)</span>
+          </h3>
+          <p class="dossier-block-text">
+            Yellow Leaf Disease (YLD) is a debilitating systemic disorder associated with <strong>Phytoplasma</strong> organisms that inhabit the phloem tissue of the palm.
+          </p>
+          <ul class="dossier-bullets">
+            <li><strong>Insect Vectors:</strong> Transmitted by phloem-feeding plant hoppers (<em>Proutista moesta</em>) and lace bugs (<em>Stephanitis typica</em>).</li>
+            <li><strong>Predisposing Factors:</strong> Waterlogging, high soil acidity (low pH), severe root hypoxia, and inadequate soil potassium/magnesium levels accelerate symptom onset.</li>
+          </ul>
+        </div>
+
+        <div class="dossier-block">
+          <h3 class="dossier-block-title">
+            <span>⚠️</span>
+            <span>2. How It Affects the Palm (Pathological Progression & Yield Loss)</span>
+          </h3>
+          <p class="dossier-block-text">
+            YLD causes slow, relentless systemic degeneration over several harvest cycles:
+          </p>
+          <ul class="dossier-bullets">
+            <li><strong>Foliar Chlorosis:</strong> Intense yellowing initiates at the tips of outer leaflets in lower whorls, progressing along lamina edges leaving green vascular bands.</li>
+            <li><strong>Crown Reduction:</strong> Fronds become brittle, shorten in length, and the entire crown shrinks, giving the palm a tapered appearance.</li>
+            <li><strong>Kernel Deterioration:</strong> Nuts become small, cracked, blackened with unmarketable spongy, blackened endosperm (soft, degraded chali).</li>
+            <li><strong>Yield Impact:</strong> Over 3-5 years, yield drops by <strong>60% to 80%</strong>, causing severe financial hardship for growers.</li>
+          </ul>
+        </div>
+
+        <div class="dossier-block">
+          <h3 class="dossier-block-title">
+            <span>🛡️</span>
+            <span>3. How to Overcome (ICAR-CPCRI Management Protocols)</span>
+          </h3>
+          <p class="dossier-block-text">
+            Because phytoplasma is systemic within vascular tissue, there is no chemical cure. Management focuses on soil rehabilitation and immunity enhancement:
+          </p>
+          <ul class="dossier-bullets">
+            <li><strong>Balanced Nutrition (NPK):</strong> Apply 100 g Nitrogen (220 g Urea), 40 g Phosphorus (200 g Rock Phosphate), and 140 g Potassium (230 g Muriate of Potash) per palm per year in two splits (May-June and Sept-Oct).</li>
+            <li><strong>Organic Enrichment:</strong> Apply 12 kg organic compost/farmyard manure and 12 kg green leaf mulch per palm annually.</li>
+            <li><strong>Drainage Rectification:</strong> Construct deep drainage channels to prevent stagnant water during the monsoon.</li>
+            <li><strong>Intercropping:</strong> Grow cocoa, banana, and cover crops (<em>Mimosa invisa</em>) to improve soil biological activity.</li>
+          </ul>
+        </div>
+
+        <div class="dossier-block">
+          <h3 class="dossier-block-title">
+            <span>⚖️</span>
+            <span>4. Comparative Trade-offs (Advantages vs. Disadvantages)</span>
+          </h3>
+          <div class="tradeoff-table-wrap">
+            <table class="tradeoff-table">
+              <thead>
+                <tr>
+                  <th>Management Approach</th>
+                  <th>Key Advantages (Benefits)</th>
+                  <th>Key Disadvantages (Limitations)</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="strategy-name">Nutritional Rejuvenation (NPK + Compost)</td>
+                  <td>
+                    <span class="tag-adv">✓ Palm Longevity:</span> Rebuilds canopy vigor and kernel weight.<br>
+                    <span class="tag-adv">✓ Sustainable:</span> Enhances beneficial soil microbiome.
+                  </td>
+                  <td>
+                    <span class="tag-dis">✗ No Cure:</span> Does not eradicate phytoplasma from phloem.<br>
+                    <span class="tag-dis">✗ Multi-Year Effort:</span> Visible recovery requires 2-3 seasons.
+                  </td>
+                </tr>
+                <tr>
+                  <td class="strategy-name">Drainage Improvement</td>
+                  <td>
+                    <span class="tag-adv">✓ Root Health:</span> Prevents root asphyxiation and secondary rot.<br>
+                    <span class="tag-adv">✓ Moisture Balance:</span> Prevents seasonal waterlogging shock.
+                  </td>
+                  <td>
+                    <span class="tag-dis">✗ Earthwork Cost:</span> Trenching in hilly terrain requires high capital.
+                  </td>
+                </tr>
+                <tr>
+                  <td class="strategy-name">Roguing Severely Declining Palms</td>
+                  <td>
+                    <span class="tag-adv">✓ Vector Control:</span> Removes primary inoculum sources in orchard.<br>
+                    <span class="tag-adv">✓ Resource Allocation:</span> Lets farmer focus inputs on viable trees.
+                  </td>
+                  <td>
+                    <span class="tag-dis">✗ Direct Loss:</span> Eradicates mature trees with immediate loss of stand.
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="dossier-block">
+          <h3 class="dossier-block-title">
+            <span>🏛️</span>
+            <span>5. Research Authority & Extension Support</span>
+          </h3>
+          <p class="dossier-block-text">
+            Refer to <strong>ICAR-CPCRI Technical Bulletin: Yellow Leaf Disease of Arecanut</strong>. Consult your district horticulture officer for soil testing and micronutrient analysis.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- DOSSIER PANEL 3: HEALTHY NUT (CONTROL) -->
+    <div class="dossier-content-panel {% if prediction.predicted_class == 'healthy_nut' %}active{% endif %}" id="dossier-panel-healthy_nut">
+      <div class="dossier-sections-grid">
+        <div class="dossier-block">
+          <h3 class="dossier-block-title">
+            <span>🌰</span>
+            <span>1. Botanical & Morphological Quality Benchmarks</span>
+          </h3>
+          <p class="dossier-block-text">
+            Healthy arecanut (<em>Areca catechu</em>) clusters represent the gold-standard phytosanitary baseline: robust mechanical attachment, pristine pericarps, and uncompromised internal ruminate endosperms.
+          </p>
+          <ul class="dossier-bullets">
+            <li><strong>Epicarp & Pericarp Integrity:</strong> Smooth, lustrous, unbroken epidermal surface with vibrant coloration ranging from glossy deep emerald green (tender nut / chali stage) to radiant golden-saffron orange (fully ripe stage). Free of water-soaked depressions, necrotic calyx lesions, weeping punctures, or mycelial mats.</li>
+            <li><strong>Calyx & Pedicel Anchorage:</strong> Tight mechanical clasp at the perianth socket. Resists premature monsoon shedding, requiring >18 N of tensile detachment force.</li>
+            <li><strong>Ruminate Endosperm Architecture:</strong> Dense, solid kernel interior featuring the signature marble-veined ruminate albumen (tan-and-cream concentric pattern) with high specific gravity, firm texture, optimal moisture content, and rich polyphenols/alkaloids (arecoline, arecaidine, guvacine). Zero internal hollow voids or fungal rot.</li>
+          </ul>
+        </div>
+
+        <div class="dossier-block">
+          <h3 class="dossier-block-title">
+            <span>📈</span>
+            <span>2. Phenological Development & Nut Maturation Stages</span>
+          </h3>
+          <p class="dossier-block-text">
+            Understanding the 9-month development cycle is essential for timely disease prevention and harvesting:
+          </p>
+          <ul class="dossier-bullets">
+            <li><strong>Button / Pre-Nut Stage (Batte Adike — Months 1–2):</strong> Delicate post-pollination ovary set. Highly susceptible to moisture shock and boron deficiency button drop.</li>
+            <li><strong>Tender Green Nut Stage (Chali / Tender — Months 3–5):</strong> Rapid enlargement phase with active endosperm synthesis and liquid filling. Peak vulnerability window for <em>Phytophthora meadii</em> (Mahali/Koleroga); requires immediate prophylactic shielding.</li>
+            <li><strong>Mature Green Nut Stage (Iri Adike — Months 6–7):</strong> Maximum physical volume reached; shell fiber hardens and interior kernel solidifies into characteristic ruminate grain.</li>
+            <li><strong>Ripe Golden Harvest Stage (Kempadike / Dry Chali — Months 8–9):</strong> Complete epicarp color transition to deep saffron-orange. Peak dry-matter accumulation, ideal for de-husking and boiling or sun-drying into commercial grade supari.</li>
+          </ul>
+        </div>
+
+        <div class="dossier-block">
+          <h3 class="dossier-block-title">
+            <span>🛡️</span>
+            <span>3. ICAR-CPCRI Yield Maximization & Crop Protection Protocols</span>
+          </h3>
+          <p class="dossier-block-text">
+            To sustain high-grade nut clusters and prevent physiological or fungal crop losses:
+          </p>
+          <ul class="dossier-bullets">
+            <li><strong>Balanced Split NPK Nutrition:</strong> Apply 100 g Nitrogen (220 g Urea), 40 g Phosphorus (200 g Rock Phosphate), and 140 g Potassium (235 g MOP) per bearing palm annually, applied in two equal splits (May–June pre-monsoon and September–October post-monsoon).</li>
+            <li><strong>Micronutrient Rectification:</strong> Annual application of Borax (12–15 g) and Zinc Sulphate (20–25 g) per palm to prevent kernel cracking, button shedding, and malformed nut bunches.</li>
+            <li><strong>Pre-Monsoon Physical Shielding:</strong> Tie 125-gauge virgin polythene hoods (75 × 60 cm) over the bunches before heavy southwest monsoon rains begin, or apply a thorough coat of 1% Bordeaux mixture with adhesive resin sticker.</li>
+            <li><strong>Scientific Summer Irrigation:</strong> Deliver 175–200 L of water per palm every 4 to 6 days during dry summer spells (or drip irrigation at 16–20 L/palm/day) to prevent moisture stress and physiological nut drop.</li>
+          </ul>
+        </div>
+
+        <div class="dossier-block">
+          <h3 class="dossier-block-title">
+            <span>⚖️</span>
+            <span>4. Comparative Trade-offs & Protection Strategies</span>
+          </h3>
+          <div class="tradeoff-table-wrap">
+            <table class="tradeoff-table">
+              <thead>
+                <tr>
+                  <th>Management Strategy</th>
+                  <th>Key Advantages (Benefits)</th>
+                  <th>Key Disadvantages (Limitations)</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="strategy-name">Polythene Bunch Hooding (125-gauge)</td>
+                  <td>
+                    <span class="tag-adv">✓ 100% Chemical-Free:</span> Zero chemical residue on kernels.<br>
+                    <span class="tag-adv">✓ Complete Barrier:</span> Stops all rain-borne <em>Phytophthora</em> zoospores.<br>
+                    <span class="tag-adv">✓ Single Application:</span> Done once before monsoon season.
+                  </td>
+                  <td>
+                    <span class="tag-dis">✗ Skilled Labor:</span> Requires tree climbing to tie each bunch.<br>
+                    <span class="tag-dis">✗ Condensation Risk:</span> Improper tying can trap internal moisture.
+                  </td>
+                </tr>
+                <tr>
+                  <td class="strategy-name">Prophylactic 1% Bordeaux Mixture Spray</td>
+                  <td>
+                    <span class="tag-adv">✓ High Efficacy:</span> Proven broad-spectrum copper barrier.<br>
+                    <span class="tag-adv">✓ Canopy Coverage:</span> Protects both bunches and upper foliage.
+                  </td>
+                  <td>
+                    <span class="tag-dis">✗ Rain Wash-off:</span> Torrential downpours can wash away deposits.<br>
+                    <span class="tag-dis">✗ Multiple Sprays:</span> Needs 2nd spray 40–45 days later.
+                  </td>
+                </tr>
+                <tr>
+                  <td class="strategy-name">Potassium & Micronutrient Fortification</td>
+                  <td>
+                    <span class="tag-adv">✓ Kernel Density:</span> Directly increases dry chali recovery ratio.<br>
+                    <span class="tag-adv">✓ Thick Pericarp:</span> Naturally enhances resistance to mechanical cracking.
+                  </td>
+                  <td>
+                    <span class="tag-dis">✗ Soil Testing Required:</span> Excess K without Mg balance leads to nutrient lock-out.
+                  </td>
+                </tr>
+                <tr>
+                  <td class="strategy-name">Drip Fertigation & Organic Mulching</td>
+                  <td>
+                    <span class="tag-adv">✓ 40% Water Savings:</span> Eliminates moisture stress button drop.<br>
+                    <span class="tag-adv">✓ Root Health:</span> Maintains steady sap hydrostatic pressure.
+                  </td>
+                  <td>
+                    <span class="tag-dis">✗ Capital Investment:</span> Initial pipeline and filtration system cost.
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="dossier-block">
+          <h3 class="dossier-block-title">
+            <span>🏛️</span>
+            <span>5. Commercial Standards & Extension Support</span>
+          </h3>
+          <p class="dossier-block-text">
+            Commercial quality benchmarks are defined by the <strong>Bureau of Indian Standards (BIS: 2228-1996)</strong> and <strong>Agmark Grading Protocols</strong>. For specialized guidance on high-density nut nutrition and bio-priming, consult <strong>ICAR-Central Plantation Crops Research Institute (CPCRI)</strong>, Kasaragod & Regional Station, Vittal.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- DOSSIER PANEL 4: HEALTHY LEAF (CONTROL) -->
+    <div class="dossier-content-panel {% if prediction.predicted_class == 'healthy_leaf' %}active{% endif %}" id="dossier-panel-healthy_leaf">
+      <div class="dossier-sections-grid">
+        <div class="dossier-block">
+          <h3 class="dossier-block-title">
+            <span>🍃</span>
+            <span>1. Botanical & Foliar Architecture Quality Benchmarks</span>
+          </h3>
+          <p class="dossier-block-text">
+            Healthy arecanut leaves serve as the primary photosynthetic engine of the palm, dictating annual bunch weight, flowering rate, and disease resilience.
+          </p>
+          <ul class="dossier-bullets">
+            <li><strong>Crown Frond Count & Balance:</strong> A healthy bearing palm maintains an active canopy of <strong>9 to 12 fully expanded, functional pinnate fronds</strong> arranged in a majestic symmetrical whorl.</li>
+            <li><strong>Deep Chlorophyll Pigmentation:</strong> Deep emerald-green to forest-green laminae across all leaflets with balanced chlorophyll-a to chlorophyll-b ratio. Total absence of interveinal chlorosis, marginal golden-yellow firing, bronzing, or necrotic spot halos.</li>
+            <li><strong>Spindle Spear (Central Growing Shoot) Vigor:</strong> Central emergent spindle is firm, turgid, standing perfectly erect with smooth pale lime-green sheath. Unblemished by tip-burn, bacterial rot, or crown-rot wilt.</li>
+            <li><strong>Mechanical Elasticity & Cuticle Waxy Bloom:</strong> Leaflets possess a resilient epicuticular wax layer that minimizes transpirational moisture loss, withstands heavy monsoon winds, and sheds rain droplets rapidly.</li>
+          </ul>
+        </div>
+
+        <div class="dossier-block">
+          <h3 class="dossier-block-title">
+            <span>⚡</span>
+            <span>2. Critical Physiological Roles in Palm Longevity & Productivity</span>
+          </h3>
+          <p class="dossier-block-text">
+            The health of the foliar canopy directly governs commercial yield and tree longevity:
+          </p>
+          <ul class="dossier-bullets">
+            <li><strong>Primary Carbohydrate Source:</strong> Each frond manufactures photoassimilates feeding <strong>3 to 4 developing nut bunches</strong> simultaneously. Premature senescence or loss of even 2 leaves reduces annual bunch weight by <strong>15% to 25%</strong>.</li>
+            <li><strong>Vascular Transpiration Engine:</strong> Continuous foliar transpiration pulls vital dissolved calcium, magnesium, and boron upward from the deep lateral roots through the xylem to the apical meristem.</li>
+            <li><strong>Apical Meristem Protection:</strong> Clasping fibrous leaf sheaths wrap tightly around the apical growing point (cabbage), insulating the tender meristem from thermal extremes, pest infestation, and fungal ingress.</li>
+          </ul>
+        </div>
+
+        <div class="dossier-block">
+          <h3 class="dossier-block-title">
+            <span>🧪</span>
+            <span>3. Nutritional Deficiency Diagnostics & Correction Protocols</span>
+          </h3>
+          <p class="dossier-block-text">
+            Carefully inspect foliar symptoms to address soil imbalances before irreversible damage occurs:
+          </p>
+          <ul class="dossier-bullets">
+            <li><strong>Nitrogen (N) Deficiency:</strong> Uniform pale green or yellowish fade across the entire crown with reduced frond length. <em>Correction:</em> Apply 220 g Urea per palm in split doses combined with 12 kg well-rotted farmyard manure.</li>
+            <li><strong>Potassium (K) Deficiency:</strong> Orange-yellow translucent spotting leading to marginal leaflet scorching and necrosis on older whorls. <em>Correction:</em> Apply 235 g Muriate of Potash (MOP) per palm and mulch with coconut/areca husks.</li>
+            <li><strong>Magnesium (Mg) Deficiency:</strong> Severe interveinal golden-orange or bronze band on older leaves while the central midrib remains deep green (common in acidic coastal soils). <em>Correction:</em> Apply 150–200 g Magnesium Sulphate (MgSO₄) or 1 kg Dolomite per palm annually.</li>
+            <li><strong>Boron (B) & Zinc (Zn) Deficiency:</strong> Hooked leaflet tips, crinkled laminae, and stunted crown spear growth. <em>Correction:</em> Apply 12 g Borax + 20 g Zinc Sulphate around the root basin.</li>
+          </ul>
+        </div>
+
+        <div class="dossier-block">
+          <h3 class="dossier-block-title">
+            <span>⚖️</span>
+            <span>4. Canopy Management & Agronomic Trade-offs (Comparative Analysis)</span>
+          </h3>
+          <div class="tradeoff-table-wrap">
+            <table class="tradeoff-table">
+              <thead>
+                <tr>
+                  <th>Management Practice</th>
+                  <th>Key Advantages (Benefits)</th>
+                  <th>Key Disadvantages (Limitations)</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="strategy-name">Pre-Monsoon Crown Sanitation</td>
+                  <td>
+                    <span class="tag-adv">✓ Disease Prevention:</span> Removes dried sheaths, old spadices, and lichen debris.<br>
+                    <span class="tag-adv">✓ Pest Control:</span> Destroys breeding niches for spindle bugs and mites.<br>
+                    <span class="tag-adv">✓ Aeration:</span> Maximizes sunlight penetration into crown center.
+                  </td>
+                  <td>
+                    <span class="tag-dis">✗ Skilled Labor:</span> Requires experienced tree climbers.<br>
+                    <span class="tag-dis">✗ Spadix Injury Risk:</span> Inexperienced labor can accidentally damage tender emerging inflorescences.
+                  </td>
+                </tr>
+                <tr>
+                  <td class="strategy-name">Soil Liming / Dolomite Buffering</td>
+                  <td>
+                    <span class="tag-adv">✓ Acidity Neutralization:</span> Raises pH from acidic 4.5–5.0 to optimal 6.0–6.5.<br>
+                    <span class="tag-adv">✓ Micronutrient Availability:</span> Unlocks bound phosphorus and prevents foliar bronze band.
+                  </td>
+                  <td>
+                    <span class="tag-dis">✗ Application Timing:</span> Must be applied 3–4 weeks separately from chemical nitrogen to avoid ammonia loss.
+                  </td>
+                </tr>
+                <tr>
+                  <td class="strategy-name">Multi-Tier Companion Intercropping (Banana / Cocoa / Pepper)</td>
+                  <td>
+                    <span class="tag-adv">✓ Microclimate Regulation:</span> Protects young fronds against intense photo-inhibition.<br>
+                    <span class="tag-adv">✓ Additional Farm Income:</span> Substantially boosts per-acre net returns.
+                  </td>
+                  <td>
+                    <span class="tag-dis">✗ Water Competition:</span> Requires calibrated summer irrigation to prevent moisture competition with arecanut palms.
+                  </td>
+                </tr>
+                <tr>
+                  <td class="strategy-name">Green Leaf Mulching & Cover Cropping</td>
+                  <td>
+                    <span class="tag-adv">✓ Soil Moisture Retention:</span> Shields root-zone feeder roots from heat desiccation.<br>
+                    <span class="tag-adv">✓ Microbial Biomass:</span> Enriches beneficial mycorrhizal soil flora.
+                  </td>
+                  <td>
+                    <span class="tag-dis">✗ Collar Rot Risk:</span> Mulch must be placed 15 cm away from the trunk collar to avoid damp fungal infection.
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="dossier-block">
+          <h3 class="dossier-block-title">
+            <span>🏛️</span>
+            <span>5. Research Authority & Extension Support</span>
+          </h3>
+          <p class="dossier-block-text">
+            Canopy diagnostic standards and nutrient management schedules are developed by <strong>ICAR-CPCRI</strong> and the <strong>University of Horticultural Sciences (UHS), Bagalkot</strong>. For localized leaf tissue nutrient testing and soil health cards, contact your district Krishi Vigyan Kendra (KVK).
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Navigation Footer -->
+    <div class="book-nav-footer">
+      <button type="button" class="btn-book-turn prev" id="dossier-to-result-btn">
+        <span data-i18n="btn_turn_back_results">◂ Turn Back to Results & XAI (Page 4)</span>
+      </button>
+      <a href="{% url 'predictor:home' %}" class="btn-book-turn next" style="text-decoration:none;">
+        <span data-i18n="btn_start_new_inspect">Start Fresh Inspection (Page 1)</span>
+        <span>➔</span>
+      </a>
+    </div>
+  </section>
+
 </div>
 {% endblock %}
