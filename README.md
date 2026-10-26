@@ -46,8 +46,8 @@ Arecanut/
 
 ### 1. Clone the Repository
 ```bash
-git clone https://github.com/Manoj-m2006/Arecanut.git
-cd Arecanut
+git clone https://github.com/Manoj-m2006/Adike.git
+cd Adike
 ```
 
 ### 2. Create and Activate Virtual Environment
@@ -66,7 +66,13 @@ source venv/bin/activate
 pip install -r requirements.txt
 ```
 
-### 4. Run Migrations & Start Development Server
+### 4. Configure Environment (Optional for Multilingual AI Translations)
+Create a `.env` file in the root folder:
+```env
+GEMINI_API_KEY=your_gemini_api_key_here
+```
+
+### 5. Run Migrations & Start Development Server
 ```bash
 python manage.py migrate
 python manage.py runserver
