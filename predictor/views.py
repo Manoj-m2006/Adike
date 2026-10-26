@@ -10,6 +10,7 @@ from PIL import Image
 
 from django.shortcuts import render, redirect
 from django.views.decorators.http import require_http_methods
+from django.views.decorators.csrf import csrf_exempt
 from django.contrib import messages
 
 from predictor.forms import ImageUploadForm
@@ -124,6 +125,7 @@ def about_view(request):
     return render(request, "predictor/about.html", context)
 
 
+@csrf_exempt
 @require_http_methods(["POST", "GET"])
 def translate_api_view(request):
     """
@@ -178,6 +180,7 @@ def translate_api_view(request):
         }, status=400)
 
 
+@csrf_exempt
 @require_http_methods(["POST"])
 def save_gemini_key_view(request):
     """
