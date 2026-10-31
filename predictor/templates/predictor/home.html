@@ -10,10 +10,12 @@
      ========================================================================= */
   .hero-split-card {
     position: relative;
-    background: #FAF9F5;
+    background: rgba(250, 249, 245, 0.72);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
     border-radius: 28px;
-    border: 1.5px solid #E2E8DF;
-    box-shadow: 0 20px 50px rgba(20, 48, 33, 0.09), 0 0 0 1px rgba(255, 255, 255, 0.8) inset;
+    border: 1.5px solid rgba(226, 232, 223, 0.8);
+    box-shadow: 0 20px 50px rgba(20, 48, 33, 0.08), 0 0 0 1px rgba(255, 255, 255, 0.7) inset;
     overflow: hidden;
     width: 100%;
     max-width: 1140px;
@@ -56,15 +58,19 @@
   .pane-intro {
     padding: clamp(2.25rem, 4vw, 3.75rem) clamp(2rem, 3.5vw, 3.5rem);
     justify-content: center;
-    background: #FAF9F5;
+    background: rgba(250, 249, 245, 0.65);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
   }
 
   /* PANE 2: Picture (Right in State 1, slides to Left in State 2) */
   .pane-picture {
     position: relative;
-    background: #F5EFE7;
-    border-left: 1px solid #E6DEC8;
-    border-right: 1px solid #E6DEC8;
+    background: rgba(245, 239, 231, 0.55);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-left: 1px solid rgba(230, 222, 200, 0.7);
+    border-right: 1px solid rgba(230, 222, 200, 0.7);
     align-items: center;
     justify-content: center;
     overflow: hidden;
@@ -121,7 +127,9 @@
   .pane-language {
     padding: clamp(2rem, 3.5vw, 3.25rem) clamp(2rem, 3.5vw, 3.5rem);
     justify-content: center;
-    background: #FAF9F5;
+    background: rgba(250, 249, 245, 0.65);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
   }
 
   .lang-pane-inner {
@@ -224,8 +232,10 @@
     gap: 0.4rem;
     padding: 0.85rem 1.25rem;
     border-radius: 12px;
-    border: 1.5px solid #D5E2D8;
-    background: #ffffff;
+    border: 1.5px solid rgba(213, 226, 216, 0.8);
+    background: rgba(255, 255, 255, 0.75);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
     color: #355342;
     font-family: 'Plus Jakarta Sans', sans-serif;
     font-size: 0.92rem;
