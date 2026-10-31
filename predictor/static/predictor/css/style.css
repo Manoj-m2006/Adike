@@ -2591,10 +2591,12 @@ img {
 
 .book-page {
   display: none;
-  background: #ffffff;
-  border: 1.5px solid #e2ece3;
+  background: rgba(255, 255, 255, 0.55);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border: 1.5px solid rgba(226, 236, 227, 0.7);
   border-radius: 24px;
-  box-shadow: 0 14px 44px rgba(18, 51, 36, 0.07);
+  box-shadow: 0 14px 44px rgba(18, 51, 36, 0.05);
   padding: clamp(2rem, 3vw, 3.5rem);
   position: relative;
   overflow: hidden;
@@ -2619,10 +2621,12 @@ img {
 
 .book-page {
   display: none;
-  background: #ffffff;
-  border: 1.5px solid #e2ece3;
+  background: rgba(255, 255, 255, 0.55);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border: 1.5px solid rgba(226, 236, 227, 0.7);
   border-radius: 24px;
-  box-shadow: 0 14px 44px rgba(18, 51, 36, 0.07);
+  box-shadow: 0 14px 44px rgba(18, 51, 36, 0.05);
   padding: clamp(1.75rem, 3vw, 3.25rem);
   position: relative;
   overflow: hidden;
@@ -2818,7 +2822,10 @@ img {
   letter-spacing: 0.12em;
   text-transform: uppercase;
   color: #2d6a4f;
-  background: #e8f5ec;
+  background: rgba(232, 245, 236, 0.75);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  border: 1px solid rgba(216, 243, 220, 0.6);
   padding: 0.25rem 0.65rem;
   border-radius: 6px;
 }
