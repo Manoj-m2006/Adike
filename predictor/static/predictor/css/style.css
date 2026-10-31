@@ -70,6 +70,11 @@ html {
 body {
   font-family: var(--font-body);
   background-color: var(--c-cream-bg);
+  background-image: url('../img/areca_site_bg.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center top;
+  background-attachment: fixed;
   color: var(--c-text-body);
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
