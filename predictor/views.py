@@ -125,6 +125,31 @@ def about_view(request):
     return render(request, "predictor/about.html", context)
 
 
+def architecture_view(request):
+    """
+    Renders dedicated Technical Architecture and Pathology page.
+    Combines deep system specifications, ResNet-50 pipeline, Grad-CAM mechanics,
+    and 4-class agronomic pathology taxonomy into a unified documentation view.
+    """
+    classes_list = []
+    for c_name in CLASS_NAMES:
+        info = CLASS_INFO.get(c_name, {})
+        classes_list.append({
+            "internal_name": c_name,
+            "display_name": CLASS_DISPLAY_NAMES[c_name],
+            "status": info.get("status", ""),
+            "category": info.get("category", ""),
+            "badge_class": info.get("badge_class", "badge-secondary"),
+            "description": info.get("description", ""),
+            "management": info.get("management", ""),
+        })
+
+    context = {
+        "classes_list": classes_list,
+    }
+    return render(request, "predictor/architecture.html", context)
+
+
 @csrf_exempt
 @require_http_methods(["POST", "GET"])
 def translate_api_view(request):

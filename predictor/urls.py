@@ -12,4 +12,5 @@ urlpatterns = [
     path('about/', views.about_view, name='about'),
     path('api/translate/', views.translate_api_view, name='translate_api'),
     path('api/save-key/', views.save_gemini_key_view, name='save_gemini_key'),
+    path('architecture/', views.architecture_view, name='architecture'),
 ]

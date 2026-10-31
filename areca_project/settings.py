@@ -1,8 +1,4 @@
-"""
-Django settings for areca_project.
-
-Generated for Arecanut Disease Detection ResNet-50 Web Application.
-"""
+"""Django settings for areca_project."""
 
 import os
 from pathlib import Path
@@ -22,15 +18,9 @@ if env_file.exists():
 
 GEMINI_API_KEY = os.environ.get('GEMINI_API_KEY', '')
 
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/stable/howto/deployment/checklist/
-
-# SECURITY WARNING: keep the secret key used in production secret!
+# Quick‑start development settings – unsuitable for production
 SECRET_KEY = 'django-insecure-arecanut-resnet50-disease-classification-system'
-
-# SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
-
 ALLOWED_HOSTS = ['127.0.0.1', 'localhost', '0.0.0.0', '*']
 
 # Application definition
@@ -76,8 +66,7 @@ TEMPLATES = [
 WSGI_APPLICATION = 'areca_project.wsgi.application'
 ASGI_APPLICATION = 'areca_project.asgi.application'
 
-# Database
-# Default SQLite for standard Django administrative / session support
+# Database – default SQLite
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
@@ -87,21 +76,13 @@ DATABASES = {
 
 # Password validation
 AUTH_PASSWORD_VALIDATORS = [
-    {
-        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
-    },
+    {'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator'},
+    {'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator'},
+    {'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator'},
+    {'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator'},
 ]
 
-# Internationalization
+# Internationalisation
 LANGUAGE_CODE = 'en-us'
 TIME_ZONE = 'UTC'
 USE_I18N = True
@@ -109,15 +90,21 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 STATIC_URL = '/static/'
+
+# Original static configuration (no React build)
 STATICFILES_DIRS = [
     BASE_DIR / 'predictor' / 'static',
 ]
+
 STATIC_ROOT = BASE_DIR / 'staticfiles'
+
+# Optional media files (not used by the original project)
+MEDIA_URL = '/media/'
+MEDIA_ROOT = BASE_DIR / 'media'
 
 # Default primary key field type
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-# Upload security constraints
-# 10 MB maximum upload memory limit
+# Upload size limits
 DATA_UPLOAD_MAX_MEMORY_SIZE = 10 * 1024 * 1024
 FILE_UPLOAD_MAX_MEMORY_SIZE = 10 * 1024 * 1024

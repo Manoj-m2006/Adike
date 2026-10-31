@@ -1,0 +1,311 @@
+{% extends "predictor/base.html" %}
+{% load static %}
+
+{% block title %}ArecaLens — Technical Architecture & Pathology{% endblock %}
+
+{% block content %}
+<div class="container" style="padding-top: 1.5rem; padding-bottom: 3.5rem;">
+
+  <!-- =========================================================================
+       PAGE HEADER & INTRODUCTION
+       ========================================================================= -->
+  <section class="hero-banner" style="margin-bottom: 2.5rem; border-radius: 20px;">
+    <div class="hero-banner-inner">
+      <div class="hero-content">
+        <div class="hero-pill">
+          <span style="font-size: 0.65rem;">■</span>
+          <span data-i18n="arch_tag">HOW ARECALENS WORKS</span>
+        </div>
+        <h1 class="hero-title" style="color: #ffffff; margin-bottom: 0.65rem;" data-i18n="arch_title">
+          How ArecaLens Works
+        </h1>
+        <p class="hero-desc" style="margin-bottom: 1.5rem; max-width: 760px; line-height: 1.7;" data-i18n="arch_desc">
+          Comprehensive specification of the phytosanitary AI platform engineered for arecanut palms. Explores the 50-layer deep residual vision pipeline, Grad-CAM explainable AI engine, end-to-end data flow, and authoritative 4-class agronomic pathology taxonomy.
+        </p>
+        <div class="hero-buttons">
+          <a href="{% url 'predictor:home' %}" class="btn-hero-primary" data-i18n="arch_launch_btn">
+            <span>Launch Screening</span>
+            <span>➔</span>
+          </a>
+          <a href="{% url 'predictor:home' %}#dossier" class="btn-hero-secondary" id="arch-guide-btn" data-i18n="arch_guide_btn">
+            <span>Explore Disease Guide</span>
+            <span>📖</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="hero-art-stamp">
+        <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:44px;height:44px;max-width:44px;max-height:44px;">
+          <rect x="2" y="3" width="6" height="6" rx="1"></rect>
+          <rect x="16" y="3" width="6" height="6" rx="1"></rect>
+          <rect x="9" y="15" width="6" height="6" rx="1"></rect>
+          <path d="M5 9v3a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V9"></path>
+          <path d="M12 12v3"></path>
+        </svg>
+        <span style="margin-top: 0.35rem; font-size: 0.6rem; letter-spacing: 0.12em;">SYSTEM ARCHITECTURE</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       SECTION A: TECHNICAL ARCHITECTURE & DEEP LEARNING PIPELINE
+       ========================================================================= -->
+  <section id="technical-architecture-section" style="margin-bottom: 3.5rem;">
+    <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 1.5rem; flex-wrap: wrap; gap: 0.75rem;">
+      <div>
+        <div style="font-size: 0.75rem; font-weight: 800; letter-spacing: 0.1em; color: var(--c-accent-green); text-transform: uppercase;">SECTION A</div>
+        <h2 style="font-family: var(--font-display); font-size: 1.75rem; font-weight: 700; color: var(--c-dark-green); margin-top: 0.15rem;">
+          Technical Architecture & System Pipeline
+        </h2>
+      </div>
+      <span class="tag-badge" style="background: var(--c-soft-mint); color: var(--c-accent-green); font-weight: 700; font-size: 0.8rem; padding: 0.35rem 0.85rem; border-radius: 9999px;">
+        PyTorch 2.x • ResNet-50 • Django 5
+      </span>
+    </div>
+
+    <!-- System Architecture Workflow Diagram Card -->
+    <div class="card" style="margin-bottom: 1.75rem; border-radius: 20px; padding: 2rem;">
+      <div class="card-top-header" style="margin-bottom: 1.25rem;">
+        <div class="card-title-group">
+          <h3 style="font-family: var(--font-display); font-size: 1.25rem; font-weight: 700; color: var(--c-dark-green); display: flex; align-items: center; gap: 0.5rem;">
+            <span>🔄</span> <span>End-to-End Application Data Flow & Processing Pipeline</span>
+          </h3>
+          <p style="font-size: 0.84rem; color: var(--c-text-muted);">
+            Zero-disk in-memory transmission, convolutional tensor transformation, feature extraction, and explainability backpropagation.
+          </p>
+        </div>
+      </div>
+
+      <!-- Interactive Visual Dataflow Stepper -->
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 1rem; margin-top: 1rem;">
+        <!-- Step 1 -->
+        <div style="background: #F9FAF8; border: 1.5px solid var(--c-card-border); border-radius: 14px; padding: 1.15rem; position: relative;">
+          <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.5rem;">
+            <span style="font-size: 1.35rem;">📷</span>
+            <span style="font-size: 0.72rem; font-weight: 800; color: var(--c-accent-green); background: #E8F4EC; padding: 0.15rem 0.5rem; border-radius: 6px;">STEP 1</span>
+          </div>
+          <h4 style="font-size: 0.95rem; font-weight: 700; color: var(--c-dark-green); margin-bottom: 0.35rem;">Specimen Ingestion</h4>
+          <p style="font-size: 0.8rem; color: var(--c-text-body); line-height: 1.5;">
+            User uploads JPG/PNG or captures live stream via HTML5 WebRTC camera. Safe in-memory stream validation with zero disk writes.
+          </p>
+        </div>
+
+        <!-- Step 2 -->
+        <div style="background: #F9FAF8; border: 1.5px solid var(--c-card-border); border-radius: 14px; padding: 1.15rem; position: relative;">
+          <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.5rem;">
+            <span style="font-size: 1.35rem;">⚙️</span>
+            <span style="font-size: 0.72rem; font-weight: 800; color: var(--c-accent-green); background: #E8F4EC; padding: 0.15rem 0.5rem; border-radius: 6px;">STEP 2</span>
+          </div>
+          <h4 style="font-size: 0.95rem; font-weight: 700; color: var(--c-dark-green); margin-bottom: 0.35rem;">Tensor Preprocessing</h4>
+          <p style="font-size: 0.8rem; color: var(--c-text-body); line-height: 1.5;">
+            Image resized to 224&times;224 RGB, converted to float tensor, and normalized via ImageNet parameters (&mu;, &sigma;).
+          </p>
+        </div>
+
+        <!-- Step 3 -->
+        <div style="background: #F9FAF8; border: 1.5px solid var(--c-card-border); border-radius: 14px; padding: 1.15rem; position: relative;">
+          <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.5rem;">
+            <span style="font-size: 1.35rem;">🧠</span>
+            <span style="font-size: 0.72rem; font-weight: 800; color: var(--c-accent-green); background: #E8F4EC; padding: 0.15rem 0.5rem; border-radius: 6px;">STEP 3</span>
+          </div>
+          <h4 style="font-size: 0.95rem; font-weight: 700; color: var(--c-dark-green); margin-bottom: 0.35rem;">ResNet-50 Inference</h4>
+          <p style="font-size: 0.8rem; color: var(--c-text-body); line-height: 1.5;">
+            50 convolutional residual layers extract 2048-dim feature representations; 4-way classification head yields raw class logits.
+          </p>
+        </div>
+
+        <!-- Step 4 -->
+        <div style="background: #F9FAF8; border: 1.5px solid var(--c-card-border); border-radius: 14px; padding: 1.15rem; position: relative;">
+          <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.5rem;">
+            <span style="font-size: 1.35rem;">🔍</span>
+            <span style="font-size: 0.72rem; font-weight: 800; color: var(--c-accent-green); background: #E8F4EC; padding: 0.15rem 0.5rem; border-radius: 6px;">STEP 4</span>
+          </div>
+          <h4 style="font-size: 0.95rem; font-weight: 700; color: var(--c-dark-green); margin-bottom: 0.35rem;">Grad-CAM Explainability</h4>
+          <p style="font-size: 0.8rem; color: var(--c-text-body); line-height: 1.5;">
+            Gradients backpropagated to layer4 bottleneck to construct spatial activation heatmap, blended at 45% overlay opacity.
+          </p>
+        </div>
+
+        <!-- Step 5 -->
+        <div style="background: #F9FAF8; border: 1.5px solid var(--c-card-border); border-radius: 14px; padding: 1.15rem; position: relative;">
+          <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.5rem;">
+            <span style="font-size: 1.35rem;">📊</span>
+            <span style="font-size: 0.72rem; font-weight: 800; color: var(--c-accent-green); background: #E8F4EC; padding: 0.15rem 0.5rem; border-radius: 6px;">STEP 5</span>
+          </div>
+          <h4 style="font-size: 0.95rem; font-weight: 700; color: var(--c-dark-green); margin-bottom: 0.35rem;">Advisory & Translation</h4>
+          <p style="font-size: 0.8rem; color: var(--c-text-body); line-height: 1.5;">
+            Softmax probabilities synthesized with ICAR-CPCRI agronomic guidelines and served in English or local regional vernaculars.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Dual-Column Architecture & Grad-CAM Cards -->
+    <div class="app-two-col" style="margin-bottom: 1.75rem; display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
+      <!-- Neural Network Architecture Card -->
+      <div class="card" style="border-radius: 20px; padding: 1.75rem;">
+        <div class="card-top-header" style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1rem;">
+          <div class="card-title-group">
+            <h3 style="font-family: var(--font-display); font-size: 1.25rem; font-weight: 700; color: var(--c-dark-green); display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.25rem;">
+              <span>🧠</span> <span data-i18n="about_card1_title">Neural Network Architecture</span>
+            </h3>
+            <p style="font-size: 0.82rem; color: var(--c-text-muted);" data-i18n="about_card1_sub">Transfer learning with deep residual feature representations</p>
+          </div>
+          <span class="tag-badge" style="background: var(--c-soft-mint); color: var(--c-accent-green); font-weight: 800; font-size: 0.72rem; padding: 0.25rem 0.75rem; border-radius: 9999px; letter-spacing: 0.05em;">RESNET-50</span>
+        </div>
+
+        <div style="font-size: 0.88rem; line-height: 1.75; color: var(--c-text-body);">
+          <p style="margin-bottom: 1rem;" data-i18n="about_card1_p1">
+            ArecaLens utilizes a fine-tuned deep residual network (ResNet-50) pretrained on ImageNet and specialized for foliar and nut pathologies of the <em>Areca catechu</em> palm.
+          </p>
+          <ul style="list-style-type: none; display: flex; flex-direction: column; gap: 0.65rem; padding: 0;">
+            <li style="display: flex; gap: 0.5rem; align-items: baseline;">
+              <strong style="color: var(--c-dark-green); min-width: 140px; flex-shrink: 0;" data-i18n="about_backbone_label">Backbone:</strong>
+              <span data-i18n="about_backbone_desc">50 convolutional layers with residual shortcut connections solving vanishing gradients</span>
+            </li>
+            <li style="display: flex; gap: 0.5rem; align-items: baseline;">
+              <strong style="color: var(--c-dark-green); min-width: 140px; flex-shrink: 0;" data-i18n="about_head_label">Classification Head:</strong>
+              <span data-i18n="about_head_desc">Modified 4-output linear layer (2048 &rarr; 4 classes: Healthy Leaf, Healthy Nut, Mahali, YLD)</span>
+            </li>
+            <li style="display: flex; gap: 0.5rem; align-items: baseline;">
+              <strong style="color: var(--c-dark-green); min-width: 140px; flex-shrink: 0;" data-i18n="about_tensor_label">Input Tensor:</strong>
+              <span data-i18n="about_tensor_desc">224 &times; 224 &times; 3 (RGB normalized via ImageNet &mu;=[0.485, 0.456, 0.406], &sigma;=[0.229, 0.224, 0.225])</span>
+            </li>
+            <li style="display: flex; gap: 0.5rem; align-items: baseline;">
+              <strong style="color: var(--c-dark-green); min-width: 140px; flex-shrink: 0;" data-i18n="about_xai_label">Explainability:</strong>
+              <span data-i18n="about_xai_desc">Grad-CAM targeted at the terminal residual block (layer4, 2048 bottleneck channels)</span>
+            </li>
+            <li style="display: flex; gap: 0.5rem; align-items: baseline;">
+              <strong style="color: var(--c-dark-green); min-width: 140px; flex-shrink: 0;" data-i18n="about_infer_label">Inference Mode:</strong>
+              <span data-i18n="about_infer_desc">Deterministic forward evaluation under torch.no_grad() with sub-100ms execution latency</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Explainable AI (Grad-CAM) Mathematical Formulation -->
+      <div class="card" style="border-radius: 20px; padding: 1.75rem;">
+        <div class="card-top-header" style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1rem;">
+          <div class="card-title-group">
+            <h3 style="font-family: var(--font-display); font-size: 1.25rem; font-weight: 700; color: var(--c-dark-green); display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.25rem;">
+              <span>🔍</span> <span data-i18n="about_card2_title">Explainable AI (Grad-CAM)</span>
+            </h3>
+            <p style="font-size: 0.82rem; color: var(--c-text-muted);" data-i18n="about_card2_sub">Gradient-weighted Class Activation Mapping</p>
+          </div>
+          <span class="tag-badge" style="background: var(--c-soft-mint); color: var(--c-accent-green); font-weight: 800; font-size: 0.72rem; padding: 0.25rem 0.75rem; border-radius: 9999px; letter-spacing: 0.05em;">XAI PROTOCOL</span>
+        </div>
+
+        <div style="font-size: 0.86rem; color: var(--c-text-body); line-height: 1.7;">
+          <p style="margin-bottom: 0.85rem;" data-i18n="about_card2_p1">
+            To provide actionable transparency for growers and agronomists, the model computes neuron importance weights by taking gradients of the target class score with respect to feature activation maps of the final convolutional layer:
+          </p>
+          <div style="background: #E8F4EC; padding: 0.95rem 1.25rem; border-radius: 12px; border: 1px solid #D2E7D8; font-family: 'Space Mono', monospace; font-size: 0.88rem; color: #153F32; margin-bottom: 0.85rem; line-height: 1.8;">
+            &alpha;<sub>k</sub><sup>c</sup> = (1/Z) &sum;<sub>i</sub> &sum;<sub>j</sub> (&part; y<sup>c</sup> / &part; A<sub>i,j</sub><sup>k</sup>)<br>
+            L<sub>Grad-CAM</sub><sup>c</sup> = ReLU( &sum;<sub>k</sub> &alpha;<sub>k</sub><sup>c</sup> A<sup>k</sup> )
+          </div>
+          <p data-i18n="about_card2_p2">
+            The positive rectification (ReLU) isolates visual features that contribute positively to the predicted pathology, rendered as a continuous thermal heatmap blended over the original specimen image at 45% default opacity.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Technology Stack Specifications Card -->
+    <div class="card" style="border-radius: 20px; padding: 1.75rem;">
+      <div class="card-top-header" style="margin-bottom: 1rem;">
+        <div class="card-title-group">
+          <h3 style="font-family: var(--font-display); font-size: 1.25rem; font-weight: 700; color: var(--c-dark-green); display: flex; align-items: center; gap: 0.5rem;">
+            <span>💻</span> <span>Core Technology Stack & System Components</span>
+          </h3>
+          <p style="font-size: 0.82rem; color: var(--c-text-muted);">
+            Architectural layers, runtime frameworks, and engineering standards.
+          </p>
+        </div>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 1rem; margin-top: 0.75rem;">
+        <div style="background: #ffffff; border: 1.5px solid var(--c-card-border); border-radius: 12px; padding: 1rem;">
+          <div style="font-weight: 700; color: var(--c-dark-green); font-size: 0.9rem; margin-bottom: 0.25rem;">Backend Server</div>
+          <div style="font-size: 0.82rem; color: var(--c-text-body); line-height: 1.5;">Django 5 Web Framework, Python 3.11, WSGI architecture, in-memory stream processing.</div>
+        </div>
+        <div style="background: #ffffff; border: 1.5px solid var(--c-card-border); border-radius: 12px; padding: 1rem;">
+          <div style="font-weight: 700; color: var(--c-dark-green); font-size: 0.9rem; margin-bottom: 0.25rem;">Deep Learning Runtime</div>
+          <div style="font-size: 0.82rem; color: var(--c-text-body); line-height: 1.5;">PyTorch, Torchvision, fine-tuned ResNet-50 weights (<code style="background:#eef4f0; padding:2px 4px; border-radius:4px;">areca_resnet50_best.pth</code>).</div>
+        </div>
+        <div style="background: #ffffff; border: 1.5px solid var(--c-card-border); border-radius: 12px; padding: 1rem;">
+          <div style="font-weight: 700; color: var(--c-dark-green); font-size: 0.9rem; margin-bottom: 0.25rem;">Frontend Engine</div>
+          <div style="font-size: 0.82rem; color: var(--c-text-body); line-height: 1.5;">Modern vanilla JavaScript (ES6+), HTML5 Canvas, WebRTC Camera Stream, Web Audio Synthesizer.</div>
+        </div>
+        <div style="background: #ffffff; border: 1.5px solid var(--c-card-border); border-radius: 12px; padding: 1rem;">
+          <div style="font-weight: 700; color: var(--c-dark-green); font-size: 0.9rem; margin-bottom: 0.25rem;">Multilingual Localization</div>
+          <div style="font-size: 0.82rem; color: var(--c-text-body); line-height: 1.5;">Google Gemini API integration with local disk cache for Kannada, Hindi, Tamil, Telugu, and Malayalam.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       SECTION B: PATHOLOGY & AGRONOMIC TAXONOMY
+       ========================================================================= -->
+  <section id="pathology-section">
+    <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 1.5rem; flex-wrap: wrap; gap: 0.75rem;">
+      <div>
+        <div style="font-size: 0.75rem; font-weight: 800; letter-spacing: 0.1em; color: var(--c-accent-green); text-transform: uppercase;">SECTION B</div>
+        <h2 style="font-family: var(--font-display); font-size: 1.75rem; font-weight: 700; color: var(--c-dark-green); margin-top: 0.15rem;">
+          Pathology & Agronomic Taxonomy
+        </h2>
+      </div>
+      <span class="tag-badge" style="background: var(--c-soft-mint); color: var(--c-accent-green); font-weight: 700; font-size: 0.8rem; padding: 0.35rem 0.85rem; border-radius: 9999px;">
+        4 Distinct Classes • ICAR-CPCRI Standards
+      </span>
+    </div>
+
+    <!-- 4-Class Pathological Taxonomy Cards -->
+    <div class="card" style="margin-bottom: 2rem; border-radius: 20px; padding: 2rem;">
+      <div class="card-top-header" style="margin-bottom: 1.25rem;">
+        <div class="card-title-group">
+          <h3 style="font-family: var(--font-display); font-size: 1.35rem; font-weight: 700; color: var(--c-dark-green); display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.25rem;">
+            <span>🌿</span> <span data-i18n="about_tax_title">4-Class Pathological Taxonomy</span>
+          </h3>
+          <p style="font-size: 0.84rem; color: var(--c-text-muted);" data-i18n="about_tax_sub">
+            Agronomic characteristics, etiology, pathological progression, and certified intervention standards
+          </p>
+        </div>
+      </div>
+
+      <div class="taxonomy-cards-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.25rem; margin-top: 1rem;">
+        {% for cls in classes_list %}
+        <div class="taxonomy-spec-card" style="background: #ffffff; border: 1.5px solid var(--c-card-border); border-radius: 16px; padding: 1.35rem; display: flex; flex-direction: column; box-shadow: 0 4px 14px rgba(21, 63, 50, 0.04); transition: transform 0.25s ease, box-shadow 0.25s ease;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.65rem;">
+            <span class="status-badge-pill {% if cls.status == 'Healthy' %}status-success{% else %}status-danger{% endif %}" style="padding: 0.25rem 0.65rem; font-size: 0.72rem; font-weight: 700; border-radius: 9999px;">
+              <span>●</span>
+              <span data-i18n="status_{{ cls.status|lower }}">{{ cls.status|upper }}</span>
+            </span>
+            <span style="font-size: 0.75rem; font-weight: 700; color: var(--c-text-muted);">Class {{ forloop.counter0 }}</span>
+          </div>
+
+          <h4 style="font-family: var(--font-display); font-size: 1.15rem; font-weight: 700; color: var(--c-dark-green); margin-bottom: 0.2rem;" class="cls-name-transizable">
+            {{ cls.display_name }}
+          </h4>
+          <div style="font-size: 0.8rem; font-weight: 600; color: var(--c-accent-green); margin-bottom: 0.75rem;">
+            {{ cls.category }}
+          </div>
+
+          <p style="font-size: 0.84rem; color: var(--c-text-body); line-height: 1.6; margin-bottom: 1.15rem; flex: 1;" data-i18n="desc_{{ cls.internal_name }}">
+            {{ cls.description }}
+          </p>
+
+          {% if cls.management %}
+          <div style="font-size: 0.78rem; background: #F8FAF7; padding: 0.85rem; border-radius: 10px; border: 1px solid #E0E8DF; color: var(--c-text-muted); line-height: 1.55;">
+            <strong style="color: var(--c-dark-green); display: block; margin-bottom: 0.2rem;" data-i18n="recom_action_label">Recommended Agronomic Action:</strong>
+            <span data-i18n="mgmt_{{ cls.internal_name }}">{{ cls.management }}</span>
+          </div>
+          {% endif %}
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+
+</div>
+{% endblock %}

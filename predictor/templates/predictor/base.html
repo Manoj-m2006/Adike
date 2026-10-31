@@ -13,7 +13,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
   
   <!-- External Stylesheet with Cache-Buster -->
-  <link rel="stylesheet" href="{% static 'predictor/css/style.css' %}?v=20261025.33">
+  <link rel="stylesheet" href="{% static 'predictor/css/style.css' %}?v=20261101.46">
 
   <!-- Embedded Fail-Safe Stylesheet: Guarantees 100% Reliable Render with Zero Unstyled State -->
   <style>
@@ -116,7 +116,7 @@
   <header class="site-header" id="site-header">
     <div class="container header-inner">
       <!-- Brand Logo -->
-      <a href="javascript:void(0)" class="brand" id="brand-home-link" title="ArecaLens Home">
+      <a href="{% url 'predictor:home' %}" class="brand" id="brand-home-link" title="ArecaLens Home">
         <div class="brand-icon">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:18px;height:18px;max-width:18px;max-height:18px;">
             <path d="M12 2L12 22"></path>
@@ -134,7 +134,7 @@
       <nav aria-label="Main Navigation">
         <ul class="nav-menu">
           <li>
-            <a href="javascript:void(0)" class="nav-item-btn active" id="nav-analyze">
+            <a href="{% url 'predictor:home' %}" class="nav-item-btn {% if request.resolver_match.url_name == 'home' %}active{% endif %}" id="nav-analyze">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:16px;height:16px;max-width:16px;max-height:16px;">
                 <circle cx="11" cy="11" r="8"></circle>
                 <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
@@ -158,6 +158,18 @@
                 <polyline points="12 6 12 12 16 14"></polyline>
               </svg>
               <span data-i18n="nav_history">Scan history</span>
+            </a>
+          </li>
+          <li>
+            <a href="{% url 'predictor:architecture' %}" class="nav-item-btn {% if request.resolver_match.url_name == 'architecture' %}active{% endif %}" id="nav-architecture">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:16px;height:16px;max-width:16px;max-height:16px;">
+                <rect x="2" y="3" width="6" height="6" rx="1"></rect>
+                <rect x="16" y="3" width="6" height="6" rx="1"></rect>
+                <rect x="9" y="15" width="6" height="6" rx="1"></rect>
+                <path d="M5 9v3a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V9"></path>
+                <path d="M12 12v3"></path>
+              </svg>
+              <span data-i18n="nav_architecture">Architecture</span>
             </a>
           </li>
         </ul>

@@ -197,6 +197,7 @@ document.addEventListener('DOMContentLoaded', function () {
     "nav_guide": "Disease guide",
 
     "nav_history": "Scan history",
+    "nav_architecture": "Architecture",
 
     "sound_label": "Sound",
 
@@ -239,6 +240,16 @@ document.addEventListener('DOMContentLoaded', function () {
     "hero_tag": "AI-Powered Phytosanitary Diagnostics • ResNet-50",
 
     "hero_title": "Care for your arecanut. Understand what you see.",
+    "hero_split_eyebrow": "FOR THE PEOPLE WHO GROW",
+    "hero_split_title": "Care for your<br>arecanut.<br>Understand what<br>you see.",
+    "hero_split_desc": "Take a photo of a leaf or nut. Get a screening suggestion, see what the AI noticed, and learn what to check next.",
+    "btn_get_started": "Get started",
+    "hero_flow_label": "Photo → Screening → Explanation",
+    "lang_pane_tag": "STEP 1 OF 2 • SELECT INTERFACE LANGUAGE",
+    "lang_pane_title": "Choose your language",
+    "lang_pane_sub": "Select your preferred language. AI diagnostics, pathology reports, and agronomic care guidelines will be personalized for you.",
+    "btn_continue_inspect": "Continue to Specimen Input",
+    "btn_back": "Back",
 
     "hero_desc": "An interactive, page-by-page diagnostic compendium engineered for arecanut palm cultivation. Combines 50-layer deep residual vision with Grad-CAM Explainable AI (XAI) and verified ICAR-CPCRI agronomic care protocols.",
 
@@ -521,6 +532,7 @@ document.addEventListener('DOMContentLoaded', function () {
     "nav_guide": "ರೋಗ ಮಾಹಿತಿ",
 
     "nav_history": "ಇತಿಹಾಸ",
+    "nav_architecture": "ವಾಸ್ತುಶಿಲ್ಪ",
 
     "sound_label": "ಧ್ವನಿ",
 
@@ -563,6 +575,16 @@ document.addEventListener('DOMContentLoaded', function () {
     "hero_tag": "ಎಐ ಆಧಾರಿತ ಸಸ್ಯ ರೋಗ ತಪಾಸಣೆ • ResNet-50",
 
     "hero_title": "ನಿಮ್ಮ ಅಡಿಕೆ ತೋಟದ ಆರೈಕೆ. ಕಂಡದ್ದನ್ನು ಸ್ಪಷ್ಟವಾಗಿ ಅರ್ಥಮಾಡಿಕೊಳ್ಳಿ.",
+    "hero_split_eyebrow": "ಬೆಳೆಗಾರರಿಗಾಗಿ",
+    "hero_split_title": "ನಿಮ್ಮ ಅಡಿಕೆ ತೋಟದ<br>ಆರೈಕೆ.<br>ಕಂಡದ್ದನ್ನು ಸ್ಪಷ್ಟವಾಗಿ<br>ತಿಳಿಯಿರಿ.",
+    "hero_split_desc": "ಎಲೆ ಅಥವಾ ಅಡಿಕೆಯ ಫೋಟೋ ತೆಗೆಯಿರಿ. ತಪಾಸಣಾ ಸಲಹೆ ಪಡೆಯಿರಿ, ಎಐ ಗುರುತಿಸಿದ್ದನ್ನು ವೀಕ್ಷಿಸಿ ಮತ್ತು ಮುಂದೇನು ಮಾಡಬೇಕೆಂದು ತಿಳಿಯಿರಿ.",
+    "btn_get_started": "ಪ್ರಾರಂಭಿಸಿ",
+    "hero_flow_label": "ಫೋಟೋ → ತಪಾಸಣೆ → ವಿವರಣೆ",
+    "lang_pane_tag": "ಹಂತ ೧ • ಇಂಟರ್‌ಫೇಸ್ ಭಾಷೆಯನ್ನು ಆಯ್ಕೆಮಾಡಿ",
+    "lang_pane_title": "ನಿಮ್ಮ ಭಾಷೆಯನ್ನು ಆಯ್ಕೆಮಾಡಿ",
+    "lang_pane_sub": "ನಿಮಗೆ ಸರಿಹೊಂದುವ ಭಾಷೆ ಆಯ್ಕೆಮಾಡಿ. ಎಐ ರೋಗ ಪತ್ತೆ ಮತ್ತು ಕೃಷಿ ಆರೈಕೆ ಮಾರ್ಗಸೂಚಿಗಳು ಈ ಭಾಷೆಯಲ್ಲಿ ಲಭ್ಯವಾಗುತ್ತವೆ.",
+    "btn_continue_inspect": "ಮಾದರಿ ಇನ್‌ಪುಟ್‌ಗೆ ಮುಂದುವರಿಯಿರಿ",
+    "btn_back": "ಹಿಂದೆ",
 
     "hero_desc": "ಅಡಿಕೆ ಕೃಷಿಗಾಗಿ ರೂಪಿಸಲಾದ ಸಂವಾದಾತ್ಮಕ ಪುಟವಾರು ರೋಗ ತಪಾಸಣಾ ವಿಶ್ವಕೋಶ. ೫೦-ಪದರದ ಡೀಪ್ ರೆಸಿಡ್ಯುಯಲ್ ವಿಶನ್, Grad-CAM ವಿವರಣಾತ್ಮಕ ಎಐ (XAI) ಮತ್ತು ದೃಢೀಕೃತ ICAR-CPCRI ಕೃಷಿ ಆರೈಕೆ ಮಾರ್ಗಸೂಚಿಗಳನ್ನು ಒಳಗೊಂಡಿದೆ.",
 
@@ -845,6 +867,7 @@ document.addEventListener('DOMContentLoaded', function () {
     "nav_guide": "रोग जानकारी",
 
     "nav_history": "इतिहास",
+    "nav_architecture": "संरचना (Architecture)",
 
     "sound_label": "ध्वनि",
 
@@ -887,6 +910,16 @@ document.addEventListener('DOMContentLoaded', function () {
     "hero_tag": "एआई-संचालित पादप स्वास्थ्य निदान • ResNet-50",
 
     "hero_title": "अपनी सुपारी की देखभाल करें। जो देखें उसे स्पष्ट समझें।",
+    "hero_split_eyebrow": "उगाने वालों के लिए",
+    "hero_split_title": "अपनी सुपारी की<br>देखभाल करें।<br>जो देखें उसे स्पष्ट<br>समझें।",
+    "hero_split_desc": "पत्ती या सुपारी की तस्वीर लें। स्क्रीनिंग सुझाव प्राप्त करें, देखें कि एआई ने क्या पहचाना, और जानें कि आगे क्या जाँचना है।",
+    "btn_get_started": "शुरू करें",
+    "hero_flow_label": "फोटो → स्क्रीनिंग → स्पष्टीकरण",
+    "lang_pane_tag": "चरण १ • इंटरफ़ेस भाषा का चयन करें",
+    "lang_pane_title": "अपनी भाषा चुनें",
+    "lang_pane_sub": "अपनी पसंदीदा भाषा चुनें। एआई निदान और कृषि देखभाल दिशानिर्देश आपके लिए इस भाषा में उपलब्ध होंगे।",
+    "btn_continue_inspect": "नमूना इनपुट के लिए आगे बढ़ें",
+    "btn_back": "वापस",
 
     "hero_desc": "सुपारी की खेती के लिए निर्मित इंटरैक्टिव पृष्ठ-दर-पृष्ठ नैदानिक ​​विश्वकोश। ५०-परतों वाले डीप रेजिड्यूअल विज़न, Grad-CAM व्याख्यात्मक एआई (XAI) और प्रमाणित ICAR-CPCRI कृषि देखभाल प्रोटोकॉल का समन्वय।",
 
@@ -1211,6 +1244,16 @@ document.addEventListener('DOMContentLoaded', function () {
     "hero_tag": "എഐ അധിഷ്ഠിത സസ്യരോഗ നിർണ്ണയം • ResNet-50",
 
     "hero_title": "നിങ്ങളുടെ അടക്കത്തോട്ടം സംരക്ഷിക്കുക. കാണുന്ന ലക്ഷണങ്ങൾ തിരിച്ചറിയുക.",
+    "hero_split_eyebrow": "കർഷകർക്കായി",
+    "hero_split_title": "നിങ്ങളുടെ അടക്കത്തോട്ടം<br>സംരക്ഷിക്കുക.<br>ലക്ഷണങ്ങൾ വ്യക്തമായി<br>മനസ്സിലാക്കുക.",
+    "hero_split_desc": "ഇലയുടെയോ അടക്കയുടെയോ ഫോട്ടോ എടുക്കുക. സ്‌ക്രീനിംഗ് നിർദ്ദേശങ്ങൾ നേടുക, എഐ കണ്ടെത്തിയത് കാണുക, അടുത്തതായി എന്താണ് ചെയ്യേണ്ടതെന്ന് മനസ്സിലാക്കുക.",
+    "btn_get_started": "ആരംഭിക്കുക",
+    "hero_flow_label": "ഫോട്ടോ → സ്ക്രീനിംഗ് → വിശദീകരണം",
+    "lang_pane_tag": "ഘട്ടം 1 • ഇന്റർഫേസ് ഭാഷ തിരഞ്ഞെടുക്കുക",
+    "lang_pane_title": "നിങ്ങളുടെ ഭാഷ തിരഞ്ഞെടുക്കുക",
+    "lang_pane_sub": "നിങ്ങൾക്ക് സൗകര്യപ്രദമായ ഭാഷ തിരഞ്ഞെടുക്കുക. എഐ രോഗനിർണ്ണയവും പരിചരണ മാർഗ്ഗനിർദ്ദേശങ്ങളും ഈ ഭാഷയിൽ ലഭ്യമാകും.",
+    "btn_continue_inspect": "തുടരുക",
+    "btn_back": "തിരികെ",
 
     "hero_desc": "അടക്ക കൃഷിക്കായി രൂപകൽപ്പന ചെയ്ത ഇന്ററാക്ടീവ് സസ്യരോഗ വിജ്ഞാനകോശം. 50-ലെയർ ഡീപ് റെസിഡ്യൂവൽ വിഷൻ, Grad-CAM വിശദീകരണ എഐ (XAI), ICAR-CPCRI കാർഷിക പരിചരണ മാർഗ്ഗനിർദ്ദേശങ്ങൾ എന്നിവ സംയോജിപ്പിച്ചത്.",
 
@@ -3848,6 +3891,18 @@ document.addEventListener('DOMContentLoaded', function () {
 
   if (openLangModalBtn) openLangModalBtn.addEventListener('click', openLanguageModal);
 
+  const heroLangTrigger = document.getElementById('hero-lang-switch-trigger');
+  if (heroLangTrigger) {
+    heroLangTrigger.addEventListener('click', () => {
+      const heroCard = document.getElementById('hero-split-card');
+      if (heroCard) {
+        heroCard.classList.add('show-lang');
+      } else {
+        openLanguageModal();
+      }
+    });
+  }
+
 
 
   if (langModalBackdrop) {
@@ -4195,6 +4250,9 @@ document.addEventListener('DOMContentLoaded', function () {
   // Slide 1 (Welcome & Start) Navigation Buttons
 
   const coverStartBtn = document.getElementById('cover-start-btn');
+  const heroSplitCard = document.getElementById('hero-split-card');
+  const langBackIntroBtn = document.getElementById('lang-back-intro-btn');
+  const langContinueStepBtn = document.getElementById('lang-continue-step-btn');
 
   const coverDossierBtn = document.getElementById('cover-dossier-btn');
 
@@ -4204,7 +4262,12 @@ document.addEventListener('DOMContentLoaded', function () {
 
       if (isAnimatingSlide) return;
 
-      goToBookPage(2); // Slide into Specimen Input Studio
+      if (heroSplitCard) {
+        playSoundCue('click');
+        heroSplitCard.classList.add('show-lang');
+      } else {
+        goToBookPage(2);
+      }
 
     });
 
@@ -4225,6 +4288,23 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
   // Slide 2 (Specimen Input) Navigation Buttons
+
+  if (langBackIntroBtn) {
+    langBackIntroBtn.addEventListener('click', () => {
+      if (heroSplitCard) {
+        playSoundCue('click');
+        heroSplitCard.classList.remove('show-lang');
+      }
+    });
+  }
+
+  if (langContinueStepBtn) {
+    langContinueStepBtn.addEventListener('click', () => {
+      if (isAnimatingSlide) return;
+      playSoundCue('success');
+      goToBookPage(2);
+    });
+  }
 
   const inputPrevBtn = document.getElementById('input-prev-btn');
 
@@ -4732,7 +4812,13 @@ document.addEventListener('DOMContentLoaded', function () {
 
   if (brandHomeLink) {
 
-    brandHomeLink.addEventListener('click', () => goToBookPage(1));
+    brandHomeLink.addEventListener('click', (e) => {
+      if (document.getElementById('book-page-1')) {
+        goToBookPage(1);
+      } else {
+        window.location.href = '/';
+      }
+    });
 
   }
 
@@ -4758,13 +4844,25 @@ document.addEventListener('DOMContentLoaded', function () {
 
   if (navAnalyze) {
 
-    navAnalyze.addEventListener('click', () => goToBookPage(2));
+    navAnalyze.addEventListener('click', (e) => {
+      if (document.getElementById('book-page-2')) {
+        e.preventDefault();
+        goToBookPage(2);
+      }
+    });
 
   }
 
   if (navGuide) {
 
-    navGuide.addEventListener('click', () => goToBookPage(5));
+    navGuide.addEventListener('click', (e) => {
+      if (document.getElementById('book-page-5')) {
+        e.preventDefault();
+        goToBookPage(5);
+      } else {
+        window.location.href = '/?step=5';
+      }
+    });
 
   }
 
@@ -4792,7 +4890,11 @@ document.addEventListener('DOMContentLoaded', function () {
 
   } else {
 
-    goToBookPage(1, true);
+    if (document.getElementById('book-page-1')) {
+      const urlParams = new URLSearchParams(window.location.search);
+      const stepParam = parseInt(urlParams.get('step') || '1', 10);
+      goToBookPage(stepParam, true);
+    }
 
   }
 
