@@ -4196,7 +4196,7 @@ img {
 /* =============================================================================
    RIGHT CARD CLASS INTELLIGENCE & DISEASE PREVENTION (Fills empty space)
    ============================================================================= */
-.right-class-intel-box {
+.class-intel-box, .right-class-intel-box {
   margin-top: 1.25rem;
   margin-bottom: 0.85rem;
   padding: 1.15rem;

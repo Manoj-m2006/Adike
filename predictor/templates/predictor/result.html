@@ -190,6 +190,205 @@
           </ul>
         </div>
 
+        <!-- =========================================================================
+             LEFT CARD: PATHOLOGY, DIAGNOSTIC SYMPTOMS & IMMEDIATE ACTIONS
+             Balances visual layout with right card cure & prevention protocol
+             ========================================================================= -->
+        <div class="class-intel-box left-intel-box">
+
+          {% if 'mahali' in prediction.predicted_display_name|lower or 'koleroga' in prediction.predicted_display_name|lower or 'mahali' in prediction.predicted_class|lower %}
+          <!-- MAHALI / KOLEROGA: DIAGNOSIS & SYMPTOMS -->
+          <div class="intel-header-badge disease-badge">
+            <span class="intel-badge-icon">🍄</span>
+            <div class="intel-badge-content">
+              <span class="intel-badge-kicker">PATHOLOGY & FIELD DIAGNOSIS</span>
+              <h3 class="intel-badge-title">Mahali / Koleroga — Disease Profile & Symptoms</h3>
+            </div>
+            <span class="intel-risk-pill">CRITICAL RISK</span>
+          </div>
+
+          <!-- Etiology & Pathogen Profile -->
+          <div class="intel-info-row">
+            <div class="intel-info-col">
+              <span class="intel-label">🔬 Causal Pathogen</span>
+              <span class="intel-val"><em>Phytophthora meadii</em> McRae (destructive oomycete water-mold)</span>
+            </div>
+            <div class="intel-info-col">
+              <span class="intel-label">📉 Expected Crop Loss</span>
+              <span class="intel-val" style="color: #b54747; font-weight: 800;">50% to 90% harvest destruction if untreated</span>
+            </div>
+          </div>
+
+          <!-- Climatic Trigger & Infection Spread -->
+          <div class="intel-action-box alert-neutral">
+            <div class="intel-box-title">
+              <span>🌧️</span> <strong>Climatic Triggers & Epidemiology:</strong>
+            </div>
+            <p class="intel-box-desc">
+              Mahali is triggered by continuous southwest monsoon rains (June to September) with relative humidity &gt;90% and moderate temperatures (20°C–24°C). Rain splashes actively detach sporangia, dispersing motile zoospores across bunches and adjacent palms. Overwinters as dormant oospores in dried mummified nut bunches and crown crevices.
+            </p>
+          </div>
+
+          <!-- Diagnostic Symptoms & Field Identification -->
+          <div class="intel-action-box alert-red">
+            <div class="intel-box-title">
+              <span>🔴</span> <strong>Diagnostic Symptoms & Visual Identification:</strong>
+            </div>
+            <ul class="intel-bullet-list">
+              <li><strong>Early Stage:</strong> Water-soaked, dark green or brownish lesions appear near the perianth (calyx end) of young tender arecanuts.</li>
+              <li><strong>Advanced Stage:</strong> Lesions spread rapidly over the entire nut surface; nuts turn dark brown to black, lose turgidity, rot, and shed in immense numbers (premature button &amp; nut shedding).</li>
+              <li><strong>Mycelial Growth:</strong> Fallen shed nuts on the orchard floor develop a conspicuous, thick white cottony fungal felt (sporangial mat).</li>
+              <li><strong>Crown / Bud Rot:</strong> In severe cases, rain washes fungal zoospores into the central spindle, leading to terminal bud rot and irreversible palm death.</li>
+            </ul>
+          </div>
+
+          <!-- Immediate Emergency Actions -->
+          <div class="intel-action-box alert-orange">
+            <div class="intel-box-title">
+              <span>⚡</span> <strong>Immediate Emergency Field Actions (Do Today):</strong>
+            </div>
+            <ul class="intel-bullet-list">
+              <li><strong>Halt Overhead Irrigation:</strong> Immediately shut down sprinkler or overhead irrigation systems to minimize canopy moisture and humidity.</li>
+              <li><strong>Collect and Destroy Diseased Nuts:</strong> Gather every fallen, rotten nut and diseased bunch debris on the same day. Incinerate (burn) or bury in deep trenches with lime. <em>Never leave them on the plantation floor or add to compost piles.</em></li>
+              <li><strong>Isolate Infected Palms:</strong> Mark affected palms and avoid transferring tools or climbing gear directly to healthy palms without disinfection.</li>
+              <li><strong>Clear Crown Debris:</strong> Remove dried spathes, decaying flower stalks, and debris harboring overwintering fungal inoculum.</li>
+            </ul>
+          </div>
+
+          {% elif 'yellow' in prediction.predicted_display_name|lower or 'yld' in prediction.predicted_display_name|lower or 'yellow' in prediction.predicted_class|lower %}
+          <!-- YELLOW LEAF DISEASE: DIAGNOSIS & SYMPTOMS -->
+          <div class="intel-header-badge disease-badge">
+            <span class="intel-badge-icon">🍂</span>
+            <div class="intel-badge-content">
+              <span class="intel-badge-kicker">PATHOLOGY & FIELD DIAGNOSIS</span>
+              <h3 class="intel-badge-title">Yellow Leaf Disease (YLD) — Pathological Profile</h3>
+            </div>
+            <span class="intel-risk-pill" style="color: #a96e16; background: rgba(169, 110, 22, 0.12); border-color: rgba(169, 110, 22, 0.25);">CHRONIC RISK</span>
+          </div>
+
+          <!-- Etiology & Pathogen Profile -->
+          <div class="intel-info-row">
+            <div class="intel-info-col">
+              <span class="intel-label">🔬 Associated Pathogen</span>
+              <span class="intel-val">Phytoplasma organisms (phloem-inhabiting, cell-wall-less prokaryotes)</span>
+            </div>
+            <div class="intel-info-col">
+              <span class="intel-label">📉 Expected Crop Impact</span>
+              <span class="intel-val" style="color: #a96e16; font-weight: 800;">60% to 80% yield reduction over 3–5 years</span>
+            </div>
+          </div>
+
+          <!-- Insect Vectors & Predisposing Factors -->
+          <div class="intel-action-box alert-neutral">
+            <div class="intel-box-title">
+              <span>🦟</span> <strong>Insect Vectors & Transmission:</strong>
+            </div>
+            <p class="intel-box-desc">
+              Transmitted between palms by phloem-feeding plant hoppers (<em>Proutista moesta</em>) and lace bugs (<em>Stephanitis typica</em>). Predisposing triggers include waterlogging, severe soil acidity (pH &lt;5.0), low organic matter, and chronic potassium/magnesium deficiency in the root zone.
+            </p>
+          </div>
+
+          <!-- Diagnostic Symptoms -->
+          <div class="intel-action-box alert-red">
+            <div class="intel-box-title">
+              <span>🔴</span> <strong>Diagnostic Symptoms & Field Identification:</strong>
+            </div>
+            <ul class="intel-bullet-list">
+              <li><strong>Foliar Chlorosis:</strong> Characteristic intense yellowing initiates at the tips of outer leaflets in lower whorls, progressing inward along lamina edges while leaving midribs green.</li>
+              <li><strong>Crown Reduction:</strong> Leaves become short, stiff, brittle, and crinkled. The crown gradually shrinks, giving the palm trunk a tapered pencil-point appearance.</li>
+              <li><strong>Kernel Degeneration:</strong> Nuts become small, corrugated, and cracked. Kernels show soft, spongy, blackened endosperm (unmarketable, degraded chali).</li>
+              <li><strong>Root Dieback:</strong> Feeder roots turn black, decay, and suffer cortical breakdown, severely impairing nutrient uptake.</li>
+            </ul>
+          </div>
+
+          <!-- Immediate Actions -->
+          <div class="intel-action-box alert-orange">
+            <div class="intel-box-title">
+              <span>⚡</span> <strong>Immediate Field Actions (Do Today):</strong>
+            </div>
+            <ul class="intel-bullet-list">
+              <li><strong>Excavate Drainage Channels:</strong> Dig 2–3 ft deep trenches immediately if any water stagnation or soggy soil is detected in the root zone.</li>
+              <li><strong>Foliar Micronutrient Application:</strong> Spray 0.5% Zinc Sulfate + 0.1% Boric Acid onto fronds to stimulate chlorophyll synthesis.</li>
+              <li><strong>Vector Trapping:</strong> Install yellow sticky traps (15–20 traps/acre) at canopy level to monitor and trap plant hoppers and lace bugs.</li>
+              <li><strong>Rogue Terminal Palms:</strong> Terminally declined palms with completely decayed crowns must be cut and removed to eliminate vector feeding reservoirs.</li>
+            </ul>
+          </div>
+
+          {% elif 'nut' in prediction.predicted_display_name|lower or 'nut' in prediction.predicted_class|lower %}
+          <!-- HEALTHY NUT: MORPHOLOGY & SURVEILLANCE -->
+          <div class="intel-header-badge healthy-badge">
+            <span class="intel-badge-icon">🌰</span>
+            <div class="intel-badge-content">
+              <span class="intel-badge-kicker">AGRONOMIC HEALTH & QUALITY PROFILE</span>
+              <h3 class="intel-badge-title">Healthy Nut Specimen — Morphological Standards</h3>
+            </div>
+            <span class="intel-health-pill">OPTIMAL GRADE</span>
+          </div>
+
+          <!-- Observed Botanical Markers -->
+          <div class="intel-action-box alert-green">
+            <div class="intel-box-title">
+              <span>✅</span> <strong>Healthy Botanical Characteristics Observed:</strong>
+            </div>
+            <ul class="intel-bullet-list">
+              <li><strong>Intact Epicarp:</strong> Smooth, firm, deep green outer skin with zero water-soaked lesions, dark rotting, or necrosis.</li>
+              <li><strong>Firm Calyx Perianth:</strong> Strong attachment to bunch stalk with tight calyx cups and no dark margin discoloration.</li>
+              <li><strong>Normal Fruit Cluster:</strong> High fruit retention count (30–50 nuts per bunch) without abnormal button nut shedding.</li>
+              <li><strong>Absence of Mycelium:</strong> Clean fruit surfaces completely free from white fluffy Phytophthora mycelial felts.</li>
+            </ul>
+          </div>
+
+          <!-- Early Warning Signs -->
+          <div class="intel-action-box alert-orange">
+            <div class="intel-box-title">
+              <span>👁️</span> <strong>Early Warning Symptoms to Monitor in Field:</strong>
+            </div>
+            <ul class="intel-bullet-list">
+              <li>Tiny water-soaked dark spots appearing near the nut perianth stalk (early Koleroga onset).</li>
+              <li>Sudden shedding of green buttons (more than 5 green nuts per day under a palm).</li>
+              <li>Foul odor or dark discoloration spreading across bunch rachillae.</li>
+            </ul>
+          </div>
+
+          {% else %}
+          <!-- HEALTHY LEAF: CANOPY ARCHITECTURE -->
+          <div class="intel-header-badge healthy-badge">
+            <span class="intel-badge-icon">🍃</span>
+            <div class="intel-badge-content">
+              <span class="intel-badge-kicker">CANOPY HEALTH & FOLIAR WELLNESS</span>
+              <h3 class="intel-badge-title">Healthy Leaf Specimen — Frond Standards</h3>
+            </div>
+            <span class="intel-health-pill">OPTIMAL GRADE</span>
+          </div>
+
+          <!-- Observed Botanical Markers -->
+          <div class="intel-action-box alert-green">
+            <div class="intel-box-title">
+              <span>✅</span> <strong>Healthy Foliar Characteristics Observed:</strong>
+            </div>
+            <ul class="intel-bullet-list">
+              <li><strong>Vigorous Chlorophyll:</strong> Deep uniform green color across all leaflets with balanced photosynthetic pigmentation.</li>
+              <li><strong>Healthy Venation:</strong> Strong prominent parallel veins with zero interveinal chlorosis, marginal scorch, or necrosis.</li>
+              <li><strong>Pinnate Architecture:</strong> Full arching fronds with healthy turgidity and no crinkling, brittleness, or leaf shortening.</li>
+              <li><strong>Erect Central Spindle:</strong> Upright, healthy growing spear leaf free from crown rot, bud rot, or wilting.</li>
+            </ul>
+          </div>
+
+          <!-- Warning Triggers -->
+          <div class="intel-action-box alert-orange">
+            <div class="intel-box-title">
+              <span>👁️</span> <strong>Early Foliar Symptoms to Watch For:</strong>
+            </div>
+            <ul class="intel-bullet-list">
+              <li>Yellowing beginning at outer leaflet tips (primary trigger sign of Yellow Leaf Disease).</li>
+              <li>Brown necrotic spots with yellow halos (indicative of leaf spot / Colletotrichum blight).</li>
+              <li>Central spindle wilting or collapsing (warning sign of bud rot / Phytophthora crown infection).</li>
+            </ul>
+          </div>
+          {% endif %}
+
+        </div>
+
       </div>
 
       <!-- Right Card: What influenced the result? (Grad-CAM XAI) -->
@@ -265,68 +464,17 @@
              RIGHT CARD: COMPREHENSIVE CLASS DETAILS & DISEASE PREVENTION
              Fills the right side empty space with complete agronomic guidance
              ========================================================================= -->
-        <div class="right-class-intel-box">
+        <div class="class-intel-box right-intel-box">
 
           {% if 'mahali' in prediction.predicted_display_name|lower or 'koleroga' in prediction.predicted_display_name|lower or 'mahali' in prediction.predicted_class|lower %}
-          <!-- =================================================================
-               CLASS DOSSIER: MAHALI / KOLEROGA (FRUIT ROT)
-               Comprehensive Pathological Profile, Cure & Prevention System
-               ================================================================= -->
+          <!-- MAHALI / KOLEROGA: TREATMENT, PREVENTION & CURE -->
           <div class="intel-header-badge disease-badge">
-            <span class="intel-badge-icon">🍄</span>
+            <span class="intel-badge-icon">💊</span>
             <div class="intel-badge-content">
-              <span class="intel-badge-kicker">PATHOLOGY & FIELD ACTION DOSSIER</span>
-              <h3 class="intel-badge-title">Mahali / Koleroga (Fruit Rot) — Full Agronomic Management</h3>
+              <span class="intel-badge-kicker">ICAR-CPCRI TREATMENT & CURE SYSTEM</span>
+              <h3 class="intel-badge-title">Mahali / Koleroga — Treatment & Prevention Protocol</h3>
             </div>
-            <span class="intel-risk-pill">CRITICAL RISK</span>
-          </div>
-
-          <!-- Etiology & Pathogen Profile -->
-          <div class="intel-info-row">
-            <div class="intel-info-col">
-              <span class="intel-label">🔬 Causal Pathogen</span>
-              <span class="intel-val"><em>Phytophthora meadii</em> McRae (destructive oomycete water-mold)</span>
-            </div>
-            <div class="intel-info-col">
-              <span class="intel-label">📉 Expected Crop Loss</span>
-              <span class="intel-val" style="color: #b54747; font-weight: 800;">50% to 90% harvest destruction if untreated</span>
-            </div>
-          </div>
-
-          <!-- Climatic Trigger & Infection Spread -->
-          <div class="intel-action-box alert-neutral">
-            <div class="intel-box-title">
-              <span>🌧️</span> <strong>Climatic Triggers & Epidemiology:</strong>
-            </div>
-            <p class="intel-box-desc">
-              Mahali is triggered by continuous southwest monsoon rains (June to September) with relative humidity &gt;90% and moderate temperatures (20°C–24°C). Rain splashes actively detach sporangia, dispersing motile zoospores across bunches and adjacent palms. Overwinters as dormant oospores in dried mummified nut bunches and crown crevices.
-            </p>
-          </div>
-
-          <!-- Immediate Emergency Actions -->
-          <div class="intel-action-box alert-orange">
-            <div class="intel-box-title">
-              <span>⚡</span> <strong>Immediate Emergency Field Actions (Do Today):</strong>
-            </div>
-            <ul class="intel-bullet-list">
-              <li><strong>Halt Overhead Irrigation:</strong> Immediately shut down sprinkler or overhead irrigation systems to minimize canopy moisture and humidity.</li>
-              <li><strong>Collect and Destroy Diseased Nuts:</strong> Gather every fallen, rotten nut and diseased bunch debris on the same day. Incinerate (burn) or bury in deep trenches with lime. <em>Never leave them on the plantation floor or add to compost piles.</em></li>
-              <li><strong>Isolate Infected Palms:</strong> Mark affected palms and avoid transferring tools or climbing gear directly to healthy palms without disinfection.</li>
-              <li><strong>Clear Crown Debris:</strong> Remove dried spathes, decaying flower stalks, and debris harboring overwintering fungal inoculum.</li>
-            </ul>
-          </div>
-
-          <!-- Diagnostic Symptoms & Field Identification -->
-          <div class="intel-action-box alert-red">
-            <div class="intel-box-title">
-              <span>🔴</span> <strong>Diagnostic Symptoms & Visual Identification:</strong>
-            </div>
-            <ul class="intel-bullet-list">
-              <li><strong>Early Stage:</strong> Water-soaked, dark green or brownish lesions appear near the perianth (calyx end) of young tender arecanuts.</li>
-              <li><strong>Advanced Stage:</strong> Lesions spread rapidly over the entire nut surface; nuts turn dark brown to black, lose turgidity, rot, and shed in immense numbers (premature button &amp; nut shedding).</li>
-              <li><strong>Mycelial Growth:</strong> Fallen shed nuts on the orchard floor develop a conspicuous, thick white cottony fungal felt (sporangial mat).</li>
-              <li><strong>Crown / Bud Rot:</strong> In severe cases, rain washes fungal zoospores into the central spindle, leading to terminal bud rot and irreversible palm death.</li>
-            </ul>
+            <span class="intel-risk-pill" style="background: rgba(36, 107, 80, 0.12); color: #246B50; border-color: rgba(36, 107, 80, 0.25);">PROVEN PROTOCOL</span>
           </div>
 
           <!-- Treatment Protocol -->
@@ -378,65 +526,14 @@
           </div>
 
           {% elif 'yellow' in prediction.predicted_display_name|lower or 'yld' in prediction.predicted_display_name|lower or 'yellow' in prediction.predicted_class|lower %}
-          <!-- =================================================================
-               CLASS DOSSIER: YELLOW LEAF DISEASE (YLD)
-               Phytoplasma Etiology, Nutritional Rehabilitation & Vector Control
-               ================================================================= -->
+          <!-- YELLOW LEAF DISEASE: REHABILITATION & PREVENTION -->
           <div class="intel-header-badge disease-badge">
-            <span class="intel-badge-icon">🍂</span>
+            <span class="intel-badge-icon">💊</span>
             <div class="intel-badge-content">
-              <span class="intel-badge-kicker">PATHOLOGY & REHABILITATION DOSSIER</span>
-              <h3 class="intel-badge-title">Yellow Leaf Disease (YLD) — Comprehensive Management</h3>
+              <span class="intel-badge-kicker">ICAR-CPCRI REHABILITATION SYSTEM</span>
+              <h3 class="intel-badge-title">Yellow Leaf Disease (YLD) — Nutritional Cure & Prevention</h3>
             </div>
-            <span class="intel-risk-pill" style="color: #a96e16; background: rgba(169, 110, 22, 0.12); border-color: rgba(169, 110, 22, 0.25);">CHRONIC RISK</span>
-          </div>
-
-          <!-- Etiology & Pathogen Profile -->
-          <div class="intel-info-row">
-            <div class="intel-info-col">
-              <span class="intel-label">🔬 Associated Pathogen</span>
-              <span class="intel-val">Phytoplasma organisms (phloem-inhabiting, cell-wall-less prokaryotes)</span>
-            </div>
-            <div class="intel-info-col">
-              <span class="intel-label">📉 Expected Crop Impact</span>
-              <span class="intel-val" style="color: #a96e16; font-weight: 800;">60% to 80% yield reduction over 3–5 years</span>
-            </div>
-          </div>
-
-          <!-- Insect Vectors & Predisposing Factors -->
-          <div class="intel-action-box alert-neutral">
-            <div class="intel-box-title">
-              <span>🦟</span> <strong>Insect Vectors & Transmission:</strong>
-            </div>
-            <p class="intel-box-desc">
-              Transmitted between palms by phloem-feeding plant hoppers (<em>Proutista moesta</em>) and lace bugs (<em>Stephanitis typica</em>). Predisposing triggers include waterlogging, severe soil acidity (pH &lt;5.0), low organic matter, and chronic potassium/magnesium deficiency in the root zone.
-            </p>
-          </div>
-
-          <!-- Diagnostic Symptoms -->
-          <div class="intel-action-box alert-red">
-            <div class="intel-box-title">
-              <span>🔴</span> <strong>Diagnostic Symptoms & Field Identification:</strong>
-            </div>
-            <ul class="intel-bullet-list">
-              <li><strong>Foliar Chlorosis:</strong> Characteristic intense yellowing initiates at the tips of outer leaflets in lower whorls, progressing inward along lamina edges while leaving midribs green.</li>
-              <li><strong>Crown Reduction:</strong> Leaves become short, stiff, brittle, and crinkled. The crown gradually shrinks, giving the palm trunk a tapered pencil-point appearance.</li>
-              <li><strong>Kernel Degeneration:</strong> Nuts become small, corrugated, and cracked. Kernels show soft, spongy, blackened endosperm (unmarketable, degraded chali).</li>
-              <li><strong>Root Dieback:</strong> Feeder roots turn black, decay, and suffer cortical breakdown, severely impairing nutrient uptake.</li>
-            </ul>
-          </div>
-
-          <!-- Immediate Actions -->
-          <div class="intel-action-box alert-orange">
-            <div class="intel-box-title">
-              <span>⚡</span> <strong>Immediate Field Actions (Do Today):</strong>
-            </div>
-            <ul class="intel-bullet-list">
-              <li><strong>Excavate Drainage Channels:</strong> Dig 2–3 ft deep trenches immediately if any water stagnation or soggy soil is detected in the root zone.</li>
-              <li><strong>Foliar Micronutrient Application:</strong> Spray 0.5% Zinc Sulfate + 0.1% Boric Acid onto fronds to stimulate chlorophyll synthesis.</li>
-              <li><strong>Vector Trapping:</strong> Install yellow sticky traps (15–20 traps/acre) at canopy level to monitor and trap plant hoppers and lace bugs.</li>
-              <li><strong>Rogue Terminal Palms:</strong> Terminally declined palms with completely decayed crowns must be cut and removed to eliminate vector feeding reservoirs.</li>
-            </ul>
+            <span class="intel-risk-pill" style="background: rgba(36, 107, 80, 0.12); color: #246B50; border-color: rgba(36, 107, 80, 0.25);">REHABILITATION</span>
           </div>
 
           <!-- Rehabilitation Protocol -->
@@ -486,30 +583,14 @@
           </div>
 
           {% elif 'nut' in prediction.predicted_display_name|lower or 'nut' in prediction.predicted_class|lower %}
-          <!-- =================================================================
-               CLASS DOSSIER: HEALTHY NUT (CONTROL)
-               Morphological Standards, Maintenance & Proactive Crop Defense
-               ================================================================= -->
+          <!-- HEALTHY NUT: PROTECTION & CALENDAR -->
           <div class="intel-header-badge healthy-badge">
-            <span class="intel-badge-icon">🌰</span>
+            <span class="intel-badge-icon">🛡️</span>
             <div class="intel-badge-content">
-              <span class="intel-badge-kicker">AGRONOMIC HEALTH & YIELD MAXIMIZATION</span>
-              <h3 class="intel-badge-title">Healthy Nut Specimen — Optimal Development Standards</h3>
+              <span class="intel-badge-kicker">PROACTIVE CROP PROTECTION</span>
+              <h3 class="intel-badge-title">Healthy Nut — Protection Protocols & Care Calendar</h3>
             </div>
-            <span class="intel-health-pill">OPTIMAL GRADE</span>
-          </div>
-
-          <!-- Observed Botanical Markers -->
-          <div class="intel-action-box alert-green">
-            <div class="intel-box-title">
-              <span>✅</span> <strong>Healthy Botanical Characteristics Observed:</strong>
-            </div>
-            <ul class="intel-bullet-list">
-              <li><strong>Intact Epicarp:</strong> Smooth, firm, deep green outer skin with zero water-soaked lesions, dark rotting, or necrosis.</li>
-              <li><strong>Firm Calyx Perianth:</strong> Strong attachment to bunch stalk with tight calyx cups and no dark margin discoloration.</li>
-              <li><strong>Normal Fruit Cluster:</strong> High fruit retention count (30–50 nuts per bunch) without abnormal button nut shedding.</li>
-              <li><strong>Absence of Mycelium:</strong> Clean fruit surfaces completely free from white fluffy Phytophthora mycelial felts.</li>
-            </ul>
+            <span class="intel-health-pill">BEST PRACTICES</span>
           </div>
 
           <!-- Proactive Disease Prevention -->
@@ -522,18 +603,6 @@
               <li><strong>Prophylactic 1% Bordeaux Spray:</strong> Apply fine spray over bunches before southwest monsoon rains commence (late May).</li>
               <li><strong>Nutrient Support for Kernel Fill:</strong> Apply Borax (12 g/palm) and Zinc Sulfate (20 g/palm) to ensure uniform kernel development and prevent premature fruit cracking.</li>
               <li><strong>Summer Irrigation Regimen:</strong> Maintain 175–200 L per palm every 4 to 6 days during dry summer months (January–May).</li>
-            </ul>
-          </div>
-
-          <!-- Early Warning Signs -->
-          <div class="intel-action-box alert-orange">
-            <div class="intel-box-title">
-              <span>👁️</span> <strong>Early Warning Symptoms to Monitor in Field:</strong>
-            </div>
-            <ul class="intel-bullet-list">
-              <li>Tiny water-soaked dark spots appearing near the nut perianth stalk.</li>
-              <li>Sudden shedding of green buttons (more than 5 green nuts per day under a palm).</li>
-              <li>Foul odor or dark discoloration spreading across bunch rachillae.</li>
             </ul>
           </div>
 
@@ -551,30 +620,14 @@
           </div>
 
           {% else %}
-          <!-- =================================================================
-               CLASS DOSSIER: HEALTHY LEAF (CONTROL)
-               Canopy Architecture, Agronomic Management & Preventive Surveillance
-               ================================================================= -->
+          <!-- HEALTHY LEAF: MAINTENANCE & CALENDAR -->
           <div class="intel-header-badge healthy-badge">
-            <span class="intel-badge-icon">🍃</span>
+            <span class="intel-badge-icon">🛡️</span>
             <div class="intel-badge-content">
-              <span class="intel-badge-kicker">CANOPY HEALTH & AGRONOMIC SURVEILLANCE</span>
-              <h3 class="intel-badge-title">Healthy Leaf Specimen — Frond Architecture & Wellness</h3>
+              <span class="intel-badge-kicker">CANOPY CARE & SURVEILLANCE</span>
+              <h3 class="intel-badge-title">Healthy Leaf — Nutrition Schedule & Surveillance</h3>
             </div>
-            <span class="intel-health-pill">OPTIMAL GRADE</span>
-          </div>
-
-          <!-- Observed Botanical Markers -->
-          <div class="intel-action-box alert-green">
-            <div class="intel-box-title">
-              <span>✅</span> <strong>Healthy Foliar Characteristics Observed:</strong>
-            </div>
-            <ul class="intel-bullet-list">
-              <li><strong>Vigorous Chlorophyll:</strong> Deep uniform green color across all leaflets with balanced photosynthetic pigmentation.</li>
-              <li><strong>Healthy Venation:</strong> Strong prominent parallel veins with zero interveinal chlorosis, marginal scorch, or necrosis.</li>
-              <li><strong>Pinnate Architecture:</strong> Full arching fronds with healthy turgidity and no crinkling, brittleness, or leaf shortening.</li>
-              <li><strong>Erect Central Spindle:</strong> Upright, healthy growing spear leaf free from crown rot, bud rot, or wilting.</li>
-            </ul>
+            <span class="intel-health-pill">BEST PRACTICES</span>
           </div>
 
           <!-- Maintenance & Soil Care -->
@@ -587,18 +640,6 @@
               <li><strong>Balanced NPK Nutrition:</strong> Apply 100g N, 40g P, and 140g K per palm in 2 splits (May–June and Sept–Oct).</li>
               <li><strong>Organic Mulching:</strong> Mulch palm basins with 12 kg dry leaves or coconut husk to retain moisture and foster beneficial mycorrhizae.</li>
               <li><strong>Basin Drainage:</strong> Ensure root basins have gentle slopes leading to drainage ditches to prevent root hypoxia during monsoon.</li>
-            </ul>
-          </div>
-
-          <!-- Warning Triggers -->
-          <div class="intel-action-box alert-orange">
-            <div class="intel-box-title">
-              <span>👁️</span> <strong>Early Foliar Symptoms to Watch For:</strong>
-            </div>
-            <ul class="intel-bullet-list">
-              <li>Yellowing beginning at outer leaflet tips (primary trigger sign of Yellow Leaf Disease).</li>
-              <li>Brown necrotic spots with yellow halos (indicative of leaf spot / Colletotrichum blight).</li>
-              <li>Central spindle wilting or collapsing (warning sign of bud rot / Phytophthora crown infection).</li>
             </ul>
           </div>
 
