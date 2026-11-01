@@ -92,6 +92,22 @@ document.addEventListener('DOMContentLoaded', function () {
 
         osc.stop(now + 0.09);
 
+      } else if (type === 'warning' || type === 'error') {
+        [
+          { freq: 320, time: now, dur: 0.09 },
+          { freq: 240, time: now + 0.1, dur: 0.18 }
+        ].forEach(t => {
+          const osc = audioCtx.createOscillator();
+          const gain = audioCtx.createGain();
+          osc.type = 'triangle';
+          osc.frequency.setValueAtTime(t.freq, t.time);
+          gain.gain.setValueAtTime(0.12, t.time);
+          gain.gain.exponentialRampToValueAtTime(0.001, t.time + t.dur);
+          osc.connect(gain);
+          gain.connect(audioCtx.destination);
+          osc.start(t.time);
+          osc.stop(t.time + t.dur);
+        });
       } else if (type === 'success') {
 
         [
@@ -191,6 +207,11 @@ document.addEventListener('DOMContentLoaded', function () {
     "lang_name": "English",
 
     "brand_tagline": "YOUR PLANT HEALTH COMPANION",
+    "error_no_image_badge": "SPECIMEN REQUIRED",
+    "error_no_image_title": "Please Insert a Plant Photo",
+    "error_no_image_desc": "No plant image was provided. Please upload or capture an arecanut leaf or nut photo before clicking analyze.",
+    "error_no_image_banner": "Please upload or capture a plant photo before running analysis.",
+    "btn_dismiss": "Dismiss",
 
     "nav_analyze": "Analyze",
 
@@ -526,6 +547,11 @@ document.addEventListener('DOMContentLoaded', function () {
     "lang_name": "ಕನ್ನಡ",
 
     "brand_tagline": "ನಿಮ್ಮ ಸಸ್ಯ ಆರೋಗ್ಯ ಒಡನಾಡಿ",
+    "error_no_image_badge": "ಚಿತ್ರ ಅಗತ್ಯವಿದೆ",
+    "error_no_image_title": "ದಯವಿಟ್ಟು ಸಸ್ಯದ ಚಿತ್ರವನ್ನು ಸೇರಿಸಿ",
+    "error_no_image_desc": "ಯಾವುದೇ ಸಸ್ಯದ ಚಿತ್ರವನ್ನು ನೀಡಿಲ್ಲ. ವಿಶ್ಲೇಷಣೆ ನಡೆಸುವ ಮೊದಲು ದಯವಿಟ್ಟು ಅಡಿಕೆ ಎಲೆ ಅಥವಾ ಕಾಯಿಯ ಫೋಟೋ ಸೇರಿಸಿ.",
+    "error_no_image_banner": "ವಿಶ್ಲೇಷಣೆ ನಡೆಸುವ ಮೊದಲು ದಯವಿಟ್ಟು ಅಡಿಕೆ ಸಸ್ಯದ ಫೋಟೋ ಸೇರಿಸಿ.",
+    "btn_dismiss": "ರದ್ದುಮಾಡಿ",
 
     "nav_analyze": "ವಿಶ್ಲೇಷಣೆ",
 
@@ -861,6 +887,11 @@ document.addEventListener('DOMContentLoaded', function () {
     "lang_name": "हिन्दी",
 
     "brand_tagline": "आपका पौधा स्वास्थ्य साथी",
+    "error_no_image_badge": "तस्वीर आवश्यक है",
+    "error_no_image_title": "कृपया पौधे की तस्वीर डालें",
+    "error_no_image_desc": "कोई पौधे की तस्वीर नहीं मिली। विश्लेषण करने से पहले कृपया सुपारी के पत्ते या फल की तस्वीर डालें।",
+    "error_no_image_banner": "विश्लेषण शुरू करने से पहले कृपया पौधे की तस्वीर डालें।",
+    "btn_dismiss": "खारिज करें",
 
     "nav_analyze": "जाँच करें",
 
@@ -1196,6 +1227,11 @@ document.addEventListener('DOMContentLoaded', function () {
     "lang_name": "മലയാളം",
 
     "brand_tagline": "നിങ്ങളുടെ സസ്യാരോഗ്യ സഹായി",
+    "error_no_image_badge": "ഫോട്ടോ ആവശ്യമാണ്",
+    "error_no_image_title": "ദയവായി ഒരു ചിത്രം ചേർക്കുക",
+    "error_no_image_desc": "സസ്യത്തിന്റെ ചിത്രം നൽകിയിട്ടില്ല. വിശകലനം നടത്തുന്നതിന് മുമ്പ് ദയവായി അടയ്ക്ക ഇലയുടെയോ കായുടെയോ ഫോട്ടോ ചേർക്കുക.",
+    "error_no_image_banner": "വിശകലനം നടത്തുന്നതിന് മുമ്പ് ദയവായി ഒരു ചിത്രം ചേർക്കുക.",
+    "btn_dismiss": "നിരസിക്കുക",
 
     "nav_analyze": "പരിശോധിക്കുക",
 
@@ -4324,44 +4360,73 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 
-  function startAnalysisPipeline() {
+  function showNoImageModal() {
+    const modal = document.getElementById('no-image-modal-backdrop');
+    const banner = document.getElementById('dropzone-error-banner');
+    const dropzone = document.getElementById('upload-dropzone');
 
-    const inputEl = document.getElementById('image-upload-input');
-
-    if (!inputEl || !inputEl.files || inputEl.files.length === 0) {
-
-      // Auto-load instant specimen sample if user clicked without picking
-
-      generateSampleSpecimen('healthy_nut');
-
+    if (modal) {
+      modal.style.display = 'flex';
+      modal.classList.add('open');
     }
 
+    if (banner) {
+      banner.style.display = 'flex';
+    }
 
+    if (dropzone) {
+      dropzone.classList.remove('dropzone-error-shake');
+      void dropzone.offsetWidth; // Force browser reflow to restart shake animation
+      dropzone.classList.add('dropzone-error-shake');
+      setTimeout(() => {
+        dropzone.classList.remove('dropzone-error-shake');
+      }, 750);
+      dropzone.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+
+    playSoundCue('warning');
+  }
+
+  function closeNoImageModal() {
+    const modal = document.getElementById('no-image-modal-backdrop');
+    if (modal) {
+      modal.classList.remove('open');
+      setTimeout(() => {
+        if (!modal.classList.contains('open')) {
+          modal.style.display = 'none';
+        }
+      }, 200);
+    }
+  }
+
+  function startAnalysisPipeline() {
+    const inputEl = document.getElementById('image-upload-input');
+    const previewImgEl = document.getElementById('preview-image-elem');
+    const previewCard = document.getElementById('preview-card-wrap');
+
+    const hasFile = inputEl && inputEl.files && inputEl.files.length > 0;
+    const hasActivePreview = previewCard && previewCard.style.display !== 'none' &&
+                             previewImgEl && previewImgEl.src &&
+                             previewImgEl.src !== '#' &&
+                             !previewImgEl.src.endsWith('#');
+
+    // Strict validation: stop immediately and show modal popup if no input photo provided!
+    if (!hasFile && !hasActivePreview) {
+      showNoImageModal();
+      return; // Do NOT generate random shapes, do NOT turn slide, do NOT run inference!
+    }
 
     // Mirror Specimen Thumbnail into Slide 3 Neural HUD Viewfinder
-
-    const previewImgEl = document.getElementById('preview-image-elem');
-
     const hudThumbEl = document.getElementById('hud-specimen-thumb');
-
     if (previewImgEl && hudThumbEl && previewImgEl.src && previewImgEl.src !== '#') {
-
       hudThumbEl.src = previewImgEl.src;
-
     }
 
-
-
     // Slide smoothly into Slide 3 (Neural HUD)
-
     goToBookPage(3);
 
-
-
     // Execute background AJAX ResNet-50 inference + phased HUD animation
-
     executeNeuralPipelineAJAX();
-
   }
 
 
@@ -5046,6 +5111,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 
+    const errorBanner = document.getElementById('dropzone-error-banner');
+    if (errorBanner) errorBanner.style.display = 'none';
+
     const reader = new FileReader();
 
     reader.onload = function (e) {
@@ -5093,6 +5161,41 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
 
+
+  // No Specimen Image Modal Interactivity
+  const noImageModal = document.getElementById('no-image-modal-backdrop');
+  const noImageCloseBtn = document.getElementById('no-image-modal-close-btn');
+  const noImageDismissBtn = document.getElementById('no-image-dismiss-btn');
+  const noImageChooseBtn = document.getElementById('no-image-choose-btn');
+  const noImageCameraBtn = document.getElementById('no-image-camera-btn');
+  const dropzoneErrorClose = document.getElementById('dropzone-error-close');
+
+  if (noImageCloseBtn) noImageCloseBtn.addEventListener('click', closeNoImageModal);
+  if (noImageDismissBtn) noImageDismissBtn.addEventListener('click', closeNoImageModal);
+  if (noImageModal) {
+    noImageModal.addEventListener('click', (e) => {
+      if (e.target === noImageModal) closeNoImageModal();
+    });
+  }
+  if (noImageChooseBtn) {
+    noImageChooseBtn.addEventListener('click', () => {
+      closeNoImageModal();
+      const fi = document.getElementById('image-upload-input');
+      if (fi) fi.click();
+    });
+  }
+  if (noImageCameraBtn) {
+    noImageCameraBtn.addEventListener('click', () => {
+      closeNoImageModal();
+      openCameraStudio();
+    });
+  }
+  if (dropzoneErrorClose) {
+    dropzoneErrorClose.addEventListener('click', () => {
+      const banner = document.getElementById('dropzone-error-banner');
+      if (banner) banner.style.display = 'none';
+    });
+  }
 
   // Trigger Camera Studio from Hero & Dropzone Buttons
 

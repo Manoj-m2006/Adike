@@ -835,6 +835,18 @@ function switchGuideTab(type) {
         <form id="disease-upload-form" method="POST" enctype="multipart/form-data" action="{% url 'predictor:home' %}">
           {% csrf_token %}
 
+          <!-- Specimen Missing Warning Banner -->
+          <div id="dropzone-error-banner" class="dropzone-error-banner" style="display: none;">
+            <div class="error-banner-content">
+              <span class="error-banner-icon">⚠️</span>
+              <div class="error-banner-text-wrap">
+                <strong class="error-banner-heading" data-i18n="error_no_image_title">Please Insert a Plant Photo</strong>
+                <span class="error-banner-msg" data-i18n="error_no_image_banner">Please upload or capture a plant photo before running analysis.</span>
+              </div>
+            </div>
+            <button type="button" class="error-banner-dismiss" id="dropzone-error-close" title="Dismiss" aria-label="Dismiss">&times;</button>
+          </div>
+
           <!-- Holographic AR Viewfinder Dropzone Container -->
           <div class="upload-dropzone futuristic-dropzone" id="upload-dropzone">
             {{ form.image }}
@@ -1711,4 +1723,45 @@ function switchGuideTab(type) {
     </div>
   </div>
 </div>
+<!-- =========================================================================
+     NO SPECIMEN IMAGE WARNING POPUP MODAL
+     ========================================================================= -->
+<div id="no-image-modal-backdrop" class="no-image-modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="no-image-modal-title" style="display: none;">
+  <div class="no-image-modal-card">
+    <button type="button" class="no-image-modal-close" id="no-image-modal-close-btn" aria-label="Close dialog">&times;</button>
+    
+    <div class="no-image-icon-pulse-wrap">
+      <div class="no-image-pulse-ring"></div>
+      <div class="no-image-icon-circle">
+        <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#f59e0b" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="10"></circle>
+          <line x1="12" y1="8" x2="12" y2="12"></line>
+          <line x1="12" y1="16" x2="12.01" y2="16"></line>
+        </svg>
+      </div>
+    </div>
+
+    <div class="no-image-pill-badge" data-i18n="error_no_image_badge">SPECIMEN REQUIRED</div>
+    <h3 class="no-image-title" id="no-image-modal-title" data-i18n="error_no_image_title">Please Insert a Plant Photo</h3>
+    <p class="no-image-desc" id="no-image-modal-desc" data-i18n="error_no_image_desc">
+      No plant image was provided. Please upload or capture an arecanut leaf or nut photo before clicking analyze.
+    </p>
+
+    <div class="no-image-actions">
+      <button type="button" class="btn-no-image-action primary" id="no-image-choose-btn">
+        <span>📁</span>
+        <span data-i18n="btn_choose_image">Choose plant photo</span>
+      </button>
+      <button type="button" class="btn-no-image-action secondary" id="no-image-camera-btn">
+        <span>📷</span>
+        <span data-i18n="btn_use_camera">Use camera</span>
+      </button>
+    </div>
+
+    <button type="button" class="btn-no-image-dismiss" id="no-image-dismiss-btn" data-i18n="btn_dismiss">
+      Dismiss
+    </button>
+  </div>
+</div>
+
 {% endblock %}
