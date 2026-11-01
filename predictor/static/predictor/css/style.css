@@ -4023,3 +4023,171 @@ img {
 }
 
 
+
+
+/* =============================================================================
+   CLASS DIAGNOSIS DETAIL PANEL (CDP) - Rich Result Information Panel
+   ============================================================================= */
+.class-detail-panel {
+  margin-top: 1.25rem;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1.5px solid rgba(224, 232, 223, 0.8);
+  background: rgba(255, 255, 255, 0.65);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.cdp-severity-banner {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  padding: 0.85rem 1.15rem;
+  background: rgba(181, 71, 71, 0.08);
+  border-bottom: 1px solid rgba(181, 71, 71, 0.15);
+  flex-wrap: wrap;
+}
+
+.cdp-health-banner {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  padding: 0.85rem 1.15rem;
+  background: rgba(40, 118, 75, 0.08);
+  border-bottom: 1px solid rgba(40, 118, 75, 0.15);
+}
+
+.cdp-severity-icon,
+.cdp-health-icon {
+  font-size: 1.5rem;
+  flex-shrink: 0;
+}
+
+.cdp-severity-label,
+.cdp-health-label {
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #526B5C;
+  margin-bottom: 0.1rem;
+}
+
+.cdp-severity-value {
+  font-family: 'Outfit', sans-serif;
+  font-size: 1rem;
+  font-weight: 800;
+}
+
+.cdp-health-value {
+  font-family: 'Outfit', sans-serif;
+  font-size: 1rem;
+  font-weight: 800;
+  color: #28764B;
+}
+
+.cdp-infection-rate {
+  margin-left: auto;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: #B54747;
+  background: rgba(181, 71, 71, 0.08);
+  padding: 0.3rem 0.75rem;
+  border-radius: 99px;
+  border: 1px solid rgba(181, 71, 71, 0.2);
+  text-align: right;
+  line-height: 1.3;
+  white-space: nowrap;
+}
+
+.cdp-section {
+  padding: 0.85rem 1.15rem;
+  border-bottom: 1px solid rgba(224, 232, 223, 0.5);
+}
+
+.cdp-section:last-child {
+  border-bottom: none;
+}
+
+.cdp-section-red    { background: rgba(253, 242, 242, 0.55); }
+.cdp-section-orange { background: rgba(254, 248, 237, 0.55); }
+.cdp-section-blue   { background: rgba(239, 246, 255, 0.55); }
+.cdp-section-green  { background: rgba(240, 253, 244, 0.55); }
+
+.cdp-section-title {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+  color: #153F32;
+  margin-bottom: 0.65rem;
+}
+
+.cdp-checklist {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.38rem;
+}
+
+.cdp-checklist li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  font-size: 0.82rem;
+  color: #32473A;
+  line-height: 1.45;
+}
+
+.cdp-dot {
+  flex-shrink: 0;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  margin-top: 0.37rem;
+}
+
+.cdp-dot.red    { background: #B54747; }
+.cdp-dot.orange { background: #A96E16; }
+.cdp-dot.green  { background: #28764B; }
+.cdp-dot.blue   { background: #1D6FA4; }
+
+.cdp-ordered {
+  padding-left: 1.3rem;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.38rem;
+}
+
+.cdp-ordered li {
+  font-size: 0.82rem;
+  color: #32473A;
+  line-height: 1.45;
+  padding-left: 0.2rem;
+}
+
+.cdp-expert-note {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.65rem;
+  padding: 0.85rem 1.15rem;
+  background: rgba(237, 243, 236, 0.75);
+  font-size: 0.79rem;
+  color: #153F32;
+  font-style: italic;
+  line-height: 1.5;
+  border-top: 1px solid rgba(203, 220, 208, 0.6);
+}
+
+.cdp-expert-note span:first-child {
+  flex-shrink: 0;
+  font-style: normal;
+  font-size: 1rem;
+}

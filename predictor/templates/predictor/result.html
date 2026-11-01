@@ -189,6 +189,114 @@
             <li>The heatmap shows where the model looked. It does not prove the cause of the problem. Only an expert can confirm a disease.</li>
           </ul>
         </div>
+
+        <!-- ===================================================================
+             CLASS DIAGNOSIS DETAIL PANEL
+             =================================================================== -->
+        {% if prediction.status == 'Diseased' %}
+        <div class="class-detail-panel">
+          <!-- Severity Banner -->
+          <div class="cdp-severity-banner">
+            <span class="cdp-severity-icon">⚠️</span>
+            <div>
+              <div class="cdp-severity-label">Disease Severity</div>
+              <div class="cdp-severity-value" style="color: {{ prediction.severity_color }};">{{ prediction.severity }} RISK</div>
+            </div>
+            <div class="cdp-infection-rate">{{ prediction.infection_rate }}</div>
+          </div>
+
+          <!-- Causal Agent -->
+          <div class="cdp-section">
+            <div class="cdp-section-title"><span>🦠</span> Causal Agent</div>
+            <div style="font-size: 0.84rem; color: #32473A; font-weight: 600;">{{ prediction.causal_agent }}</div>
+          </div>
+
+          <!-- Symptoms -->
+          <div class="cdp-section cdp-section-red">
+            <div class="cdp-section-title"><span>🔴</span> Key Symptoms to Identify</div>
+            <ul class="cdp-checklist">
+              {% for s in prediction.symptoms %}<li><span class="cdp-dot red"></span>{{ s }}</li>{% endfor %}
+            </ul>
+          </div>
+
+          <!-- Immediate Actions -->
+          <div class="cdp-section cdp-section-orange">
+            <div class="cdp-section-title"><span>⚡</span> Immediate Actions (Do Today)</div>
+            <ul class="cdp-checklist">
+              {% for a in prediction.immediate_actions %}<li><span class="cdp-dot orange"></span>{{ a }}</li>{% endfor %}
+            </ul>
+          </div>
+
+          <!-- Treatment Protocol -->
+          <div class="cdp-section cdp-section-blue">
+            <div class="cdp-section-title"><span>💊</span> Treatment Protocol (Step-by-Step)</div>
+            <ol class="cdp-ordered">
+              {% for t in prediction.treatment_steps %}<li>{{ t }}</li>{% endfor %}
+            </ol>
+          </div>
+
+          <!-- Prevention -->
+          <div class="cdp-section cdp-section-green">
+            <div class="cdp-section-title"><span>🛡️</span> Prevention Checklist</div>
+            <ul class="cdp-checklist">
+              {% for p in prediction.prevention %}<li><span class="cdp-dot green"></span>{{ p }}</li>{% endfor %}
+            </ul>
+          </div>
+
+          <!-- Expert Note -->
+          {% if prediction.expert_note %}
+          <div class="cdp-expert-note">
+            <span>🏛️</span>
+            <span>{{ prediction.expert_note }}</span>
+          </div>
+          {% endif %}
+        </div>
+
+        {% else %}
+        <!-- HEALTHY CLASS PANEL -->
+        <div class="class-detail-panel">
+          <div class="cdp-health-banner">
+            <span class="cdp-health-icon">✅</span>
+            <div>
+              <div class="cdp-health-label">Plant Health Status</div>
+              <div class="cdp-health-value">All indicators normal — {{ prediction.predicted_display_name }}</div>
+            </div>
+          </div>
+
+          <!-- Health Indicators -->
+          <div class="cdp-section cdp-section-green">
+            <div class="cdp-section-title"><span>🌿</span> Health Indicators Observed</div>
+            <ul class="cdp-checklist">
+              {% for h in prediction.health_indicators %}<li><span class="cdp-dot green"></span>{{ h }}</li>{% endfor %}
+            </ul>
+          </div>
+
+          <!-- Watch For -->
+          <div class="cdp-section cdp-section-orange">
+            <div class="cdp-section-title"><span>👁️</span> Watch Out For (Early Warning Signs)</div>
+            <ul class="cdp-checklist">
+              {% for w in prediction.watch_for %}<li><span class="cdp-dot orange"></span>{{ w }}</li>{% endfor %}
+            </ul>
+          </div>
+
+          <!-- Maintenance Tips -->
+          <div class="cdp-section cdp-section-blue">
+            <div class="cdp-section-title"><span>🔧</span> Routine Maintenance Tips</div>
+            <ul class="cdp-checklist">
+              {% for m in prediction.maintenance_tips %}<li><span class="cdp-dot blue"></span>{{ m }}</li>{% endfor %}
+            </ul>
+          </div>
+
+          <!-- Care Schedule -->
+          <div class="cdp-section">
+            <div class="cdp-section-title"><span>📅</span> Annual Care Schedule</div>
+            <ul class="cdp-checklist">
+              {% for c in prediction.care_schedule %}<li><span class="cdp-dot green"></span>{{ c }}</li>{% endfor %}
+            </ul>
+          </div>
+        </div>
+        {% endif %}
+
       </div>
 
       <!-- Right Card: What influenced the result? (Grad-CAM XAI) -->

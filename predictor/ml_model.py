@@ -205,7 +205,22 @@ class ResNet50InferenceEngine:
             "device_name": self.device_name,
             "checkpoint_epoch": self.checkpoint_metadata.get("epoch", "N/A"),
             "checkpoint_val_loss": self.checkpoint_metadata.get("val_loss", "N/A"),
-            "checkpoint_val_acc": self.checkpoint_metadata.get("val_acc", "N/A")
+            "checkpoint_val_acc": self.checkpoint_metadata.get("val_acc", "N/A"),
+            # ── Rich class detail fields (from config.CLASS_INFO) ──
+            "is_disease": predicted_info.get("is_disease", False),
+            "severity": predicted_info.get("severity", ""),
+            "severity_color": predicted_info.get("severity_color", "#526B5C"),
+            "infection_rate": predicted_info.get("infection_rate", ""),
+            "causal_agent": predicted_info.get("causal_agent", ""),
+            "symptoms": predicted_info.get("symptoms", []),
+            "immediate_actions": predicted_info.get("immediate_actions", []),
+            "treatment_steps": predicted_info.get("treatment_steps", []),
+            "prevention": predicted_info.get("prevention", []),
+            "expert_note": predicted_info.get("expert_note", ""),
+            "health_indicators": predicted_info.get("health_indicators", []),
+            "watch_for": predicted_info.get("watch_for", []),
+            "maintenance_tips": predicted_info.get("maintenance_tips", []),
+            "care_schedule": predicted_info.get("care_schedule", []),
         }
 
     def predict_with_gradcam(
