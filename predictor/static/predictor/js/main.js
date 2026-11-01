@@ -4712,10 +4712,6 @@ document.addEventListener('DOMContentLoaded', function () {
             document.body.appendChild(previewModal.cloneNode(true));
           }
 
-            dynamicContainer.innerHTML = parsedResultSection.innerHTML;
-
-          }
-
 
 
           // Show footer on results page
