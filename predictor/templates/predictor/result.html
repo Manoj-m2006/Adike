@@ -190,113 +190,6 @@
           </ul>
         </div>
 
-        <!-- ===================================================================
-             CLASS DIAGNOSIS DETAIL PANEL
-             =================================================================== -->
-        {% if prediction.status == 'Diseased' %}
-        <div class="class-detail-panel">
-          <!-- Severity Banner -->
-          <div class="cdp-severity-banner">
-            <span class="cdp-severity-icon">⚠️</span>
-            <div>
-              <div class="cdp-severity-label">Disease Severity</div>
-              <div class="cdp-severity-value" style="color: {{ prediction.severity_color }};">{{ prediction.severity }} RISK</div>
-            </div>
-            <div class="cdp-infection-rate">{{ prediction.infection_rate }}</div>
-          </div>
-
-          <!-- Causal Agent -->
-          <div class="cdp-section">
-            <div class="cdp-section-title"><span>🦠</span> Causal Agent</div>
-            <div style="font-size: 0.84rem; color: #32473A; font-weight: 600;">{{ prediction.causal_agent }}</div>
-          </div>
-
-          <!-- Symptoms -->
-          <div class="cdp-section cdp-section-red">
-            <div class="cdp-section-title"><span>🔴</span> Key Symptoms to Identify</div>
-            <ul class="cdp-checklist">
-              {% for s in prediction.symptoms %}<li><span class="cdp-dot red"></span>{{ s }}</li>{% endfor %}
-            </ul>
-          </div>
-
-          <!-- Immediate Actions -->
-          <div class="cdp-section cdp-section-orange">
-            <div class="cdp-section-title"><span>⚡</span> Immediate Actions (Do Today)</div>
-            <ul class="cdp-checklist">
-              {% for a in prediction.immediate_actions %}<li><span class="cdp-dot orange"></span>{{ a }}</li>{% endfor %}
-            </ul>
-          </div>
-
-          <!-- Treatment Protocol -->
-          <div class="cdp-section cdp-section-blue">
-            <div class="cdp-section-title"><span>💊</span> Treatment Protocol (Step-by-Step)</div>
-            <ol class="cdp-ordered">
-              {% for t in prediction.treatment_steps %}<li>{{ t }}</li>{% endfor %}
-            </ol>
-          </div>
-
-          <!-- Prevention -->
-          <div class="cdp-section cdp-section-green">
-            <div class="cdp-section-title"><span>🛡️</span> Prevention Checklist</div>
-            <ul class="cdp-checklist">
-              {% for p in prediction.prevention %}<li><span class="cdp-dot green"></span>{{ p }}</li>{% endfor %}
-            </ul>
-          </div>
-
-          <!-- Expert Note -->
-          {% if prediction.expert_note %}
-          <div class="cdp-expert-note">
-            <span>🏛️</span>
-            <span>{{ prediction.expert_note }}</span>
-          </div>
-          {% endif %}
-        </div>
-
-        {% else %}
-        <!-- HEALTHY CLASS PANEL -->
-        <div class="class-detail-panel">
-          <div class="cdp-health-banner">
-            <span class="cdp-health-icon">✅</span>
-            <div>
-              <div class="cdp-health-label">Plant Health Status</div>
-              <div class="cdp-health-value">All indicators normal — {{ prediction.predicted_display_name }}</div>
-            </div>
-          </div>
-
-          <!-- Health Indicators -->
-          <div class="cdp-section cdp-section-green">
-            <div class="cdp-section-title"><span>🌿</span> Health Indicators Observed</div>
-            <ul class="cdp-checklist">
-              {% for h in prediction.health_indicators %}<li><span class="cdp-dot green"></span>{{ h }}</li>{% endfor %}
-            </ul>
-          </div>
-
-          <!-- Watch For -->
-          <div class="cdp-section cdp-section-orange">
-            <div class="cdp-section-title"><span>👁️</span> Watch Out For (Early Warning Signs)</div>
-            <ul class="cdp-checklist">
-              {% for w in prediction.watch_for %}<li><span class="cdp-dot orange"></span>{{ w }}</li>{% endfor %}
-            </ul>
-          </div>
-
-          <!-- Maintenance Tips -->
-          <div class="cdp-section cdp-section-blue">
-            <div class="cdp-section-title"><span>🔧</span> Routine Maintenance Tips</div>
-            <ul class="cdp-checklist">
-              {% for m in prediction.maintenance_tips %}<li><span class="cdp-dot blue"></span>{{ m }}</li>{% endfor %}
-            </ul>
-          </div>
-
-          <!-- Care Schedule -->
-          <div class="cdp-section">
-            <div class="cdp-section-title"><span>📅</span> Annual Care Schedule</div>
-            <ul class="cdp-checklist">
-              {% for c in prediction.care_schedule %}<li><span class="cdp-dot green"></span>{{ c }}</li>{% endfor %}
-            </ul>
-          </div>
-        </div>
-        {% endif %}
-
       </div>
 
       <!-- Right Card: What influenced the result? (Grad-CAM XAI) -->
@@ -366,6 +259,151 @@
 
         <div class="cam-explanation-text" data-i18n="cam_caption">
           Warm colours show stronger contribution to the chosen class. They do not confirm a diseased area or its cause.
+        </div>
+
+        <!-- =========================================================================
+             RIGHT CARD: COMPREHENSIVE CLASS DETAILS & DISEASE PREVENTION
+             Fills the right side empty space with complete agronomic guidance
+             ========================================================================= -->
+        <div class="right-class-intel-box">
+          {% if prediction.status == 'Diseased' %}
+          <!-- DISEASE DOSSIER & CURE BLOCK -->
+          <div class="intel-header-badge disease-badge">
+            <span class="intel-badge-icon">⚠️</span>
+            <div class="intel-badge-content">
+              <span class="intel-badge-kicker">PATHOLOGY & CROP PROTECTION GUIDE</span>
+              <h3 class="intel-badge-title">{{ prediction.predicted_display_name }} — Management & Cure</h3>
+            </div>
+            <span class="intel-risk-pill">{{ prediction.severity }} RISK</span>
+          </div>
+
+          <!-- Causal Agent & Expected Impact -->
+          <div class="intel-info-row">
+            <div class="intel-info-col">
+              <span class="intel-label">🔬 Causal Pathogen</span>
+              <span class="intel-val">{{ prediction.causal_agent }}</span>
+            </div>
+            <div class="intel-info-col">
+              <span class="intel-label">📉 Expected Crop Impact</span>
+              <span class="intel-val" style="color: #b54747; font-weight: 700;">{{ prediction.infection_rate }}</span>
+            </div>
+          </div>
+
+          <!-- Immediate Action Needed -->
+          <div class="intel-action-box alert-orange">
+            <div class="intel-box-title">
+              <span>⚡</span> <strong>Immediate Field Actions (Do Today):</strong>
+            </div>
+            <ul class="intel-bullet-list">
+              {% for a in prediction.immediate_actions %}
+              <li>{{ a }}</li>
+              {% endfor %}
+            </ul>
+          </div>
+
+          <!-- Symptoms Checklist -->
+          <div class="intel-action-box alert-red">
+            <div class="intel-box-title">
+              <span>🔴</span> <strong>Diagnostic Symptoms & Field Identification:</strong>
+            </div>
+            <ul class="intel-bullet-list">
+              {% for s in prediction.symptoms %}
+              <li>{{ s }}</li>
+              {% endfor %}
+            </ul>
+          </div>
+
+          <!-- Treatment & Solution Protocol -->
+          <div class="intel-action-box alert-blue">
+            <div class="intel-box-title">
+              <span>💊</span> <strong>Treatment & Cure Protocol (ICAR-CPCRI Standards):</strong>
+            </div>
+            <ol class="intel-ordered-list">
+              {% for t in prediction.treatment_steps %}
+              <li>{{ t }}</li>
+              {% endfor %}
+            </ol>
+          </div>
+
+          <!-- Prevention & Disease Protection -->
+          <div class="intel-action-box alert-green">
+            <div class="intel-box-title">
+              <span>🛡️</span> <strong>Long-Term Prevention & Orchard Protection:</strong>
+            </div>
+            <ul class="intel-bullet-list">
+              {% for p in prediction.prevention %}
+              <li>{{ p }}</li>
+              {% endfor %}
+            </ul>
+          </div>
+
+          <!-- Scientific Authority Note -->
+          {% if prediction.expert_note %}
+          <div class="intel-expert-footer">
+            <span>🏛️</span>
+            <span><em>{{ prediction.expert_note }}</em></span>
+          </div>
+          {% endif %}
+
+          {% else %}
+          <!-- HEALTHY PLANT COMPENDIUM & PROACTIVE CARE -->
+          <div class="intel-header-badge healthy-badge">
+            <span class="intel-badge-icon">🌿</span>
+            <div class="intel-badge-content">
+              <span class="intel-badge-kicker">BOTANICAL HEALTH & PROACTIVE CARE</span>
+              <h3 class="intel-badge-title">{{ prediction.predicted_display_name }} — Optimal Crop Health</h3>
+            </div>
+            <span class="intel-health-pill">OPTIMAL</span>
+          </div>
+
+          <!-- Observed Indicators -->
+          <div class="intel-action-box alert-green">
+            <div class="intel-box-title">
+              <span>✅</span> <strong>Healthy Botanical Characteristics Observed:</strong>
+            </div>
+            <ul class="intel-bullet-list">
+              {% for h in prediction.health_indicators %}
+              <li>{{ h }}</li>
+              {% endfor %}
+            </ul>
+          </div>
+
+          <!-- Proactive Disease Prevention -->
+          <div class="intel-action-box alert-blue">
+            <div class="intel-box-title">
+              <span>🛡️</span> <strong>Proactive Crop Protection (Prevent Koleroga & YLD):</strong>
+            </div>
+            <ul class="intel-bullet-list">
+              {% for m in prediction.maintenance_tips %}
+              <li>{{ m }}</li>
+              {% endfor %}
+            </ul>
+          </div>
+
+          <!-- Early Warning Signs to Monitor -->
+          <div class="intel-action-box alert-orange">
+            <div class="intel-box-title">
+              <span>👁️</span> <strong>Early Warning Signs to Watch For (Disease Triggers):</strong>
+            </div>
+            <ul class="intel-bullet-list">
+              {% for w in prediction.watch_for %}
+              <li>{{ w }}</li>
+              {% endfor %}
+            </ul>
+          </div>
+
+          <!-- Annual Seasonal Calendar -->
+          <div class="intel-action-box alert-neutral">
+            <div class="intel-box-title">
+              <span>📅</span> <strong>Seasonal Agronomic Care Schedule:</strong>
+            </div>
+            <ul class="intel-bullet-list">
+              {% for c in prediction.care_schedule %}
+              <li>{{ c }}</li>
+              {% endfor %}
+            </ul>
+          </div>
+          {% endif %}
         </div>
 
         <div style="margin-top: auto; padding-top: 0.85rem; font-size: 0.72rem; color: var(--c-text-muted); display: flex; justify-content: space-between;">
