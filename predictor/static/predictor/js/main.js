@@ -212,6 +212,8 @@ document.addEventListener('DOMContentLoaded', function () {
     "error_no_image_desc": "No plant image was provided. Please upload or capture an arecanut leaf or nut photo before clicking analyze.",
     "error_no_image_banner": "Please upload or capture a plant photo before running analysis.",
     "btn_dismiss": "Dismiss",
+    "btn_download_report": "Download Official Report (PDF)",
+    "btn_preview_report": "Preview Official Certificate",
 
     "nav_analyze": "Analyze",
 
@@ -552,6 +554,8 @@ document.addEventListener('DOMContentLoaded', function () {
     "error_no_image_desc": "ಯಾವುದೇ ಸಸ್ಯದ ಚಿತ್ರವನ್ನು ನೀಡಿಲ್ಲ. ವಿಶ್ಲೇಷಣೆ ನಡೆಸುವ ಮೊದಲು ದಯವಿಟ್ಟು ಅಡಿಕೆ ಎಲೆ ಅಥವಾ ಕಾಯಿಯ ಫೋಟೋ ಸೇರಿಸಿ.",
     "error_no_image_banner": "ವಿಶ್ಲೇಷಣೆ ನಡೆಸುವ ಮೊದಲು ದಯವಿಟ್ಟು ಅಡಿಕೆ ಸಸ್ಯದ ಫೋಟೋ ಸೇರಿಸಿ.",
     "btn_dismiss": "ರದ್ದುಮಾಡಿ",
+    "btn_download_report": "ಅಧಿಕೃತ ವರದಿ ಡೌನ್‌ಲೋಡ್ ಮಾಡಿ (PDF)",
+    "btn_preview_report": "ಅಧಿಕೃತ ಪ್ರಮಾಣಪತ್ರ ವೀಕ್ಷಿಸಿ",
 
     "nav_analyze": "ವಿಶ್ಲೇಷಣೆ",
 
@@ -892,6 +896,8 @@ document.addEventListener('DOMContentLoaded', function () {
     "error_no_image_desc": "कोई पौधे की तस्वीर नहीं मिली। विश्लेषण करने से पहले कृपया सुपारी के पत्ते या फल की तस्वीर डालें।",
     "error_no_image_banner": "विश्लेषण शुरू करने से पहले कृपया पौधे की तस्वीर डालें।",
     "btn_dismiss": "खारिज करें",
+    "btn_download_report": "आधिकारिक रिपोर्ट डाउनलोड करें (PDF)",
+    "btn_preview_report": "आधिकारिक प्रमाण पत्र देखें",
 
     "nav_analyze": "जाँच करें",
 
@@ -1232,6 +1238,8 @@ document.addEventListener('DOMContentLoaded', function () {
     "error_no_image_desc": "സസ്യത്തിന്റെ ചിത്രം നൽകിയിട്ടില്ല. വിശകലനം നടത്തുന്നതിന് മുമ്പ് ദയവായി അടയ്ക്ക ഇലയുടെയോ കായുടെയോ ഫോട്ടോ ചേർക്കുക.",
     "error_no_image_banner": "വിശകലനം നടത്തുന്നതിന് മുമ്പ് ദയവായി ഒരു ചിത്രം ചേർക്കുക.",
     "btn_dismiss": "നിരസിക്കുക",
+    "btn_download_report": "ഔദ്യോഗിക റിപ്പോർട്ട് ഡൗൺലോഡ് ചെയ്യുക (PDF)",
+    "btn_preview_report": "ഔദ്യോഗിക സർട്ടിഫിക്കറ്റ് കാണുക",
 
     "nav_analyze": "പരിശോധിക്കുക",
 
@@ -4699,6 +4707,15 @@ document.addEventListener('DOMContentLoaded', function () {
 
           }
 
+          const previewModal = doc.getElementById('govt-preview-modal-backdrop');
+          if (previewModal && !document.getElementById('govt-preview-modal-backdrop')) {
+            document.body.appendChild(previewModal.cloneNode(true));
+          }
+
+            dynamicContainer.innerHTML = parsedResultSection.innerHTML;
+
+          }
+
 
 
           // Show footer on results page
@@ -6209,20 +6226,86 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 
-    // Print Diagnostic Report
+    // Official Government Phytosanitary Report Handler
+    function triggerOfficialReportPrint() {
+      const origTitle = document.title;
+      const diseaseEl = scope.querySelector('.result-main-disease') || document.querySelector('.result-main-disease');
+      const disease = diseaseEl ? diseaseEl.textContent.trim().replace(/[^a-zA-Z0-9_-]/g, '_') : 'Arecanut_Specimen';
+      const timestamp = new Date().toISOString().slice(0, 10);
+      document.title = `ICAR-CPCRI_Official_Phytosanitary_Report_${disease}_${timestamp}`;
+      playSoundCue('click');
+
+      // Update timestamp on report to current date and time
+      const timeEls = document.querySelectorAll('.report-issue-timestamp');
+      const nowStr = new Date().toLocaleString('en-IN', {
+        dateStyle: 'long',
+        timeStyle: 'short'
+      }) + ' IST';
+      timeEls.forEach(el => {
+        el.textContent = nowStr;
+      });
+
+      window.print();
+      setTimeout(() => {
+        document.title = origTitle;
+      }, 2500);
+    }
 
     const printReportBtn = scope.querySelector('#print-report-btn') || document.getElementById('print-report-btn');
+    const dlReportBtn = scope.querySelector('#download-official-report-btn') || document.getElementById('download-official-report-btn');
+    const cardDlReportBtn = scope.querySelector('#card-dl-report-btn') || document.getElementById('card-dl-report-btn');
+    const previewReportBtn = scope.querySelector('#preview-official-report-btn') || document.getElementById('preview-official-report-btn');
 
-    if (printReportBtn) {
+    [printReportBtn, dlReportBtn, cardDlReportBtn].forEach(btn => {
+      if (btn) btn.onclick = triggerOfficialReportPrint;
+    });
 
-      printReportBtn.onclick = () => {
+    // Preview Modal Handlers
+    function openGovtReportPreview() {
+      const modal = document.getElementById('govt-preview-modal-backdrop');
+      const bodyContent = document.getElementById('govt-preview-body-content');
+      const report = scope.querySelector('#official-govt-report') || document.getElementById('official-govt-report');
 
+      if (modal && bodyContent && report) {
+        bodyContent.innerHTML = '';
+        const clonedReport = report.cloneNode(true);
+        clonedReport.style.display = 'block';
+        bodyContent.appendChild(clonedReport);
+        modal.style.display = 'flex';
+        modal.classList.add('open');
         playSoundCue('click');
+      }
+    }
 
-        window.print();
+    function closeGovtReportPreview() {
+      const modal = document.getElementById('govt-preview-modal-backdrop');
+      if (modal) {
+        modal.classList.remove('open');
+        setTimeout(() => {
+          if (!modal.classList.contains('open')) modal.style.display = 'none';
+        }, 200);
+      }
+    }
 
+    if (previewReportBtn) {
+      previewReportBtn.onclick = openGovtReportPreview;
+    }
+
+    const modalCloseBtn = document.getElementById('modal-close-preview-btn');
+    if (modalCloseBtn) modalCloseBtn.onclick = closeGovtReportPreview;
+
+    const modalPrintBtn = document.getElementById('modal-print-report-btn');
+    if (modalPrintBtn) {
+      modalPrintBtn.onclick = () => {
+        triggerOfficialReportPrint();
       };
+    }
 
+    const previewModalBackdrop = document.getElementById('govt-preview-modal-backdrop');
+    if (previewModalBackdrop) {
+      previewModalBackdrop.onclick = (e) => {
+        if (e.target === previewModalBackdrop) closeGovtReportPreview();
+      };
     }
 
 

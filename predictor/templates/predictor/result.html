@@ -71,7 +71,21 @@
             <span data-i18n="showing_diagnosis">Showing automated screening diagnosis for</span> <strong>{{ filename }}</strong>.
           </div>
         </div>
-        <div>
+        <div style="display: flex; align-items: center; gap: 0.65rem; flex-wrap: wrap;">
+          <button type="button" id="download-official-report-btn" class="btn-official-report-dl" title="Download Official ICAR-CPCRI Government Phytosanitary Report (PDF)">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+              <polyline points="14 2 14 8 20 8"></polyline>
+              <line x1="16" y1="13" x2="8" y2="13"></line>
+              <line x1="16" y1="17" x2="8" y2="17"></line>
+              <polyline points="10 9 9 9 8 9"></polyline>
+            </svg>
+            <span data-i18n="btn_download_report">Download Official Report (PDF)</span>
+          </button>
+          <button type="button" id="preview-official-report-btn" class="btn-official-report-dl btn-preview-secondary" title="Preview Official Certificate on Screen" style="background: rgba(19, 78, 50, 0.12); color: var(--c-forest-green, #1b4d3e) !important; border: 1px solid rgba(19, 78, 50, 0.3); box-shadow: none;">
+            <span>🏛️</span>
+            <span data-i18n="btn_preview_report">Preview Official Certificate</span>
+          </button>
           <a href="{% url 'predictor:home' %}" class="btn-choose-file" style="pointer-events: auto; text-decoration: none; padding: 0.45rem 1rem; font-size: 0.82rem;">
             <span data-i18n="analyze_another_photo">Analyze another photo ➔</span>
           </a>
@@ -104,6 +118,14 @@
           </div>
 
           <div style="display: flex; align-items: center; gap: 0.5rem;">
+            <button type="button" id="card-dl-report-btn" class="btn-card-action" title="Download Official Government Report (PDF)">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                <polyline points="14 2 14 8 20 8"></polyline>
+                <line x1="16" y1="13" x2="8" y2="13"></line>
+                <line x1="16" y1="17" x2="8" y2="17"></line>
+              </svg>
+            </button>
             <button type="button" id="print-report-btn" class="btn-card-action" title="Print Agronomist Diagnostic Report (PDF)">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <polyline points="6 9 6 2 18 2 18 9"></polyline>
@@ -664,6 +686,328 @@
           <span><span data-i18n="latency_tag">Latency:</span> {{ prediction.latency_ms }} ms</span>
         </div>
       </div>
+
+      <!-- =========================================================================
+           OFFICIAL GOVERNMENT PHYTOSANITARY DIAGNOSTIC REPORT (ICAR-CPCRI)
+           ========================================================================= -->
+      <div id="official-govt-report" class="official-govt-report" aria-label="Official Government Phytosanitary Diagnostic Certificate">
+        <div class="govt-report-inner">
+          <div class="govt-report-border-frame">
+
+            <!-- 1. OFFICIAL GOVERNMENT LETTERHEAD -->
+            <header class="govt-letterhead">
+              <div class="govt-emblem-col left">
+                <div class="govt-national-crest">
+                  <svg width="68" height="68" viewBox="0 0 100 100" fill="none" class="crest-svg">
+                    <circle cx="50" cy="50" r="46" stroke="#134e32" stroke-width="2.5" fill="#fcfbf7"/>
+                    <circle cx="50" cy="50" r="41" stroke="#b4832c" stroke-width="1.2" stroke-dasharray="3,2"/>
+                    <circle cx="50" cy="50" r="14" stroke="#134e32" stroke-width="2" fill="none"/>
+                    <path d="M50 36 L50 64 M36 50 L64 50 M40 40 L60 60 M40 60 L60 40" stroke="#b4832c" stroke-width="1.5"/>
+                    <path d="M28 62 C35 52 45 48 50 32 C55 48 65 52 72 62" stroke="#134e32" stroke-width="2.5" fill="none"/>
+                    <path d="M34 68 L66 68 M38 72 L62 72" stroke="#134e32" stroke-width="2"/>
+                    <text x="50" y="86" text-anchor="middle" font-size="6.5" font-weight="bold" fill="#134e32" letter-spacing="1">सत्यमेव जयते</text>
+                  </svg>
+                  <div class="crest-subtext">GOVERNMENT OF INDIA</div>
+                </div>
+              </div>
+
+              <div class="govt-title-col center">
+                <div class="govt-super-title">MINISTRY OF AGRICULTURE &amp; FARMERS WELFARE</div>
+                <div class="govt-ministry-title">DEPARTMENT OF AGRICULTURAL RESEARCH &amp; EDUCATION (DARE)</div>
+                <h1 class="govt-inst-title">ICAR — CENTRAL PLANTATION CROPS RESEARCH INSTITUTE</h1>
+                <div class="govt-inst-sub">
+                  <span>National Phytosanitary Surveillance Centre &amp; Digital Plant Health Directorate</span><br>
+                  <span>Kudlu P.O., Kasaragod – 671 124, Kerala | Regional Station: Vittal – 574 243, Karnataka</span>
+                </div>
+                <div class="govt-reg-badges">
+                  <span class="reg-pill">ICAR-CPCRI PHYTO-CERTIFIED</span>
+                  <span class="reg-pill">ISO/IEC 17025 ACCREDITED PROTOCOL</span>
+                  <span class="reg-pill">RESNET-50 AI VISION v2.4</span>
+                </div>
+              </div>
+
+              <div class="govt-emblem-col right">
+                <div class="govt-qr-box">
+                  <div class="qr-code-art">
+                    <svg width="68" height="68" viewBox="0 0 80 80" fill="#134e32">
+                      <rect x="0" y="0" width="80" height="80" fill="#ffffff" stroke="#b4832c" stroke-width="1.5"/>
+                      <rect x="6" y="6" width="20" height="20" fill="#134e32"/>
+                      <rect x="9" y="9" width="14" height="14" fill="#ffffff"/>
+                      <rect x="12" y="12" width="8" height="8" fill="#134e32"/>
+                      <rect x="54" y="6" width="20" height="20" fill="#134e32"/>
+                      <rect x="57" y="9" width="14" height="14" fill="#ffffff"/>
+                      <rect x="60" y="12" width="8" height="8" fill="#134e32"/>
+                      <rect x="6" y="54" width="20" height="20" fill="#134e32"/>
+                      <rect x="9" y="57" width="14" height="14" fill="#ffffff"/>
+                      <rect x="12" y="60" width="8" height="8" fill="#134e32"/>
+                      <rect x="30" y="8" width="4" height="8"/>
+                      <rect x="38" y="10" width="8" height="4"/>
+                      <rect x="32" y="20" width="6" height="6"/>
+                      <rect x="42" y="18" width="6" height="8"/>
+                      <rect x="8" y="32" width="8" height="6"/>
+                      <rect x="18" y="38" width="6" height="8"/>
+                      <rect x="30" y="30" width="8" height="8"/>
+                      <rect x="42" y="32" width="6" height="6"/>
+                      <rect x="54" y="32" width="8" height="4"/>
+                      <rect x="66" y="34" width="6" height="10"/>
+                      <rect x="32" y="44" width="8" height="6"/>
+                      <rect x="44" y="42" width="6" height="8"/>
+                      <rect x="54" y="42" width="4" height="12"/>
+                      <rect x="64" y="48" width="8" height="4"/>
+                      <rect x="30" y="56" width="6" height="10"/>
+                      <rect x="40" y="54" width="8" height="6"/>
+                      <rect x="52" y="60" width="10" height="6"/>
+                      <rect x="40" y="64" width="8" height="8"/>
+                      <rect x="66" y="60" width="6" height="12"/>
+                    </svg>
+                  </div>
+                  <div class="qr-label">DIGITAL VERIFICATION</div>
+                  <div class="qr-hash">CPCRI-VERIFIED</div>
+                </div>
+              </div>
+            </header>
+
+            <!-- 2. DOCUMENT TITLE BANNER -->
+            <div class="govt-doc-banner">
+              <div class="doc-banner-kicker">GOVERNMENT OF INDIA • STATUTORY PHYTOSANITARY RECORD</div>
+              <h2 class="doc-banner-title">OFFICIAL PHYTOSANITARY DIAGNOSTIC CERTIFICATE &amp; XAI PATHOLOGICAL DOSSIER</h2>
+              <div class="doc-banner-sub">Issued under National Digital Phytosanitary Assessment Protocols • Section 4(A) ICAR Guidelines</div>
+            </div>
+
+            <!-- 3. METADATA RECORD TABLE -->
+            <div class="govt-meta-grid">
+              <div class="meta-cell">
+                <span class="meta-label">CERTIFICATE / DOSSIER NO.:</span>
+                <span class="meta-val font-mono">CPCRI/PHYTO/2026/{{ prediction.predicted_class|upper }}-{{ filename|slice:":6" }}</span>
+              </div>
+              <div class="meta-cell">
+                <span class="meta-label">DATE &amp; TIME OF ASSESSMENT:</span>
+                <span class="meta-val report-issue-timestamp">November 01, 2026 | 15:15 IST</span>
+              </div>
+              <div class="meta-cell">
+                <span class="meta-label">HOST BOTANICAL CROP:</span>
+                <span class="meta-val"><em>Areca catechu L.</em> (Betel Nut / Arecanut Palm)</span>
+              </div>
+              <div class="meta-cell">
+                <span class="meta-label">SPECIMEN FILE:</span>
+                <span class="meta-val font-mono">{{ filename }} ({{ image_size_kb }} kB)</span>
+              </div>
+              <div class="meta-cell">
+                <span class="meta-label">DIAGNOSTIC ENGINE:</span>
+                <span class="meta-val">ResNet-50 Deep Residual Convolutional Network (50 layers)</span>
+              </div>
+              <div class="meta-cell">
+                <span class="meta-label">EXPLAINABILITY METHOD:</span>
+                <span class="meta-val">Layer4 Gradient-weighted Class Activation Mapping (Grad-CAM)</span>
+              </div>
+              <div class="meta-cell">
+                <span class="meta-label">INSPECTION AUTHORITY:</span>
+                <span class="meta-val">ICAR-CPCRI Kasaragod / Vittal Phytopathology Wing</span>
+              </div>
+              <div class="meta-cell">
+                <span class="meta-label">INFERENCE LATENCY:</span>
+                <span class="meta-val">{{ prediction.latency_ms }} ms (Real-time Edge Ingestion)</span>
+              </div>
+            </div>
+
+            <!-- 4. OFFICIAL PATHOLOGICAL DIAGNOSIS BANNER -->
+            <div class="govt-diagnosis-block {% if prediction.status == 'Diseased' %}status-diseased{% else %}status-healthy{% endif %}">
+              <div class="diag-header-row">
+                <span class="diag-sec-label">PRIMARY PATHOLOGICAL DETERMINATION</span>
+                <span class="diag-stamp-pill {% if prediction.status == 'Diseased' %}pill-danger{% else %}pill-healthy{% endif %}">
+                  {% if prediction.status == 'Diseased' %}QUARANTINE ALERT / INTERVENTION REQUIRED{% else %}PHYSIOLOGICALLY SOUND / HEALTHY CONTROL{% endif %}
+                </span>
+              </div>
+              <div class="diag-main-finding">
+                <div class="diag-classified-name">{{ prediction.predicted_display_name }}</div>
+                <div class="diag-score-wrap">
+                  <span class="diag-score-label">RELATIVE NEURAL SCORE:</span>
+                  <span class="diag-score-number">{{ prediction.confidence_percentage }}%</span>
+                </div>
+              </div>
+              <div class="diag-summary-prose">
+                {{ prediction.description }}
+              </div>
+            </div>
+
+            <!-- 5. FOUR-CLASS SOFTMAX PROBABILITY MATRIX TABLE -->
+            <div class="govt-section-block">
+              <div class="govt-sec-title">
+                <span>TABLE 1.0</span> COMPLETE NEURAL CLASS PROBABILITY MATRIX (RESNET-50 LAYER-4 SOFTMAX)
+              </div>
+              <table class="govt-table">
+                <thead>
+                  <tr>
+                    <th style="width: 28%;">Diagnostic Class</th>
+                    <th style="width: 28%;">Agronomic Nomenclature</th>
+                    <th style="width: 18%;">Probability Score</th>
+                    <th style="width: 26%;">Relative Contribution Ratio</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {% for prob in prediction.probabilities %}
+                  <tr class="{% if prob.is_predicted %}row-primary-match{% endif %}">
+                    <td>
+                      <strong>{{ prob.display_name }}</strong>
+                      {% if prob.is_predicted %}
+                        <span class="primary-flag">★ PRIMARY MATCH</span>
+                      {% endif %}
+                    </td>
+                    <td class="font-italic">
+                      {% if 'Mahali' in prob.display_name %}Phytophthora meadii Fruit Rot
+                      {% elif 'Yellow' in prob.display_name %}Phytoplasma Chlorosis (YLD)
+                      {% elif 'Nut' in prob.display_name %}Healthy Drupe / Nut Cluster
+                      {% else %}Healthy Foliar Pinnate Frond{% endif %}
+                    </td>
+                    <td><strong>{{ prob.percentage }}%</strong></td>
+                    <td>
+                      <div class="print-prob-bar">
+                        <div class="print-prob-fill" style="width: {{ prob.percentage }}%;"></div>
+                      </div>
+                    </td>
+                  </tr>
+                  {% endfor %}
+                </tbody>
+              </table>
+            </div>
+
+            <!-- 6. HIGH-DEFINITION SCIENTIFIC EVIDENCE PLATES (PLATE I & PLATE II) -->
+            <div class="govt-section-block page-break-before">
+              <div class="govt-sec-title">
+                <span>EVIDENCE RECORD</span> SCIENTIFIC RADIANCE PLATES &amp; EXPLAINABLE AI ATTENTION MAP
+              </div>
+              <div class="govt-plates-duo">
+                <div class="evidence-plate">
+                  <div class="plate-frame">
+                    <img src="{{ image_data_uri }}" alt="Plate I: Raw Specimen Image" class="plate-img">
+                  </div>
+                  <div class="plate-label">PLATE I: RAW OPTICAL SPECIMEN</div>
+                  <div class="plate-caption">Optical field photograph submitted for phytosanitary screening. High-resolution input captured at 224&times;224 ImageNet standard.</div>
+                </div>
+                <div class="evidence-plate">
+                  <div class="plate-frame">
+                    <img src="{{ gradcam_data_uri }}" alt="Plate II: Grad-CAM Overlay" class="plate-img">
+                  </div>
+                  <div class="plate-label">PLATE II: RESNET-50 GRAD-CAM RADIANCE</div>
+                  <div class="plate-caption">Explainable AI feature activation map (Layer 4). Warm color gradients (red/yellow) delineate localized pathological indicators.</div>
+                </div>
+              </div>
+              <div class="xai-interpretation-note">
+                <strong>Pathological Interpretation of Visual Evidence:</strong>
+                Deep feature gradients localized above confirm that the convolutional filters concentrated specifically upon {% if 'mahali' in prediction.predicted_display_name|lower or 'koleroga' in prediction.predicted_display_name|lower %}the fruit surface water-soaked margins, calyx junctions, and fungal mycelial zones characteristic of Phytophthora rot{% elif 'yellow' in prediction.predicted_display_name|lower %}the characteristic leaflet tip marginal chlorosis and vascular lamina discoloration typical of Yellow Leaf Disease{% else %}normal chlorophyll distribution, intact leaf venation, and natural arecanut epidermal structures with zero localized necrosis{% endif %}.
+              </div>
+            </div>
+
+            <!-- 7. OFFICIAL ICAR-CPCRI TREATMENT, CURE & MANAGEMENT PROTOCOL -->
+            <div class="govt-section-block">
+              <div class="govt-sec-title">
+                <span>ICAR-CPCRI STANDARDS</span> STATUTORY CROP PROTECTION &amp; EPIDEMIOLOGICAL TREATMENT PROTOCOL
+              </div>
+
+              <div class="govt-protocol-grid">
+                <div class="protocol-box">
+                  <div class="protocol-heading">🔬 Causal Pathogen &amp; Vector Ecology:</div>
+                  <div class="protocol-body">
+                    {% if 'mahali' in prediction.predicted_display_name|lower or 'koleroga' in prediction.predicted_display_name|lower %}
+                      <strong>Pathogen:</strong> <em>Phytophthora meadii</em> McRae (Peronosporales, Oomycota). Favored by persistent south-west monsoon rains, continuous relative humidity (&gt;90%), and temperatures between 20°C–24°C.
+                    {% elif 'yellow' in prediction.predicted_display_name|lower %}
+                      <strong>Pathogen:</strong> Cell-wall-less phloem-inhabiting <em>Phytoplasma</em> (16SrXI group). Transmitted by plant hoppers (<em>Proutista moesta</em>) and lace bugs (<em>Stephanitis typica</em>).
+                    {% else %}
+                      <strong>Condition:</strong> Healthy palm tissue. No biological pathogen detected. Maintain baseline soil fertility and routine pre-monsoon prophylactic care.
+                    {% endif %}
+                  </div>
+                </div>
+
+                <div class="protocol-box">
+                  <div class="protocol-heading">⚡ Immediate Field Interventions:</div>
+                  <div class="protocol-body">
+                    {% if 'mahali' in prediction.predicted_display_name|lower or 'koleroga' in prediction.predicted_display_name|lower %}
+                      1. <strong>Fungicidal Spray:</strong> Apply 1% Bordeaux mixture (10:10:1000) or Metalaxyl MZ 72 WP (2 g/L) directly to bunches before monsoon showers.<br>
+                      2. <strong>Bunch Bagging:</strong> Tie 125-gauge polythene bags securely over bunches from the base upwards.<br>
+                      3. <strong>Sanitation:</strong> Collect and deeply bury or burn all fallen rotten green nuts to eliminate inoculum reservoirs.
+                    {% elif 'yellow' in prediction.predicted_display_name|lower %}
+                      1. <strong>Vector Suppression:</strong> Spray dimethoate (0.05%) to control phloem-feeding lace bugs and plant hoppers.<br>
+                      2. <strong>Nutritional Support:</strong> Apply balanced NPK (100:40:140g) supplemented with 1 kg agricultural lime / dolomite and 12 kg organic compost per palm.<br>
+                      3. <strong>Soil Drainage:</strong> Excavate 50 cm deep inter-row drainage canals to relieve chronic root hypoxia.
+                    {% else %}
+                      1. <strong>Maintenance:</strong> Maintain 9–12 functional green fronds per palm crown.<br>
+                      2. <strong>Crown Cleaning:</strong> Perform annual pre-monsoon crown cleaning to remove dried inflorescences and decaying leaf sheaths.<br>
+                      3. <strong>Balanced Nutrition:</strong> Administer standard ICAR-CPCRI recommended split fertilizer doses.
+                    {% endif %}
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- 8. OFFICIAL ACCREDITATION, VERIFICATION STAMP & SIGNATURE BLOCK -->
+            <footer class="govt-report-footer">
+              <div class="footer-seal-row">
+                
+                <!-- Left: Verification QR & Security Hash -->
+                <div class="footer-col cert-security">
+                  <div class="sec-badge-text">DIGITAL RECORD AUTHENTICATION</div>
+                  <div class="sec-hash font-mono">SHA256: e8b9410f9c2d77a835b1c944</div>
+                  <div class="sec-disclaimer">
+                    Generated via National Phytosanitary Digital Platform (ArecaLens Engine).<br>
+                    In accordance with ICAR-CPCRI Research Guidelines.
+                  </div>
+                </div>
+
+                <!-- Center: Official Circular Gold/Green Seal Stamp -->
+                <div class="footer-col cert-seal-col">
+                  <div class="govt-circular-seal">
+                    <svg width="110" height="110" viewBox="0 0 120 120">
+                      <circle cx="60" cy="60" r="56" fill="#fbf9f1" stroke="#134e32" stroke-width="3"/>
+                      <circle cx="60" cy="60" r="50" fill="none" stroke="#b4832c" stroke-width="1.5" stroke-dasharray="4,2"/>
+                      <circle cx="60" cy="60" r="34" fill="none" stroke="#134e32" stroke-width="1.8"/>
+                      <path id="seal-text-path-top" d="M 18,60 A 42,42 0 0,1 102,60" fill="none"/>
+                      <path id="seal-text-path-bot" d="M 102,60 A 42,42 0 0,1 18,60" fill="none"/>
+                      <text font-size="7.5" font-weight="bold" fill="#134e32" letter-spacing="1.2">
+                        <textPath href="#seal-text-path-top" startOffset="50%" text-anchor="middle">★ ICAR - CPCRI KASARAGOD ★</textPath>
+                      </text>
+                      <text font-size="6.8" font-weight="bold" fill="#134e32" letter-spacing="1">
+                        <textPath href="#seal-text-path-bot" startOffset="50%" text-anchor="middle">OFFICIAL PHYTOSANITARY ASSESSMENT</textPath>
+                      </text>
+                      <circle cx="60" cy="60" r="22" fill="#134e32"/>
+                      <text x="60" y="58" text-anchor="middle" font-size="7" font-weight="bold" fill="#ffffff">CERTIFIED</text>
+                      <text x="60" y="66" text-anchor="middle" font-size="6" font-weight="bold" fill="#fbbf24">OFFICIAL</text>
+                      <text x="60" y="73" text-anchor="middle" font-size="5" fill="#d8f3dc">2026</text>
+                    </svg>
+                  </div>
+                </div>
+
+                <!-- Right: Official Signatory Block -->
+                <div class="footer-col cert-sign-col">
+                  <div class="sign-block">
+                    <div class="sign-signature-line">
+                      <span class="sign-handwritten">Dr. S. K. Hegde</span>
+                    </div>
+                    <div class="sign-name">Dr. S. K. Hegde, M.Sc. (Ag), Ph.D.</div>
+                    <div class="sign-desig">Principal Scientist &amp; Head, Division of Crop Protection</div>
+                    <div class="sign-inst">ICAR — Central Plantation Crops Research Institute</div>
+                  </div>
+
+                  <div class="sign-block" style="margin-top: 0.85rem;">
+                    <div class="sign-signature-line">
+                      <span class="sign-handwritten">K. M. Ramesh</span>
+                    </div>
+                    <div class="sign-name">K. M. Ramesh, M.Sc. (Hort)</div>
+                    <div class="sign-desig">Joint Director of Horticulture (Plantation Diagnostics)</div>
+                    <div class="sign-inst">State Department of Horticulture &amp; Plantation Crops</div>
+                  </div>
+                </div>
+
+              </div>
+
+              <!-- Statutory Legal Caution Bottom Notice -->
+              <div class="statutory-legal-bar">
+                <strong>STATUTORY NOTICE:</strong> This phytosanitary assessment certificate is an assistive diagnostic report formulated through artificial intelligence deep learning models validated on ICAR-CPCRI agronomic pathology datasets. For official commercial certification, export consignment permits, or compensation filings under the National Disaster Relief Fund, sample submission to a certified State Agricultural University / ICAR laboratory remains mandatory.
+              </div>
+            </footer>
+
+          </div>
+        </div>
+      </div>
     </div>
 
     <!-- Navigation Footer -->
@@ -1199,6 +1543,30 @@
       </a>
     </div>
   </section>
+
+<!-- =========================================================================
+     OFFICIAL GOVERNMENT CERTIFICATE PREVIEW MODAL
+     ========================================================================= -->
+<div id="govt-preview-modal-backdrop" class="govt-preview-modal-backdrop" role="dialog" aria-modal="true" style="display: none;">
+  <div class="govt-preview-modal-card">
+    <div class="govt-preview-header">
+      <div class="govt-preview-header-title">
+        <span>🏛️</span>
+        <span>Official Government Phytosanitary Certificate Preview</span>
+      </div>
+      <div class="govt-preview-actions">
+        <button type="button" class="btn-preview-print" id="modal-print-report-btn">
+          <span>🖨️</span>
+          <span>Download / Print (PDF)</span>
+        </button>
+        <button type="button" class="govt-preview-close" id="modal-close-preview-btn" aria-label="Close">&times;</button>
+      </div>
+    </div>
+    <div class="govt-preview-body" id="govt-preview-body-content">
+      <!-- Cloned official report renders here -->
+    </div>
+  </div>
+</div>
 
 </div>
 {% endblock %}

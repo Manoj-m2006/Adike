@@ -2130,37 +2130,777 @@ img {
 }
 
 
-/* Print Styles for Clinical Reports */
+/* =========================================================================
+   OFFICIAL GOVERNMENT PHYTOSANITARY DIAGNOSTIC CERTIFICATE (ICAR-CPCRI)
+   Screen Preview & High-Authority Official Styling
+   ========================================================================= */
+
+.official-govt-report {
+  display: none; /* Hidden on regular screen; shown in preview modal & @media print */
+  background: #ffffff;
+  color: #1a2e22;
+  font-family: 'Times New Roman', Times, Georgia, serif;
+  box-sizing: border-box;
+}
+
+/* Button style for downloading official report */
+.btn-official-report-dl {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: linear-gradient(135deg, #134e32 0%, #1f6b49 100%);
+  color: #ffffff !important;
+  border: 1px solid rgba(180, 131, 44, 0.55);
+  box-shadow: 0 3px 10px rgba(19, 78, 50, 0.25);
+  padding: 0.48rem 1.05rem;
+  border-radius: 10px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.btn-official-report-dl:hover {
+  background: linear-gradient(135deg, #1f6b49 0%, #2a875e 100%);
+  border-color: #b4832c;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(19, 78, 50, 0.35);
+}
+
+.btn-official-report-dl svg {
+  color: #fbbf24;
+}
+
+.btn-official-report-dl.btn-preview-secondary:hover {
+  background: rgba(19, 78, 50, 0.2) !important;
+  border-color: #134e32 !important;
+}
+
+/* Screen Preview Modal */
+.govt-preview-modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(10, 26, 18, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  z-index: 1300;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+}
+
+.govt-preview-modal-backdrop.open {
+  display: flex !important;
+  animation: fadeInModal 0.2s ease;
+}
+
+.govt-preview-modal-card {
+  position: relative;
+  background: #ffffff;
+  border-radius: 18px;
+  width: 100%;
+  max-width: 900px;
+  max-height: 92vh;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.6);
+  overflow: hidden;
+}
+
+.govt-preview-header {
+  background: #134e32;
+  color: #ffffff;
+  padding: 0.85rem 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.govt-preview-header-title {
+  font-family: var(--font-display, inherit);
+  font-size: 1rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  color: #fcfbf7;
+}
+
+.govt-preview-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.btn-preview-print {
+  background: linear-gradient(135deg, #b4832c 0%, #8a631c 100%);
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  padding: 0.45rem 1rem;
+  font-size: 0.82rem;
+  font-weight: 700;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  transition: all 0.2s ease;
+}
+
+.btn-preview-print:hover {
+  filter: brightness(1.1);
+  transform: translateY(-1px);
+}
+
+.govt-preview-close {
+  background: transparent;
+  border: none;
+  color: #ffffff;
+  font-size: 1.5rem;
+  cursor: pointer;
+  line-height: 1;
+}
+
+.govt-preview-body {
+  overflow-y: auto;
+  padding: 1.5rem;
+  background: #eef2ed;
+}
+
+/* Official Government Report Document Styles */
+.govt-report-inner {
+  background: #ffffff;
+  padding: 1.5rem;
+  color: #1a2e22;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+.govt-report-border-frame {
+  border: 2.5px solid #134e32;
+  outline: 1.5px solid #b4832c;
+  outline-offset: 4px;
+  padding: 1.5rem 1.65rem;
+  position: relative;
+  background: #ffffff;
+}
+
+/* Letterhead */
+.govt-letterhead {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 2px solid #134e32;
+  padding-bottom: 1.15rem;
+  margin-bottom: 1.15rem;
+  gap: 1rem;
+}
+
+.govt-emblem-col.left {
+  text-align: center;
+  flex: 0 0 85px;
+}
+
+.crest-subtext {
+  font-size: 7.5pt;
+  font-weight: 800;
+  color: #134e32;
+  letter-spacing: 0.06em;
+  margin-top: 3px;
+}
+
+.govt-title-col.center {
+  flex: 1;
+  text-align: center;
+}
+
+.govt-super-title {
+  font-size: 8.5pt;
+  font-weight: 800;
+  color: #134e32;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.govt-ministry-title {
+  font-size: 8pt;
+  font-weight: 700;
+  color: #555555;
+  letter-spacing: 0.04em;
+  margin-bottom: 2px;
+}
+
+.govt-inst-title {
+  font-size: 13.5pt;
+  font-weight: 900;
+  color: #134e32;
+  letter-spacing: 0.02em;
+  margin: 3px 0;
+  font-family: Georgia, 'Times New Roman', serif;
+}
+
+.govt-inst-sub {
+  font-size: 7.8pt;
+  color: #444444;
+  line-height: 1.35;
+  margin-bottom: 6px;
+}
+
+.govt-reg-badges {
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.reg-pill {
+  font-size: 6.8pt;
+  font-weight: 800;
+  color: #134e32;
+  background: #f0f7f2;
+  border: 1px solid #134e32;
+  padding: 1px 7px;
+  border-radius: 3px;
+  letter-spacing: 0.03em;
+}
+
+.govt-emblem-col.right {
+  text-align: center;
+  flex: 0 0 85px;
+}
+
+.govt-qr-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.qr-label {
+  font-size: 6.5pt;
+  font-weight: 800;
+  color: #134e32;
+  margin-top: 2px;
+}
+
+.qr-hash {
+  font-size: 6pt;
+  font-weight: 700;
+  color: #888888;
+}
+
+/* Document Title Banner */
+.govt-doc-banner {
+  background: linear-gradient(135deg, #134e32 0%, #0d3824 100%);
+  color: #ffffff;
+  text-align: center;
+  padding: 0.65rem 1rem;
+  margin-bottom: 1rem;
+  border-top: 2px solid #b4832c;
+  border-bottom: 2px solid #b4832c;
+}
+
+.doc-banner-kicker {
+  font-size: 7pt;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  color: #fbbf24;
+  text-transform: uppercase;
+}
+
+.doc-banner-title {
+  font-size: 11.5pt;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  margin: 2px 0;
+  color: #ffffff;
+  font-family: Georgia, 'Times New Roman', serif;
+}
+
+.doc-banner-sub {
+  font-size: 7.5pt;
+  color: #d8f3dc;
+  font-style: italic;
+}
+
+/* Metadata Grid */
+.govt-meta-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.45rem 1rem;
+  background: #fafbf9;
+  border: 1px solid #d4ded7;
+  padding: 0.65rem 0.85rem;
+  margin-bottom: 1rem;
+  font-size: 8.5pt;
+}
+
+.meta-cell {
+  display: flex;
+  align-items: baseline;
+  gap: 0.45rem;
+}
+
+.meta-label {
+  font-weight: 800;
+  color: #134e32;
+  font-size: 7.5pt;
+  white-space: nowrap;
+}
+
+.meta-val {
+  color: #222222;
+}
+
+.meta-val.font-mono {
+  font-family: Consolas, monospace;
+  font-weight: 700;
+}
+
+/* Official Diagnosis Block */
+.govt-diagnosis-block {
+  border: 2px solid #134e32;
+  padding: 0.85rem 1.15rem;
+  margin-bottom: 1rem;
+  background: #fbfdfb;
+}
+
+.govt-diagnosis-block.status-diseased {
+  border-color: #991b1b;
+  background: #fff8f8;
+}
+
+.diag-header-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.4rem;
+}
+
+.diag-sec-label {
+  font-size: 7.5pt;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  color: #555555;
+  text-transform: uppercase;
+}
+
+.diag-stamp-pill {
+  font-size: 7pt;
+  font-weight: 800;
+  padding: 2px 8px;
+  border-radius: 3px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.diag-stamp-pill.pill-danger {
+  background: #fee2e2;
+  border: 1.5px solid #991b1b;
+  color: #991b1b;
+}
+
+.diag-stamp-pill.pill-healthy {
+  background: #dcfce7;
+  border: 1.5px solid #134e32;
+  color: #134e32;
+}
+
+.diag-main-finding {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.4rem;
+}
+
+.diag-classified-name {
+  font-size: 15pt;
+  font-weight: 900;
+  font-family: Georgia, 'Times New Roman', serif;
+  color: #134e32;
+}
+
+.status-diseased .diag-classified-name {
+  color: #991b1b;
+}
+
+.diag-score-wrap {
+  text-align: right;
+}
+
+.diag-score-label {
+  font-size: 7pt;
+  font-weight: 700;
+  color: #666666;
+  display: block;
+}
+
+.diag-score-number {
+  font-size: 15pt;
+  font-weight: 900;
+  color: #134e32;
+}
+
+.status-diseased .diag-score-number {
+  color: #991b1b;
+}
+
+.diag-summary-prose {
+  font-size: 8.5pt;
+  line-height: 1.45;
+  color: #333333;
+  border-top: 1px dotted #ccc;
+  padding-top: 0.4rem;
+}
+
+/* Sections */
+.govt-section-block {
+  margin-bottom: 1.15rem;
+}
+
+.govt-sec-title {
+  font-size: 9pt;
+  font-weight: 900;
+  color: #134e32;
+  border-bottom: 1.5px solid #134e32;
+  padding-bottom: 3px;
+  margin-bottom: 0.65rem;
+  letter-spacing: 0.03em;
+  font-family: Georgia, 'Times New Roman', serif;
+}
+
+.govt-sec-title span {
+  background: #134e32;
+  color: #ffffff;
+  padding: 1px 5px;
+  font-size: 7.5pt;
+  margin-right: 5px;
+  border-radius: 2px;
+}
+
+/* Tables */
+.govt-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 8pt;
+}
+
+.govt-table th {
+  background: #eef4f0;
+  color: #134e32;
+  font-weight: 800;
+  text-align: left;
+  padding: 5px 8px;
+  border: 1px solid #c7d8ce;
+  font-size: 7.8pt;
+}
+
+.govt-table td {
+  padding: 4px 8px;
+  border: 1px solid #dcdfdc;
+  color: #222222;
+}
+
+.govt-table tr.row-primary-match {
+  background: #f7faf8;
+  font-weight: bold;
+}
+
+.primary-flag {
+  font-size: 6.5pt;
+  color: #134e32;
+  background: #e1efe6;
+  border: 1px solid #134e32;
+  padding: 1px 4px;
+  border-radius: 2px;
+  margin-left: 4px;
+}
+
+.print-prob-bar {
+  background: #e5e7eb;
+  height: 8px;
+  border-radius: 2px;
+  overflow: hidden;
+  border: 1px solid #cccccc;
+}
+
+.print-prob-fill {
+  background: #134e32;
+  height: 100%;
+}
+
+/* Photographic Evidence Plates */
+.govt-plates-duo {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem;
+  margin-bottom: 0.65rem;
+}
+
+.evidence-plate {
+  text-align: center;
+  border: 1px solid #c7d8ce;
+  padding: 0.5rem;
+  background: #fafbfa;
+}
+
+.plate-frame {
+  width: 100%;
+  height: 170px;
+  background: #111111;
+  border: 1px solid #888888;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  margin-bottom: 0.4rem;
+}
+
+.plate-img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+.plate-label {
+  font-size: 7.8pt;
+  font-weight: 800;
+  color: #134e32;
+  letter-spacing: 0.05em;
+  margin-bottom: 2px;
+}
+
+.plate-caption {
+  font-size: 7pt;
+  color: #555555;
+  line-height: 1.35;
+}
+
+.xai-interpretation-note {
+  background: #fdfcf7;
+  border-left: 3px solid #b4832c;
+  padding: 0.45rem 0.75rem;
+  font-size: 7.8pt;
+  color: #333333;
+  line-height: 1.45;
+  border-top: 1px solid #eee;
+  border-right: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+}
+
+/* Protocols */
+.govt-protocol-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.85rem;
+}
+
+.protocol-box {
+  border: 1px solid #d4ded7;
+  background: #fafbf9;
+  padding: 0.65rem;
+  border-radius: 3px;
+}
+
+.protocol-heading {
+  font-size: 8pt;
+  font-weight: 800;
+  color: #134e32;
+  margin-bottom: 0.35rem;
+  border-bottom: 1px solid #dcdcdc;
+  padding-bottom: 2px;
+}
+
+.protocol-body {
+  font-size: 7.8pt;
+  line-height: 1.45;
+  color: #222222;
+}
+
+/* Footer & Seals */
+.govt-report-footer {
+  border-top: 2px solid #134e32;
+  padding-top: 0.85rem;
+  margin-top: 0.85rem;
+}
+
+.footer-seal-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 0.75rem;
+}
+
+.footer-col.cert-security {
+  flex: 1;
+}
+
+.sec-badge-text {
+  font-size: 7pt;
+  font-weight: 800;
+  color: #134e32;
+  letter-spacing: 0.05em;
+}
+
+.sec-hash {
+  font-size: 6.8pt;
+  color: #666;
+  margin: 2px 0 4px;
+}
+
+.sec-disclaimer {
+  font-size: 6.8pt;
+  color: #555555;
+  line-height: 1.35;
+}
+
+.footer-col.cert-seal-col {
+  flex: 0 0 120px;
+  text-align: center;
+}
+
+.footer-col.cert-sign-col {
+  flex: 1.2;
+}
+
+.sign-block {
+  text-align: right;
+}
+
+.sign-signature-line {
+  border-bottom: 1px solid #134e32;
+  display: inline-block;
+  min-width: 170px;
+  padding-bottom: 3px;
+  margin-bottom: 3px;
+}
+
+.sign-handwritten {
+  font-family: 'Brush Script MT', 'Segoe Script', cursive, serif;
+  font-size: 13pt;
+  color: #0d3824;
+}
+
+.sign-name {
+  font-size: 7.8pt;
+  font-weight: 800;
+  color: #111111;
+}
+
+.sign-desig {
+  font-size: 7pt;
+  color: #444444;
+}
+
+.sign-inst {
+  font-size: 6.8pt;
+  color: #134e32;
+  font-weight: 700;
+}
+
+.statutory-legal-bar {
+  background: #f3f5f3;
+  border: 1px solid #d4ded7;
+  padding: 0.45rem 0.65rem;
+  font-size: 6.5pt;
+  line-height: 1.35;
+  color: #555555;
+  text-align: justify;
+}
+
+/* =========================================================================
+   STRICT A4 OFFICIAL GOVERNMENT REPORT PRINT STYLES
+   ========================================================================= */
 @media print {
-  body {
-    background: #ffffff !important;
-    color: #000000 !important;
+  @page {
+    size: A4 portrait;
+    margin: 8mm 10mm 8mm 10mm;
   }
 
-  .site-header, .site-footer, .workflow-tracker, .btn-choose-file, .btn-card-action, .gradcam-view-tabs, .opacity-slider-row, .scores-accordion-toggle {
+  html, body {
+    background: #ffffff !important;
+    background-image: none !important;
+    color: #111827 !important;
+    width: 100% !important;
+    height: auto !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow: visible !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  /* Unhide parents of official-govt-report cleanly */
+  .book-wrapper,
+  .book-pages-deck,
+  .book-page,
+  .book-page.active,
+  #results-dynamic-stage,
+  .results-dashboard-grid {
+    display: block !important;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    border: none !important;
+    box-shadow: none !important;
+    background: transparent !important;
+    transform: none !important;
+    overflow: visible !important;
+    max-width: 100% !important;
+  }
+
+  /* Hide all web application chrome */
+  .site-header,
+  .site-footer,
+  .book-stepper-bar,
+  .book-page-meta,
+  .book-nav-footer,
+  .card,
+  #book-page-1,
+  #book-page-2,
+  #book-page-3,
+  #book-page-5,
+  .modal-backdrop,
+  .camera-modal-backdrop,
+  .no-image-modal-backdrop,
+  .govt-preview-modal-backdrop,
+  .btn-choose-file,
+  .btn-card-action,
+  .btn-official-report-dl,
+  .gradcam-view-tabs,
+  .opacity-slider-row,
+  .scores-accordion-toggle,
+  .govt-preview-header,
+  .preview-card-wrap,
+  .sample-specimens-suite {
     display: none !important;
   }
 
-  .container {
-    max-width: 100% !important;
-    padding: 0 !important;
-  }
-
-  .results-dashboard-grid {
+  /* Display ONLY the official government report */
+  .official-govt-report {
     display: block !important;
-  }
-
-  .card {
-    border: 1px solid #000000 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
     box-shadow: none !important;
-    margin-bottom: 1.5rem !important;
-    page-break-inside: avoid;
+    border: none !important;
+    background: #ffffff !important;
   }
 
-  .all-scores-panel {
-    display: flex !important;
+  .govt-report-inner {
+    padding: 0 !important;
+    box-shadow: none !important;
   }
 
+  .page-break-before {
+    page-break-before: auto;
+  }
 }
 
 
