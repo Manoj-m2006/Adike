@@ -8,6 +8,7 @@
   <!-- Hidden data element for client-side localStorage history tracking -->
   <div id="scan-result-data" 
        data-image-thumb="{{ image_data_uri }}"
+       data-gradcam="{{ gradcam_data_uri }}"
        data-disease="{{ prediction.predicted_display_name }}"
        data-confidence="{{ prediction.confidence_percentage }}%"
        data-filename="{{ filename }}"
