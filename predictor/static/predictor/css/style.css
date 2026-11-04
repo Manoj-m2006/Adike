@@ -1625,15 +1625,53 @@ img {
   align-items: center;
   gap: 1.15rem;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
-  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
   position: relative;
+  cursor: pointer;
+  user-select: none;
 }
 
 
 .history-card:hover {
-  transform: translateY(-2px);
-  border-color: #52b788;
-  box-shadow: 0 8px 24px rgba(27, 67, 50, 0.08);
+  transform: translateY(-3px);
+  border-color: #2d6a4f;
+  background: #fbfdfc;
+  box-shadow: 0 10px 24px rgba(27, 67, 50, 0.12);
+}
+
+
+.history-card:focus-visible {
+  outline: 2px solid #2d6a4f;
+  outline-offset: 2px;
+}
+
+
+.history-card:active {
+  transform: translateY(-1px);
+}
+
+
+.history-card-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.22rem 0.65rem;
+  font-size: 0.74rem;
+  font-weight: 700;
+  color: #1b4d3e;
+  background: rgba(45, 106, 79, 0.08);
+  border: 1px solid rgba(45, 106, 79, 0.2);
+  border-radius: 9999px;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+
+.history-card:hover .history-card-cta {
+  background: #1b4d3e;
+  color: #ffffff;
+  border-color: #1b4d3e;
+  box-shadow: 0 2px 6px rgba(27, 77, 62, 0.25);
 }
 
 

@@ -13,7 +13,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
   
   <!-- External Stylesheet with Cache-Buster -->
-  <link rel="stylesheet" href="{% static 'predictor/css/style.css' %}?v=20261104.61">
+  <link rel="stylesheet" href="{% static 'predictor/css/style.css' %}?v=20261104.62">
 
   <!-- Embedded Fail-Safe Stylesheet: Guarantees 100% Reliable Render with Zero Unstyled State -->
   <style>
@@ -440,6 +440,30 @@
           <div style="font-weight: 700; color: #14382b; font-size: 1.05rem; margin-bottom: 0.35rem;" data-i18n="no_history">No past scans recorded on this device yet.</div>
           <div style="font-size: 0.84rem; color: #6b8073; max-width: 420px; margin: 0 auto;" data-i18n="empty_history_desc">Upload or capture an arecanut leaf or nut specimen to automatically retain diagnostic records.</div>
         </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       OFFICIAL GOVERNMENT CERTIFICATE PREVIEW MODAL
+       ========================================================================= -->
+  <div id="govt-preview-modal-backdrop" class="govt-preview-modal-backdrop" role="dialog" aria-modal="true" style="display: none;">
+    <div class="govt-preview-modal-card">
+      <div class="govt-preview-header">
+        <div class="govt-preview-header-title">
+          <span>🏛️</span>
+          <span>Official Government Phytosanitary Certificate Preview</span>
+        </div>
+        <div class="govt-preview-actions">
+          <button type="button" class="btn-preview-print" id="modal-print-report-btn">
+            <span>🖨️</span>
+            <span>Download / Print (PDF)</span>
+          </button>
+          <button type="button" class="govt-preview-close" id="modal-close-preview-btn" aria-label="Close">&times;</button>
+        </div>
+      </div>
+      <div class="govt-preview-body" id="govt-preview-body-content">
+        <!-- Cloned official report renders here -->
       </div>
     </div>
   </div>
