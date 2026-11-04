@@ -4905,20 +4905,6 @@ document.addEventListener('DOMContentLoaded', function () {
   const navGuide = document.getElementById('nav-guide');
 
   const navHistory = document.getElementById('nav-history');
-  const methLaunchBtn = document.getElementById('meth-launch-screening-btn');
-  const methGuideBtn = document.getElementById('meth-explore-guide-btn');
-  if (methLaunchBtn) {
-    methLaunchBtn.addEventListener('click', () => {
-      goToBookPage(2);
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
-  }
-  if (methGuideBtn) {
-    methGuideBtn.addEventListener('click', () => {
-      goToBookPage(5);
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
-  }
 
   if (navAnalyze) {
 

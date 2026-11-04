@@ -13,7 +13,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
   
   <!-- External Stylesheet with Cache-Buster -->
-  <link rel="stylesheet" href="{% static 'predictor/css/style.css' %}?v=20261101.60">
+  <link rel="stylesheet" href="{% static 'predictor/css/style.css' %}?v=20261104.61">
 
   <!-- Embedded Fail-Safe Stylesheet: Guarantees 100% Reliable Render with Zero Unstyled State -->
   <style>
@@ -190,18 +190,6 @@
                 <polyline points="12 6 12 12 16 14"></polyline>
               </svg>
               <span data-i18n="nav_history">Scan history</span>
-            </a>
-          </li>
-          <li>
-            <a href="{% url 'predictor:architecture' %}" class="nav-item-btn {% if request.resolver_match.url_name == 'architecture' %}active{% endif %}" id="nav-architecture">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:16px;height:16px;max-width:16px;max-height:16px;">
-                <rect x="2" y="3" width="6" height="6" rx="1"></rect>
-                <rect x="16" y="3" width="6" height="6" rx="1"></rect>
-                <rect x="9" y="15" width="6" height="6" rx="1"></rect>
-                <path d="M5 9v3a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V9"></path>
-                <path d="M12 12v3"></path>
-              </svg>
-              <span data-i18n="nav_architecture">Architecture</span>
             </a>
           </li>
         </ul>
@@ -479,7 +467,7 @@
   </footer>
 
   <!-- Client-side Interactive Engine -->
-  <script src="{% static 'predictor/js/main.js' %}?v=20261101.60"></script>
+  <script src="{% static 'predictor/js/main.js' %}?v=20261104.61"></script>
   {% block extra_js %}{% endblock %}
 </body>
 </html>
