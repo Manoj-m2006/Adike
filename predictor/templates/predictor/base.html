@@ -13,7 +13,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
   
   <!-- External Stylesheet with Cache-Buster -->
-  <link rel="stylesheet" href="{% static 'predictor/css/style.css' %}?v=20261105.74">
+  <link rel="stylesheet" href="{% static 'predictor/css/style.css' %}?v=20261105.75">
 
   <!-- Embedded Fail-Safe Stylesheet: Guarantees 100% Reliable Render with Zero Unstyled State -->
   <style>
@@ -142,8 +142,6 @@
 </head>
 <body>
 
-  <!-- Ambient Botanical Particle Canvas (Atmospheric Floating Spores/Light Motes) -->
-  <canvas id="ambient-particles-canvas" class="ambient-particles-canvas" aria-hidden="true"></canvas>
 
   <!-- =========================================================================
        Site Header / Navigation Bar (Reference Video Frame 00:05)
@@ -161,7 +159,7 @@
         </div>
         <div>
           <div class="brand-name">ArecaLens</div>
-          <div class="brand-tagline" data-i18n="brand_tagline">YOUR PLANT HEALTH COMPANION</div>
+          <div class="brand-tagline" data-i18n="brand_tagline">Arecanut Health Assistant</div>
         </div>
       </a>
 
@@ -411,7 +409,7 @@
   </footer>
 
   <!-- Client-side Interactive Engine -->
-  <script src="{% static 'predictor/js/main.js' %}?v=20261105.74"></script>
+  <script src="{% static 'predictor/js/main.js' %}?v=20261105.75"></script>
   {% block extra_js %}{% endblock %}
 </body>
 </html>

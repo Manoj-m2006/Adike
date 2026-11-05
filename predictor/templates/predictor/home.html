@@ -575,35 +575,35 @@ function switchGuideTab(type) {
   <!-- =========================================================================
        BOOK CHAPTER STEPPER RIBBON (Universal Inspection Navigator)
        ========================================================================= -->
-  <nav class="book-stepper-bar" aria-label="Compendium Chapter Stepper">
+  <nav class="book-stepper-bar" aria-label="Step Navigation">
     <ol class="book-stepper-list">
-      <li class="book-step-item active" data-step="1" title="Chapter 1: Welcome & Overview">
+      <li class="book-step-item active" data-step="1" title="Step 1: Welcome">
         <div class="book-step-num">1</div>
         <span class="book-step-title" data-i18n="step_welcome">Welcome</span>
       </li>
       <li class="step-divider-line"></li>
 
-      <li class="book-step-item" data-step="2" title="Chapter 2: Specimen Input Studio">
+      <li class="book-step-item" data-step="2" title="Step 2: Upload Photo">
         <div class="book-step-num">2</div>
-        <span class="book-step-title" data-i18n="step_input">Specimen Input</span>
+        <span class="book-step-title" data-i18n="step_input">Upload Photo</span>
       </li>
       <li class="step-divider-line"></li>
 
-      <li class="book-step-item" data-step="3" title="Chapter 3: Neural Analysis & XAI HUD">
+      <li class="book-step-item" data-step="3" title="Step 3: Analyzing">
         <div class="book-step-num">3</div>
-        <span class="book-step-title" data-i18n="step_analyzing">Analysis HUD</span>
+        <span class="book-step-title" data-i18n="step_analyzing">Analyzing</span>
       </li>
       <li class="step-divider-line"></li>
 
-      <li class="book-step-item" data-step="4" title="Chapter 4: Results & Explainable AI">
+      <li class="book-step-item" data-step="4" title="Step 4: Results">
         <div class="book-step-num">4</div>
-        <span class="book-step-title" data-i18n="step_results">Results & XAI</span>
+        <span class="book-step-title" data-i18n="step_results">Results</span>
       </li>
       <li class="step-divider-line"></li>
 
-      <li class="book-step-item" data-step="5" title="Chapter 5: Comprehensive Disease Dossier">
+      <li class="book-step-item" data-step="5" title="Step 5: Disease Guide">
         <div class="book-step-num">5</div>
-        <span class="book-step-title" data-i18n="step_dossier">Disease Dossier</span>
+        <span class="book-step-title" data-i18n="step_dossier">Disease Guide</span>
       </li>
     </ol>
   </nav>
@@ -613,8 +613,8 @@ function switchGuideTab(type) {
        ========================================================================= -->
   <section id="book-page-1" class="book-page active" data-page="1">
     <div class="book-page-meta">
-      <span class="book-chapter-badge" data-i18n="vol_chap_1">VOLUME I • CHAPTER 1</span>
-      <span class="book-page-indicator" data-i18n="page_1_of_5">Page 1 of 5</span>
+      <span class="book-chapter-badge" data-i18n="vol_chap_1">STEP 1 OF 5</span>
+      <span class="book-page-indicator" data-i18n="page_1_of_5">Overview</span>
     </div>
 
     <!-- Editorial Split Card Frontpage Hero with Sliding Language Transition -->
@@ -638,7 +638,7 @@ function switchGuideTab(type) {
           <!-- Eyebrow -->
           <div class="split-eyebrow">
             <span class="split-eyebrow-line"></span>
-            <span class="split-eyebrow-text" data-i18n="hero_split_eyebrow">FOR THE PEOPLE WHO GROW</span>
+            <span class="split-eyebrow-text" data-i18n="hero_split_eyebrow">ARECANUT CROP HEALTH</span>
           </div>
 
           <!-- Main Headline -->
@@ -680,7 +680,7 @@ function switchGuideTab(type) {
               </div>
             </div>
             <div class="split-flow-text" data-i18n="hero_flow_label">
-              Photo → Screening → Explanation
+              Photo → Screening → Care Advice
             </div>
           </div>
 
@@ -808,8 +808,8 @@ function switchGuideTab(type) {
        ========================================================================= -->
   <section id="book-page-2" class="book-page" data-page="2">
     <div class="book-page-meta">
-      <span class="book-chapter-badge" data-i18n="vol_chap_2">VOLUME I • CHAPTER 2</span>
-      <span class="book-page-indicator" data-i18n="page_2_of_5">Page 2 of 5</span>
+      <span class="book-chapter-badge" data-i18n="vol_chap_2">STEP 2 OF 5</span>
+      <span class="book-page-indicator" data-i18n="page_2_of_5">Photo Input</span>
     </div>
 
     <div class="app-two-col specimen-studio-grid">
@@ -851,12 +851,7 @@ function switchGuideTab(type) {
           <div class="upload-dropzone futuristic-dropzone" id="upload-dropzone">
             {{ form.image }}
 
-            <!-- AR Viewfinder Brackets & Reticle -->
-            <div class="ar-hud-bracket tl"></div>
-            <div class="ar-hud-bracket tr"></div>
-            <div class="ar-hud-bracket bl"></div>
-            <div class="ar-hud-bracket br"></div>
-            <div class="ar-scanner-line"></div>
+
 
             <div class="dropzone-center-hud">
               <div class="upload-icon-circle ar-pulsing-icon">
@@ -869,12 +864,7 @@ function switchGuideTab(type) {
               <div class="dropzone-title" data-i18n="dropzone_title">Drop plant photo here or choose an option</div>
               <div class="dropzone-sub" data-i18n="dropzone_sub">High-resolution input for ResNet-50 4-class diagnosis</div>
 
-              <!-- Live Spec Tags -->
-              <div class="ar-spec-chips">
-                <span class="ar-chip">⚡ Fast Inference</span>
-                <span class="ar-chip">🔒 Zero-Disk Privacy</span>
-                <span class="ar-chip">🔬 224px ImageNet</span>
-              </div>
+
 
               <!-- Dual Dropzone Action Buttons -->
               <div class="dropzone-actions-duo">
@@ -966,11 +956,11 @@ function switchGuideTab(type) {
           <div class="card-title-group">
             <h2 style="display: flex; align-items: center; gap: 0.6rem;">
               <span class="studio-title-icon">🔬</span>
-              <span>Smart Specimen Photography Lab</span>
+              <span>Photography Guide for Accurate Diagnosis</span>
             </h2>
             <p>Diagnostic accuracy depends on capture quality. Follow these field guidelines:</p>
           </div>
-          <span class="tag-badge" style="background: rgba(36, 107, 80, 0.1); color: #246B50; border-color: rgba(36, 107, 80, 0.25);">AI GUIDELINES</span>
+          <span class="tag-badge" style="background: rgba(36, 107, 80, 0.1); color: #246B50; border-color: rgba(36, 107, 80, 0.25);">FIELD GUIDE</span>
         </div>
 
         <!-- Interactive Specimen Target Switcher Tabs -->
@@ -1088,27 +1078,27 @@ function switchGuideTab(type) {
        ========================================================================= -->
   <section id="book-page-3" class="book-page" data-page="3">
     <div class="book-page-meta">
-      <span class="book-chapter-badge" data-i18n="vol_chap_3">VOLUME I • CHAPTER 3</span>
-      <span class="book-page-indicator" data-i18n="page_3_of_5">Page 3 of 5</span>
+      <span class="book-chapter-badge" data-i18n="vol_chap_3">STEP 3 OF 5</span>
+      <span class="book-page-indicator" data-i18n="page_3_of_5">Analysis</span>
     </div>
 
     <div class="analyzing-hud-wrap">
       <!-- Active Specimen Scanner Stage -->
       <div class="hud-scanner-stage">
         <img id="hud-specimen-thumb" class="hud-thumb-img" src="#" alt="Specimen undergoing screening">
-        <div class="hud-laser-sweep"></div>
+        
       </div>
 
       <h2 class="hud-status-headline" id="hud-status-title" data-i18n="hud_headline">
-        Scanning Specimen & Computing Grad-CAM...
+        Analyzing Crop Photo...
       </h2>
       <p class="hud-status-caption" id="hud-status-sub" data-i18n="hud_caption">
-        Executing 50-layer deep residual inference and backpropagating layer4 gradients to construct attention heatmaps.
+        Examining leaf or nut characteristics and checking for disease patterns.
       </p>
 
       <!-- Continuous Progress Track with Live Odometer Counter -->
       <div class="hud-progress-header-row">
-        <span class="hud-progress-label" data-i18n="neural_pipeline_progress">NEURAL PIPELINE PROGRESS</span>
+        <span class="hud-progress-label" data-i18n="neural_pipeline_progress">ANALYSIS IN PROGRESS</span>
         <div class="hud-odometer-wrap"><span id="hud-percentage-counter">0</span><span class="hud-odometer-unit">%</span></div>
       </div>
       <div class="hud-progress-track">
@@ -1142,8 +1132,8 @@ function switchGuideTab(type) {
        ========================================================================= -->
   <section id="book-page-4" class="book-page" data-page="4">
     <div class="book-page-meta">
-      <span class="book-chapter-badge" data-i18n="vol_chap_4">VOLUME I • CHAPTER 4</span>
-      <span class="book-page-indicator" data-i18n="page_4_of_5">Page 4 of 5</span>
+      <span class="book-chapter-badge" data-i18n="vol_chap_4">STEP 4 OF 5</span>
+      <span class="book-page-indicator" data-i18n="page_4_of_5">Diagnostic Results</span>
     </div>
 
     <!-- Dynamic Container for Results Content -->
@@ -1159,25 +1149,25 @@ function switchGuideTab(type) {
         <span data-i18n="btn_scan_another">◂ Scan Another Specimen</span>
       </button>
       <button type="button" class="btn-book-turn next" id="result-to-dossier-btn">
-        <span data-i18n="btn_turn_dossier">Turn to Disease Dossier</span>
+        <span data-i18n="btn_turn_dossier">View Disease Guide</span>
         <span>➔</span>
       </button>
     </div>
   </section>
 
   <!-- =========================================================================
-       PAGE 5: IN-DEPTH DISEASE DOSSIER & COMPREHENSIVE CARE ENCYCLOPEDIA
+       PAGE 5: ARECANUT DISEASE & MANAGEMENT GUIDE
        ========================================================================= -->
   <section id="book-page-5" class="book-page" data-page="5">
     <div class="book-page-meta">
-      <span class="book-chapter-badge" data-i18n="vol_chap_5">VOLUME I • CHAPTER 5</span>
-      <span class="book-page-indicator" data-i18n="page_5_of_5">Page 5 of 5</span>
+      <span class="book-chapter-badge" data-i18n="vol_chap_5">STEP 5 OF 5</span>
+      <span class="book-page-indicator" data-i18n="page_5_of_5">Field Handbook</span>
     </div>
 
     <div class="dossier-hero-header">
-      <h2 class="dossier-title" data-i18n="dossier_headline">Phytosanitary Compendium & Agronomic Dossier</h2>
+      <h2 class="dossier-title" data-i18n="dossier_headline">Arecanut Disease & Management Guide</h2>
       <p class="dossier-lead" data-i18n="dossier_lead">
-        Comprehensive biological analysis of the four arecanut classes: causal organisms, pathological progression, ICAR-CPCRI management protocols, and comparative trade-offs.
+        Field guide for identifying and treating arecanut diseases: causal pathogens, visible symptoms, and ICAR-CPCRI recommended care protocols.
       </p>
     </div>
 

@@ -206,7 +206,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     "lang_name": "English",
 
-    "brand_tagline": "YOUR PLANT HEALTH COMPANION",
+    "brand_tagline": "Arecanut Health Assistant",
     "error_no_image_badge": "SPECIMEN REQUIRED",
     "error_no_image_title": "Please Insert a Plant Photo",
     "error_no_image_desc": "No plant image was provided. Please upload or capture an arecanut leaf or nut photo before clicking analyze.",
@@ -232,42 +232,42 @@ document.addEventListener('DOMContentLoaded', function () {
 
     "step_welcome": "Welcome",
 
-    "step_input": "Specimen Input",
+    "step_input": "Upload Photo",
 
-    "step_analyzing": "Analysis HUD",
+    "step_analyzing": "Analyzing",
 
-    "step_results": "Results & XAI",
+    "step_results": "Results",
 
-    "step_dossier": "Disease Dossier",
+    "step_dossier": "Disease Guide",
 
-    "vol_chap_1": "VOLUME I • CHAPTER 1",
+    "vol_chap_1": "STEP 1 OF 5",
 
-    "vol_chap_2": "VOLUME I • CHAPTER 2",
+    "vol_chap_2": "STEP 2 OF 5",
 
-    "vol_chap_3": "VOLUME I • CHAPTER 3",
+    "vol_chap_3": "STEP 3 OF 5",
 
-    "vol_chap_4": "VOLUME I • CHAPTER 4",
+    "vol_chap_4": "STEP 4 OF 5",
 
-    "vol_chap_5": "VOLUME I • CHAPTER 5",
+    "vol_chap_5": "STEP 5 OF 5",
 
-    "page_1_of_5": "Page 1 of 5",
+    "page_1_of_5": "Overview",
 
-    "page_2_of_5": "Page 2 of 5",
+    "page_2_of_5": "Photo Input",
 
-    "page_3_of_5": "Page 3 of 5",
+    "page_3_of_5": "Analysis",
 
-    "page_4_of_5": "Page 4 of 5",
+    "page_4_of_5": "Diagnostic Results",
 
-    "page_5_of_5": "Page 5 of 5",
+    "page_5_of_5": "Field Handbook",
 
     "hero_tag": "AI-Powered Phytosanitary Diagnostics • ResNet-50",
 
     "hero_title": "Care for your arecanut. Understand what you see.",
-    "hero_split_eyebrow": "FOR THE PEOPLE WHO GROW",
+    "hero_split_eyebrow": "ARECANUT CROP HEALTH",
     "hero_split_title": "Care for your<br>arecanut.<br>Understand what<br>you see.",
     "hero_split_desc": "Take a photo of a leaf or nut. Get a screening suggestion, see what the AI noticed, and learn what to check next.",
     "btn_get_started": "Get started",
-    "hero_flow_label": "Photo → Screening → Explanation",
+    "hero_flow_label": "Photo → Screening → Care Advice",
     "lang_pane_tag": "STEP 1 OF 2 • SELECT INTERFACE LANGUAGE",
     "lang_pane_title": "Choose your language",
     "lang_pane_sub": "Select your preferred language. AI diagnostics, pathology reports, and agronomic care guidelines will be personalized for you.",
@@ -350,9 +350,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
     "btn_run_screening": "Run Screening & XAI Analysis",
 
-    "hud_headline": "Scanning Specimen & Computing Grad-CAM...",
+    "hud_headline": "Analyzing Crop Photo...",
 
-    "hud_caption": "Executing 50-layer deep residual inference and backpropagating layer4 gradients to construct attention heatmaps.",
+    "hud_caption": "Examining leaf or nut characteristics and checking for disease patterns.",
 
     "phase_1_text": "[1] Ingesting Specimen & Normalizing 224x224 RGB Tensor",
 
@@ -420,13 +420,13 @@ document.addEventListener('DOMContentLoaded', function () {
 
     "btn_scan_another": "◂ Scan Another Specimen",
 
-    "btn_turn_dossier": "Turn to Disease Dossier",
+    "btn_turn_dossier": "View Disease Guide",
 
-    "btn_turn_back_results": "◂ Turn Back to Results & XAI (Page 4)",
+    "btn_turn_back_results": "◂ Back to Results (Page 4)",
 
-    "dossier_headline": "Phytosanitary Compendium & Agronomic Dossier",
+    "dossier_headline": "Arecanut Disease & Management Guide",
 
-    "dossier_lead": "Comprehensive biological analysis of the four arecanut classes: causal organisms, pathological progression, ICAR-CPCRI management protocols, and comparative trade-offs.",
+    "dossier_lead": "Field guide for identifying and treating arecanut diseases: causal pathogens, visible symptoms, and ICAR-CPCRI recommended care protocols.",
 
     "tab_dossier_mahali": "🍄 Mahali / Koleroga (Fruit Rot)",
 
@@ -7723,172 +7723,4 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
 
-  // =========================================================================
-  // 14. Interactive Motion Suite & Physics Engine
-  // =========================================================================
-
-  function initAmbientParticles() {
-    const canvas = document.getElementById('ambient-particles-canvas');
-    if (!canvas) return;
-    const ctx = canvas.getContext('2d');
-    if (!ctx) return;
-
-    let width = canvas.width = window.innerWidth;
-    let height = canvas.height = window.innerHeight;
-
-    let mouseX = -1000;
-    let mouseY = -1000;
-
-    window.addEventListener('resize', () => {
-      width = canvas.width = window.innerWidth;
-      height = canvas.height = window.innerHeight;
-    }, { passive: true });
-
-    window.addEventListener('pointermove', (e) => {
-      mouseX = e.clientX;
-      mouseY = e.clientY;
-    }, { passive: true });
-
-    window.addEventListener('pointerleave', () => {
-      mouseX = -1000;
-      mouseY = -1000;
-    }, { passive: true });
-
-    const PARTICLE_COUNT = 32;
-    const particles = [];
-
-    for (let i = 0; i < PARTICLE_COUNT; i++) {
-      particles.push({
-        x: Math.random() * width,
-        y: Math.random() * height,
-        radius: Math.random() * 2.8 + 1.2,
-        color: Math.random() > 0.45 ? 'rgba(45, 106, 79, ' : 'rgba(180, 131, 44, ',
-        baseAlpha: Math.random() * 0.28 + 0.12,
-        vx: (Math.random() - 0.5) * 0.45,
-        vy: -Math.random() * 0.5 - 0.15,
-        oscSpeed: Math.random() * 0.02 + 0.01,
-        oscAngle: Math.random() * Math.PI * 2,
-        oscAmplitude: Math.random() * 0.8 + 0.3
-      });
-    }
-
-    let isVisible = true;
-    document.addEventListener('visibilitychange', () => {
-      isVisible = !document.hidden;
-    });
-
-    function animate() {
-      if (!isVisible) {
-        requestAnimationFrame(animate);
-        return;
-      }
-
-      ctx.clearRect(0, 0, width, height);
-
-      for (let i = 0; i < particles.length; i++) {
-        const p = particles[i];
-
-        p.oscAngle += p.oscSpeed;
-        p.x += p.vx + Math.sin(p.oscAngle) * p.oscAmplitude;
-        p.y += p.vy;
-
-        // Mouse gentle repulsion
-        const dx = p.x - mouseX;
-        const dy = p.y - mouseY;
-        const dist = Math.hypot(dx, dy);
-        if (dist < 130 && dist > 0) {
-          const force = (130 - dist) / 130;
-          p.x += (dx / dist) * force * 3;
-          p.y += (dy / dist) * force * 3;
-        }
-
-        // Screen wrap
-        if (p.y < -10) {
-          p.y = height + 10;
-          p.x = Math.random() * width;
-        }
-        if (p.x < -10) p.x = width + 10;
-        if (p.x > width + 10) p.x = -10;
-
-        // Render soft glowing mote
-        const alpha = p.baseAlpha * (0.8 + 0.2 * Math.sin(p.oscAngle));
-        ctx.beginPath();
-        ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
-        ctx.fillStyle = p.color + alpha.toFixed(3) + ')';
-        ctx.shadowColor = p.color + '0.45)';
-        ctx.shadowBlur = 8;
-        ctx.fill();
-      }
-
-      ctx.shadowBlur = 0;
-      requestAnimationFrame(animate);
-    }
-
-    requestAnimationFrame(animate);
-  }
-
-  function initCardTiltPhysics() {
-    if (window.matchMedia('(pointer: coarse)').matches) return; // Desktop / pointer only
-
-    const tiltElements = document.querySelectorAll(
-      '.card, .history-card, .lang-card, .specimen-upload-card, .intel-action-box, .evidence-plate'
-    );
-
-    tiltElements.forEach(el => {
-      let isHovered = false;
-
-      el.addEventListener('pointerenter', () => {
-        isHovered = true;
-        el.style.transition = 'transform 0.15s ease-out, box-shadow 0.3s ease';
-      });
-
-      el.addEventListener('pointermove', (e) => {
-        if (!isHovered) return;
-        const rect = el.getBoundingClientRect();
-        const x = (e.clientX - rect.left) / rect.width;
-        const y = (e.clientY - rect.top) / rect.height;
-
-        el.style.setProperty('--mouse-x', (x * 100).toFixed(1) + '%');
-        el.style.setProperty('--mouse-y', (y * 100).toFixed(1) + '%');
-
-        const rotX = ((0.5 - y) * 7).toFixed(2);
-        const rotY = ((x - 0.5) * 7).toFixed(2);
-
-        el.style.transform = `perspective(1000px) rotateX(${rotX}deg) rotateY(${rotY}deg) scale3d(1.012, 1.012, 1.012)`;
-      });
-
-      el.addEventListener('pointerleave', () => {
-        isHovered = false;
-        el.style.transition = 'transform 0.55s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease';
-        el.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)';
-      });
-    });
-  }
-
-  function initInteractiveRipples() {
-    document.addEventListener('pointerdown', (e) => {
-      const target = e.target.closest('button, .btn-choose-file, .btn-official-report-dl, .sample-test-pill, .history-card, .lang-card');
-      if (!target) return;
-
-      const ripple = document.createElement('div');
-      ripple.className = 'interactive-click-ripple';
-      const size = Math.max(target.offsetWidth || 120, target.offsetHeight || 120) * 1.5;
-      ripple.style.width = `${size}px`;
-      ripple.style.height = `${size}px`;
-      ripple.style.left = `${e.clientX}px`;
-      ripple.style.top = `${e.clientY}px`;
-
-      document.body.appendChild(ripple);
-      setTimeout(() => {
-        ripple.remove();
-      }, 650);
-    }, { passive: true });
-  }
-
-  // Initialize Motion Suite
-  initAmbientParticles();
-  initCardTiltPhysics();
-  initInteractiveRipples();
-
 });
-
