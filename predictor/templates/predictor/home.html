@@ -708,75 +708,15 @@ function switchGuideTab(type) {
           </div>
         </div>
 
-        <!-- PANE 2: Cinematic Video Reel & Plantation Motion Theater -->
-        <div class="split-pane pane-picture" id="hero-video-theater-pane">
-          <div class="hero-video-theater-wrap">
-            
-            <!-- Video Player Element with AutoPlay, Loop, Muted, Playsinline & Poster Fallback -->
-            <video 
-              id="hero-areca-video" 
-              class="hero-areca-video" 
-              autoplay 
-              loop 
-              muted 
-              playsinline
-              preload="auto"
-              poster="{% static 'predictor/img/arecanut_palm_hero.jpg' %}"
-              title="Authentic Arecanut Palm Plantation & Harvesting Reel"
-            >
-              <source id="video-source-webm" src="https://upload.wikimedia.org/wikipedia/commons/6/61/A_Video_of_a_Man_Climbing_a_Palm_tree.webm" type="video/webm">
-              <source id="video-source-mp4" src="https://assets.mixkit.co/videos/preview/mixkit-palm-tree-in-the-breeze-41168-large.mp4" type="video/mp4">
-              <!-- Image Fallback if video tag is unsupported -->
-              <img 
-                src="{% static 'predictor/img/arecanut_palm_hero.jpg' %}" 
-                alt="ArecaLens - Arecanut Palm Plantation" 
-                class="hero-scanner-art-img animated-kenburns"
-              />
-            </video>
-
-            <!-- Video Overlay Gradient & Framing -->
-            <div class="video-cinematic-vignette"></div>
-
-            <!-- Top Header Badge: Authentic Plantation Reel -->
-            <div class="video-reel-badge">
-              <span class="video-reel-live-dot"></span>
-              <span class="video-reel-badge-text">PLANTATION CINEMATICS • ADIKE KOYLU</span>
-            </div>
-
-            <!-- Bottom Video Control Bar & Channel Switcher -->
-            <div class="video-reel-controls-bar">
-              <div class="video-reel-channel-btns">
-                <button type="button" class="video-chan-btn active" data-video="harvest" title="Traditional Tree Climbing & Harvesting (ಕಾಯಿ ಕೊಯ್ಲು)">
-                  <span>🧗</span>
-                  <span>Nut Plucking</span>
-                </button>
-                <button type="button" class="video-chan-btn" data-video="canopy" title="Lush Arecanut Plantation Canopy (ಅಡಿಕೆ ತೋಟ)">
-                  <span>🌴</span>
-                  <span>Canopy Breeze</span>
-                </button>
-                <button type="button" class="video-chan-btn" data-video="dehusking" title="Arecanut Processing & Dehusking (ಅಡಿಕೆ ಸುಲಿಯುವುದು)">
-                  <span>🌰</span>
-                  <span>Dehusking</span>
-                </button>
-              </div>
-
-              <div class="video-playback-actions">
-                <button type="button" class="btn-video-playback" id="video-play-pause-btn" title="Pause / Play Video" aria-label="Pause / Play Video">
-                  <span id="play-pause-icon">⏸</span>
-                </button>
-                <button type="button" class="btn-video-playback" id="video-mute-toggle-btn" title="Toggle Sound" aria-label="Toggle Sound">
-                  <span id="mute-icon">🔇</span>
-                </button>
-              </div>
-            </div>
-
-            <!-- Floating Captions: "Traditional Arecanut Palm Harvesting & Canopy Health" -->
-            <div class="video-caption-hud">
-              <div class="video-caption-title" id="video-caption-title">Traditional Arecanut Tree Climbing & Nut Plucking (ಅಡಿಕೆ ಕಾಯಿ ಕೊಯ್ಲು)</div>
-              <div class="video-caption-sub" id="video-caption-sub">Skilled harvesting in coastal Karnataka / Malnad plantations</div>
-            </div>
-
-          </div>
+        <!-- PANE 2: Picture (Right initially, shifts to Left in State 2) -->
+        <div class="split-pane pane-picture">
+          <img 
+            src="{% static 'predictor/img/arecanut_palm_hero.jpg' %}" 
+            alt="ArecaLens - Arecanut Palm Health" 
+            class="hero-scanner-art-img"
+            width="935"
+            height="1024"
+          />
         </div>
 
         <!-- PANE 3: Language Selection (Hidden right initially, shifts into Right side in State 2) -->
