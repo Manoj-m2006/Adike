@@ -311,7 +311,137 @@
     }
   }
 
-  .split-brand-row {
+  
+  /* Prominent PūgaNetra Identity Card in Hero (Matches User Design) */
+  .puganetra-hero-emblem-card {
+    background: linear-gradient(145deg, #163B2B 0%, #0d261b 100%);
+    border: 1.5px solid rgba(116, 198, 157, 0.38);
+    border-radius: 20px;
+    padding: 1.5rem 1.75rem;
+    color: #ffffff;
+    box-shadow: 0 12px 32px rgba(13, 38, 27, 0.28), 0 0 0 1px rgba(255, 255, 255, 0.1) inset;
+    margin-bottom: 1.75rem;
+    position: relative;
+    overflow: hidden;
+    text-align: left;
+  }
+  .puganetra-hero-emblem-card::before {
+    content: '';
+    position: absolute;
+    top: -40px;
+    right: -40px;
+    width: 140px;
+    height: 140px;
+    background: radial-gradient(circle, rgba(116, 198, 157, 0.22) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .pnc-native-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    margin-bottom: 0.35rem;
+  }
+  .pnc-devanagari {
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: #95d5b2;
+    letter-spacing: 0.04em;
+    line-height: 1;
+  }
+  .pnc-script-sub {
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 500;
+    color: rgba(216, 243, 220, 0.75);
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+  .pnc-title-row {
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+    margin: 0.25rem 0 0.15rem 0;
+  }
+  .pnc-icon-badge {
+    width: 44px;
+    height: 44px;
+    background: rgba(255, 255, 255, 0.12);
+    border: 1px solid rgba(116, 198, 157, 0.45);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #74c69d;
+    flex-shrink: 0;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  }
+  .pnc-title {
+    font-family: 'Instrument Serif', Georgia, serif;
+    font-size: clamp(2.35rem, 3.8vw, 3.1rem);
+    font-weight: 400;
+    color: #ffffff;
+    letter-spacing: -0.015em;
+    line-height: 1.05;
+    margin: 0;
+  }
+  .pnc-tagline {
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: 0.84rem;
+    font-weight: 600;
+    color: #d8f3dc;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    margin-top: 0.35rem;
+  }
+  .pnc-divider {
+    height: 1px;
+    background: rgba(255, 255, 255, 0.16);
+    margin: 1.1rem 0;
+  }
+  .pnc-mission {
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: 0.95rem;
+    color: #e2ece3;
+    line-height: 1.45;
+    margin-bottom: 0.85rem;
+  }
+  .pnc-pills {
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+    flex-wrap: wrap;
+  }
+  .pnc-pill {
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: 0.74rem;
+    font-weight: 600;
+    padding: 0.22rem 0.75rem;
+    border-radius: 9999px;
+    letter-spacing: 0.02em;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+  .pnc-pill-ai {
+    background: rgba(116, 198, 157, 0.2);
+    border: 1px solid rgba(116, 198, 157, 0.45);
+    color: #74c69d;
+  }
+  .pnc-pill-ai .pnc-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #74c69d;
+    box-shadow: 0 0 6px #74c69d;
+  }
+  .pnc-pill-xai {
+    background: rgba(255, 255, 255, 0.09);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #f7fbf8;
+  }
+
+.split-brand-row {
     display: inline-flex;
     align-items: center;
     gap: 0.75rem;
@@ -498,7 +628,7 @@
   }
 
   /* Staggered Content Entrance */
-  .book-page.active .pane-intro .split-brand-row { animation: introFadeUp 0.5s cubic-bezier(0.16, 1, 0.3, 1) 0.05s both; }
+  .book-page.active .pane-intro .puganetra-hero-emblem-card { animation: introFadeUp 0.5s cubic-bezier(0.16, 1, 0.3, 1) 0.05s both; }
   .book-page.active .pane-intro .split-eyebrow { animation: introFadeUp 0.5s cubic-bezier(0.16, 1, 0.3, 1) 0.12s both; }
   .book-page.active .pane-intro .split-title { animation: introFadeUp 0.5s cubic-bezier(0.16, 1, 0.3, 1) 0.18s both; }
   .book-page.active .pane-intro .split-desc { animation: introFadeUp 0.5s cubic-bezier(0.16, 1, 0.3, 1) 0.24s both; }
@@ -623,18 +753,34 @@ function switchGuideTab(type) {
         
         <!-- PANE 1: Intro / Get Started (Left initially) -->
         <div class="split-pane pane-intro">
-          <!-- Brand Row -->
-          <div class="split-brand-row">
-            <div class="split-brand-icon">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M12 2L12 22"></path>
-                <path d="M12 7C8 7 4 9 4 13C4 17 8 19 12 19"></path>
-                <path d="M12 7C16 7 20 9 20 13C20 17 16 19 12 19"></path>
-              </svg>
+          <!-- Prominent Editorial PūgaNetra Brand Identity Card -->
+          <div class="puganetra-hero-emblem-card">
+            <div class="pnc-top">
+              <div class="pnc-native-badge">
+                <span class="pnc-devanagari">पूगनेत्र</span>
+                <span class="pnc-script-sub">Sanskrit &bull; Sacred Areca Vision</span>
+              </div>
+              <div class="pnc-title-row">
+                <div class="pnc-icon-badge">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 2L12 22"></path>
+                    <path d="M12 7C8 7 4 9 4 13C4 17 8 19 12 19"></path>
+                    <path d="M12 7C16 7 20 9 20 13C20 17 16 19 12 19"></path>
+                  </svg>
+                </div>
+                <h2 class="pnc-title">PūgaNetra</h2>
+              </div>
+              <div class="pnc-tagline" data-i18n="brand_tagline">AI-Driven Arecanut Disease Intelligence</div>
             </div>
-            <div style="display: flex; align-items: baseline; gap: 0.45rem;">
-              <span class="split-brand-name">PūgaNetra</span>
-              <span style="font-family: 'IBM Plex Sans', sans-serif; font-size: 0.95rem; font-weight: 500; color: #2d6a4f;">पूगनेत्र</span>
+
+            <div class="pnc-divider"></div>
+
+            <div class="pnc-bottom">
+              <p class="pnc-mission">Seeing beyond the leaf. Protecting every harvest.</p>
+              <div class="pnc-pills">
+                <span class="pnc-pill pnc-pill-ai"><span class="pnc-dot"></span>AI-powered</span>
+                <span class="pnc-pill pnc-pill-xai">Explainable AI</span>
+              </div>
             </div>
           </div>
 
