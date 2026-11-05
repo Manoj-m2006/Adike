@@ -13,7 +13,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
   
   <!-- External Stylesheet with Cache-Buster -->
-  <link rel="stylesheet" href="{% static 'predictor/css/style.css' %}?v=20261105.73">
+  <link rel="stylesheet" href="{% static 'predictor/css/style.css' %}?v=20261105.74">
 
   <!-- Embedded Fail-Safe Stylesheet: Guarantees 100% Reliable Render with Zero Unstyled State -->
   <style>
@@ -311,89 +311,6 @@
             </div>
             <div class="lang-check-icon">✓</div>
           </div>
-
-          <!-- Tamil -->
-          <div class="lang-card-option" data-lang="ta" data-lang-name="Tamil">
-            <div class="lang-meta-wrap">
-              <div class="lang-char-badge">த</div>
-              <div>
-                <div class="lang-native-name">தமிழ்</div>
-                <div class="lang-english-sub">Tamil</div>
-              </div>
-            </div>
-            <div class="lang-check-icon">✓</div>
-          </div>
-
-          <!-- Telugu -->
-          <div class="lang-card-option" data-lang="te" data-lang-name="Telugu">
-            <div class="lang-meta-wrap">
-              <div class="lang-char-badge">తె</div>
-              <div>
-                <div class="lang-native-name">తెలుగు</div>
-                <div class="lang-english-sub">Telugu</div>
-              </div>
-            </div>
-            <div class="lang-check-icon">✓</div>
-          </div>
-
-          <!-- Marathi -->
-          <div class="lang-card-option" data-lang="mr" data-lang-name="Marathi">
-            <div class="lang-meta-wrap">
-              <div class="lang-char-badge">म</div>
-              <div>
-                <div class="lang-native-name">मराठी</div>
-                <div class="lang-english-sub">Marathi</div>
-              </div>
-            </div>
-            <div class="lang-check-icon">✓</div>
-          </div>
-
-          <!-- Bengali -->
-          <div class="lang-card-option" data-lang="bn" data-lang-name="Bengali">
-            <div class="lang-meta-wrap">
-              <div class="lang-char-badge">বা</div>
-              <div>
-                <div class="lang-native-name">বাংলা</div>
-                <div class="lang-english-sub">Bengali</div>
-              </div>
-            </div>
-            <div class="lang-check-icon">✓</div>
-          </div>
-        </div>
-
-        <!-- Custom / Any Language Selector Input -->
-        <div style="background: #f8faf7; border: 1.5px solid #e2ece3; border-radius: 12px; padding: 0.75rem 1rem; margin-bottom: 1rem; text-align: left;">
-          <label for="custom-lang-input" style="display: block; font-size: 0.76rem; font-weight: 700; color: #1b4332; margin-bottom: 0.35rem;">
-            🌐 Translate to any other language:
-          </label>
-          <div style="display: flex; gap: 0.5rem;">
-            <input type="text" id="custom-lang-input" placeholder="e.g. Gujarati, Spanish, French, Punjabi..." style="flex: 1; padding: 0.45rem 0.75rem; border: 1px solid #cbdcd0; border-radius: 8px; font-size: 0.82rem; font-family: inherit;" />
-            <button type="button" id="apply-custom-lang-btn" style="padding: 0.45rem 0.95rem; background: #2d6a4f; color: #ffffff; border: none; border-radius: 8px; font-size: 0.8rem; font-weight: 700; cursor: pointer;">
-              Translate ➔
-            </button>
-          </div>
-        </div>
-
-        <!-- Gemini API Key Integration Card -->
-        <div style="background: #f0fdf4; border: 1.5px solid #bbf7d0; border-radius: 12px; padding: 0.85rem 1rem; margin-bottom: 1rem; text-align: left;">
-          <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.35rem;">
-            <span style="font-size: 0.78rem; font-weight: 800; color: #166534; display: flex; align-items: center; gap: 0.35rem;">
-              <span>✨</span> Gemini AI Translation Key
-            </span>
-            <span id="gemini-key-badge" style="font-size: 0.7rem; padding: 0.15rem 0.5rem; border-radius: 9999px; background: #dcfce7; color: #15803d; font-weight: 700;">
-              Active / Ready
-            </span>
-          </div>
-          <p style="font-size: 0.74rem; color: #374151; margin-bottom: 0.5rem; line-height: 1.4;">
-            Your Gemini key is securely saved to <code>.env</code> on this server. It automatically powers on-the-fly translations for every page and language.
-          </p>
-          <div style="display: flex; gap: 0.5rem;">
-            <input type="password" id="gemini-key-input" placeholder="Paste Gemini API Key (AIzaSy...)" style="flex: 1; padding: 0.45rem 0.75rem; border: 1px solid #bbf7d0; border-radius: 8px; font-size: 0.82rem; font-family: monospace;" />
-            <button type="button" id="save-gemini-key-btn" style="padding: 0.45rem 0.95rem; background: #166534; color: #ffffff; border: none; border-radius: 8px; font-size: 0.8rem; font-weight: 700; cursor: pointer;">
-              Save Key
-            </button>
-          </div>
-          <div id="gemini-key-feedback" style="font-size: 0.72rem; color: #16a34a; margin-top: 0.35rem; display: none;"></div>
         </div>
       </div>
 
@@ -494,7 +411,7 @@
   </footer>
 
   <!-- Client-side Interactive Engine -->
-  <script src="{% static 'predictor/js/main.js' %}?v=20261105.73"></script>
+  <script src="{% static 'predictor/js/main.js' %}?v=20261105.74"></script>
   {% block extra_js %}{% endblock %}
 </body>
 </html>
