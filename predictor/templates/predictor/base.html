@@ -7,20 +7,20 @@
   <meta name="description" content="ArecaLens — Intelligent Phytosanitary AI Platform for Arecanut Disease Screening & Explainable Grad-CAM Diagnosis.">
   <title>{% block title %}ArecaLens{% endblock %} | Phytosanitary AI Platform</title>
   
-  <!-- Modern Google Fonts: Outfit & Plus Jakarta Sans -->
+  <!-- Editorial Typography: Instrument Serif (Headings) & IBM Plex Sans (Body) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,600&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
   
   <!-- External Stylesheet with Cache-Buster -->
-  <link rel="stylesheet" href="{% static 'predictor/css/style.css' %}?v=20261105.76">
+  <link rel="stylesheet" href="{% static 'predictor/css/style.css' %}?v=20261105.77">
 
   <!-- Embedded Fail-Safe Stylesheet: Guarantees 100% Reliable Render with Zero Unstyled State -->
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { font-size: 16px; scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
     body {
-      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      font-family: 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
       background-color: #F7F6EF;
       background-image: url("{% static 'predictor/img/areca_site_bg.jpg' %}");
       background-repeat: no-repeat;
@@ -54,7 +54,7 @@
     .brand { display: inline-flex; align-items: center; gap: 0.75rem; text-decoration: none; color: #153F32; cursor: pointer; }
     .brand-icon { width: 34px !important; height: 34px !important; min-width: 34px !important; max-width: 34px !important; background: #153F32; border-radius: 9px; display: flex; align-items: center; justify-content: center; color: #ffffff; overflow: hidden; }
     .brand-icon svg { width: 18px !important; height: 18px !important; }
-    .brand-name { font-family: 'Outfit', sans-serif; font-size: 1.3rem; font-weight: 700; color: #153F32; letter-spacing: -0.025em; line-height: 1.1; }
+    .brand-name { font-family: 'Instrument Serif', Georgia, serif; font-size: 1.55rem; font-weight: 400; color: #153F32; letter-spacing: -0.025em; line-height: 1.1; }
     .brand-tagline { font-size: 0.62rem; text-transform: uppercase; letter-spacing: 0.08em; color: #526B5C; font-weight: 600; }
     .nav-menu { display: flex; align-items: center; gap: 0.4rem; list-style: none; }
     .nav-item-btn { display: inline-flex; align-items: center; gap: 0.45rem; padding: 0.45rem 0.95rem; font-size: 0.86rem; font-weight: 600; color: #526B5C; border-radius: 9999px; border: 1px solid transparent; background: transparent; cursor: pointer; text-decoration: none; transition: all 0.15s ease; }
@@ -81,20 +81,20 @@
     .modal-top-emblem { width: 48px !important; height: 48px !important; min-width: 48px !important; max-width: 48px !important; background: #e8f5ec; border: 1px solid #d8f3dc; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 0.75rem; color: #2d6a4f; overflow: hidden; }
     .modal-top-emblem svg { width: 22px !important; height: 22px !important; }
     .modal-emblem-badge { font-size: 0.65rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #40916c; margin-bottom: 0.4rem; }
-    .lang-modal-title { font-family: 'Outfit', sans-serif; font-size: 1.4rem; font-weight: 700; color: #14281d; margin-bottom: 0.35rem; }
+    .lang-modal-title { font-family: 'Instrument Serif', Georgia, serif; font-size: 1.65rem; font-weight: 400; color: #14281d; margin-bottom: 0.35rem; }
     .lang-modal-sub { font-size: 0.84rem; color: #6b8073; margin-bottom: 1.5rem; }
     .lang-choices-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; margin-bottom: 1.5rem; }
     .lang-card-option { border: 1.5px solid #e2ece3; border-radius: 14px; padding: 0.85rem; display: flex; align-items: center; justify-content: space-between; cursor: pointer; background: #ffffff; text-align: left; transition: all 0.15s ease; }
     .lang-card-option:hover { border-color: #74c69d; background: #f7fbf8; }
     .lang-card-option.selected { border-color: #1b4332; background: #e8f5ec; box-shadow: 0 0 0 1px #1b4332; }
     .lang-meta-wrap { display: flex; align-items: center; gap: 0.65rem; }
-    .lang-char-badge { width: 32px !important; height: 32px !important; min-width: 32px !important; max-width: 32px !important; border-radius: 8px; background: #f7f9f6; border: 1px solid #e2ece3; display: flex; align-items: center; justify-content: center; font-family: 'Outfit', sans-serif; font-weight: 700; font-size: 0.88rem; color: #14382b; }
+    .lang-char-badge { width: 32px !important; height: 32px !important; min-width: 32px !important; max-width: 32px !important; border-radius: 8px; background: #f7f9f6; border: 1px solid #e2ece3; display: flex; align-items: center; justify-content: center; font-family: 'IBM Plex Sans', sans-serif; font-weight: 700; font-size: 0.88rem; color: #14382b; }
     .lang-card-option.selected .lang-char-badge { background: #1b4332; color: #ffffff; border-color: #1b4332; }
-    .lang-native-name { font-family: 'Outfit', sans-serif; font-size: 0.92rem; font-weight: 700; color: #14281d; }
+    .lang-native-name { font-family: 'IBM Plex Sans', sans-serif; font-size: 0.92rem; font-weight: 700; color: #14281d; }
     .lang-english-sub { font-size: 0.72rem; color: #6b8073; }
     .lang-check-icon { width: 18px !important; height: 18px !important; border-radius: 50%; border: 1.5px solid #cbdcd0; display: flex; align-items: center; justify-content: center; font-size: 0.72rem; color: transparent; }
     .lang-card-option.selected .lang-check-icon { background: #1b4332; border-color: #1b4332; color: #ffffff; }
-    .btn-lang-continue { width: 100%; padding: 0.85rem 1.5rem; background: #1b4332; color: #ffffff; border: none; border-radius: 10px; font-family: 'Outfit', sans-serif; font-size: 0.95rem; font-weight: 700; cursor: pointer; transition: all 0.2s ease; }
+    .btn-lang-continue { width: 100%; padding: 0.85rem 1.5rem; background: #1b4332; color: #ffffff; border: none; border-radius: 10px; font-family: 'IBM Plex Sans', sans-serif; font-size: 0.95rem; font-weight: 700; cursor: pointer; transition: all 0.2s ease; }
     .btn-lang-continue:hover { background: #14382b; }
     .lang-modal-disclaimer { font-size: 0.72rem; color: #94a79c; margin-top: 0.85rem; }
 
@@ -103,10 +103,10 @@
     .history-modal-header { display: flex; align-items: flex-start; justify-content: space-between; gap: 1rem; padding-bottom: 1.25rem; margin-bottom: 1.25rem; border-bottom: 1.5px solid #eef4f0; }
     .history-header-left { display: flex; align-items: flex-start; gap: 0.85rem; }
     .history-modal-icon { width: 44px !important; height: 44px !important; min-width: 44px !important; max-width: 44px !important; background: #e8f5ec; border: 1px solid #d8f3dc; border-radius: 12px; display: flex; align-items: center; justify-content: center; color: #2d6a4f; margin-top: 0.15rem; }
-    .history-modal-title { font-family: 'Outfit', sans-serif; font-size: 1.35rem; font-weight: 700; color: #14281d; margin-bottom: 0.25rem; }
+    .history-modal-title { font-family: 'Instrument Serif', Georgia, serif; font-size: 1.6rem; font-weight: 400; color: #14281d; margin-bottom: 0.25rem; }
     .history-modal-sub { font-size: 0.82rem; color: #6b8073; }
     .history-header-actions { display: flex; align-items: center; gap: 0.75rem; flex-shrink: 0; }
-    .btn-clear-history { display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.45rem 0.95rem; border-radius: 8px; border: 1.5px solid #fed7aa; background: #fff7ed; color: #c2410c; font-family: 'Outfit', sans-serif; font-size: 0.82rem; font-weight: 700; cursor: pointer; transition: all 0.2s ease; }
+    .btn-clear-history { display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.45rem 0.95rem; border-radius: 8px; border: 1.5px solid #fed7aa; background: #fff7ed; color: #c2410c; font-family: 'IBM Plex Sans', sans-serif; font-size: 0.82rem; font-weight: 700; cursor: pointer; transition: all 0.2s ease; }
     .btn-clear-history:hover { background: #ffedd5; border-color: #fb923c; color: #9a3412; }
     .history-close-btn { width: 34px !important; height: 34px !important; border-radius: 50%; border: 1px solid #e2ece3; background: #f7f9f6; color: #526659; font-size: 1.4rem; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all 0.15s ease; line-height: 1; }
     .history-close-btn:hover { background: #eef4f0; color: #14281d; }
@@ -132,7 +132,7 @@
       color: #6b8073;
     }
     .footer-inner { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
-    .footer-brand { font-family: 'Outfit', sans-serif; font-weight: 700; color: #14382b; display: flex; align-items: center; gap: 0.45rem; }
+    .footer-brand { font-family: 'Instrument Serif', Georgia, serif; font-size: 1.15rem; font-weight: 700; color: #14382b; display: flex; align-items: center; gap: 0.45rem; }
 
     @media (max-width: 600px) {
       .nav-menu { display: none; }
@@ -159,7 +159,7 @@
         </div>
         <div>
           <div class="brand-name">ArecaLens</div>
-          <div class="brand-tagline" data-i18n="brand_tagline">Arecanut Health Assistant</div>
+          <div class="brand-tagline" data-i18n="brand_tagline">Intelligence rooted in agriculture.</div>
         </div>
       </a>
 
@@ -409,7 +409,7 @@
   </footer>
 
   <!-- Client-side Interactive Engine -->
-  <script src="{% static 'predictor/js/main.js' %}?v=20261105.76"></script>
+  <script src="{% static 'predictor/js/main.js' %}?v=20261105.77"></script>
   {% block extra_js %}{% endblock %}
 </body>
 </html>

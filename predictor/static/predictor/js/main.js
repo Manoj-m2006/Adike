@@ -206,7 +206,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     "lang_name": "English",
 
-    "brand_tagline": "Arecanut Health Assistant",
+    "brand_tagline": "Intelligence rooted in agriculture.",
     "error_no_image_badge": "SPECIMEN REQUIRED",
     "error_no_image_title": "Please Insert a Plant Photo",
     "error_no_image_desc": "No plant image was provided. Please upload or capture an arecanut leaf or nut photo before clicking analyze.",
