@@ -202,3 +202,35 @@ def save_gemini_key_view(request):
         logger.exception("Error saving Gemini API key: %s", e)
         return JsonResponse({"success": False, "error": str(e)}, status=500)
 
+
+
+@csrf_exempt
+@require_http_methods(["POST"])
+def chat_api_view(request):
+    """
+    AI Agronomy Agent & Preloaded Chatbot API endpoint.
+    Handles instant preloaded answers for arecanut pathology, care, and ICAR-CPCRI standards,
+    with automatic Gemini AI fallback for complex open-ended farmer queries.
+    """
+    import json
+    from django.http import JsonResponse
+    from predictor.gemini_service import ask_agronomy_assistant
+
+    try:
+        data = json.loads(request.body.decode('utf-8'))
+        user_message = data.get('message', '').strip()
+        lang = data.get('lang', 'en').strip()
+
+        if not user_message:
+            return JsonResponse({"success": False, "error": "Empty message."}, status=400)
+
+        response_data = ask_agronomy_assistant(user_message, target_lang=lang)
+        return JsonResponse({
+            "success": True,
+            "reply": response_data.get("reply", ""),
+            "source": response_data.get("source", "preloaded"),
+            "suggested_questions": response_data.get("suggested_questions", []),
+        })
+    except Exception as e:
+        logger.exception("Error in chat_api_view: %s", e)
+        return JsonResponse({"success": False, "error": str(e)}, status=500)

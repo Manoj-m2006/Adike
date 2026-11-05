@@ -13,5 +13,6 @@ urlpatterns = [
     path('about/', views.about_view, name='about'),
     path('api/translate/', views.translate_api_view, name='translate_api'),
     path('api/save-key/', views.save_gemini_key_view, name='save_gemini_key'),
+    path('api/chat/', views.chat_api_view, name='chat_api'),
     path('architecture/', RedirectView.as_view(pattern_name='predictor:home', permanent=False)),
 ]

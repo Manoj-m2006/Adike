@@ -7723,4 +7723,220 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
 
+
+
+  // =========================================================================
+  // 15. Preloaded AI Agronomy Chatbot & Extension Assistant Controller
+  // =========================================================================
+
+  function initAgronomyChatbot() {
+    const chatWidget = document.getElementById('areca-chat-widget');
+    const chatTrigger = document.getElementById('areca-chat-trigger');
+    const chatDrawer = document.getElementById('areca-chat-drawer');
+    const chatCloseBtn = document.getElementById('chat-close-btn');
+    const chatForm = document.getElementById('areca-chat-form');
+    const chatInput = document.getElementById('chat-user-input');
+    const messagesContainer = document.getElementById('chat-messages-container');
+    const quickChips = document.querySelectorAll('.chat-chip-btn');
+
+    if (!chatTrigger || !chatDrawer || !chatForm || !chatInput || !messagesContainer) return;
+
+    // Toggle Drawer Open / Close
+    chatTrigger.addEventListener('click', () => {
+      chatDrawer.classList.toggle('open');
+      if (chatDrawer.classList.contains('open')) {
+        chatInput.focus();
+        scrollToBottom();
+      }
+      playSoundCue('click');
+    });
+
+    if (chatCloseBtn) {
+      chatCloseBtn.addEventListener('click', () => {
+        chatDrawer.classList.remove('open');
+        playSoundCue('click');
+      });
+    }
+
+    // Suggested Prompt Chips Click Handler
+    quickChips.forEach(chip => {
+      chip.addEventListener('click', () => {
+        const query = chip.getAttribute('data-query');
+        if (!query) return;
+        chatInput.value = query;
+        handleUserSubmit(query);
+      });
+    });
+
+    // Form Submission
+    chatForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const message = chatInput.value.trim();
+      if (!message) return;
+      handleUserSubmit(message);
+    });
+
+    function scrollToBottom() {
+      setTimeout(() => {
+        messagesContainer.scrollTop = messagesContainer.scrollHeight;
+      }, 50);
+    }
+
+    function formatMarkdown(text) {
+      if (!text) return '';
+      let html = text
+        .replace(/### (.*?)\n/g, '<h3>$1</h3>')
+        .replace(/## (.*?)\n/g, '<h3>$1</h3>')
+        .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+        .replace(/\*(.*?)\*/g, '<em>$1</em>')
+        .replace(/^- (.*?)\n/gm, '<li>$1</li>')
+        .replace(/^\d+\. (.*?)\n/gm, '<li>$1</li>');
+      
+      html = html.replace(/(<li>.*?<\/li>)/s, '<ul>$1</ul>');
+      html = html.replace(/\n\n/g, '<br><br>');
+      return html;
+    }
+
+    function appendMessage(sender, text) {
+      const msgDiv = document.createElement('div');
+      msgDiv.className = `chat-msg msg-${sender}`;
+
+      const now = new Date();
+      const timeStr = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+
+      if (sender === 'user') {
+        msgDiv.innerHTML = `
+          <div class="msg-bubble">
+            <p>${text.replace(/</g, '&lt;').replace(/>/g, '&gt;')}</p>
+          </div>
+          <div class="msg-timestamp">${timeStr}</div>
+        `;
+      } else {
+        msgDiv.innerHTML = `
+          <div class="msg-bubble">
+            <div class="msg-author-tag">ArecaLens AI Agent</div>
+            <div>${formatMarkdown(text)}</div>
+          </div>
+          <div class="msg-timestamp">${timeStr}</div>
+        `;
+      }
+
+      messagesContainer.appendChild(msgDiv);
+      scrollToBottom();
+      return msgDiv;
+    }
+
+    function showTypingIndicator() {
+      const typingDiv = document.createElement('div');
+      typingDiv.className = 'chat-msg msg-assistant chat-typing-elem';
+      typingDiv.innerHTML = `
+        <div class="msg-bubble" style="padding: 0.5rem 0.8rem;">
+          <div class="chat-typing-dots">
+            <span></span><span></span><span></span>
+          </div>
+        </div>
+      `;
+      messagesContainer.appendChild(typingDiv);
+      scrollToBottom();
+      return typingDiv;
+    }
+
+    // Client-side Preloaded Agronomy Knowledge Dictionary
+    const PRELOADED_CLIENT_KB = [
+      {
+        keys: ['bordeaux', 'mixture', 'copper', 'lime', 'ಬೋರ್ಡೋ', 'ದ್ರಾವಣ', 'छिड़काव', 'ബോർഡോ'],
+        replies: {
+          en: "### 1% Bordeaux Mixture Protocol\n1. **Ingredients:** 1 kg Copper Sulphate + 1 kg Slaked Lime + 100 Litres clean water.\n2. **Mixing:** Dissolve copper sulphate in 50L water (plastic/wooden tub). Slake lime in 50L water separately. Slowly pour copper sulphate into lime water while stirring.\n3. **Neutrality Test:** Dip an iron knife into mixture. If reddish deposit forms, add more lime water until blade stays clean.\n4. **Timing:** Apply 1st spray before South-West monsoon in May/June; 2nd spray 40-45 days later.",
+          kn: "### ೧% ಬೋರ್ಡೋ ದ್ರಾವಣ ತಯಾರಿಕೆ\n೧. **ಸಾಮಗ್ರಿಗಳು:** ೧ ಕೆಜಿ ಮೈಲುತುತ್ತ + ೧ ಕೆಜಿ ಸುಣ್ಣ + ೧೦೦ ಲೀಟರ್ ನೀರು.\n೨. **ತಯಾರಿಸುವ ವಿಧಾನ:** ೫೦ ಲೀಟರ್ ನೀರಿನಲ್ಲಿ ಮೈಲುತುತ್ತ ಕರಗಿಸಿ. ಇನ್ನೊಂದು ಪಾತ್ರೆಯಲ್ಲಿ ೫೦ ಲೀಟರ್ ನೀರಿನಲ್ಲಿ ಸುಣ್ಣ ಕರಗಿಸಿ. ಮೈಲುತುತ್ತಿನ ದ್ರಾವಣವನ್ನು ಸುಣ್ಣದ ತಿಳಿನೀರಿಗೆ ನಿಧಾನವಾಗಿ ಸುರಿಯುತ್ತಾ ಕದಡಿರಿ.\n೩. **ಪರೀಕ್ಷೆ:** ಕಬ್ಬಿಣದ ಚಾಕು ಮುಳುಗಿಸಿ ಪರೀಕ್ಷಿಸಿ. ಕೆಂಪು ಕಲೆ ಬಾರದಿದ್ದರೆ ದ್ರಾವಣ ಸರಿಯಾಗಿದೆ.\n೪. **ಸಮಯ:** ಮುಂಗಾರು ಆರಂಭಕ್ಕೆ ಮುನ್ನ (ಮೇ ಅಂತ್ಯ/ಜೂನ್) ಮೊದಲ ಸಿಂಪಡಣೆ, ೪೦-೪೫ ದಿನಗಳ ನಂತರ ಎರಡನೇ ಸಿಂಪಡಣೆ ಮಾಡಿ.",
+          hi: "### 1% बोर्डो मिश्रण तैयार करने की विधि\n1. **सामग्री:** 1 किग्रा कॉपर सल्फेट + 1 किग्रा चूना + 100 लीटर पानी।\n2. **विधि:** 50L में कॉपर सल्फेट और 50L में चूना घोलें। कॉपर सल्फेट को चूने के घोल में मिलाएँ।\n3. **परीक्षण:** लोहे का चाकू डुबोएँ, लाल परत न चढ़ने पर मिश्रण तैयार है।\n4. **समय:** मानसून से पहले पहला व 40 दिन बाद दूसरा छिड़काव करें।",
+          ml: "### 1% ബോർഡോ മിശ്രിതം\n1. **ചേരുവകൾ:** 1 കിലോഗ്രാം തുരിശ് + 1 കിലോഗ്രാം കുമ്മായം + 100 ലിറ്റർ വെള്ളം.\n2. **തയ്യാറാക്കൽ:** രണ്ടും വെവ്വേറെ 50 ലിറ്ററിൽ ലയിപ്പിച്ച് തുരിശ് ലായനി കുമ്മായത്തിലേക്ക് ഒഴിക്കുക.\n3. **സമയം:** കാലവർഷത്തിന് മുമ്പും 40-45 ദിവസങ്ങൾക്ക് ശേഷവും സ്പ്രേ ചെയ്യുക."
+        }
+      },
+      {
+        keys: ['koleroga', 'mahali', 'fruit rot', 'rot', 'dropping', 'ಕೊಳೆ', 'ಕೊಳೆರೋಗ', 'ಮಹಾಲಿ', 'ಸಡನ್', 'കായ്ചീയൽ'],
+        replies: {
+          en: "### Mahali / Koleroga Management (ICAR-CPCRI)\n- **Causal Organism:** *Phytophthora meadii* fungal water mold.\n- **Symptoms:** Dark water-soaked spots near calyx, severe nut drop, white mycelial growth on fallen nuts.\n- **Management:**\n  1. Spray 1% Bordeaux mixture on bunches and canopy before monsoon.\n  2. Tie 100-gauge polyethylene covers securely over bunches for 100% rain protection.\n  3. Collect and burn all fallen infected nuts to stop fungal spread.",
+          kn: "### ಮಹಾಲಿ / ಕೊಳೆರೋಗ ನಿರ್ವಹಣೆ\n- **ಮೂಲ:** *ಫೈಟೋಪ್ತೊರಾ ಮಿಯಾಡೈ* ಶಿಲೀಂಧ್ರ.\n- **ಲಕ್ಷಣಗಳು:** ಕಾಯಿಯ ತೊಟ್ಟಿನ ಬಳಿ ಕಪ್ಪು ಕಲೆಗಳು, ಅಕಾಲಿಕ ಕಾಯಿ ಉದುರುವುದು, ಬಿಳಿ ಶಿಲೀಂಧ್ರ.\n- **ನಿಯಂತ್ರಣ:**\n  ೧. ಮುಂಗಾರಿಗೆ ಮುನ್ನ ೧% ಬೋರ್ಡೋ ದ್ರಾವಣ ಸಿಂಪಡಿಸಿ.\n  ೨. ಗೊನೆಗಳಿಗೆ ೧೦೦ ಗೇಜ್ ಪಾಲಿಥೀನ್ ಕವರ್ ಕಟ್ಟಿ ಮಳೆಯ ಹನಿ ತಾಗದಂತೆ ರಕ್ಷಿಸಿ.\n  ೩. ಉದುರಿದ ಕೊಳೆತ ಅಡಿಕೆಗಳನ್ನು ಆರಿಸಿ ಸುಟ್ಟುಹಾಕಿ.",
+          hi: "### कोलेरोगा (फल सड़न) प्रबंधन\n- **लक्षण:** डंठल के पास धब्बे और कच्चे फलों का गिरना।\n- **उपाय:** 1% बोर्डो मिश्रण का छिड़काव करें, गुच्छों पर 100-गेज पॉलिथीन बांधें और गिरे हुए फल नष्ट करें।",
+          ml: "### മഹാലി (കായ്ചീയൽ) നിയന്ത്രണം\n- **പരിഹാരം:** കാലവർഷത്തിന് മുമ്പ് 1% ബോർഡോ മിശ്രിതം തളിക്കുക, പോളിത്തീൻ ഷീറ്റ് കൊണ്ട് കുലകൾ പൊതിയുക."
+        }
+      },
+      {
+        keys: ['yellow', 'yld', 'chlorosis', 'ಹಳದಿ', 'ವೈಎಲ್ಡಿ', 'पीला पत्ता', 'മഞ്ഞളിപ്പ്'],
+        replies: {
+          en: "### Yellow Leaf Disease (YLD) Care Protocol\n- **Pathogen:** Phytoplasma transmitted by plant hoppers (*Proutista moesta*).\n- **Symptoms:** Chlorosis starting at leaflet tips, black necrotic margins, root rot, yield loss.\n- **Care Steps:**\n  1. Balanced N:P:K (100g N, 40g P, 140g K) + 12kg organic compost + 1kg neem cake per palm annually.\n  2. Apply 500g agricultural lime once in two years to correct soil acidity.\n  3. Dig drainage trenches between rows to avoid waterlogging.\n  4. Intercrop with cocoa, banana, or pepper.",
+          kn: "### ಹಳದಿ ಎಲೆ ರೋಗ (YLD) ಆರೈಕೆ\n- **ಕಾರಣ:** ಜಿಗಿಹುಳುಗಳಿಂದ ಹರಡುವ ಫೈಟೋಪ್ಲಾಸ್ಮಾ ಸೂಕ್ಷ್ಮಾಣು.\n- **ಲಕ್ಷಣ:** ಗರಿ ತುದಿಯಲ್ಲಿ ಹಳದಿ ಬಣ್ಣ, ಅಂಚು ಕಪ್ಪಾಗುವುದು, ಬೇರು ಕೊಳೆತ.\n- **ಆರೈಕೆ:**\n  ೧. ವಾರ್ಷಿಕ ೧೦೦ ಗ್ರಾಂ N, ೪೦ ಗ್ರಾಂ P, ೧೪೦ ಗ್ರಾಂ K + ೧೨ ಕೆಜಿ ಕೊಟ್ಟಿಗೆ ಗೊಬ್ಬರ + ೧ ಕೆಜಿ ಬೇವಿನ ಹಿಂಡಿ ನೀಡಿ.\n  ೨. ಮಣ್ಣಿನ ಆಮ್ಲೀಯತೆ ಕಡಿಮೆ ಮಾಡಲು ೨ ವರ್ಷಕ್ಕೊಮ್ಮೆ ೫೦೦ ಗ್ರಾಂ ಕೃಷಿ ಸುಣ್ಣ ಹಾಕಿ.\n  ೩. ಸಾಲುಗಳ ನಡುವೆ ಬಸಿಗಾಲುವೆ ತೋಡಿ ಬೇರು ಕೊಳೆಯುವುದನ್ನು ತಪ್ಪಿಸಿ.",
+          hi: "### पीला पत्ता रोग (YLD) उपचार\n- प्रति पेड़ 100g N, 40g P, 140g K + 12kg गोबर की खाद दें।\n- 2 वर्ष में एक बार 500g चूना और उचित जल निकासी की व्यवस्था करें।",
+          ml: "### മഞ്ഞളിപ്പ് രോഗം (YLD) പരിചരണം\n- വാർഷികമായി 100g N, 40g P, 140g K വളം നൽകുക, തോട്ടത്തിൽ നീർവാർച്ച സൗകര്യം ഒരുക്കുക."
+        }
+      },
+      {
+        keys: ['fertilizer', 'npk', 'urea', 'manure', 'ಗೊಬ್ಬರ', 'ಪೋಷಕಾಂಶ', 'ಖತ', 'उर्वरक', 'വളം'],
+        replies: {
+          en: "### Fertilizer Schedule Per Bearing Palm/Year\n- **Standard Dose:** 100g Nitrogen (~220g Urea), 40g Phosphorus (~200g Rock Phosphate), 140g Potash (~230g MOP) + 12-15kg compost.\n- **Application Split:**\n  - Dose 1 (Sept-Oct): 1/3 N + Full P + 1/3 K + All organic manure.\n  - Dose 2 (May-June): 2/3 N + 2/3 K.\n- Apply in a circular basin 1 meter away from tree base and lightly incorporate.",
+          kn: "### ಅಡಿಕೆ ಮರಕ್ಕೆ ವಾರ್ಷಿಕ ಗೊಬ್ಬರ ಪ್ರಮಾಣ\n- **ಪ್ರಮಾಣ:** ೨೨೦ ಗ್ರಾಂ ಯೂರಿಯಾ, ೨೦೦ ಗ್ರಾಂ ರಾಕ್ ಫಾಸ್ಫೇಟ್, ೨೩೦ ಗ್ರಾಂ ಪೊಟ್ಯಾಷ್ + ೧೨-೧೫ ಕೆಜಿ ಕೊಟ್ಟಿಗೆ ಗೊಬ್ಬರ.\n- **ಕಂತುಗಳು:**\n  - ಸೆಪ್ಟೆಂಬರ್-ಅಕ್ಟೋಬರ್: ೧/೩ ಯೂರಿಯಾ + ಪೂರ್ಣ ಫಾಸ್ಫೇಟ್ + ೧/೩ ಪೊಟ್ಯಾಷ್ + ಪೂರ್ಣ ಕೊಟ್ಟಿಗೆ ಗೊಬ್ಬರ.\n  - ಮೇ-ಜೂನ್: ೨/೩ ಯೂರಿಯಾ + ೨/೩ ಪೊಟ್ಯಾಷ್.\n- ಮರದ ಬುಡದಿಂದ ೧ ಮೀಟರ್ ದೂರದಲ್ಲಿ ವೃತ್ತಾಕಾರವಾಗಿ ಹಾಕಿ ನೀರು ಕೊಡಿ.",
+          hi: "### वार्षिक उर्वरक मात्रा\n- प्रति पेड़ 220g यूरिया, 200g रॉक फास्फेट, 230g पोटाश तथा 12-15 किग्रा कम्पोस्ट दो किस्तों (सितंबर-अक्टूबर व मई-जून) में दें।",
+          ml: "### വാർഷിക വളപ്രയോഗം\n- ഒരു കവുങ്ങിന്: 220g യൂറിയ, 200g റോക്ക് ഫോസ്ഫേറ്റ്, 230g പൊട്ടാഷ്, 12-15kg ജൈവവളം. സെപ്റ്റംബറിലും മെയ് മാസത്തിലും രണ്ടു ഗഡുക്കളായി ചേർക്കുക."
+        }
+      }
+    ];
+
+    function findPreloadedMatch(query, lang) {
+      const qLower = query.toLowerCase();
+      for (const item of PRELOADED_CLIENT_KB) {
+        if (item.keys.some(k => qLower.includes(k))) {
+          return item.replies[lang] || item.replies.en;
+        }
+      }
+      return null;
+    }
+
+    async function handleUserSubmit(userText) {
+      appendMessage('user', userText);
+      chatInput.value = '';
+      playSoundCue('click');
+
+      const currentLang = localStorage.getItem('arecalens_lang') || 'en';
+      const typingIndicator = showTypingIndicator();
+
+      // 1. Instant check from preloaded knowledge base (0ms latency fallback)
+      const instantReply = findPreloadedMatch(userText, currentLang);
+
+      try {
+        // 2. Query Backend Chat API (which queries Gemini if key present, or server KB)
+        const response = await fetch('/api/chat/', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ message: userText, lang: currentLang })
+        });
+
+        const data = await response.json();
+        typingIndicator.remove();
+
+        if (data.success && data.reply) {
+          appendMessage('assistant', data.reply);
+          playSoundCue('click');
+        } else if (instantReply) {
+          appendMessage('assistant', instantReply);
+          playSoundCue('click');
+        } else {
+          appendMessage('assistant', "I have recorded your query. For standard arecanut care, follow ICAR-CPCRI 1% Bordeaux mixture schedules before monsoon and maintain balanced NPK nutrition.");
+        }
+      } catch (err) {
+        typingIndicator.remove();
+        if (instantReply) {
+          appendMessage('assistant', instantReply);
+        } else {
+          appendMessage('assistant', "For immediate advice: apply 1% Bordeaux mixture before monsoon rains for Koleroga, maintain 100:40:140g NPK dosage, and check drainage channels.");
+        }
+      }
+    }
+
+    // Auto-initialize chatbot
+    console.log('ArecaLens Preloaded AI Agronomy Chatbot initialized.');
+  }
+
+  // Initialize Chatbot
+  initAgronomyChatbot();
+
 });
