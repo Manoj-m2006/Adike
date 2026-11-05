@@ -7890,5 +7890,102 @@ document.addEventListener('DOMContentLoaded', function () {
   initCardTiltPhysics();
   initInteractiveRipples();
 
+
+  // =========================================================================
+  // 15. Cinematic Arecanut Plantation & Harvesting Video Theater Controller
+  // =========================================================================
+
+  function initHeroVideoReel() {
+    const video = document.getElementById('hero-areca-video');
+    const playPauseBtn = document.getElementById('video-play-pause-btn');
+    const playPauseIcon = document.getElementById('play-pause-icon');
+    const muteToggleBtn = document.getElementById('video-mute-toggle-btn');
+    const muteIcon = document.getElementById('mute-icon');
+    const chanBtns = document.querySelectorAll('.video-chan-btn');
+    const captionTitle = document.getElementById('video-caption-title');
+    const captionSub = document.getElementById('video-caption-sub');
+
+    if (!video) return;
+
+    const channels = {
+      harvest: {
+        srcWebm: 'https://upload.wikimedia.org/wikipedia/commons/6/61/A_Video_of_a_Man_Climbing_a_Palm_tree.webm',
+        srcMp4: 'https://assets.mixkit.co/videos/preview/mixkit-palm-tree-in-the-breeze-41168-large.mp4',
+        title: 'Traditional Arecanut Tree Climbing & Nut Plucking (ಅಡಿಕೆ ಕಾಯಿ ಕೊಯ್ಲು)',
+        sub: 'Skilled harvesting in coastal Karnataka / Malnad plantations'
+      },
+      canopy: {
+        srcWebm: '',
+        srcMp4: 'https://assets.mixkit.co/videos/preview/mixkit-palm-tree-in-the-breeze-41168-large.mp4',
+        title: 'Arecanut Palm Canopy Swaying in the Monsoon Breeze (ಅಡಿಕೆ ತೋಟ)',
+        sub: 'Thriving green fronds and high-canopy plantation health'
+      },
+      dehusking: {
+        srcWebm: 'https://upload.wikimedia.org/wikipedia/commons/a/a0/Manual_Betelnut_Dehusking.webm',
+        srcMp4: '',
+        title: 'Arecanut Harvesting & Manual Dehusking (ಅಡಿಕೆ ಸುಲಿಯುವುದು & ಸಂಸ್ಕರಣೆ)',
+        sub: 'Post-harvest bunch sorting and quality kernel assessment'
+      }
+    };
+
+    // Auto-play safely with muted mode (standard modern browser policy)
+    video.muted = true;
+    const playPromise = video.play();
+    if (playPromise !== undefined) {
+      playPromise.catch(err => {
+        console.log('Video autoplay handled:', err);
+      });
+    }
+
+    // Play/Pause button
+    if (playPauseBtn && playPauseIcon) {
+      playPauseBtn.onclick = () => {
+        if (video.paused) {
+          video.play().catch(() => {});
+          playPauseIcon.textContent = '⏸';
+        } else {
+          video.pause();
+          playPauseIcon.textContent = '▶';
+        }
+      };
+    }
+
+    // Mute/Unmute
+    if (muteToggleBtn && muteIcon) {
+      muteToggleBtn.onclick = () => {
+        video.muted = !video.muted;
+        muteIcon.textContent = video.muted ? '🔇' : '🔊';
+      };
+    }
+
+    // Channel Switcher
+    chanBtns.forEach(btn => {
+      btn.onclick = function () {
+        const chanKey = this.getAttribute('data-video');
+        const chan = channels[chanKey];
+        if (!chan) return;
+
+        chanBtns.forEach(b => b.classList.remove('active'));
+        this.classList.add('active');
+
+        if (captionTitle) captionTitle.textContent = chan.title;
+        if (captionSub) captionSub.textContent = chan.sub;
+
+        video.pause();
+        const sourceWebm = document.getElementById('video-source-webm');
+        const sourceMp4 = document.getElementById('video-source-mp4');
+        if (sourceWebm) sourceWebm.src = chan.srcWebm;
+        if (sourceMp4) sourceMp4.src = chan.srcMp4;
+
+        video.load();
+        video.play().catch(() => {});
+        if (playPauseIcon) playPauseIcon.textContent = '⏸';
+      };
+    });
+  }
+
+  // Auto-init video reel
+  initHeroVideoReel();
+
 });
 
