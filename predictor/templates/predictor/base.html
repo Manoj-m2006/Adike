@@ -13,7 +13,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
   
   <!-- External Stylesheet with Cache-Buster -->
-  <link rel="stylesheet" href="{% static 'predictor/css/style.css' %}?v=20261105.75">
+  <link rel="stylesheet" href="{% static 'predictor/css/style.css' %}?v=20261105.76">
 
   <!-- Embedded Fail-Safe Stylesheet: Guarantees 100% Reliable Render with Zero Unstyled State -->
   <style>
@@ -200,7 +200,7 @@
       <div class="header-actions">
         <!-- Audio Haptic Feedback Toggle -->
         <button type="button" class="sound-toggle-btn" id="sound-toggle-btn" title="Toggle audio feedback" aria-label="Toggle Sound">
-          <span id="sound-icon">🔊</span>
+          <span id="sound-icon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:15px;height:15px;"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path></svg></span>
           <span id="sound-label" data-i18n="sound_label">Sound</span>
         </button>
 
@@ -216,7 +216,7 @@
 
         <!-- Model Ready Badge -->
         <div class="model-badge" title="ResNet-50 Convolutional Neural Network Loaded and Running Locally">
-          <span class="model-badge-dot"></span>
+          
           <span data-i18n="model_ready">Model ready</span>
         </div>
       </div>
@@ -229,7 +229,7 @@
     {% for message in messages %}
     <div class="alert-banner {{ message.tags }}" role="alert">
       <div style="display: flex; align-items: center; gap: 0.6rem;">
-        <span>⚠️</span>
+        
         <div>{{ message }}</div>
       </div>
       <button type="button" class="alert-close-btn" onclick="this.parentElement.remove();" aria-label="Dismiss">&times;</button>
@@ -344,7 +344,7 @@
         </div>
         <div class="history-header-actions">
           <button type="button" class="btn-clear-history" id="clear-history-btn">
-            <span>🗑️</span>
+            
             <span data-i18n="clear_history">Clear history</span>
           </button>
           <button type="button" class="history-close-btn" id="history-modal-close-btn" aria-label="Close History Modal">&times;</button>
@@ -354,7 +354,7 @@
       <div class="history-modal-body">
         <div id="history-cards-grid" class="history-grid"></div>
         <div id="empty-history-state" class="empty-history-state" style="display: none;">
-          <div style="font-size: 2.2rem; margin-bottom: 0.6rem;">📋</div>
+          <div style="font-size: 0.95rem; font-weight: 700; color: #526659; margin-bottom: 0.4rem;">No Records</div>
           <div style="font-weight: 700; color: #14382b; font-size: 1.05rem; margin-bottom: 0.35rem;" data-i18n="no_history">No past scans recorded on this device yet.</div>
           <div style="font-size: 0.84rem; color: #6b8073; max-width: 420px; margin: 0 auto;" data-i18n="empty_history_desc">Upload or capture an arecanut leaf or nut specimen to automatically retain diagnostic records.</div>
         </div>
@@ -369,12 +369,12 @@
     <div class="govt-preview-modal-card">
       <div class="govt-preview-header">
         <div class="govt-preview-header-title">
-          <span>🏛️</span>
+          
           <span>Official Government Phytosanitary Certificate Preview</span>
         </div>
         <div class="govt-preview-actions">
           <button type="button" class="btn-preview-print" id="modal-print-report-btn">
-            <span>🖨️</span>
+            
             <span>Download / Print (PDF)</span>
           </button>
           <button type="button" class="govt-preview-close" id="modal-close-preview-btn" aria-label="Close">&times;</button>
@@ -409,7 +409,7 @@
   </footer>
 
   <!-- Client-side Interactive Engine -->
-  <script src="{% static 'predictor/js/main.js' %}?v=20261105.75"></script>
+  <script src="{% static 'predictor/js/main.js' %}?v=20261105.76"></script>
   {% block extra_js %}{% endblock %}
 </body>
 </html>

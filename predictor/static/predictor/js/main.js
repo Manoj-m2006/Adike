@@ -172,7 +172,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 
-    if (soundIcon) soundIcon.textContent = isSoundEnabled ? '🔊' : '🔇';
+    if (soundIcon) soundIcon.innerHTML = isSoundEnabled ? '<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path></svg>' : '<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><line x1="23" y1="9" x2="17" y2="15"></line><line x1="17" y1="9" x2="23" y2="15"></line></svg>';
 
     if (soundLabel) soundLabel.textContent = isSoundEnabled ? (strings.sound_label || 'Sound') : (strings.sound_muted || 'Muted');
 
@@ -314,15 +314,15 @@ document.addEventListener('DOMContentLoaded', function () {
 
     "change_photo": "Change photo",
 
-    "samples_heading": "⚡ Instant Test Samples (Click to load specimen):",
+    "samples_heading": "Instant Test Samples (Click to load specimen):",
 
-    "sample_healthy_leaf": "🍃 Healthy Leaf",
+    "sample_healthy_leaf": "Healthy Leaf",
 
-    "sample_healthy_nut": "🌰 Healthy Nut",
+    "sample_healthy_nut": "Healthy Nut",
 
-    "sample_mahali": "🍄 Mahali Rot",
+    "sample_mahali": "Mahali Rot",
 
-    "sample_yld": "🍂 Yellow Leaf",
+    "sample_yld": "Yellow Leaf",
 
     "btn_analyze": "Analyze plant health ↗",
 
@@ -428,13 +428,13 @@ document.addEventListener('DOMContentLoaded', function () {
 
     "dossier_lead": "Field guide for identifying and treating arecanut diseases: causal pathogens, visible symptoms, and ICAR-CPCRI recommended care protocols.",
 
-    "tab_dossier_mahali": "🍄 Mahali / Koleroga (Fruit Rot)",
+    "tab_dossier_mahali": "Mahali / Koleroga (Fruit Rot)",
 
-    "tab_dossier_yld": "🍂 Yellow Leaf Disease (YLD)",
+    "tab_dossier_yld": "Yellow Leaf Disease (YLD)",
 
-    "tab_dossier_healthy_nut": "🌰 Healthy Nut (Control)",
+    "tab_dossier_healthy_nut": "Healthy Nut (Control)",
 
-    "tab_dossier_healthy_leaf": "🍃 Healthy Leaf (Control)",
+    "tab_dossier_healthy_leaf": "Healthy Leaf (Control)",
 
     "btn_turn_back_input": "◂ Turn Back to Specimen Input",
 
@@ -658,15 +658,15 @@ document.addEventListener('DOMContentLoaded', function () {
 
     "change_photo": "ಫೋಟೋ ಬದಲಾಯಿಸಿ",
 
-    "samples_heading": "⚡ ತ್ವರಿತ ಪರೀಕ್ಷಾ ಮಾದರಿಗಳು (ಮಾದರಿಯನ್ನು ಲೋಡ್ ಮಾಡಲು ಕ್ಲಿಕ್ ಮಾಡಿ):",
+    "samples_heading": "ತ್ವರಿತ ಪರೀಕ್ಷಾ ಮಾದರಿಗಳು (ಮಾದರಿಯನ್ನು ಲೋಡ್ ಮಾಡಲು ಕ್ಲಿಕ್ ಮಾಡಿ):",
 
-    "sample_healthy_leaf": "🍃 ಆರೋಗ್ಯಕರ ಎಲೆ",
+    "sample_healthy_leaf": "ಆರೋಗ್ಯಕರ ಎಲೆ",
 
-    "sample_healthy_nut": "🌰 ಆರೋಗ್ಯಕರ ಅಡಿಕೆ",
+    "sample_healthy_nut": "ಆರೋಗ್ಯಕರ ಅಡಿಕೆ",
 
-    "sample_mahali": "🍄 ಮಹಾಲಿ ಕೊಳೆ",
+    "sample_mahali": "ಮಹಾಲಿ ಕೊಳೆ",
 
-    "sample_yld": "🍂 ಹಳದಿ ಎಲೆ",
+    "sample_yld": "ಹಳದಿ ಎಲೆ",
 
     "btn_analyze": "ಗಿಡದ ಆರೋಗ್ಯ ಪರೀಕ್ಷಿಸಿ ↗",
 
@@ -772,13 +772,13 @@ document.addEventListener('DOMContentLoaded', function () {
 
     "dossier_lead": "ಅಡಿಕೆಯ ನಾಲ್ಕು ಮುಖ್ಯ ವರ್ಗಗಳ ಸಮಗ್ರ ಜೈವಿಕ ವಿಶ್ಲೇಷಣೆ: ರೋಗಕಾರಕಗಳು, ಹರಡುವಿಕೆ ಲಕ್ಷಣಗಳು, ICAR-CPCRI ನಿರ್ವಹಣಾ ಕ್ರಮಗಳು ಮತ್ತು ಸಾಧಕ-ಬಾಧಕಗಳ ತುಲನೆ.",
 
-    "tab_dossier_mahali": "🍄 ಮಹಾಲಿ / ಕೊಳೆರೋಗ (ಹಣ್ಣು ಕೊಳೆ)",
+    "tab_dossier_mahali": "ಮಹಾಲಿ / ಕೊಳೆರೋಗ (ಹಣ್ಣು ಕೊಳೆ)",
 
-    "tab_dossier_yld": "🍂 ಹಳದಿ ಎಲೆ ರೋಗ (ವೈಎಲ್‌ಡಿ)",
+    "tab_dossier_yld": "ಹಳದಿ ಎಲೆ ರೋಗ (ವೈಎಲ್‌ಡಿ)",
 
-    "tab_dossier_healthy_nut": "🌰 ಆರೋಗ್ಯಕರ ಅಡಿಕೆ (ನಿಯಂತ್ರಣ)",
+    "tab_dossier_healthy_nut": "ಆರೋಗ್ಯಕರ ಅಡಿಕೆ (ನಿಯಂತ್ರಣ)",
 
-    "tab_dossier_healthy_leaf": "🍃 ಆರೋಗ್ಯಕರ ಎಲೆ (ನಿಯಂತ್ರಣ)",
+    "tab_dossier_healthy_leaf": "ಆರೋಗ್ಯಕರ ಎಲೆ (ನಿಯಂತ್ರಣ)",
 
     "btn_turn_back_input": "◂ ಮಾದರಿ ಇನ್‌ಪುಟ್‌ಗೆ ಹಿಂತಿರುಗಿ",
 
@@ -1000,15 +1000,15 @@ document.addEventListener('DOMContentLoaded', function () {
 
     "change_photo": "फोटो बदलें",
 
-    "samples_heading": "⚡ त्वरित परीक्षण नमूने (नमूना लोड करने के लिए क्लिक करें):",
+    "samples_heading": "त्वरित परीक्षण नमूने (नमूना लोड करने के लिए क्लिक करें):",
 
-    "sample_healthy_leaf": "🍃 स्वस्थ पत्ता",
+    "sample_healthy_leaf": "स्वस्थ पत्ता",
 
-    "sample_healthy_nut": "🌰 स्वस्थ सुपारी",
+    "sample_healthy_nut": "स्वस्थ सुपारी",
 
-    "sample_mahali": "🍄 महाली सड़न",
+    "sample_mahali": "महाली सड़न",
 
-    "sample_yld": "🍂 पीला पत्ता",
+    "sample_yld": "पीला पत्ता",
 
     "btn_analyze": "पौधे की जाँच करें ↗",
 
@@ -1114,13 +1114,13 @@ document.addEventListener('DOMContentLoaded', function () {
 
     "dossier_lead": "सुपारी के चारों प्रमुख वर्गों का संपूर्ण जैविक विश्लेषण: रोगजनक, लक्षण प्रगति, ICAR-CPCRI प्रबंधन प्रोटोकॉल और रणनीतिक तुलना।",
 
-    "tab_dossier_mahali": "🍄 महाली / कोलेरोगा (फल सड़न)",
+    "tab_dossier_mahali": "महाली / कोलेरोगा (फल सड़न)",
 
-    "tab_dossier_yld": "🍂 पीला पत्ता रोग (वाईएलडी)",
+    "tab_dossier_yld": "पीला पत्ता रोग (वाईएलडी)",
 
-    "tab_dossier_healthy_nut": "🌰 स्वस्थ सुपारी (नियंत्रण)",
+    "tab_dossier_healthy_nut": "स्वस्थ सुपारी (नियंत्रण)",
 
-    "tab_dossier_healthy_leaf": "🍃 स्वस्थ पत्ता (नियंत्रण)",
+    "tab_dossier_healthy_leaf": "स्वस्थ पत्ता (नियंत्रण)",
 
     "btn_turn_back_input": "◂ नमूना इनपुट पर वापस जाएँ",
 
@@ -1341,15 +1341,15 @@ document.addEventListener('DOMContentLoaded', function () {
 
     "change_photo": "ഫോട്ടോ മാറ്റുക",
 
-    "samples_heading": "⚡ തൽക്ഷണ പരിശോധനാ മാതൃകകൾ (മാതൃക കാണാൻ ക്ലിക്ക് ചെയ്യുക):",
+    "samples_heading": "തൽക്ഷണ പരിശോധനാ മാതൃകകൾ (മാതൃക കാണാൻ ക്ലിക്ക് ചെയ്യുക):",
 
-    "sample_healthy_leaf": "🍃 ആരോഗ്യമുള്ള ഇല",
+    "sample_healthy_leaf": "ആരോഗ്യമുള്ള ഇല",
 
-    "sample_healthy_nut": "🌰 ആരോഗ്യമുള്ള അടക്ക",
+    "sample_healthy_nut": "ആരോഗ്യമുള്ള അടക്ക",
 
-    "sample_mahali": "🍄 മഹാലി ചീയൽ",
+    "sample_mahali": "മഹാലി ചീയൽ",
 
-    "sample_yld": "🍂 മഞ്ഞളിപ്പ്",
+    "sample_yld": "മഞ്ഞളിപ്പ്",
 
     "btn_analyze": "ചെടിയുടെ ആരോഗ്യം പരിശോധിക്കുക ↗",
 
@@ -1455,13 +1455,13 @@ document.addEventListener('DOMContentLoaded', function () {
 
     "dossier_lead": "അടക്കയിലെ നാല് പ്രധാന വിഭാഗങ്ങളുടെ സമഗ്ര ജൈവിക വിശകലനം: രോഗകാരികൾ, ലക്ഷണങ്ങൾ, ICAR-CPCRI പരിചരണ നിർദ്ദേശങ്ങൾ, ഗുണദോഷ താരതമ്യം.",
 
-    "tab_dossier_mahali": "🍄 മഹാലി / കൊളെറോഗ (കായ്ചീയൽ)",
+    "tab_dossier_mahali": "മഹാലി / കൊളെറോഗ (കായ്ചീയൽ)",
 
-    "tab_dossier_yld": "🍂 മഞ്ഞളിപ്പ് രോഗം (വൈഎൽഡി)",
+    "tab_dossier_yld": "മഞ്ഞളിപ്പ് രോഗം (വൈഎൽഡി)",
 
-    "tab_dossier_healthy_nut": "🌰 ആരോഗ്യമുള്ള അടക്ക (നിയന്ത്രണം)",
+    "tab_dossier_healthy_nut": "ആരോഗ്യമുള്ള അടക്ക (നിയന്ത്രണം)",
 
-    "tab_dossier_healthy_leaf": "🍃 ആരോഗ്യമുള്ള ഇല (നിയന്ത്രണം)",
+    "tab_dossier_healthy_leaf": "ആരോഗ്യമുള്ള ഇല (നിയന്ത്രണം)",
 
     "btn_turn_back_input": "◂ മാതൃക ഇൻപുട്ടിലേക്ക് മടങ്ങുക",
 
@@ -1965,7 +1965,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
           <div class="dossier-block">
 
-            <h3 class="dossier-block-title"><span>🔬</span><span>1. What Causes It (Etiology & Epidemiology)</span></h3>
+            <h3 class="dossier-block-title"><span>1. What Causes It (Etiology & Epidemiology)</span></h3>
 
             <p class="dossier-block-text">Mahali (also universally recognized as Koleroga) is caused by the destructive oomycete pathogen <strong><em>Phytophthora meadii</em> McRae</strong>.</p>
 
@@ -1983,7 +1983,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
           <div class="dossier-block">
 
-            <h3 class="dossier-block-title"><span>⚠️</span><span>2. How It Affects the Palm (Pathological Progression & Yield Loss)</span></h3>
+            <h3 class="dossier-block-title"><span>2. How It Affects the Palm (Pathological Progression & Yield Loss)</span></h3>
 
             <p class="dossier-block-text">Infection initiates rapid necrotic decay of the reproductive bunch and can advance systemically into the palm crown:</p>
 
@@ -2003,7 +2003,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
           <div class="dossier-block">
 
-            <h3 class="dossier-block-title"><span>🛡️</span><span>3. How to Overcome (ICAR-CPCRI Management Protocols)</span></h3>
+            <h3 class="dossier-block-title"><span>3. How to Overcome (ICAR-CPCRI Management Protocols)</span></h3>
 
             <p class="dossier-block-text">Integrated phytosanitary management certified by ICAR-CPCRI combines chemical prophylaxis, physical barriers, and cultural sanitation:</p>
 
@@ -2023,7 +2023,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
           <div class="dossier-block">
 
-            <h3 class="dossier-block-title"><span>⚖️</span><span>4. Comparative Trade-offs (Advantages vs. Disadvantages)</span></h3>
+            <h3 class="dossier-block-title"><span>4. Comparative Trade-offs (Advantages vs. Disadvantages)</span></h3>
 
             <div class="tradeoff-table-wrap">
 
@@ -2077,7 +2077,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
           <div class="dossier-block">
 
-            <h3 class="dossier-block-title"><span>🏛️</span><span>5. Research Authority & Extension Support</span></h3>
+            <h3 class="dossier-block-title"><span>5. Research Authority & Extension Support</span></h3>
 
             <p class="dossier-block-text">Technical guidance adapted from <strong>ICAR-Central Plantation Crops Research Institute (CPCRI)</strong>, Kasaragod, Kerala & Regional Station Vittal, Karnataka.<br><em>Official Helpline:</em> Contact your local Krishi Vigyan Kendra (KVK) or Assistant Director of Horticulture for chemical dosage verification.</p>
 
@@ -2093,7 +2093,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
           <div class="dossier-block">
 
-            <h3 class="dossier-block-title"><span>🔬</span><span>1. What Causes It (Etiology & Vectors)</span></h3>
+            <h3 class="dossier-block-title"><span>1. What Causes It (Etiology & Vectors)</span></h3>
 
             <p class="dossier-block-text">Yellow Leaf Disease (YLD) is a debilitating systemic disorder associated with <strong>Phytoplasma</strong> organisms that inhabit the phloem tissue of the palm.</p>
 
@@ -2109,7 +2109,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
           <div class="dossier-block">
 
-            <h3 class="dossier-block-title"><span>⚠️</span><span>2. How It Affects the Palm (Pathological Progression & Yield Loss)</span></h3>
+            <h3 class="dossier-block-title"><span>2. How It Affects the Palm (Pathological Progression & Yield Loss)</span></h3>
 
             <p class="dossier-block-text">YLD causes slow, relentless systemic degeneration over several harvest cycles:</p>
 
@@ -2129,7 +2129,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
           <div class="dossier-block">
 
-            <h3 class="dossier-block-title"><span>🛡️</span><span>3. How to Overcome (ICAR-CPCRI Management Protocols)</span></h3>
+            <h3 class="dossier-block-title"><span>3. How to Overcome (ICAR-CPCRI Management Protocols)</span></h3>
 
             <p class="dossier-block-text">Because phytoplasma is systemic within vascular tissue, there is no chemical cure. Management focuses on soil rehabilitation and immunity enhancement:</p>
 
@@ -2149,7 +2149,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
           <div class="dossier-block">
 
-            <h3 class="dossier-block-title"><span>⚖️</span><span>4. Comparative Trade-offs (Advantages vs. Disadvantages)</span></h3>
+            <h3 class="dossier-block-title"><span>4. Comparative Trade-offs (Advantages vs. Disadvantages)</span></h3>
 
             <div class="tradeoff-table-wrap">
 
@@ -2203,7 +2203,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
           <div class="dossier-block">
 
-            <h3 class="dossier-block-title"><span>🏛️</span><span>5. Research Authority & Extension Support</span></h3>
+            <h3 class="dossier-block-title"><span>5. Research Authority & Extension Support</span></h3>
 
             <p class="dossier-block-text">Refer to <strong>ICAR-CPCRI Technical Bulletin: Yellow Leaf Disease of Arecanut</strong>. Consult your district horticulture officer for soil testing and micronutrient analysis.</p>
 
@@ -2219,7 +2219,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
           <div class="dossier-block">
 
-            <h3 class="dossier-block-title"><span>🌰</span><span>1. Botanical & Morphological Quality Benchmarks</span></h3>
+            <h3 class="dossier-block-title"><span>1. Botanical & Morphological Quality Benchmarks</span></h3>
 
             <p class="dossier-block-text">Healthy arecanut (<em>Areca catechu</em>) clusters represent the gold-standard phytosanitary baseline: robust mechanical attachment, pristine pericarps, and uncompromised internal ruminate endosperms.</p>
 
@@ -2237,7 +2237,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
           <div class="dossier-block">
 
-            <h3 class="dossier-block-title"><span>📈</span><span>2. Phenological Development & Nut Maturation Stages</span></h3>
+            <h3 class="dossier-block-title"><span>2. Phenological Development & Nut Maturation Stages</span></h3>
 
             <p class="dossier-block-text">Understanding the 9-month development cycle is essential for timely disease prevention and harvesting:</p>
 
@@ -2257,7 +2257,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
           <div class="dossier-block">
 
-            <h3 class="dossier-block-title"><span>🛡️</span><span>3. ICAR-CPCRI Yield Maximization & Crop Protection Protocols</span></h3>
+            <h3 class="dossier-block-title"><span>3. ICAR-CPCRI Yield Maximization & Crop Protection Protocols</span></h3>
 
             <p class="dossier-block-text">To sustain high-grade nut clusters and prevent physiological or fungal crop losses:</p>
 
@@ -2277,7 +2277,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
           <div class="dossier-block">
 
-            <h3 class="dossier-block-title"><span>⚖️</span><span>4. Comparative Trade-offs & Protection Strategies</span></h3>
+            <h3 class="dossier-block-title"><span>4. Comparative Trade-offs & Protection Strategies</span></h3>
 
             <div class="tradeoff-table-wrap">
 
@@ -2331,7 +2331,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
           <div class="dossier-block">
 
-            <h3 class="dossier-block-title"><span>🏛️</span><span>5. Commercial Standards & Extension Support</span></h3>
+            <h3 class="dossier-block-title"><span>5. Commercial Standards & Extension Support</span></h3>
 
             <p class="dossier-block-text">Commercial quality benchmarks are defined by the <strong>Bureau of Indian Standards (BIS: 2228-1996)</strong> and <strong>Agmark Grading Protocols</strong>. For specialized guidance on high-density nut nutrition, consult <strong>ICAR-CPCRI</strong>, Kasaragod & Regional Station, Vittal.</p>
 
@@ -2347,7 +2347,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
           <div class="dossier-block">
 
-            <h3 class="dossier-block-title"><span>🍃</span><span>1. Botanical & Foliar Architecture Quality Benchmarks</span></h3>
+            <h3 class="dossier-block-title"><span>1. Botanical & Foliar Architecture Quality Benchmarks</span></h3>
 
             <p class="dossier-block-text">Healthy arecanut leaves serve as the primary photosynthetic engine of the palm, dictating annual bunch weight, flowering rate, and disease resilience.</p>
 
@@ -2367,7 +2367,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
           <div class="dossier-block">
 
-            <h3 class="dossier-block-title"><span>⚡</span><span>2. Critical Physiological Roles in Palm Longevity & Productivity</span></h3>
+            <h3 class="dossier-block-title"><span>2. Critical Physiological Roles in Palm Longevity & Productivity</span></h3>
 
             <p class="dossier-block-text">The health of the foliar canopy directly governs commercial yield and tree longevity:</p>
 
@@ -2385,7 +2385,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
           <div class="dossier-block">
 
-            <h3 class="dossier-block-title"><span>🧪</span><span>3. Nutritional Deficiency Diagnostics & Correction Protocols</span></h3>
+            <h3 class="dossier-block-title"><span>3. Nutritional Deficiency Diagnostics & Correction Protocols</span></h3>
 
             <p class="dossier-block-text">Carefully inspect foliar symptoms to address soil imbalances before irreversible damage occurs:</p>
 
@@ -2405,7 +2405,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
           <div class="dossier-block">
 
-            <h3 class="dossier-block-title"><span>⚖️</span><span>4. Canopy Management & Agronomic Trade-offs (Comparative Analysis)</span></h3>
+            <h3 class="dossier-block-title"><span>4. Canopy Management & Agronomic Trade-offs (Comparative Analysis)</span></h3>
 
             <div class="tradeoff-table-wrap">
 
@@ -2459,7 +2459,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
           <div class="dossier-block">
 
-            <h3 class="dossier-block-title"><span>🏛️</span><span>5. Research Authority & Extension Support</span></h3>
+            <h3 class="dossier-block-title"><span>5. Research Authority & Extension Support</span></h3>
 
             <p class="dossier-block-text">Canopy diagnostic standards and nutrient management schedules are developed by <strong>ICAR-CPCRI</strong> and the <strong>University of Horticultural Sciences (UHS), Bagalkot</strong>. For localized leaf testing, contact your district Krishi Vigyan Kendra (KVK).</p>
 
@@ -2479,7 +2479,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
           <div class="dossier-block">
 
-            <h3 class="dossier-block-title"><span>🔬</span><span>೧. ರೋಗಕ್ಕೆ ಕಾರಣಗಳು (ಮೂಲ ಮತ್ತು ಹರಡುವಿಕೆ)</span></h3>
+            <h3 class="dossier-block-title"><span>೧. ರೋಗಕ್ಕೆ ಕಾರಣಗಳು (ಮೂಲ ಮತ್ತು ಹರಡುವಿಕೆ)</span></h3>
 
             <p class="dossier-block-text">ಮಹಾಲಿ (ಕರ್ನಾಟಕದಲ್ಲಿ ಕೊಳೆರೋಗ ಎಂದು ಪ್ರಸಿದ್ಧ) ಅತ್ಯಂತ ವಿನಾಶಕಾರಿ <strong><em>Phytophthora meadii</em> McRae</strong> ಎಂಬ ಶಿಲೀಂಧ್ರದಿಂದ ಉಂಟಾಗುತ್ತದೆ.</p>
 
@@ -2497,7 +2497,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
           <div class="dossier-block">
 
-            <h3 class="dossier-block-title"><span>⚠️</span><span>೨. ಅಡಿಕೆ ಮರಕ್ಕೆ ಉಂಟಾಗುವ ಪರಿಣಾಮಗಳು (ರೋಗಲಕ್ಷಣಗಳು & ನಷ್ಟ)</span></h3>
+            <h3 class="dossier-block-title"><span>೨. ಅಡಿಕೆ ಮರಕ್ಕೆ ಉಂಟಾಗುವ ಪರಿಣಾಮಗಳು (ರೋಗಲಕ್ಷಣಗಳು & ನಷ್ಟ)</span></h3>
 
             <p class="dossier-block-text">ಸೋಂಕು ಗೊನೆಗಳಲ್ಲಿ ವೇಗವಾಗಿ ಕೊಳೆತವನ್ನು ಉಂಟುಮಾಡುತ್ತದೆ ಮತ್ತು ಮರದ ಕಿರೀಟಕ್ಕೂ ಹರಡಬಹುದು:</p>
 
@@ -2517,7 +2517,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
           <div class="dossier-block">
 
-            <h3 class="dossier-block-title"><span>🛡️</span><span>೩. ರೋಗ ತಡೆಗಟ್ಟುವ ಕ್ರಮಗಳು (ICAR-CPCRI ಮಾರ್ಗಸೂಚಿಗಳು)</span></h3>
+            <h3 class="dossier-block-title"><span>೩. ರೋಗ ತಡೆಗಟ್ಟುವ ಕ್ರಮಗಳು (ICAR-CPCRI ಮಾರ್ಗಸೂಚಿಗಳು)</span></h3>
 
             <p class="dossier-block-text">ICAR-CPCRI ಸಂಸ್ಥೆಯು ಶಿಫಾರಸು ಮಾಡಿದ ಸಮಗ್ರ ನಿರ್ವಹಣಾ ಕ್ರಮಗಳು:</p>
 
@@ -2537,7 +2537,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
           <div class="dossier-block">
 
-            <h3 class="dossier-block-title"><span>⚖️</span><span>೪. ನಿರ್ವಹಣಾ ಕ್ರಮಗಳ ಸಾಧಕ-ಬಾಧಕಗಳ ತುಲನೆ (ಕೋಷ್ಟಕ)</span></h3>
+            <h3 class="dossier-block-title"><span>೪. ನಿರ್ವಹಣಾ ಕ್ರಮಗಳ ಸಾಧಕ-ಬಾಧಕಗಳ ತುಲನೆ (ಕೋಷ್ಟಕ)</span></h3>
 
             <div class="tradeoff-table-wrap">
 
@@ -2591,7 +2591,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
           <div class="dossier-block">
 
-            <h3 class="dossier-block-title"><span>🏛️</span><span>೫. ಸಂಶೋಧನಾ ಸಂಸ್ಥೆ ಮತ್ತು ತಾಂತ್ರಿಕ ನೆರವು</span></h3>
+            <h3 class="dossier-block-title"><span>೫. ಸಂಶೋಧನಾ ಸಂಸ್ಥೆ ಮತ್ತು ತಾಂತ್ರಿಕ ನೆರವು</span></h3>
 
             <p class="dossier-block-text">ತಾಂತ್ರಿಕ ಮಾರ್ಗದರ್ಶನ: <strong>ICAR-ಕೇಂದ್ರೀಯ ತೋಟದ ಬೆಳೆಗಳ ಸಂಶೋಧನಾ ಸಂಸ್ಥೆ (CPCRI)</strong> ಕಾಸರಗೋಡು ಮತ್ತು ಪ್ರಾದೇಶಿಕ ಸಂಶೋಧನಾ ಕೇಂದ್ರ ವಿಟ್ಲ, ದಕ್ಷಿಣ ಕನ್ನಡ.<br>ಹೆಚ್ಚಿನ ಮಾಹಿತಿಗಾಗಿ ನಿಮ್ಮ ತಾಲೂಕಿನ ಕೃಷಿ ವಿಜ್ಞಾನ ಕೇಂದ್ರ (KVK) ಅಥವಾ ತೋಟಗಾರಿಕಾ ಅಧಿಕಾರಿಯನ್ನು ಸಂಪರ್ಕಿಸಿ.</p>
 
@@ -2607,7 +2607,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
           <div class="dossier-block">
 
-            <h3 class="dossier-block-title"><span>🔬</span><span>೧. ರೋಗಕ್ಕೆ ಕಾರಣಗಳು (ಮೂಲ ಮತ್ತು ಕೀಟ ವಾಹಕಗಳು)</span></h3>
+            <h3 class="dossier-block-title"><span>೧. ರೋಗಕ್ಕೆ ಕಾರಣಗಳು (ಮೂಲ ಮತ್ತು ಕೀಟ ವಾಹಕಗಳು)</span></h3>
 
             <p class="dossier-block-text">ಹಳದಿ ಎಲೆ ರೋಗವು (YLD) ಅಡಿಕೆ ಮರದ ಆಹಾರ ನಾಳಗಳಲ್ಲಿ (ಫ್ಲೋಯಂ) ವಾಸಿಸುವ <strong>ಫೈಟೋಪ್ಲಾಸ್ಮಾ (Phytoplasma)</strong> ಎಂಬ ಸೂಕ್ಷ್ಮಾಣುಜೀವಿಯಿಂದ ಉಂಟಾಗುತ್ತದೆ.</p>
 
@@ -2623,7 +2623,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
           <div class="dossier-block">
 
-            <h3 class="dossier-block-title"><span>⚠️</span><span>೨. ಅಡಿಕೆ ಮರಕ್ಕೆ ಉಂಟಾಗುವ ಪರಿಣಾಮಗಳು (ಲಕ್ಷಣಗಳು & ಇಳುವರಿ ಕುಸಿತ)</span></h3>
+            <h3 class="dossier-block-title"><span>೨. ಅಡಿಕೆ ಮರಕ್ಕೆ ಉಂಟಾಗುವ ಪರಿಣಾಮಗಳು (ಲಕ್ಷಣಗಳು & ಇಳುವರಿ ಕುಸಿತ)</span></h3>
 
             <p class="dossier-block-text">ಈ ರೋಗವು ಮರವನ್ನು ಹಂತ ಹಂತವಾಗಿ ಕ್ಷೀಣಗೊಳಿಸುತ್ತದೆ:</p>
 
@@ -2643,7 +2643,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
           <div class="dossier-block">
 
-            <h3 class="dossier-block-title"><span>🛡️</span><span>೩. ನಿರ್ವಹಣಾ ಕ್ರಮಗಳು (ICAR-CPCRI ಶಿಫಾರಸುಗಳು)</span></h3>
+            <h3 class="dossier-block-title"><span>೩. ನಿರ್ವಹಣಾ ಕ್ರಮಗಳು (ICAR-CPCRI ಶಿಫಾರಸುಗಳು)</span></h3>
 
             <p class="dossier-block-text">ಫೈಟೋಪ್ಲಾಸ್ಮಾಕ್ಕೆ ಯಾವುದೇ ರಾಸಾಯನಿಕ ಚಿಕಿತ್ಸೆ ಇಲ್ಲದ ಕಾರಣ, ಮರದ ರೋಗನಿರೋಧಕ ಶಕ್ತಿಯನ್ನು ಹೆಚ್ಚಿಸುವ ಕ್ರಮಗಳನ್ನು ಕೈಗೊಳ್ಳಬೇಕು:</p>
 
@@ -2663,7 +2663,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
           <div class="dossier-block">
 
-            <h3 class="dossier-block-title"><span>⚖️</span><span>೪. ನಿರ್ವಹಣಾ ಕ್ರಮಗಳ ಸಾಧಕ-ಬಾಧಕಗಳ ತುಲನೆ</span></h3>
+            <h3 class="dossier-block-title"><span>೪. ನಿರ್ವಹಣಾ ಕ್ರಮಗಳ ಸಾಧಕ-ಬಾಧಕಗಳ ತುಲನೆ</span></h3>
 
             <div class="tradeoff-table-wrap">
 
@@ -2707,7 +2707,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
           <div class="dossier-block">
 
-            <h3 class="dossier-block-title"><span>🏛️</span><span>೫. ಸಂಶೋಧನಾ ಸಂಸ್ಥೆ ಮತ್ತು ನೆರವು</span></h3>
+            <h3 class="dossier-block-title"><span>೫. ಸಂಶೋಧನಾ ಸಂಸ್ಥೆ ಮತ್ತು ನೆರವು</span></h3>
 
             <p class="dossier-block-text">ಹೆಚ್ಚಿನ ಮಾಹಿತಿಗಾಗಿ <strong>ICAR-CPCRI ತಾಂತ್ರಿಕ ಪ್ರಕಟಣೆ: ಅಡಿಕೆಯ ಹಳದಿ ಎಲೆ ರೋಗ</strong> ನೋಡಿ. ಮಣ್ಣು ಪರೀಕ್ಷೆ ಮತ್ತು ಲಘು ಪೋಷಕಾಂಶಗಳ ಮಾಹಿತಿಗಾಗಿ ನಿಮ್ಮ ಜಿಲ್ಲಾ ತೋಟಗಾರಿಕಾ ಇಲಾಖೆಯನ್ನು ಸಂಪರ್ಕಿಸಿ.</p>
 
@@ -2723,7 +2723,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
           <div class="dossier-block">
 
-            <h3 class="dossier-block-title"><span>🌰</span><span>೧. ಆರೋಗ್ಯಕರ ಅಡಿಕೆಯ ಗುಣಮಟ್ಟದ ಮಾನದಂಡಗಳು</span></h3>
+            <h3 class="dossier-block-title"><span>೧. ಆರೋಗ್ಯಕರ ಅಡಿಕೆಯ ಗುಣಮಟ್ಟದ ಮಾನದಂಡಗಳು</span></h3>
 
             <p class="dossier-block-text">ಆರೋಗ್ಯಕರ ಅಡಿಕೆಯು ಉತ್ತಮ ಕೃಷಿ ನಿರ್ವಹಣೆಯ ಸಂಕೇತವಾಗಿದೆ: ಗಟ್ಟಿಯಾದ ತೊಟ್ಟು, ನಯವಾದ ಸಿಪ್ಪೆ ಮತ್ತು ಘನವಾದ ಸಾಂದ್ರ ಚಾಲಿ ರಚನೆ.</p>
 
@@ -2741,7 +2741,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
           <div class="dossier-block">
 
-            <h3 class="dossier-block-title"><span>📈</span><span>೨. ಅಡಿಕೆ ಬೆಳವಣಿಗೆಯ ೪ ಮುಖ್ಯ ಹಂತಗಳು</span></h3>
+            <h3 class="dossier-block-title"><span>೨. ಅಡಿಕೆ ಬೆಳವಣಿಗೆಯ ೪ ಮುಖ್ಯ ಹಂತಗಳು</span></h3>
 
             <p class="dossier-block-text">೯ ತಿಂಗಳ ಬೆಳವಣಿಗೆಯ ಹಂತಗಳನ್ನು ಅರ್ಥಮಾಡಿಕೊಳ್ಳುವುದು ಸರಿಯಾದ ಆರೈಕೆ ಮತ್ತು ಕಟಾವಿಗೆ ಅತ್ಯಗತ್ಯ:</p>
 
@@ -2761,7 +2761,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
           <div class="dossier-block">
 
-            <h3 class="dossier-block-title"><span>🛡️</span><span>೩. ಇಳುವರಿ ಹೆಚ್ಚಿಸುವ ICAR-CPCRI ಶಿಫಾರಸುಗಳು</span></h3>
+            <h3 class="dossier-block-title"><span>೩. ಇಳುವರಿ ಹೆಚ್ಚಿಸುವ ICAR-CPCRI ಶಿಫಾರಸುಗಳು</span></h3>
 
             <p class="dossier-block-text">ಅಡಿಕೆ ಗೊನೆಗಳ ಗರಿಷ್ಠ ಇಳುವರಿ ಮತ್ತು ತೂಕವನ್ನು ಕಾಪಾಡಿಕೊಳ್ಳಲು:</p>
 
@@ -2781,7 +2781,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
           <div class="dossier-block">
 
-            <h3 class="dossier-block-title"><span>⚖️</span><span>೪. ರಕ್ಷಣಾ ವಿಧಾನಗಳ ತುಲನೆ</span></h3>
+            <h3 class="dossier-block-title"><span>೪. ರಕ್ಷಣಾ ವಿಧಾನಗಳ ತುಲನೆ</span></h3>
 
             <div class="tradeoff-table-wrap">
 
@@ -2825,7 +2825,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
           <div class="dossier-block">
 
-            <h3 class="dossier-block-title"><span>🏛️</span><span>೫. ಗುಣಮಟ್ಟದ ಮಾನದಂಡಗಳು ಮತ್ತು ತಜ್ಞರ ನೆರವು</span></h3>
+            <h3 class="dossier-block-title"><span>೫. ಗುಣಮಟ್ಟದ ಮಾನದಂಡಗಳು ಮತ್ತು ತಜ್ಞರ ನೆರವು</span></h3>
 
             <p class="dossier-block-text">ಅಡಿಕೆ ಗುಣಮಟ್ಟದ ಮಾನದಂಡಗಳನ್ನು <strong>ಭಾರತೀಯ ಗುಣಮಟ್ಟ ಬ್ಯೂರೋ (BIS: 2228-1996)</strong> ಮತ್ತು <strong>ಅಗ್‌ಮಾರ್ಕ್</strong> ನಿಗದಿಪಡಿಸಿದೆ. ಹೆಚ್ಚಿನ ತಾಂತ್ರಿಕ ವಿವರಗಳಿಗಾಗಿ ICAR-CPCRI ಕಾಸರಗೋಡು ಮತ್ತು ವಿಟ್ಲ ಕೇಂದ್ರಗಳನ್ನು ಸಂಪರ್ಕಿಸಿ.</p>
 
@@ -2841,7 +2841,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
           <div class="dossier-block">
 
-            <h3 class="dossier-block-title"><span>🍃</span><span>೧. ಆರೋಗ್ಯಕರ ಗರಿಗಳ ಗುಣಮಟ್ಟದ ಮಾನದಂಡಗಳು</span></h3>
+            <h3 class="dossier-block-title"><span>೧. ಆರೋಗ್ಯಕರ ಗರಿಗಳ ಗುಣಮಟ್ಟದ ಮಾನದಂಡಗಳು</span></h3>
 
             <p class="dossier-block-text">ಆರೋಗ್ಯಕರ ಗರಿಗಳು ಅಡಿಕೆ ಮರದ ಆಹಾರ ತಯಾರಿಕೆಯ ಮುಖ್ಯ ಎಂಜಿನ್ ಆಗಿದ್ದು, ಇಳುವರಿ ಮತ್ತು ಮರದ ಆಯಸ್ಸನ್ನು ನಿರ್ಧರಿಸುತ್ತವೆ.</p>
 
@@ -2861,7 +2861,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
           <div class="dossier-block">
 
-            <h3 class="dossier-block-title"><span>⚡</span><span>೨. ಗರಿಗಳ ಪ್ರಮುಖ ಜೈವಿಕ ಪಾತ್ರಗಳು</span></h3>
+            <h3 class="dossier-block-title"><span>೨. ಗರಿಗಳ ಪ್ರಮುಖ ಜೈವಿಕ ಪಾತ್ರಗಳು</span></h3>
 
             <p class="dossier-block-text">ಗರಿಗಳ ಆರೋಗ್ಯವು ತೋಟದ ಆದಾಯವನ್ನು ನೇರವಾಗಿ ನಿರ್ಧರಿಸುತ್ತದೆ:</p>
 
@@ -2879,7 +2879,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
           <div class="dossier-block">
 
-            <h3 class="dossier-block-title"><span>🧪</span><span>೩. ಪೋಷಕಾಂಶಗಳ ಕೊರತೆಯ ಲಕ್ಷಣಗಳು & ಪರಿಹಾರಗಳು</span></h3>
+            <h3 class="dossier-block-title"><span>೩. ಪೋಷಕಾಂಶಗಳ ಕೊರತೆಯ ಲಕ್ಷಣಗಳು & ಪರಿಹಾರಗಳು</span></h3>
 
             <p class="dossier-block-text">ಗರಿಗಳಲ್ಲಿನ ಲಕ್ಷಣಗಳನ್ನು ನೋಡಿ ಮಣ್ಣಿನ ಪೋಷಕಾಂಶದ ಸಮತೋಲನವನ್ನು ಸರಿಪಡಿಸಿ:</p>
 
@@ -2899,7 +2899,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
           <div class="dossier-block">
 
-            <h3 class="dossier-block-title"><span>⚖️</span><span>೪. ಕಿರೀಟ ನಿರ್ವಹಣಾ ವಿಧಾನಗಳ ತುಲನೆ</span></h3>
+            <h3 class="dossier-block-title"><span>೪. ಕಿರೀಟ ನಿರ್ವಹಣಾ ವಿಧಾನಗಳ ತುಲನೆ</span></h3>
 
             <div class="tradeoff-table-wrap">
 
@@ -2943,7 +2943,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
           <div class="dossier-block">
 
-            <h3 class="dossier-block-title"><span>🏛️</span><span>೫. ಸಂಶೋಧನಾ ಸಂಸ್ಥೆ ಮತ್ತು ನೆರವು</span></h3>
+            <h3 class="dossier-block-title"><span>೫. ಸಂಶೋಧನಾ ಸಂಸ್ಥೆ ಮತ್ತು ನೆರವು</span></h3>
 
             <p class="dossier-block-text">ಗರಿಗಳ ಆರೋಗ್ಯ ಮತ್ತು ಪೋಷಕಾಂಶಗಳ ನಿರ್ವಹಣಾ ವೇಳಾಪಟ್ಟಿಯನ್ನು <strong>ICAR-CPCRI</strong> ಮತ್ತು <strong>ತೋಟಗಾರಿಕಾ ವಿಜ್ಞಾನಗಳ ವಿಶ್ವವಿದ್ಯಾಲಯ (UHS), ಬಾಗಲಕೋಟೆ</strong> ಅಭಿವೃದ್ಧಿಪಡಿಸಿವೆ. ಎಲೆ ಪರೀಕ್ಷೆಗಾಗಿ ನಿಮ್ಮ ಜಿಲ್ಲಾ KVK ಸಂಪರ್ಕಿಸಿ.</p>
 
@@ -2963,7 +2963,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
           <div class="dossier-block">
 
-            <h3 class="dossier-block-title"><span>🔬</span><span>१. रोग के कारण (इटियोलॉजी एवं फैलाव)</span></h3>
+            <h3 class="dossier-block-title"><span>१. रोग के कारण (इटियोलॉजी एवं फैलाव)</span></h3>
 
             <p class="dossier-block-text">महाली (कोलेरोगा) अत्यंत विनाशकारी <strong><em>Phytophthora meadii</em> McRae</strong> कवक द्वारा होता है।</p>
 
@@ -2981,7 +2981,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
           <div class="dossier-block">
 
-            <h3 class="dossier-block-title"><span>⚠️</span><span>२. पौधे पर प्रभाव (लक्षण एवं फसल क्षति)</span></h3>
+            <h3 class="dossier-block-title"><span>२. पौधे पर प्रभाव (लक्षण एवं फसल क्षति)</span></h3>
 
             <p class="dossier-block-text">संक्रमण गुच्छों में तेजी से सड़न पैदा करता है और पेड़ के मुकुट को भी नष्ट कर सकता है:</p>
 
@@ -3001,7 +3001,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
           <div class="dossier-block">
 
-            <h3 class="dossier-block-title"><span>🛡️</span><span>३. रोकथाम एवं प्रबंधन (ICAR-CPCRI प्रोटोकॉल)</span></h3>
+            <h3 class="dossier-block-title"><span>३. रोकथाम एवं प्रबंधन (ICAR-CPCRI प्रोटोकॉल)</span></h3>
 
             <p class="dossier-block-text">ICAR-CPCRI द्वारा प्रमाणित एकीकृत प्रबंधन उपाय:</p>
 
@@ -3021,7 +3021,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
           <div class="dossier-block">
 
-            <h3 class="dossier-block-title"><span>⚖️</span><span>४. प्रबंधन रणनीतियों की तुलना (सारणी)</span></h3>
+            <h3 class="dossier-block-title"><span>४. प्रबंधन रणनीतियों की तुलना (सारणी)</span></h3>
 
             <div class="tradeoff-table-wrap">
 
@@ -3061,7 +3061,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
           <div class="dossier-block">
 
-            <h3 class="dossier-block-title"><span>🏛️</span><span>५. अनुसंधान संस्थान एवं सहायता</span></h3>
+            <h3 class="dossier-block-title"><span>५. अनुसंधान संस्थान एवं सहायता</span></h3>
 
             <p class="dossier-block-text">मार्गदर्शन: <strong>ICAR-केंद्रीय रोपण फसल अनुसंधान संस्थान (CPCRI)</strong>, कासरगोड, केरल एवं विट्टल, कर्नाटक। अपने स्थानीय कृषि विज्ञान केंद्र (KVK) से संपर्क करें।</p>
 
@@ -3077,7 +3077,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
           <div class="dossier-block">
 
-            <h3 class="dossier-block-title"><span>🔬</span><span>१. रोग के कारण (फाइटोप्लाज्मा एवं कीट वाहक)</span></h3>
+            <h3 class="dossier-block-title"><span>१. रोग के कारण (फाइटोप्लाज्मा एवं कीट वाहक)</span></h3>
 
             <p class="dossier-block-text">पीला पत्ता रोग (YLD) फ्लोएम ऊतक में रहने वाले <strong>फाइटोप्लाज्मा</strong> सूक्ष्मजीवों से होता है।</p>
 
@@ -3093,7 +3093,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
           <div class="dossier-block">
 
-            <h3 class="dossier-block-title"><span>⚠️</span><span>२. पौधे पर प्रभाव एवं लक्षण</span></h3>
+            <h3 class="dossier-block-title"><span>२. पौधे पर प्रभाव एवं लक्षण</span></h3>
 
             <p class="dossier-block-text">यह रोग पेड़ को धीरे-धीरे कमजोर करता है:</p>
 
@@ -3113,7 +3113,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
           <div class="dossier-block">
 
-            <h3 class="dossier-block-title"><span>🛡️</span><span>३. ICAR-CPCRI प्रबंधन रणनीतियाँ</span></h3>
+            <h3 class="dossier-block-title"><span>३. ICAR-CPCRI प्रबंधन रणनीतियाँ</span></h3>
 
             <p class="dossier-block-text">रोग प्रतिरोधक क्षमता बढ़ाने हेतु अनुशंसित उपाय:</p>
 
@@ -3133,7 +3133,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
           <div class="dossier-block">
 
-            <h3 class="dossier-block-title"><span>⚖️</span><span>४. प्रबंधन रणनीतियों की तुलना</span></h3>
+            <h3 class="dossier-block-title"><span>४. प्रबंधन रणनीतियों की तुलना</span></h3>
 
             <div class="tradeoff-table-wrap">
 
@@ -3163,7 +3163,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
           <div class="dossier-block">
 
-            <h3 class="dossier-block-title"><span>🏛️</span><span>५. अनुसंधान संस्थान एवं सहायता</span></h3>
+            <h3 class="dossier-block-title"><span>५. अनुसंधान संस्थान एवं सहायता</span></h3>
 
             <p class="dossier-block-text">तकनीकी विवरण हेतु <strong>ICAR-CPCRI</strong> कासरगोड से संपर्क करें।</p>
 
@@ -3179,7 +3179,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
           <div class="dossier-block">
 
-            <h3 class="dossier-block-title"><span>🌰</span><span>१. स्वस्थ सुपारी के गुणवत्ता मानक</span></h3>
+            <h3 class="dossier-block-title"><span>१. स्वस्थ सुपारी के गुणवत्ता मानक</span></h3>
 
             <p class="dossier-block-text">स्वस्थ सुपारी अच्छे प्रबंधन का प्रतीक है: मजबूत डंठल पकड़, स्वच्छ छिलका और ठोस आंतरिक गिरी।</p>
 
@@ -3197,7 +3197,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
           <div class="dossier-block">
 
-            <h3 class="dossier-block-title"><span>📈</span><span>२. विकास के ४ प्रमुख चरण</span></h3>
+            <h3 class="dossier-block-title"><span>२. विकास के ४ प्रमुख चरण</span></h3>
 
             <p class="dossier-block-text">उचित प्रबंधन और कटाई के लिए 9 महीने के चक्र को समझना आवश्यक है:</p>
 
@@ -3217,7 +3217,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
           <div class="dossier-block">
 
-            <h3 class="dossier-block-title"><span>🛡️</span><span>३. उपज संवर्धन के उपाय (ICAR-CPCRI)</span></h3>
+            <h3 class="dossier-block-title"><span>३. उपज संवर्धन के उपाय (ICAR-CPCRI)</span></h3>
 
             <p class="dossier-block-text">उच्च गुणवत्ता और अधिक उपज बनाए रखने के लिए:</p>
 
@@ -3235,7 +3235,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
           <div class="dossier-block">
 
-            <h3 class="dossier-block-title"><span>🏛️</span><span>४. मानक एवं सहायता</span></h3>
+            <h3 class="dossier-block-title"><span>४. मानक एवं सहायता</span></h3>
 
             <p class="dossier-block-text">गुणवत्ता मानक <strong>BIS: 2228-1996</strong> और <strong>Agmark</strong> द्वारा निर्धारित हैं। परामर्श हेतु ICAR-CPCRI से संपर्क करें।</p>
 
@@ -3251,7 +3251,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
           <div class="dossier-block">
 
-            <h3 class="dossier-block-title"><span>🍃</span><span>१. स्वस्थ पत्तियों के गुणवत्ता मानक</span></h3>
+            <h3 class="dossier-block-title"><span>१. स्वस्थ पत्तियों के गुणवत्ता मानक</span></h3>
 
             <p class="dossier-block-text">पत्तियाँ सुपारी के पेड़ का मुख्य भोजन निर्माण अंग हैं, जो वार्षिक उपज और पेड़ के स्वास्थ्य को निर्धारित करती हैं।</p>
 
@@ -3269,7 +3269,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
           <div class="dossier-block">
 
-            <h3 class="dossier-block-title"><span>⚡</span><span>२. पत्तियों की जैविक भूमिकाएँ</span></h3>
+            <h3 class="dossier-block-title"><span>२. पत्तियों की जैविक भूमिकाएँ</span></h3>
 
             <ul class="dossier-bullets">
 
@@ -3283,7 +3283,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
           <div class="dossier-block">
 
-            <h3 class="dossier-block-title"><span>🧪</span><span>३. पोषक तत्वों की कमी के लक्षण</span></h3>
+            <h3 class="dossier-block-title"><span>३. पोषक तत्वों की कमी के लक्षण</span></h3>
 
             <ul class="dossier-bullets">
 
@@ -3299,7 +3299,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
           <div class="dossier-block">
 
-            <h3 class="dossier-block-title"><span>🏛️</span><span>४. अनुसंधान संस्थान</span></h3>
+            <h3 class="dossier-block-title"><span>४. अनुसंधान संस्थान</span></h3>
 
             <p class="dossier-block-text">तकनीकी मार्गदर्शन: <strong>ICAR-CPCRI</strong> और <strong>बागवानी विज्ञान विश्वविद्यालय (UHS), बागलकोट</strong>।</p>
 
@@ -3319,7 +3319,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
           <div class="dossier-block">
 
-            <h3 class="dossier-block-title"><span>🔬</span><span>1. രോഗകാരണങ്ങൾ (ഉത്ഭവവും വ്യാപനവും)</span></h3>
+            <h3 class="dossier-block-title"><span>1. രോഗകാരണങ്ങൾ (ഉത്ഭവവും വ്യാപനവും)</span></h3>
 
             <p class="dossier-block-text">മഹാലി അഥവാ കൊളെറോഗ <strong><em>Phytophthora meadii</em> McRae</strong> എന്ന അതിവിനാശകാരിയായ കുമിൾ മൂലമുണ്ടാകുന്നു.</p>
 
@@ -3337,7 +3337,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
           <div class="dossier-block">
 
-            <h3 class="dossier-block-title"><span>⚠️</span><span>2. ലക്ഷണങ്ങളും വിളനാശവും</span></h3>
+            <h3 class="dossier-block-title"><span>2. ലക്ഷണങ്ങളും വിളനാശവും</span></h3>
 
             <p class="dossier-block-text">അടക്കക്കുലകളിൽ അതിവേഗം ചീയലുണ്ടാക്കുകയും മണ്ടയെ ബാധിക്കുകയും ചെയ്യുന്നു:</p>
 
@@ -3357,7 +3357,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
           <div class="dossier-block">
 
-            <h3 class="dossier-block-title"><span>🛡️</span><span>3. പ്രതിരോധ മാർഗ്ഗങ്ങൾ (ICAR-CPCRI)</span></h3>
+            <h3 class="dossier-block-title"><span>3. പ്രതിരോധ മാർഗ്ഗങ്ങൾ (ICAR-CPCRI)</span></h3>
 
             <p class="dossier-block-text">സിപിസിആർഐ ശുപാർശ ചെയ്യുന്ന സംയോജിത പ്രതിരോധ മാർഗ്ഗങ്ങൾ:</p>
 
@@ -3377,7 +3377,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
           <div class="dossier-block">
 
-            <h3 class="dossier-block-title"><span>⚖️</span><span>4. പ്രതിരോധ മാർഗ്ഗങ്ങളുടെ താരതമ്യം</span></h3>
+            <h3 class="dossier-block-title"><span>4. പ്രതിരോധ മാർഗ്ഗങ്ങളുടെ താരതമ്യം</span></h3>
 
             <div class="tradeoff-table-wrap">
 
@@ -3417,7 +3417,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
           <div class="dossier-block">
 
-            <h3 class="dossier-block-title"><span>🏛️</span><span>5. ഗവേഷണ സ്ഥാപനം & സഹായം</span></h3>
+            <h3 class="dossier-block-title"><span>5. ഗവേഷണ സ്ഥാപനം & സഹായം</span></h3>
 
             <p class="dossier-block-text">സാങ്കേതിക മാർഗ്ഗനിർദ്ദേശങ്ങൾക്ക് <strong>ICAR-സിപിസിആർഐ</strong> കാസർഗോഡ്, വിട്ടൽ കേന്ദ്രങ്ങളിലോ അടുത്തുള്ള കൃഷി ഭവനിലോ ബന്ധപ്പെടുക.</p>
 
@@ -3433,7 +3433,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
           <div class="dossier-block">
 
-            <h3 class="dossier-block-title"><span>🔬</span><span>1. രോഗകാരണം (ഫൈറ്റോപ്ലാസ്മയും വാഹക കീടങ്ങളും)</span></h3>
+            <h3 class="dossier-block-title"><span>1. രോഗകാരണം (ഫൈറ്റോപ്ലാസ്മയും വാഹക കീടങ്ങളും)</span></h3>
 
             <p class="dossier-block-text">മഞ്ഞളിപ്പ് രോഗം (YLD) അടക്കയുടെ ഫ്ലോയം കോശങ്ങളിൽ വസിക്കുന്ന <strong>ഫൈറ്റോപ്ലാസ്മ</strong> എന്ന സൂക്ഷ്മാണു മൂലമുണ്ടാകുന്നു.</p>
 
@@ -3449,7 +3449,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
           <div class="dossier-block">
 
-            <h3 class="dossier-block-title"><span>⚠️</span><span>2. ലക്ഷണങ്ങളും വിളനാശവും</span></h3>
+            <h3 class="dossier-block-title"><span>2. ലക്ഷണങ്ങളും വിളനാശവും</span></h3>
 
             <ul class="dossier-bullets">
 
@@ -3467,7 +3467,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
           <div class="dossier-block">
 
-            <h3 class="dossier-block-title"><span>🛡️</span><span>3. സംരക്ഷണ മാർഗ്ഗങ്ങൾ (ICAR-CPCRI)</span></h3>
+            <h3 class="dossier-block-title"><span>3. സംരക്ഷണ മാർഗ്ഗങ്ങൾ (ICAR-CPCRI)</span></h3>
 
             <ul class="dossier-bullets">
 
@@ -3485,7 +3485,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
           <div class="dossier-block">
 
-            <h3 class="dossier-block-title"><span>🏛️</span><span>4. ഗവേഷണ സ്ഥാപനം</span></h3>
+            <h3 class="dossier-block-title"><span>4. ഗവേഷണ സ്ഥാപനം</span></h3>
 
             <p class="dossier-block-text">വിശദവിവരങ്ങൾക്ക് <strong>ICAR-സിപിസിആർഐ</strong> കാസർഗോഡുമായി ബന്ധപ്പെടുക.</p>
 
@@ -3501,7 +3501,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
           <div class="dossier-block">
 
-            <h3 class="dossier-block-title"><span>🌰</span><span>1. ആരോഗ്യമുള്ള അടക്കയുടെ ഗുണമേന്മ മാനദണ്ഡങ്ങൾ</span></h3>
+            <h3 class="dossier-block-title"><span>1. ആരോഗ്യമുള്ള അടക്കയുടെ ഗുണമേന്മ മാനദണ്ഡങ്ങൾ</span></h3>
 
             <p class="dossier-block-text">ആരോഗ്യമുള്ള അടക്ക നല്ല പരിചരണത്തിന്റെ തെളിവാണ്: നല്ല ഞെട്ട് ബലം, മിനുസമുള്ള തൊലി, കട്ടിയുള്ള പരിപ്പ്.</p>
 
@@ -3519,7 +3519,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
           <div class="dossier-block">
 
-            <h3 class="dossier-block-title"><span>📈</span><span>2. വളർച്ചയുടെ 4 ഘട്ടങ്ങൾ</span></h3>
+            <h3 class="dossier-block-title"><span>2. വളർച്ചയുടെ 4 ഘട്ടങ്ങൾ</span></h3>
 
             <ul class="dossier-bullets">
 
@@ -3537,7 +3537,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
           <div class="dossier-block">
 
-            <h3 class="dossier-block-title"><span>🛡️</span><span>3. ഉൽപ്പാദന വർദ്ധനവ് (ICAR-CPCRI)</span></h3>
+            <h3 class="dossier-block-title"><span>3. ഉൽപ്പാദന വർദ്ധനവ് (ICAR-CPCRI)</span></h3>
 
             <ul class="dossier-bullets">
 
@@ -3553,7 +3553,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
           <div class="dossier-block">
 
-            <h3 class="dossier-block-title"><span>🏛️</span><span>4. സ്ഥാപനം</span></h3>
+            <h3 class="dossier-block-title"><span>4. സ്ഥാപനം</span></h3>
 
             <p class="dossier-block-text">മാനദണ്ഡങ്ങൾ <strong>BIS: 2228-1996</strong> പ്രകാരം നിശ്ചയിച്ചിരിക്കുന്നു. വിശദവിവരങ്ങൾക്ക് ICAR-CPCRI ബന്ധപ്പെടുക.</p>
 
@@ -3569,7 +3569,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
           <div class="dossier-block">
 
-            <h3 class="dossier-block-title"><span>🍃</span><span>1. ആരോഗ്യമുള്ള ഓലകളുടെ ഗുണമേന്മ</span></h3>
+            <h3 class="dossier-block-title"><span>1. ആരോഗ്യമുള്ള ഓലകളുടെ ഗുണമേന്മ</span></h3>
 
             <p class="dossier-block-text">ഓലകളാണ് തെങ്ങിന്റെ ഭക്ഷണ ഫാക്ടറി. ഇവയാണ് വിളവും ആയുസ്സും നിശ്ചയിക്കുന്നത്.</p>
 
@@ -3587,7 +3587,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
           <div class="dossier-block">
 
-            <h3 class="dossier-block-title"><span>⚡</span><span>2. ധർമ്മങ്ങൾ</span></h3>
+            <h3 class="dossier-block-title"><span>2. ധർമ്മങ്ങൾ</span></h3>
 
             <ul class="dossier-bullets">
 
@@ -3601,7 +3601,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
           <div class="dossier-block">
 
-            <h3 class="dossier-block-title"><span>🧪</span><span>3. പോഷകക്കുറവുകൾ</span></h3>
+            <h3 class="dossier-block-title"><span>3. പോഷകക്കുറവുകൾ</span></h3>
 
             <ul class="dossier-bullets">
 
@@ -3617,7 +3617,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
           <div class="dossier-block">
 
-            <h3 class="dossier-block-title"><span>🏛️</span><span>4. സ്ഥാപനം</span></h3>
+            <h3 class="dossier-block-title"><span>4. സ്ഥാപനം</span></h3>
 
             <p class="dossier-block-text">വിശദവിവരങ്ങൾക്ക് <strong>ICAR-സിപിസിആർഐ</strong> കാസർഗോഡുമായി ബന്ധപ്പെടുക.</p>
 
@@ -6740,7 +6740,7 @@ document.addEventListener('DOMContentLoaded', function () {
     if (isMahali) {
       leftIntelHtml = `
         <div class="intel-header-badge disease-badge">
-          <span class="intel-badge-icon">🍄</span>
+          
           <div class="intel-badge-content">
             <span class="intel-badge-kicker">PATHOLOGY & FIELD DIAGNOSIS</span>
             <h3 class="intel-badge-title">Mahali / Koleroga — Disease Profile & Symptoms</h3>
@@ -6749,20 +6749,20 @@ document.addEventListener('DOMContentLoaded', function () {
         </div>
         <div class="intel-info-row">
           <div class="intel-info-col">
-            <span class="intel-label">🔬 Causal Pathogen</span>
+            <span class="intel-label">Causal Pathogen</span>
             <span class="intel-val"><em>Phytophthora meadii</em> McRae (destructive oomycete water-mold)</span>
           </div>
           <div class="intel-info-col">
-            <span class="intel-label">📉 Expected Crop Loss</span>
+            <span class="intel-label">Expected Crop Loss</span>
             <span class="intel-val" style="color: #b54747; font-weight: 800;">50% to 90% harvest destruction if untreated</span>
           </div>
         </div>
         <div class="intel-action-box alert-neutral">
-          <div class="intel-box-title"><span>🌧️</span> <strong>Climatic Triggers & Epidemiology:</strong></div>
+          <div class="intel-box-title"> <strong>Climatic Triggers & Epidemiology:</strong></div>
           <p class="intel-box-desc">Mahali is triggered by continuous southwest monsoon rains (June to September) with relative humidity &gt;90% and moderate temperatures (20°C–24°C). Rain splashes actively detach sporangia, dispersing motile zoospores across bunches and adjacent palms.</p>
         </div>
         <div class="intel-action-box alert-red">
-          <div class="intel-box-title"><span>🔴</span> <strong>Diagnostic Symptoms & Visual Identification:</strong></div>
+          <div class="intel-box-title"> <strong>Diagnostic Symptoms & Visual Identification:</strong></div>
           <ul class="intel-bullet-list">
             <li><strong>Early Stage:</strong> Water-soaked, dark green or brownish lesions appear near the perianth (calyx end) of young tender arecanuts.</li>
             <li><strong>Advanced Stage:</strong> Lesions spread rapidly over the entire nut surface; nuts turn dark brown to black, rot, and shed prematurely.</li>
@@ -6771,7 +6771,7 @@ document.addEventListener('DOMContentLoaded', function () {
           </ul>
         </div>
         <div class="intel-action-box alert-orange">
-          <div class="intel-box-title"><span>⚡</span> <strong>Immediate Emergency Field Actions:</strong></div>
+          <div class="intel-box-title"> <strong>Immediate Emergency Field Actions:</strong></div>
           <ul class="intel-bullet-list">
             <li><strong>Halt Overhead Irrigation:</strong> Immediately shut down sprinkler irrigation to minimize canopy moisture.</li>
             <li><strong>Collect and Destroy Diseased Nuts:</strong> Gather every fallen rotten nut on the same day. Incinerate or bury in deep trenches with lime.</li>
@@ -6782,7 +6782,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
       rightIntelHtml = `
         <div class="intel-header-badge disease-badge">
-          <span class="intel-badge-icon">💊</span>
+          
           <div class="intel-badge-content">
             <span class="intel-badge-kicker">ICAR-CPCRI TREATMENT & CURE SYSTEM</span>
             <h3 class="intel-badge-title">Mahali / Koleroga — Treatment & Prevention Protocol</h3>
@@ -6790,7 +6790,7 @@ document.addEventListener('DOMContentLoaded', function () {
           <span class="intel-risk-pill" style="background: rgba(36, 107, 80, 0.12); color: #246B50; border-color: rgba(36, 107, 80, 0.25);">PROVEN PROTOCOL</span>
         </div>
         <div class="intel-action-box alert-blue">
-          <div class="intel-box-title"><span>💊</span> <strong>ICAR-CPCRI Standard Treatment & Cure Protocol:</strong></div>
+          <div class="intel-box-title"> <strong>ICAR-CPCRI Standard Treatment & Cure Protocol:</strong></div>
           <ol class="intel-ordered-list">
             <li><strong>1% Bordeaux Mixture Spray:</strong> Dissolve 1 kg Copper Sulfate (CuSO₄) and 1 kg slaked lime in 100 L water. Apply with continuous agitation.</li>
             <li><strong>3-Stage Spray Schedule:</strong> 1st prophylactic spray in late May/early June; 2nd spray 40-45 days later in July/August; 3rd spray if heavy rains continue in September.</li>
@@ -6799,7 +6799,7 @@ document.addEventListener('DOMContentLoaded', function () {
           </ol>
         </div>
         <div class="intel-action-box alert-green">
-          <div class="intel-box-title"><span>🛡️</span> <strong>Long-Term Prevention & Orchard Protection:</strong></div>
+          <div class="intel-box-title"> <strong>Long-Term Prevention & Orchard Protection:</strong></div>
           <ul class="intel-bullet-list">
             <li><strong>Field Drainage System:</strong> Excavate 2 to 3 feet deep drainage trenches between alternate palm rows.</li>
             <li><strong>Canopy Spacing:</strong> Maintain optimal palm spacing (2.7 m × 2.7 m) for sunlight penetration and aeration.</li>
@@ -6807,14 +6807,14 @@ document.addEventListener('DOMContentLoaded', function () {
           </ul>
         </div>
         <div class="intel-expert-footer">
-          <span>🏛️</span>
+          
           <span><strong>ICAR-CPCRI Advisory:</strong> Prophylactic Bordeaux mixture spray before monsoon rains is the single most proven defense against Koleroga fruit rot. Contact your nearest KVK for on-field verification.</span>
         </div>
       `;
     } else if (isYld) {
       leftIntelHtml = `
         <div class="intel-header-badge disease-badge">
-          <span class="intel-badge-icon">🍂</span>
+          
           <div class="intel-badge-content">
             <span class="intel-badge-kicker">PATHOLOGY & FIELD DIAGNOSIS</span>
             <h3 class="intel-badge-title">Yellow Leaf Disease (YLD) — Pathological Profile</h3>
@@ -6823,20 +6823,20 @@ document.addEventListener('DOMContentLoaded', function () {
         </div>
         <div class="intel-info-row">
           <div class="intel-info-col">
-            <span class="intel-label">🔬 Associated Pathogen</span>
+            <span class="intel-label">Associated Pathogen</span>
             <span class="intel-val">Phytoplasma organisms (phloem-inhabiting, cell-wall-less prokaryotes)</span>
           </div>
           <div class="intel-info-col">
-            <span class="intel-label">📉 Expected Crop Impact</span>
+            <span class="intel-label">Expected Crop Impact</span>
             <span class="intel-val" style="color: #a96e16; font-weight: 800;">60% to 80% yield reduction over 3–5 years</span>
           </div>
         </div>
         <div class="intel-action-box alert-neutral">
-          <div class="intel-box-title"><span>🦟</span> <strong>Insect Vectors & Transmission:</strong></div>
+          <div class="intel-box-title"> <strong>Insect Vectors & Transmission:</strong></div>
           <p class="intel-box-desc">Transmitted between palms by phloem-feeding plant hoppers (<em>Proutista moesta</em>) and lace bugs (<em>Stephanitis typica</em>). Predisposing triggers include waterlogging, severe soil acidity (pH &lt;5.0), and potassium/magnesium deficiency.</p>
         </div>
         <div class="intel-action-box alert-red">
-          <div class="intel-box-title"><span>🔴</span> <strong>Diagnostic Symptoms & Field Identification:</strong></div>
+          <div class="intel-box-title"> <strong>Diagnostic Symptoms & Field Identification:</strong></div>
           <ul class="intel-bullet-list">
             <li><strong>Foliar Chlorosis:</strong> Intense yellowing initiates at tips of outer leaflets in lower whorls, progressing inward while midribs remain green.</li>
             <li><strong>Crown Reduction:</strong> Leaves become short, stiff, and brittle. Crown shrinks, giving the trunk a tapered pencil-point look.</li>
@@ -6845,7 +6845,7 @@ document.addEventListener('DOMContentLoaded', function () {
           </ul>
         </div>
         <div class="intel-action-box alert-orange">
-          <div class="intel-box-title"><span>⚡</span> <strong>Immediate Field Actions (Do Today):</strong></div>
+          <div class="intel-box-title"> <strong>Immediate Field Actions (Do Today):</strong></div>
           <ul class="intel-bullet-list">
             <li><strong>Excavate Drainage Channels:</strong> Dig 2–3 ft deep trenches immediately to relieve water stagnation.</li>
             <li><strong>Foliar Micronutrients:</strong> Spray 0.5% Zinc Sulfate + 0.1% Boric Acid onto fronds.</li>
@@ -6856,7 +6856,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
       rightIntelHtml = `
         <div class="intel-header-badge disease-badge">
-          <span class="intel-badge-icon">💊</span>
+          
           <div class="intel-badge-content">
             <span class="intel-badge-kicker">ICAR-CPCRI REHABILITATION SYSTEM</span>
             <h3 class="intel-badge-title">Yellow Leaf Disease (YLD) — Nutritional Cure & Prevention</h3>
@@ -6864,7 +6864,7 @@ document.addEventListener('DOMContentLoaded', function () {
           <span class="intel-risk-pill" style="background: rgba(36, 107, 80, 0.12); color: #246B50; border-color: rgba(36, 107, 80, 0.25);">REHABILITATION</span>
         </div>
         <div class="intel-action-box alert-blue">
-          <div class="intel-box-title"><span>💊</span> <strong>ICAR-CPCRI Rehabilitation & Nutritional Management:</strong></div>
+          <div class="intel-box-title"> <strong>ICAR-CPCRI Rehabilitation & Nutritional Management:</strong></div>
           <ol class="intel-ordered-list">
             <li><strong>Balanced NPK Dosage (per palm/year):</strong> 100 g Nitrogen (220 g Urea), 40 g Phosphorus (200 g Rock Phosphate), 140 g Potassium (230 g Muriate of Potash) in 2 equal splits (May–June and Sept–Oct).</li>
             <li><strong>Organic Soil Enrichment:</strong> Apply 12 kg Farmyard Manure (FYM) or vermicompost + 12 kg green leaf mulch per palm annually.</li>
@@ -6873,21 +6873,21 @@ document.addEventListener('DOMContentLoaded', function () {
           </ol>
         </div>
         <div class="intel-action-box alert-green">
-          <div class="intel-box-title"><span>🛡️</span> <strong>Long-Term Prevention & Intercropping:</strong></div>
+          <div class="intel-box-title"> <strong>Long-Term Prevention & Intercropping:</strong></div>
           <ul class="intel-bullet-list">
             <li><strong>Multi-Species Cropping:</strong> Intercrop with cocoa, banana, and pepper to improve soil organic matter and root aeration.</li>
             <li><strong>Vector Management:</strong> Spray neem-based formulation (Azadirachtin 0.03% @ 5 mL/L) on fronds during post-monsoon vector season.</li>
           </ul>
         </div>
         <div class="intel-expert-footer">
-          <span>🏛️</span>
+          
           <span><strong>ICAR-CPCRI Advisory:</strong> Phytoplasma is systemic within vascular phloem; disease mitigation relies on integrated soil rehabilitation, drainage, balanced NPK+Mg nutrition, and vector control.</span>
         </div>
       `;
     } else if (isNut) {
       leftIntelHtml = `
         <div class="intel-header-badge healthy-badge">
-          <span class="intel-badge-icon">🌰</span>
+          
           <div class="intel-badge-content">
             <span class="intel-badge-kicker">AGRONOMIC HEALTH & QUALITY PROFILE</span>
             <h3 class="intel-badge-title">Healthy Nut Specimen — Morphological Standards</h3>
@@ -6895,7 +6895,7 @@ document.addEventListener('DOMContentLoaded', function () {
           <span class="intel-health-pill">OPTIMAL GRADE</span>
         </div>
         <div class="intel-action-box alert-green">
-          <div class="intel-box-title"><span>✅</span> <strong>Healthy Botanical Characteristics Observed:</strong></div>
+          <div class="intel-box-title"> <strong>Healthy Botanical Characteristics Observed:</strong></div>
           <ul class="intel-bullet-list">
             <li><strong>Intact Epicarp:</strong> Smooth, firm, deep green outer skin with zero water-soaked lesions or rotting.</li>
             <li><strong>Firm Calyx Perianth:</strong> Strong attachment to bunch stalk with tight calyx cups and no dark margin discoloration.</li>
@@ -6904,7 +6904,7 @@ document.addEventListener('DOMContentLoaded', function () {
           </ul>
         </div>
         <div class="intel-action-box alert-orange">
-          <div class="intel-box-title"><span>👁️</span> <strong>Early Warning Symptoms to Monitor in Field:</strong></div>
+          <div class="intel-box-title"> <strong>Early Warning Symptoms to Monitor in Field:</strong></div>
           <ul class="intel-bullet-list">
             <li>Tiny water-soaked dark spots appearing near the nut perianth stalk.</li>
             <li>Sudden shedding of green buttons (more than 5 green nuts per day under a palm).</li>
@@ -6914,7 +6914,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
       rightIntelHtml = `
         <div class="intel-header-badge healthy-badge">
-          <span class="intel-badge-icon">🛡️</span>
+          
           <div class="intel-badge-content">
             <span class="intel-badge-kicker">PROACTIVE CROP PROTECTION</span>
             <h3 class="intel-badge-title">Healthy Nut — Protection Protocols & Care Calendar</h3>
@@ -6922,7 +6922,7 @@ document.addEventListener('DOMContentLoaded', function () {
           <span class="intel-health-pill">BEST PRACTICES</span>
         </div>
         <div class="intel-action-box alert-blue">
-          <div class="intel-box-title"><span>🛡️</span> <strong>Proactive Crop Protection (Prevent Koleroga & Drop):</strong></div>
+          <div class="intel-box-title"> <strong>Proactive Crop Protection (Prevent Koleroga & Drop):</strong></div>
           <ul class="intel-bullet-list">
             <li><strong>Pre-Monsoon Bunch Bagging:</strong> Tie 125-gauge polythene covers (75 × 60 cm) over bunches in May to protect developing nuts.</li>
             <li><strong>Prophylactic 1% Bordeaux Spray:</strong> Apply fine spray over bunches before southwest monsoon rains commence.</li>
@@ -6931,7 +6931,7 @@ document.addEventListener('DOMContentLoaded', function () {
           </ul>
         </div>
         <div class="intel-action-box alert-neutral">
-          <div class="intel-box-title"><span>📅</span> <strong>Seasonal Nut Care & Harvest Calendar:</strong></div>
+          <div class="intel-box-title"> <strong>Seasonal Nut Care & Harvest Calendar:</strong></div>
           <ul class="intel-bullet-list">
             <li><strong>May–June:</strong> Pre-monsoon bunch bagging and 1st Bordeaux mixture spray.</li>
             <li><strong>July–August:</strong> Mid-monsoon break inspection and 2nd prophylactic spray.</li>
@@ -6942,7 +6942,7 @@ document.addEventListener('DOMContentLoaded', function () {
     } else {
       leftIntelHtml = `
         <div class="intel-header-badge healthy-badge">
-          <span class="intel-badge-icon">🍃</span>
+          
           <div class="intel-badge-content">
             <span class="intel-badge-kicker">CANOPY HEALTH & FOLIAR WELLNESS</span>
             <h3 class="intel-badge-title">Healthy Leaf Specimen — Frond Standards</h3>
@@ -6950,7 +6950,7 @@ document.addEventListener('DOMContentLoaded', function () {
           <span class="intel-health-pill">OPTIMAL GRADE</span>
         </div>
         <div class="intel-action-box alert-green">
-          <div class="intel-box-title"><span>✅</span> <strong>Healthy Foliar Characteristics Observed:</strong></div>
+          <div class="intel-box-title"> <strong>Healthy Foliar Characteristics Observed:</strong></div>
           <ul class="intel-bullet-list">
             <li><strong>Vigorous Chlorophyll:</strong> Deep uniform green color across all leaflets with balanced photosynthetic pigmentation.</li>
             <li><strong>Healthy Venation:</strong> Strong prominent parallel veins with zero interveinal chlorosis or marginal necrosis.</li>
@@ -6959,7 +6959,7 @@ document.addEventListener('DOMContentLoaded', function () {
           </ul>
         </div>
         <div class="intel-action-box alert-orange">
-          <div class="intel-box-title"><span>👁️</span> <strong>Early Foliar Symptoms to Watch For:</strong></div>
+          <div class="intel-box-title"> <strong>Early Foliar Symptoms to Watch For:</strong></div>
           <ul class="intel-bullet-list">
             <li>Yellowing beginning at outer leaflet tips (primary trigger sign of YLD).</li>
             <li>Brown necrotic spots with yellow halos (leaf spot / Colletotrichum blight).</li>
@@ -6969,7 +6969,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
       rightIntelHtml = `
         <div class="intel-header-badge healthy-badge">
-          <span class="intel-badge-icon">🛡️</span>
+          
           <div class="intel-badge-content">
             <span class="intel-badge-kicker">CANOPY CARE & SURVEILLANCE</span>
             <h3 class="intel-badge-title">Healthy Leaf — Nutrition Schedule & Surveillance</h3>
@@ -6977,7 +6977,7 @@ document.addEventListener('DOMContentLoaded', function () {
           <span class="intel-health-pill">BEST PRACTICES</span>
         </div>
         <div class="intel-action-box alert-blue">
-          <div class="intel-box-title"><span>🔧</span> <strong>Routine Canopy Maintenance & Nutrient Management:</strong></div>
+          <div class="intel-box-title"> <strong>Routine Canopy Maintenance & Nutrient Management:</strong></div>
           <ul class="intel-bullet-list">
             <li><strong>Maintain 9–12 Functional Fronds:</strong> Retain at least 9 to 12 active green fronds per palm crown to sustain peak photosynthetic yield.</li>
             <li><strong>Balanced NPK Nutrition:</strong> Apply 100g N, 40g P, and 140g K per palm in 2 splits (May–June and Sept–Oct).</li>
@@ -6985,7 +6985,7 @@ document.addEventListener('DOMContentLoaded', function () {
           </ul>
         </div>
         <div class="intel-action-box alert-neutral">
-          <div class="intel-box-title"><span>📅</span> <strong>Annual Foliar Surveillance Calendar:</strong></div>
+          <div class="intel-box-title"> <strong>Annual Foliar Surveillance Calendar:</strong></div>
           <ul class="intel-bullet-list">
             <li><strong>January–April:</strong> Basin mulching and drip irrigation (175–200 L/palm/day).</li>
             <li><strong>May–June:</strong> Pre-monsoon crown cleaning, remove dead fronds, apply 1st fertilizer split.</li>
@@ -7000,7 +7000,7 @@ document.addEventListener('DOMContentLoaded', function () {
       <div class="card" style="margin-bottom: 1.5rem; padding: 0.85rem 1.25rem;">
         <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 0.75rem;">
           <div style="display: flex; align-items: center; gap: 0.85rem;">
-            <span style="font-size: 1.2rem;">🔬</span>
+            <span style="font-size: 1.2rem;"></span>
             <div style="font-size: 0.86rem; color: var(--c-text-body);">
               <span data-i18n="showing_diagnosis">Showing automated screening diagnosis for</span> <strong>${escapeHtml(filename)}</strong>
               <span style="font-size: 0.78rem; color: var(--c-text-muted); margin-left: 0.35rem;">(${escapeHtml(timestamp)})</span>.
@@ -7018,7 +7018,7 @@ document.addEventListener('DOMContentLoaded', function () {
               <span data-i18n="btn_download_report">Download Official Report (PDF)</span>
             </button>
             <button type="button" id="preview-official-report-btn" class="btn-official-report-dl btn-preview-secondary" title="Preview Official Certificate on Screen" style="background: rgba(19, 78, 50, 0.12); color: var(--c-forest-green, #1b4d3e) !important; border: 1px solid rgba(19, 78, 50, 0.3); box-shadow: none;">
-              <span>🏛️</span>
+              
               <span data-i18n="btn_preview_report">Preview Official Certificate</span>
             </button>
             <a href="/" class="btn-choose-file" style="pointer-events: auto; text-decoration: none; padding: 0.45rem 1rem; font-size: 0.82rem;">
@@ -7036,7 +7036,7 @@ document.addEventListener('DOMContentLoaded', function () {
             <div>
               ${isDiseased ? `
                 <span class="status-badge-pill status-danger">
-                  <span>⚠️</span>
+                  
                   <span data-i18n="badge_suspected">Disease pattern suspected</span>
                 </span>
               ` : `
@@ -7109,11 +7109,11 @@ document.addEventListener('DOMContentLoaded', function () {
           <div class="result-understanding-box">
             <div class="understanding-title" style="display: flex; align-items: center; justify-content: space-between;">
               <div style="display: flex; align-items: center; gap: 0.45rem;">
-                <span>🔍</span>
+                
                 <span data-i18n="understanding_title">Understanding this result</span>
               </div>
               <button type="button" id="copy-advisory-btn" class="btn-card-action" title="Copy Advisory to Clipboard" style="font-size: 0.72rem; padding: 0.25rem 0.6rem; width: auto; height: auto; display: inline-flex; align-items: center; gap: 0.35rem; border-radius: 9999px;">
-                <span>📋</span>
+                
                 <span id="copy-advisory-text" data-i18n="copy_advisory">Copy Advisory</span>
               </button>
             </div>
@@ -7394,13 +7394,13 @@ document.addEventListener('DOMContentLoaded', function () {
                 </div>
                 <div class="govt-protocol-grid">
                   <div class="protocol-box">
-                    <div class="protocol-heading">🔬 Causal Pathogen &amp; Vector Ecology:</div>
+                    <div class="protocol-heading">Causal Pathogen &amp; Vector Ecology:</div>
                     <div class="protocol-body">
                       ${isMahali ? '<strong>Pathogen:</strong> <em>Phytophthora meadii</em> McRae (Peronosporales, Oomycota). Favored by persistent south-west monsoon rains, continuous relative humidity (&gt;90%), and temperatures between 20°C–24°C.' : (isYld ? '<strong>Pathogen:</strong> Cell-wall-less phloem-inhabiting <em>Phytoplasma</em> (16SrXI group). Transmitted by plant hoppers (<em>Proutista moesta</em>) and lace bugs (<em>Stephanitis typica</em>).' : '<strong>Condition:</strong> Healthy palm tissue. No biological pathogen detected. Maintain baseline soil fertility and routine pre-monsoon prophylactic care.')}
                     </div>
                   </div>
                   <div class="protocol-box">
-                    <div class="protocol-heading">⚡ Immediate Field Interventions:</div>
+                    <div class="protocol-heading">Immediate Field Interventions:</div>
                     <div class="protocol-body">
                       ${isMahali ? '1. <strong>Fungicidal Spray:</strong> Apply 1% Bordeaux mixture (10:10:1000) or Metalaxyl MZ 72 WP (2 g/L) directly to bunches before monsoon showers.<br>2. <strong>Bunch Bagging:</strong> Tie 125-gauge polythene bags securely over bunches.<br>3. <strong>Sanitation:</strong> Collect and deeply bury or burn all fallen rotten green nuts.' : (isYld ? '1. <strong>Vector Suppression:</strong> Spray dimethoate (0.05%) or Azadirachtin (0.03%) to control phloem-feeding lace bugs and plant hoppers.<br>2. <strong>Nutritional Support:</strong> Apply balanced NPK (100:40:140g) supplemented with 1 kg dolomite and 12 kg organic compost per palm.<br>3. <strong>Soil Drainage:</strong> Excavate 50 cm deep inter-row drainage canals.' : '1. <strong>Maintenance:</strong> Maintain 9–12 functional green fronds per palm crown.<br>2. <strong>Crown Cleaning:</strong> Perform annual pre-monsoon crown cleaning.<br>3. <strong>Balanced Nutrition:</strong> Administer standard ICAR-CPCRI recommended split fertilizer doses.')}
                     </div>
