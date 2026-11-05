@@ -1,7 +1,7 @@
 {% extends "predictor/base.html" %}
 {% load static %}
 
-{% block title %}ArecaLens — Phytosanitary AI Platform & Compendium{% endblock %}
+{% block title %}PūgaNetra (पूगनेत्र) — AI-Driven Arecanut Disease Intelligence{% endblock %}
 
 {% block extra_css %}
 <style>
@@ -632,7 +632,10 @@ function switchGuideTab(type) {
                 <path d="M12 7C16 7 20 9 20 13C20 17 16 19 12 19"></path>
               </svg>
             </div>
-            <span class="split-brand-name">ArecaLens</span>
+            <div style="display: flex; align-items: baseline; gap: 0.45rem;">
+              <span class="split-brand-name">PūgaNetra</span>
+              <span style="font-family: 'IBM Plex Sans', sans-serif; font-size: 0.95rem; font-weight: 500; color: #2d6a4f;">पूगनेत्र</span>
+            </div>
           </div>
 
           <!-- Eyebrow -->
@@ -648,7 +651,7 @@ function switchGuideTab(type) {
 
           <!-- Subtitle -->
           <p class="split-desc" data-i18n="hero_split_desc">
-            Take a photo of a leaf or nut. Get a screening suggestion, see what the AI noticed, and learn what to check next.
+            Seeing beyond the leaf. Protecting every harvest. Take a photo of a leaf or nut to screen for pathologies and inspect explainable AI focus.
           </p>
 
           <!-- 3-Step Process Flow -->
@@ -712,7 +715,7 @@ function switchGuideTab(type) {
         <div class="split-pane pane-picture">
           <img 
             src="{% static 'predictor/img/arecanut_palm_hero.jpg' %}" 
-            alt="ArecaLens - Arecanut Palm Health" 
+            alt="PūgaNetra (पूगनेत्र) - Arecanut Palm Health" 
             class="hero-scanner-art-img"
             width="935"
             height="1024"

@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
   let audioCtx = null;
 
-  let isSoundEnabled = localStorage.getItem('arecalens_sound') !== 'muted';
+  let isSoundEnabled = (localStorage.getItem('puganetra_sound') || localStorage.getItem('arecalens_sound')) !== 'muted';
 
 
 
@@ -206,7 +206,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     "lang_name": "English",
 
-    "brand_tagline": "Intelligence rooted in agriculture.",
+    "brand_tagline": "AI-Driven Arecanut Disease Intelligence",
     "error_no_image_badge": "SPECIMEN REQUIRED",
     "error_no_image_title": "Please Insert a Plant Photo",
     "error_no_image_desc": "No plant image was provided. Please upload or capture an arecanut leaf or nut photo before clicking analyze.",
@@ -228,7 +228,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     "model_ready": "Model ready",
 
-    "modal_badge": "ARECALENS",
+    "modal_badge": "PŪGANETRA",
 
     "step_welcome": "Welcome",
 
@@ -488,7 +488,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     "about_card1_sub": "Transfer learning with deep residual feature representations",
 
-    "about_card1_p1": "ArecaLens utilizes a fine-tuned deep residual network (ResNet-50) pretrained on ImageNet and specialized for foliar and nut pathologies of the Areca catechu palm.",
+    "about_card1_p1": "PūgaNetra utilizes a fine-tuned deep residual network (ResNet-50) pretrained on ImageNet and specialized for foliar and nut pathologies of the Areca catechu palm.",
 
     "about_backbone_label": "Backbone:",
 
@@ -830,7 +830,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     "about_card1_sub": "ಆಳವಾದ ವೈಶಿಷ್ಟ್ಯಗಳೊಂದಿಗೆ ಟ್ರಾನ್ಸ್‌ಫರ್ ಲರ್ನಿಂಗ್ ತಂತ್ರಜ್ಞಾನ",
 
-    "about_card1_p1": "ArecaLens ಅಡಿಕೆ ಮರದ ಎಲೆ ಮತ್ತು ಕಾಯಿಗಳ ರೋಗ ತಪಾಸಣೆಗಾಗಿ ವಿಶೇಷವಾಗಿ ತರಬೇತಿ ನೀಡಲಾದ ResNet-50 ಮಾದರಿಯನ್ನು ಬಳಸುತ್ತದೆ.",
+    "about_card1_p1": "PūgaNetra ಅಡಿಕೆ ಮರದ ಎಲೆ ಮತ್ತು ಕಾಯಿಗಳ ರೋಗ ತಪಾಸಣೆಗಾಗಿ ವಿಶೇಷವಾಗಿ ತರಬೇತಿ ನೀಡಲಾದ ResNet-50 ಮಾದರಿಯನ್ನು ಬಳಸುತ್ತದೆ.",
 
     "about_backbone_label": "ಬ್ಯಾಕ್‌ಬೋನ್:",
 
@@ -1172,7 +1172,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     "about_card1_sub": "गहन अवशिष्ट फीचर निरूपण के साथ ट्रांसफर लर्निंग",
 
-    "about_card1_p1": "ArecaLens सुपारी के पत्ते और फल रोगों की पहचान के लिए विशेष रूप से प्रशिक्षित ResNet-50 मॉडल का उपयोग करता है।",
+    "about_card1_p1": "PūgaNetra सुपारी के पत्ते और फल रोगों की पहचान के लिए विशेष रूप से प्रशिक्षित ResNet-50 मॉडल का उपयोग करता है।",
 
     "about_backbone_label": "बैकबोन:",
 
@@ -3657,7 +3657,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // Language State Management
 
-  let currentLang = localStorage.getItem('arecalens_lang') || 'en';
+  let currentLang = (localStorage.getItem('puganetra_lang') || localStorage.getItem('arecalens_lang')) || 'en';
 
   if (!I18N_STRINGS[currentLang]) currentLang = 'en';
 
@@ -3717,7 +3717,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     currentLang = lang;
 
-    localStorage.setItem('arecalens_lang', lang);
+    localStorage.setItem('puganetra_lang', lang); localStorage.setItem('arecalens_lang', lang);
 
 
 
@@ -5596,7 +5596,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
       isSoundEnabled = !isSoundEnabled;
 
-      localStorage.setItem('arecalens_sound', isSoundEnabled ? 'enabled' : 'muted');
+      localStorage.setItem('puganetra_sound', isSoundEnabled ? 'enabled' : 'muted');
 
       updateSoundUI();
 
@@ -6327,7 +6327,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 
-        const textToCopy = `ARECALENS PHYTOSANITARY DIAGNOSTIC SUMMARY\n` +
+        const textToCopy = `PŪGANETRA PHYTOSANITARY DIAGNOSTIC SUMMARY\n` +
 
           `Specimen Diagnosis: ${disease}\n` +
 
@@ -6498,17 +6498,17 @@ document.addEventListener('DOMContentLoaded', function () {
         scanItem.resultHtml = resultHtml;
       }
 
-      let history = JSON.parse(localStorage.getItem('arecalens_history') || '[]');
+      let history = JSON.parse((localStorage.getItem('puganetra_history') || localStorage.getItem('arecalens_history')) || '[]');
       history.unshift(scanItem);
       if (history.length > 8) history = history.slice(0, 8);
 
       try {
-        localStorage.setItem('arecalens_history', JSON.stringify(history));
+        localStorage.setItem('puganetra_history', JSON.stringify(history));
       } catch (quotaErr) {
         // Fallback: If localStorage quota is reached, strip heavy resultHtml & retry
         history.forEach(it => { delete it.resultHtml; });
         try {
-          localStorage.setItem('arecalens_history', JSON.stringify(history));
+          localStorage.setItem('puganetra_history', JSON.stringify(history));
         } catch (e2) {
           console.warn('LocalStorage save failed:', e2);
         }
@@ -7461,7 +7461,7 @@ document.addEventListener('DOMContentLoaded', function () {
     // 2. Locate results stage
     const dynamicContainer = document.getElementById('results-dynamic-stage');
     if (!dynamicContainer) {
-      sessionStorage.setItem('arecalens_pending_history_item', JSON.stringify(item));
+      sessionStorage.setItem('puganetra_pending_history_item', JSON.stringify(item));
       window.location.href = '/?step=4&from_history=1';
       return;
     }
@@ -7506,11 +7506,11 @@ document.addEventListener('DOMContentLoaded', function () {
 
         // Persist generated Grad-CAM into localStorage so future visits are instant
         try {
-          let history = JSON.parse(localStorage.getItem('arecalens_history') || '[]');
+          let history = JSON.parse((localStorage.getItem('puganetra_history') || localStorage.getItem('arecalens_history')) || '[]');
           const targetItem = history.find(h => h.id === item.id || (h.timestamp === item.timestamp && h.disease === item.disease));
           if (targetItem) {
             targetItem.gradcam = generatedUri;
-            localStorage.setItem('arecalens_history', JSON.stringify(history));
+            localStorage.setItem('puganetra_history', JSON.stringify(history));
           }
         } catch (storageErr) {
           console.warn('Could not cache generated Grad-CAM in localStorage:', storageErr);
@@ -7617,7 +7617,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     let history = [];
     try {
-      history = JSON.parse(localStorage.getItem('arecalens_history') || '[]');
+      history = JSON.parse((localStorage.getItem('puganetra_history') || localStorage.getItem('arecalens_history')) || '[]');
     } catch (e) {
       history = [];
     }
@@ -7698,7 +7698,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     clearHistoryBtn.addEventListener('click', () => {
 
-      localStorage.removeItem('arecalens_history');
+      localStorage.removeItem('puganetra_history'); localStorage.removeItem('arecalens_history');
 
       playSoundCue('click');
 
@@ -7710,9 +7710,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // Check for pending history item redirection
   try {
-    const pendingHistoryJson = sessionStorage.getItem('arecalens_pending_history_item');
+    const pendingHistoryJson = (sessionStorage.getItem('puganetra_pending_history_item') || sessionStorage.getItem('arecalens_pending_history_item'));
     if (pendingHistoryJson) {
-      sessionStorage.removeItem('arecalens_pending_history_item');
+      sessionStorage.removeItem('puganetra_pending_history_item'); sessionStorage.removeItem('arecalens_pending_history_item');
       const pendingItem = JSON.parse(pendingHistoryJson);
       setTimeout(() => {
         showHistoryItemResult(pendingItem);
@@ -7814,7 +7814,7 @@ document.addEventListener('DOMContentLoaded', function () {
       } else {
         msgDiv.innerHTML = `
           <div class="msg-bubble">
-            <div class="msg-author-tag">ArecaLens AI Agent</div>
+            <div class="msg-author-tag">PūgaNetra AI Agent</div>
             <div>${formatMarkdown(text)}</div>
           </div>
           <div class="msg-timestamp">${timeStr}</div>
@@ -7896,7 +7896,7 @@ document.addEventListener('DOMContentLoaded', function () {
       chatInput.value = '';
       playSoundCue('click');
 
-      const currentLang = localStorage.getItem('arecalens_lang') || 'en';
+      const currentLang = (localStorage.getItem('puganetra_lang') || localStorage.getItem('arecalens_lang')) || 'en';
       const typingIndicator = showTypingIndicator();
 
       // 1. Instant check from preloaded knowledge base (0ms latency fallback)
@@ -7933,7 +7933,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     // Auto-initialize chatbot
-    console.log('ArecaLens Preloaded AI Agronomy Chatbot initialized.');
+    console.log('PūgaNetra Preloaded AI Agronomy Chatbot initialized.');
   }
 
   // Initialize Chatbot

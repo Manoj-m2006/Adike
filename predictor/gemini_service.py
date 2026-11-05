@@ -1,5 +1,5 @@
 """
-Gemini Multilingual Translation Service for ArecaLens.
+Gemini Multilingual Translation Service for PūgaNetra (पूगनेत्र).
 Provides real-time, accurate agricultural translations for any language using Google Gemini API.
 Includes a persistent disk cache to minimize latency and API calls.
 """
@@ -133,7 +133,7 @@ def translate_keys_with_gemini(keys_dict, target_lang, lang_name=""):
 def _call_gemini_for_translations(chunk_dict, target_lang, lang_name, api_key):
     """Internal helper to invoke Google Gemini REST API."""
     prompt = (
-        f"You are an expert multilingual translator and agricultural agronomist for ArecaLens "
+        f"You are an expert multilingual translator and agricultural agronomist for PūgaNetra (पूगनेत्र) "
         f"(an arecanut palm disease diagnostic platform).\n"
         f"Translate the following JSON key-value pairs into {lang_name} ({target_lang}).\n"
         f"Instructions:\n"
@@ -413,7 +413,7 @@ def ask_agronomy_assistant(question, target_lang="en"):
     api_key = get_gemini_api_key()
     if api_key:
         system_prompt = (
-            "You are ArecaLens Agronomy AI, an authoritative agricultural advisor specialized in arecanut (Areca catechu) palms, "
+            "You are PūgaNetra Agronomy AI, an authoritative agricultural advisor specialized in arecanut (Areca catechu) palms, "
             "cultivation, pathology (Koleroga/Mahali, Yellow Leaf Disease, Anabe Roga), and ICAR-CPCRI agronomic guidelines. "
             f"Respond clearly, concisely, and practically in language: {target_lang}. "
             "Use bullet points and bold section headers. Avoid filler or robotic pleasantries."
@@ -456,7 +456,7 @@ def ask_agronomy_assistant(question, target_lang="en"):
 
     # 3. Default fallback agronomic response
     fallbacks = {
-        "en": """### ArecaLens Agronomy Advisory
+        "en": """### PūgaNetra Agronomy Advisory
 For arecanut palm health and cultivation questions:
 - **Koleroga (Fruit Rot):** Apply 1% Bordeaux mixture before South-West monsoon and consider 100-gauge polythene bunch covering.
 - **Yellow Leaf Disease:** Ensure balanced NPK (100:40:140g), apply 500g lime to acidic soil, and construct deep drainage trenches.
