@@ -7722,5 +7722,173 @@ document.addEventListener('DOMContentLoaded', function () {
     console.warn('Pending history check failed:', err);
   }
 
+
+  // =========================================================================
+  // 14. Interactive Motion Suite & Physics Engine
+  // =========================================================================
+
+  function initAmbientParticles() {
+    const canvas = document.getElementById('ambient-particles-canvas');
+    if (!canvas) return;
+    const ctx = canvas.getContext('2d');
+    if (!ctx) return;
+
+    let width = canvas.width = window.innerWidth;
+    let height = canvas.height = window.innerHeight;
+
+    let mouseX = -1000;
+    let mouseY = -1000;
+
+    window.addEventListener('resize', () => {
+      width = canvas.width = window.innerWidth;
+      height = canvas.height = window.innerHeight;
+    }, { passive: true });
+
+    window.addEventListener('pointermove', (e) => {
+      mouseX = e.clientX;
+      mouseY = e.clientY;
+    }, { passive: true });
+
+    window.addEventListener('pointerleave', () => {
+      mouseX = -1000;
+      mouseY = -1000;
+    }, { passive: true });
+
+    const PARTICLE_COUNT = 32;
+    const particles = [];
+
+    for (let i = 0; i < PARTICLE_COUNT; i++) {
+      particles.push({
+        x: Math.random() * width,
+        y: Math.random() * height,
+        radius: Math.random() * 2.8 + 1.2,
+        color: Math.random() > 0.45 ? 'rgba(45, 106, 79, ' : 'rgba(180, 131, 44, ',
+        baseAlpha: Math.random() * 0.28 + 0.12,
+        vx: (Math.random() - 0.5) * 0.45,
+        vy: -Math.random() * 0.5 - 0.15,
+        oscSpeed: Math.random() * 0.02 + 0.01,
+        oscAngle: Math.random() * Math.PI * 2,
+        oscAmplitude: Math.random() * 0.8 + 0.3
+      });
+    }
+
+    let isVisible = true;
+    document.addEventListener('visibilitychange', () => {
+      isVisible = !document.hidden;
+    });
+
+    function animate() {
+      if (!isVisible) {
+        requestAnimationFrame(animate);
+        return;
+      }
+
+      ctx.clearRect(0, 0, width, height);
+
+      for (let i = 0; i < particles.length; i++) {
+        const p = particles[i];
+
+        p.oscAngle += p.oscSpeed;
+        p.x += p.vx + Math.sin(p.oscAngle) * p.oscAmplitude;
+        p.y += p.vy;
+
+        // Mouse gentle repulsion
+        const dx = p.x - mouseX;
+        const dy = p.y - mouseY;
+        const dist = Math.hypot(dx, dy);
+        if (dist < 130 && dist > 0) {
+          const force = (130 - dist) / 130;
+          p.x += (dx / dist) * force * 3;
+          p.y += (dy / dist) * force * 3;
+        }
+
+        // Screen wrap
+        if (p.y < -10) {
+          p.y = height + 10;
+          p.x = Math.random() * width;
+        }
+        if (p.x < -10) p.x = width + 10;
+        if (p.x > width + 10) p.x = -10;
+
+        // Render soft glowing mote
+        const alpha = p.baseAlpha * (0.8 + 0.2 * Math.sin(p.oscAngle));
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+        ctx.fillStyle = p.color + alpha.toFixed(3) + ')';
+        ctx.shadowColor = p.color + '0.45)';
+        ctx.shadowBlur = 8;
+        ctx.fill();
+      }
+
+      ctx.shadowBlur = 0;
+      requestAnimationFrame(animate);
+    }
+
+    requestAnimationFrame(animate);
+  }
+
+  function initCardTiltPhysics() {
+    if (window.matchMedia('(pointer: coarse)').matches) return; // Desktop / pointer only
+
+    const tiltElements = document.querySelectorAll(
+      '.card, .history-card, .lang-card, .specimen-upload-card, .intel-action-box, .evidence-plate'
+    );
+
+    tiltElements.forEach(el => {
+      let isHovered = false;
+
+      el.addEventListener('pointerenter', () => {
+        isHovered = true;
+        el.style.transition = 'transform 0.15s ease-out, box-shadow 0.3s ease';
+      });
+
+      el.addEventListener('pointermove', (e) => {
+        if (!isHovered) return;
+        const rect = el.getBoundingClientRect();
+        const x = (e.clientX - rect.left) / rect.width;
+        const y = (e.clientY - rect.top) / rect.height;
+
+        el.style.setProperty('--mouse-x', (x * 100).toFixed(1) + '%');
+        el.style.setProperty('--mouse-y', (y * 100).toFixed(1) + '%');
+
+        const rotX = ((0.5 - y) * 7).toFixed(2);
+        const rotY = ((x - 0.5) * 7).toFixed(2);
+
+        el.style.transform = `perspective(1000px) rotateX(${rotX}deg) rotateY(${rotY}deg) scale3d(1.012, 1.012, 1.012)`;
+      });
+
+      el.addEventListener('pointerleave', () => {
+        isHovered = false;
+        el.style.transition = 'transform 0.55s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease';
+        el.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)';
+      });
+    });
+  }
+
+  function initInteractiveRipples() {
+    document.addEventListener('pointerdown', (e) => {
+      const target = e.target.closest('button, .btn-choose-file, .btn-official-report-dl, .sample-test-pill, .history-card, .lang-card');
+      if (!target) return;
+
+      const ripple = document.createElement('div');
+      ripple.className = 'interactive-click-ripple';
+      const size = Math.max(target.offsetWidth || 120, target.offsetHeight || 120) * 1.5;
+      ripple.style.width = `${size}px`;
+      ripple.style.height = `${size}px`;
+      ripple.style.left = `${e.clientX}px`;
+      ripple.style.top = `${e.clientY}px`;
+
+      document.body.appendChild(ripple);
+      setTimeout(() => {
+        ripple.remove();
+      }, 650);
+    }, { passive: true });
+  }
+
+  // Initialize Motion Suite
+  initAmbientParticles();
+  initCardTiltPhysics();
+  initInteractiveRipples();
+
 });
 
