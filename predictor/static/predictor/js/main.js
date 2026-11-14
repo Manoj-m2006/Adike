@@ -6227,7 +6227,7 @@ document.addEventListener('DOMContentLoaded', function () {
       const diseaseEl = scope.querySelector('.result-main-disease') || document.querySelector('.result-main-disease');
       const disease = diseaseEl ? diseaseEl.textContent.trim().replace(/[^a-zA-Z0-9_-]/g, '_') : 'Arecanut_Specimen';
       const timestamp = new Date().toISOString().slice(0, 10);
-      document.title = `ICAR-CPCRI_Official_Phytosanitary_Report_${disease}_${timestamp}`;
+      document.title = `PugaNetra_Arecanut_Health_Report_${disease}_${timestamp}`;
       playSoundCue('click');
 
       // Update timestamp on report to current date and time
@@ -7213,233 +7213,136 @@ document.addEventListener('DOMContentLoaded', function () {
         </div>
 
         <!-- =========================================================================
-             OFFICIAL GOVERNMENT PHYTOSANITARY DIAGNOSTIC REPORT (ICAR-CPCRI)
+             SIMPLE FARMER ADVISORY & CROP HEALTH REPORT (PŪGANETRA)
              ========================================================================= -->
-        <div id="official-govt-report" class="official-govt-report" aria-label="Official Government Phytosanitary Diagnostic Certificate">
-          <div class="govt-report-inner">
-            <div class="govt-report-border-frame">
+        <div id="official-govt-report" class="official-govt-report simple-farmer-report" aria-label="Arecanut Crop Health &amp; Advisory Report">
+          <div class="report-container">
 
-              <!-- 1. OFFICIAL GOVERNMENT LETTERHEAD -->
-              <header class="govt-letterhead">
-                <div class="govt-emblem-col left">
-                  <div class="govt-national-crest">
-                    <svg width="68" height="68" viewBox="0 0 100 100" fill="none" class="crest-svg">
-                      <circle cx="50" cy="50" r="46" stroke="#134e32" stroke-width="2.5" fill="#fcfbf7"/>
-                      <circle cx="50" cy="50" r="41" stroke="#b4832c" stroke-width="1.2" stroke-dasharray="3,2"/>
-                      <circle cx="50" cy="50" r="14" stroke="#134e32" stroke-width="2" fill="none"/>
-                      <path d="M50 36 L50 64 M36 50 L64 50 M40 40 L60 60 M40 60 L60 40" stroke="#b4832c" stroke-width="1.5"/>
-                      <path d="M28 62 C35 52 45 48 50 32 C55 48 65 52 72 62" stroke="#134e32" stroke-width="2.5" fill="none"/>
-                      <path d="M34 68 L66 68 M38 72 L62 72" stroke="#134e32" stroke-width="2"/>
-                      <text x="50" y="86" text-anchor="middle" font-size="6.5" font-weight="bold" fill="#134e32" letter-spacing="1">सत्यमेव जयते</text>
-                    </svg>
-                    <div class="crest-subtext">GOVERNMENT OF INDIA</div>
-                  </div>
+            <header class="report-header">
+              <div class="report-header-brand">
+                <div class="report-logo-box">
+                  <img src="/static/predictor/img/puganetra_logo.jpg" alt="PūgaNetra Logo" class="report-logo-img">
                 </div>
-
-                <div class="govt-title-col center">
-                  <div class="govt-super-title">MINISTRY OF AGRICULTURE &amp; FARMERS WELFARE</div>
-                  <div class="govt-ministry-title">DEPARTMENT OF AGRICULTURAL RESEARCH &amp; EDUCATION (DARE)</div>
-                  <h1 class="govt-inst-title">ICAR — CENTRAL PLANTATION CROPS RESEARCH INSTITUTE</h1>
-                  <div class="govt-inst-sub">
-                    <span>National Phytosanitary Surveillance Centre &amp; Digital Plant Health Directorate</span><br>
-                    <span>Kudlu P.O., Kasaragod – 671 124, Kerala | Regional Station: Vittal – 574 243, Karnataka</span>
-                  </div>
-                  <div class="govt-reg-badges">
-                    <span class="reg-pill">ICAR-CPCRI PHYTO-CERTIFIED</span>
-                    <span class="reg-pill">ISO/IEC 17025 ACCREDITED PROTOCOL</span>
-                    <span class="reg-pill">RESNET-50 AI VISION v2.4</span>
-                  </div>
-                </div>
-
-                <div class="govt-emblem-col right">
-                  <div class="govt-qr-box">
-                    <div class="qr-code-art">
-                      <svg width="68" height="68" viewBox="0 0 80 80" fill="#134e32">
-                        <rect x="0" y="0" width="80" height="80" fill="#ffffff" stroke="#b4832c" stroke-width="1.5"/>
-                        <rect x="6" y="6" width="20" height="20" fill="#134e32"/>
-                        <rect x="9" y="9" width="14" height="14" fill="#ffffff"/>
-                        <rect x="12" y="12" width="8" height="8" fill="#134e32"/>
-                        <rect x="54" y="6" width="20" height="20" fill="#134e32"/>
-                        <rect x="57" y="9" width="14" height="14" fill="#ffffff"/>
-                        <rect x="60" y="12" width="8" height="8" fill="#134e32"/>
-                        <rect x="6" y="54" width="20" height="20" fill="#134e32"/>
-                        <rect x="9" y="57" width="14" height="14" fill="#ffffff"/>
-                        <rect x="12" y="60" width="8" height="8" fill="#134e32"/>
-                        <rect x="30" y="8" width="4" height="8"/>
-                        <rect x="38" y="10" width="8" height="4"/>
-                        <rect x="32" y="20" width="6" height="6"/>
-                        <rect x="42" y="18" width="6" height="8"/>
-                        <rect x="8" y="32" width="8" height="6"/>
-                        <rect x="18" y="38" width="6" height="8"/>
-                        <rect x="30" y="30" width="8" height="8"/>
-                        <rect x="42" y="32" width="6" height="6"/>
-                      </svg>
-                    </div>
-                    <div class="qr-label">DIGITAL VERIFICATION</div>
-                    <div class="qr-hash">CPCRI-VERIFIED</div>
-                  </div>
-                </div>
-              </header>
-
-              <!-- 2. DOCUMENT TITLE BANNER -->
-              <div class="govt-doc-banner">
-                <div class="doc-banner-kicker">GOVERNMENT OF INDIA • STATUTORY PHYTOSANITARY RECORD</div>
-                <h2 class="doc-banner-title">OFFICIAL PHYTOSANITARY DIAGNOSTIC CERTIFICATE &amp; XAI PATHOLOGICAL DOSSIER</h2>
-                <div class="doc-banner-sub">Issued under National Digital Phytosanitary Assessment Protocols • Section 4(A) ICAR Guidelines</div>
-              </div>
-
-              <!-- 3. METADATA RECORD TABLE -->
-              <div class="govt-meta-grid">
-                <div class="meta-cell">
-                  <span class="meta-label">CERTIFICATE / DOSSIER NO.:</span>
-                  <span class="meta-val font-mono">CPCRI/PHYTO/2026/${internalClass.toUpperCase()}-${escapeHtml(filename.slice(0, 6))}</span>
-                </div>
-                <div class="meta-cell">
-                  <span class="meta-label">DATE &amp; TIME OF ASSESSMENT:</span>
-                  <span class="meta-val report-issue-timestamp">${escapeHtml(timestamp)} IST</span>
-                </div>
-                <div class="meta-cell">
-                  <span class="meta-label">HOST BOTANICAL CROP:</span>
-                  <span class="meta-val"><em>Areca catechu L.</em> (Betel Nut / Arecanut Palm)</span>
-                </div>
-                <div class="meta-cell">
-                  <span class="meta-label">SPECIMEN FILE:</span>
-                  <span class="meta-val font-mono">${escapeHtml(filename)} (Verified Observation)</span>
-                </div>
-                <div class="meta-cell">
-                  <span class="meta-label">DIAGNOSTIC ENGINE:</span>
-                  <span class="meta-val">ResNet-50 Deep Residual Convolutional Network (50 layers)</span>
-                </div>
-                <div class="meta-cell">
-                  <span class="meta-label">EXPLAINABILITY METHOD:</span>
-                  <span class="meta-val">Layer4 Gradient-weighted Class Activation Mapping (Grad-CAM)</span>
-                </div>
-                <div class="meta-cell">
-                  <span class="meta-label">INSPECTION AUTHORITY:</span>
-                  <span class="meta-val">ICAR-CPCRI Kasaragod / Vittal Phytopathology Wing</span>
-                </div>
-                <div class="meta-cell">
-                  <span class="meta-label">INFERENCE LATENCY:</span>
-                  <span class="meta-val">124 ms (Real-time Edge Ingestion)</span>
+                <div>
+                  <div class="report-brand-name">PūgaNetra <span class="report-devanagari">पूगनेत्र</span></div>
+                  <div class="report-brand-sub">AI-Driven Arecanut Disease Intelligence</div>
                 </div>
               </div>
 
-              <!-- 4. OFFICIAL PATHOLOGICAL DIAGNOSIS BANNER -->
-              <div class="govt-diagnosis-block ${isDiseased ? 'status-diseased' : 'status-healthy'}">
-                <div class="diag-header-row">
-                  <span class="diag-sec-label">PRIMARY PATHOLOGICAL DETERMINATION</span>
-                  <span class="diag-stamp-pill ${isDiseased ? 'pill-danger' : 'pill-healthy'}">
-                    ${isDiseased ? 'QUARANTINE ALERT / INTERVENTION REQUIRED' : 'PHYSIOLOGICALLY SOUND / HEALTHY CONTROL'}
-                  </span>
+              <div class="report-header-meta">
+                <div class="report-title-badge">CROP HEALTH &amp; ADVISORY REPORT</div>
+                <div class="report-timestamp-line">
+                  <strong>Date &amp; Time:</strong> <span class="report-issue-timestamp">${escapeHtml(timestamp)} IST</span>
                 </div>
-                <div class="diag-main-finding">
-                  <div class="diag-classified-name">${escapeHtml(canonicalDisease)}</div>
-                  <div class="diag-score-wrap">
-                    <span class="diag-score-label">RELATIVE NEURAL SCORE:</span>
-                    <span class="diag-score-number">${confFormatted}</span>
-                  </div>
-                </div>
-                <div class="diag-summary-prose">
-                  ${isDiseased ? 'Specimen exhibits diagnostic features conforming with verified phytopathological patterns. Immediate phytosanitary intervention recommended according to ICAR-CPCRI standard protocols.' : 'Specimen displays intact morphological characteristics conforming to standard non-pathogenic healthy arecanut frond or drupe tissues.'}
+                <div class="report-specimen-line">
+                  <strong>Specimen:</strong> <span class="font-mono">${escapeHtml(filename)}</span>
                 </div>
               </div>
+            </header>
 
-              <!-- 5. FOUR-CLASS SOFTMAX PROBABILITY MATRIX TABLE -->
-              <div class="govt-section-block">
-                <div class="govt-sec-title">
-                  <span>TABLE 1.0</span> COMPLETE NEURAL CLASS PROBABILITY MATRIX (RESNET-50 LAYER-4 SOFTMAX)
-                </div>
-                <table class="govt-table">
-                  <thead>
-                    <tr>
-                      <th style="width: 28%;">Diagnostic Class</th>
-                      <th style="width: 28%;">Agronomic Nomenclature</th>
-                      <th style="width: 18%;">Probability Score</th>
-                      <th style="width: 26%;">Relative Contribution Ratio</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    ${tableRowsHtml}
-                  </tbody>
-                </table>
+            <section class="report-card report-diag-card ${isDiseased ? 'card-diseased' : 'card-healthy'}">
+              <div class="diag-status-pill-wrap">
+                <span class="diag-status-pill ${isDiseased ? 'pill-diseased' : 'pill-healthy'}">
+                  ${isDiseased ? 'Disease Detected' : 'Healthy Plant Detected'}
+                </span>
+                <span class="diag-confidence-tag">AI Confidence: <strong>${confFormatted}</strong></span>
               </div>
 
-              <!-- 6. SCIENTIFIC EVIDENCE PLATES -->
-              <div class="govt-section-block page-break-before">
-                <div class="govt-sec-title">
-                  <span>EVIDENCE RECORD</span> SCIENTIFIC RADIANCE PLATES &amp; EXPLAINABLE AI ATTENTION MAP
+              <h2 class="diag-heading">${escapeHtml(canonicalDisease)}</h2>
+              <p class="diag-nature-text">
+                <strong>Observation Summary:</strong> ${isDiseased ? (isMahali ? 'Specimen displays classic symptoms of Mahali / Koleroga fruit rot with dark water-soaked lesions and fungal activity.' : 'Specimen displays characteristic Yellow Leaf Disease symptoms with yellowing from leaflet margins towards the midrib.') : 'Specimen shows sound physiological development with no signs of fungal blight, rot, or pathogenic chlorosis.'}
+              </p>
+            </section>
+
+            <section class="report-card report-visual-card">
+              <h3 class="section-heading">Visual Evidence &amp; AI Attention</h3>
+              <div class="report-plates-grid">
+                <div class="report-plate">
+                  <div class="report-plate-frame">
+                    <img src="${imageUri}" alt="Submitted Specimen Photo" class="report-plate-img">
+                  </div>
+                  <div class="report-plate-title">Your Specimen Photo</div>
+                  <div class="report-plate-desc">Submitted leaf or nut specimen analyzed by PūgaNetra.</div>
                 </div>
-                <div class="govt-plates-duo">
-                  <div class="evidence-plate">
-                    <div class="plate-frame">
-                      <img src="${imageUri}" alt="Plate I: Raw Specimen Image" class="plate-img">
-                    </div>
-                    <div class="plate-label">PLATE I: RAW OPTICAL SPECIMEN</div>
-                    <div class="plate-caption">Optical field photograph submitted for phytosanitary screening. High-resolution input captured at 224&times;224 ImageNet standard.</div>
+
+                <div class="report-plate">
+                  <div class="report-plate-frame">
+                    <img src="${gradcamUri}" alt="AI Focus Map" class="report-plate-img">
                   </div>
-                  <div class="evidence-plate">
-                    <div class="plate-frame">
-                      <img src="${gradcamUri}" alt="Plate II: Grad-CAM Overlay" class="plate-img">
-                    </div>
-                    <div class="plate-label">PLATE II: RESNET-50 GRAD-CAM RADIANCE</div>
-                    <div class="plate-caption">Explainable AI feature activation map (Layer 4). Warm color gradients (red/yellow) delineate localized pathological indicators.</div>
-                  </div>
+                  <div class="report-plate-title">AI Focus Region (Grad-CAM)</div>
+                  <div class="report-plate-desc">Warm highlighted areas show where the AI model focused to detect symptoms.</div>
                 </div>
               </div>
+            </section>
 
-              <!-- 7. OFFICIAL PROTOCOL SUMMARY -->
-              <div class="govt-section-block">
-                <div class="govt-sec-title">
-                  <span>ICAR-CPCRI STANDARDS</span> STATUTORY CROP PROTECTION &amp; EPIDEMIOLOGICAL TREATMENT PROTOCOL
-                </div>
-                <div class="govt-protocol-grid">
-                  <div class="protocol-box">
-                    <div class="protocol-heading">Causal Pathogen &amp; Vector Ecology:</div>
-                    <div class="protocol-body">
-                      ${isMahali ? '<strong>Pathogen:</strong> <em>Phytophthora meadii</em> McRae (Peronosporales, Oomycota). Favored by persistent south-west monsoon rains, continuous relative humidity (&gt;90%), and temperatures between 20°C–24°C.' : (isYld ? '<strong>Pathogen:</strong> Cell-wall-less phloem-inhabiting <em>Phytoplasma</em> (16SrXI group). Transmitted by plant hoppers (<em>Proutista moesta</em>) and lace bugs (<em>Stephanitis typica</em>).' : '<strong>Condition:</strong> Healthy palm tissue. No biological pathogen detected. Maintain baseline soil fertility and routine pre-monsoon prophylactic care.')}
-                    </div>
+            <section class="report-card report-action-card">
+              ${isDiseased ? `
+                <h3 class="section-heading heading-diseased">What Needs To Be Done (Immediate Solution &amp; Treatment)</h3>
+                <div class="action-grid">
+                  <div class="action-box box-treatment">
+                    <h4 class="action-box-title">1. Immediate Field Treatment</h4>
+                    <ul class="action-bullet-list">
+                      ${isMahali ? `
+                        <li><strong>1% Bordeaux Mixture Spray:</strong> Dissolve 1 kg copper sulphate and 1 kg quicklime in 100 L water. Spray thoroughly onto nut bunches and crowns.</li>
+                        <li><strong>Bunch Bagging:</strong> Secure bunches with 125–200 gauge UV-stabilized polythene bags tied tightly at bunch base to block monsoon rain wash.</li>
+                        <li><strong>Sanitation (Destroy Inoculum):</strong> Immediately collect all fallen, rotting nuts from garden floor and burn or deeply bury with lime.</li>
+                      ` : `
+                        <li><strong>Vector Control:</strong> Spray Dimethoate 30 EC (1.5 ml/L) to suppress phloem-feeding lace bugs and plant hoppers that spread YLD.</li>
+                        <li><strong>Basin Drainage:</strong> Excavate 50 cm deep inter-row drainage trenches to drain waterlogged soil and protect roots.</li>
+                        <li><strong>Nutrient Revitalization:</strong> Apply 1 kg agricultural lime / dolomite per palm annually, plus 12 kg well-decomposed organic compost.</li>
+                      `}
+                    </ul>
                   </div>
-                  <div class="protocol-box">
-                    <div class="protocol-heading">Immediate Field Interventions:</div>
-                    <div class="protocol-body">
-                      ${isMahali ? '1. <strong>Fungicidal Spray:</strong> Apply 1% Bordeaux mixture (10:10:1000) or Metalaxyl MZ 72 WP (2 g/L) directly to bunches before monsoon showers.<br>2. <strong>Bunch Bagging:</strong> Tie 125-gauge polythene bags securely over bunches.<br>3. <strong>Sanitation:</strong> Collect and deeply bury or burn all fallen rotten green nuts.' : (isYld ? '1. <strong>Vector Suppression:</strong> Spray dimethoate (0.05%) or Azadirachtin (0.03%) to control phloem-feeding lace bugs and plant hoppers.<br>2. <strong>Nutritional Support:</strong> Apply balanced NPK (100:40:140g) supplemented with 1 kg dolomite and 12 kg organic compost per palm.<br>3. <strong>Soil Drainage:</strong> Excavate 50 cm deep inter-row drainage canals.' : '1. <strong>Maintenance:</strong> Maintain 9–12 functional green fronds per palm crown.<br>2. <strong>Crown Cleaning:</strong> Perform annual pre-monsoon crown cleaning.<br>3. <strong>Balanced Nutrition:</strong> Administer standard ICAR-CPCRI recommended split fertilizer doses.')}
-                    </div>
+
+                  <div class="action-box box-prevention">
+                    <h4 class="action-box-title">2. Protecting Neighboring Palms &amp; Soil Recovery</h4>
+                    <ul class="action-bullet-list">
+                      ${isMahali ? `
+                        <li><strong>Second Follow-Up Spray:</strong> Apply a second round of 1% Bordeaux spray after 40–45 days during a break in monsoon rains.</li>
+                        <li><strong>Crown Cleaning:</strong> Remove dried spadices and old fronds where fungal spores lodge.</li>
+                        <li><strong>Post-Monsoon Nutrition:</strong> Apply balanced NPK (100:40:140g per palm/year) once rains subside.</li>
+                      ` : `
+                        <li><strong>Micronutrient Boost:</strong> Supplement soil with Zinc Sulphate (20g) and Borax (12g) per palm annually to restore leaf chlorophyll.</li>
+                        <li><strong>Mulching &amp; Green Manure:</strong> Grow green manure crops (Mimosa invisa, Cowpea) in palm basins to cool soil.</li>
+                        <li><strong>Maintain Canopy:</strong> Retain all functional green leaves; do not prune partially green fronds.</li>
+                      `}
+                    </ul>
                   </div>
                 </div>
+              ` : `
+                <h3 class="section-heading heading-healthy">What Needs To Be Done (Profit Maximization &amp; Long-term Health)</h3>
+                <div class="action-grid">
+                  <div class="action-box box-profit">
+                    <h4 class="action-box-title">1. High-Yield &amp; Profit Maximization Strategies</h4>
+                    <ul class="action-bullet-list">
+                      <li><strong>Harvest at Full Maturity:</strong> Harvest when nuts turn uniform yellow-orange. Fully matured kernels yield 22–25% higher dry weight and fetch top mandi prices.</li>
+                      <li><strong>Companion Intercropping (2x Farm Income):</strong> Train Black Pepper (Panniyur varieties) on palm trunks, or plant Cocoa or Nutmeg in interspaces to double per-acre farm revenue.</li>
+                      <li><strong>Summer Drip Irrigation:</strong> Provide 175–200 L water/palm every 4–5 days (or 16–20 L/day via drip) during dry months (Jan–May) to prevent flower and nut abortion.</li>
+                    </ul>
+                  </div>
+
+                  <div class="action-box box-maintenance">
+                    <h4 class="action-box-title">2. Keeping the Palm Healthy &amp; Disease-Free</h4>
+                    <ul class="action-bullet-list">
+                      <li><strong>Balanced Fertilizer Dosage:</strong> Apply 100g N, 40g P, and 140g K per palm/year split into pre-monsoon (May–June) and post-monsoon (Sept–Oct) applications.</li>
+                      <li><strong>Pre-Monsoon Crown Cleaning:</strong> Clean dried leaves and fruit stalks before monsoon to eliminate fungal harborage.</li>
+                      <li><strong>Root-Zone Mulching:</strong> Spread 12–15 kg organic matter around the basin to conserve moisture and foster beneficial soil microbes.</li>
+                    </ul>
+                  </div>
+                </div>
+              `}
+            </section>
+
+            <footer class="report-footer">
+              <div class="report-footer-note">
+                <strong>PūgaNetra Farm Advisory Notice:</strong> This report provides direct guidance based on computer vision screening of your specimen. Recommendations reflect proven agronomic practices for arecanut cultivation. Adjust water and fertilizer quantities according to your local soil texture and seasonal rainfall.
               </div>
+              <div class="report-footer-meta">
+                <span>PūgaNetra (पूगनेत्र) — Intelligence Rooted in Agriculture</span>
+                <span>Report Generated On-Demand</span>
+              </div>
+            </footer>
 
-              <!-- 8. OFFICIAL SEAL & VERIFICATION -->
-              <footer class="govt-report-footer">
-                <div class="footer-seal-row">
-                  <div class="footer-col cert-security">
-                    <div class="sec-badge-text">DIGITAL RECORD AUTHENTICATION</div>
-                    <div class="sec-hash font-mono">SHA256: e8b9410f9c2d77a835b1c944</div>
-                    <div class="sec-disclaimer">Digitally authenticated by ICAR-CPCRI National Phytosanitary Diagnostic Network. Tamper-evident electronic transmission.</div>
-                  </div>
-                  <div class="footer-col cert-seal-mark">
-                    <div class="cpcri-embossed-seal">
-                      <div class="seal-ring outer"></div>
-                      <div class="seal-ring inner"></div>
-                      <div class="seal-content">
-                        <span class="seal-star">★ ★ ★</span>
-                        <span class="seal-org">ICAR-CPCRI</span>
-                        <span class="seal-dept">SURVEILLANCE</span>
-                        <span class="seal-state">KASARAGOD</span>
-                        <span class="seal-star">★ ★ ★</span>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="footer-col cert-signature-block">
-                    <div class="sig-title-block">
-                      <div class="sig-name">Dr. K. Muralidharan, Ph.D.</div>
-                      <div class="sig-desig">Principal Scientist &amp; Head (Phytopathology)</div>
-                      <div class="sig-inst">ICAR - Central Plantation Crops Research Institute</div>
-                    </div>
-                  </div>
-                </div>
-              </footer>
-
-            </div>
           </div>
         </div>
       </div>

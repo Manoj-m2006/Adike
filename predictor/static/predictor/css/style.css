@@ -6522,3 +6522,367 @@ input:focus-visible {
     height: 75vh;
   }
 }
+
+
+/* =========================================================================
+   PŪGANETRA SIMPLE FARMER ADVISORY REPORT
+   Clean, Professional, Practical Field Guidance (No Government Bureaucracy)
+   ========================================================================= */
+
+.simple-farmer-report {
+  background: #ffffff;
+  color: #1a2e22;
+  font-family: 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  box-sizing: border-box;
+}
+
+.report-container {
+  max-width: 860px;
+  margin: 0 auto;
+  background: #ffffff;
+  padding: 2rem 2.2rem;
+  border-radius: 14px;
+  border: 1px solid #d8e5db;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+.report-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 2px solid #e2ece3;
+  padding-bottom: 1.25rem;
+  margin-bottom: 1.5rem;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.report-header-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.95rem;
+}
+
+.report-logo-box {
+  width: 52px;
+  height: 52px;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1.5px solid rgba(116, 198, 157, 0.45);
+  box-shadow: 0 4px 12px rgba(20, 56, 44, 0.15);
+  flex-shrink: 0;
+}
+
+.report-logo-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.report-brand-name {
+  font-family: 'Instrument Serif', Georgia, serif;
+  font-size: 2rem;
+  font-weight: 400;
+  color: #14382c;
+  line-height: 1.1;
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+}
+
+.report-devanagari {
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: #2d6a4f;
+  background: #e8f5ec;
+  border: 1px solid #b7e4c7;
+  padding: 0.1rem 0.5rem;
+  border-radius: 9999px;
+}
+
+.report-brand-sub {
+  font-size: 0.76rem;
+  font-weight: 600;
+  color: #526B5C;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-top: 0.2rem;
+}
+
+.report-header-meta {
+  text-align: right;
+  font-size: 0.82rem;
+  color: #4b6354;
+  line-height: 1.5;
+}
+
+.report-title-badge {
+  display: inline-block;
+  background: #14382c;
+  color: #ffffff;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  padding: 0.3rem 0.8rem;
+  border-radius: 6px;
+  margin-bottom: 0.4rem;
+}
+
+/* Diagnostic Determination Card */
+.report-card {
+  margin-bottom: 1.5rem;
+  padding: 1.4rem 1.6rem;
+  border-radius: 12px;
+  background: #ffffff;
+  border: 1px solid #e0ebe2;
+}
+
+.report-diag-card.card-diseased {
+  background: #fff8f8;
+  border: 1.5px solid #f2c2c2;
+}
+
+.report-diag-card.card-healthy {
+  background: #f4faf6;
+  border: 1.5px solid #c2e5d0;
+}
+
+.diag-status-pill-wrap {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.65rem;
+  flex-wrap: wrap;
+}
+
+.diag-status-pill {
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+}
+
+.diag-status-pill.pill-diseased {
+  background: #fee2e2;
+  color: #991b1b;
+  border: 1px solid #f87171;
+}
+
+.diag-status-pill.pill-healthy {
+  background: #dcfce7;
+  color: #166534;
+  border: 1px solid #86efac;
+}
+
+.diag-confidence-tag {
+  font-size: 0.84rem;
+  color: #4b6354;
+}
+
+.diag-heading {
+  font-family: 'Instrument Serif', Georgia, serif;
+  font-size: 2.2rem;
+  font-weight: 400;
+  color: #14382c;
+  margin: 0.35rem 0 0.5rem 0;
+  line-height: 1.15;
+}
+
+.card-diseased .diag-heading {
+  color: #991b1b;
+}
+
+.diag-nature-text {
+  font-size: 0.92rem;
+  color: #374151;
+  line-height: 1.55;
+  margin: 0;
+}
+
+/* Visual Evidence Plates */
+.section-heading {
+  font-family: 'Instrument Serif', Georgia, serif;
+  font-size: 1.55rem;
+  font-weight: 400;
+  color: #14382c;
+  margin-bottom: 1rem;
+}
+
+.heading-diseased {
+  color: #991b1b;
+}
+
+.heading-healthy {
+  color: #166534;
+}
+
+.report-plates-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem;
+}
+
+.report-plate {
+  background: #f9fbf9;
+  border: 1px solid #e2ece3;
+  border-radius: 10px;
+  padding: 0.85rem;
+  text-align: center;
+}
+
+.report-plate-frame {
+  width: 100%;
+  height: 200px;
+  background: #000000;
+  border-radius: 8px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0.65rem;
+}
+
+.report-plate-img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+.report-plate-title {
+  font-size: 0.86rem;
+  font-weight: 700;
+  color: #14382c;
+  margin-bottom: 0.2rem;
+}
+
+.report-plate-desc {
+  font-size: 0.76rem;
+  color: #64748b;
+  line-height: 1.4;
+}
+
+/* Action Boxes Grid */
+.action-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem;
+}
+
+.action-box {
+  background: #f9fbf9;
+  border: 1px solid #d8e5db;
+  border-radius: 10px;
+  padding: 1.15rem 1.25rem;
+}
+
+.action-box.box-treatment {
+  border-left: 4px solid #dc2626;
+  background: #fffafa;
+}
+
+.action-box.box-prevention {
+  border-left: 4px solid #ea580c;
+  background: #fffbf7;
+}
+
+.action-box.box-profit {
+  border-left: 4px solid #16a34a;
+  background: #f6fcf8;
+}
+
+.action-box.box-maintenance {
+  border-left: 4px solid #0d9488;
+  background: #f4faf9;
+}
+
+.action-box-title {
+  font-size: 0.94rem;
+  font-weight: 700;
+  color: #14382c;
+  margin-bottom: 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.box-treatment .action-box-title { color: #991b1b; }
+.box-prevention .action-box-title { color: #c2410c; }
+.box-profit .action-box-title { color: #15803d; }
+.box-maintenance .action-box-title { color: #0f766e; }
+
+.action-bullet-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  font-size: 0.86rem;
+  line-height: 1.5;
+  color: #374151;
+}
+
+.action-bullet-list li {
+  position: relative;
+  padding-left: 1.1rem;
+}
+
+.action-bullet-list li::before {
+  content: '•';
+  position: absolute;
+  left: 0;
+  color: #166534;
+  font-weight: bold;
+  font-size: 1.1rem;
+  line-height: 1;
+}
+
+.box-treatment .action-bullet-list li::before { color: #dc2626; }
+.box-prevention .action-bullet-list li::before { color: #ea580c; }
+
+/* Advisory Footer */
+.report-footer {
+  border-top: 1px solid #e2ece3;
+  padding-top: 1.15rem;
+  margin-top: 1.5rem;
+}
+
+.report-footer-note {
+  font-size: 0.78rem;
+  color: #64748b;
+  line-height: 1.5;
+  margin-bottom: 0.75rem;
+}
+
+.report-footer-meta {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.74rem;
+  font-weight: 600;
+  color: #526B5C;
+}
+
+/* Print Overrides */
+@media print {
+  body {
+    background: #ffffff !important;
+  }
+  .report-container {
+    border: none !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+    max-width: 100% !important;
+  }
+  .report-plate-frame {
+    height: 180px !important;
+  }
+  .report-card {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+}
