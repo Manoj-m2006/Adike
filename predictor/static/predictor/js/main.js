@@ -4680,33 +4680,23 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
         // Extract result section from the returned result.html
-
-        const parsedResultSection = doc.getElementById('book-page-4');
-
         const dynamicContainer = document.getElementById('results-dynamic-stage');
+        const resultsGrid = doc.querySelector('.results-dashboard-grid');
 
-
-
-        if (parsedResultSection && dynamicContainer) {
-
-          const resultsGrid = parsedResultSection.querySelector('.results-dashboard-grid');
-
-          const noticeCard = parsedResultSection.querySelector('.card');
-
-
+        if (resultsGrid && dynamicContainer) {
+          const parsedResultSection = doc.getElementById('book-page-4');
+          const noticeCard = parsedResultSection ? parsedResultSection.querySelector('.card') : doc.querySelector('.card');
 
           dynamicContainer.innerHTML = '';
-
-          if (noticeCard && resultsGrid) {
-
+          if (noticeCard) {
             dynamicContainer.appendChild(noticeCard.cloneNode(true));
+          }
+          dynamicContainer.appendChild(resultsGrid.cloneNode(true));
 
-            dynamicContainer.appendChild(resultsGrid.cloneNode(true));
-
-          } else {
-
-            dynamicContainer.innerHTML = parsedResultSection.innerHTML;
-
+          // Ensure official report is present
+          const reportElem = doc.getElementById('official-govt-report');
+          if (reportElem && !dynamicContainer.querySelector('#official-govt-report')) {
+            dynamicContainer.appendChild(reportElem.cloneNode(true));
           }
 
           const previewModal = doc.getElementById('govt-preview-modal-backdrop');
@@ -4714,50 +4704,30 @@ document.addEventListener('DOMContentLoaded', function () {
             document.body.appendChild(previewModal.cloneNode(true));
           }
 
-
-
           // Show footer on results page
-
           const navFooter = document.getElementById('result-nav-footer');
-
           if (navFooter) navFooter.style.display = 'flex';
 
-
-
           // Extract scan data for history tracking
-
           const scanDataElem = doc.getElementById('scan-result-data');
-
           if (scanDataElem) {
-
             recordScanToHistory(scanDataElem, dynamicContainer.innerHTML);
-
           }
 
-
-
           // Apply active language to newly injected results HTML
-
           applyLanguage(currentLang);
 
-
-
           // Initialize interactive controls for the freshly injected results
-
           initResultsStudio(dynamicContainer);
 
-
-
           // Smoothly trigger the animation of moving to the next slide (Results)!
-
           goToBookPage(4);
-
         } else {
-
-          // Fallback in case of unexpected structure: submit normally
-
-          form.submit();
-
+          // If no resultsGrid, server returned an error or non-result page
+          const errorMsgEl = doc.querySelector('.alert-banner, .messages-container');
+          const errMsg = errorMsgEl ? errorMsgEl.textContent.trim() : 'Unable to complete specimen screening. Please check the image and try again.';
+          alert(errMsg);
+          goToBookPage(2);
         }
 
       })
@@ -7370,7 +7340,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     // 3. Inject full result HTML (use cached resultHtml if valid, otherwise build dynamically)
-    if (item.resultHtml && typeof item.resultHtml === 'string' && item.resultHtml.trim().length > 100) {
+    if (item.resultHtml && typeof item.resultHtml === 'string' && item.resultHtml.trim().length > 100 && !item.resultHtml.includes('Awaiting specimen screening') && !item.resultHtml.includes('STEP 4 OF 5')) {
       dynamicContainer.innerHTML = item.resultHtml;
     } else {
       dynamicContainer.innerHTML = buildResultHtmlFromItem(item);
