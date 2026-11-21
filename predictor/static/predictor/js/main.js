@@ -14,35 +14,53 @@
   // Supports Kannada (kn-IN), Hindi (hi-IN), Malayalam (ml-IN), English (en-IN)
   // =========================================================================
   const VOICE_SPEECH_SCRIPTS = {
+    step1_intro: {
+      kn: "ArecaLens ಅಡಿಕೆ ರೋಗ ತಪಾಸಣಾ ವ್ಯವಸ್ಥೆಗೆ ಸ್ವಾಗತ. ಇದು ಕೃತಕ ಬುದ್ಧಿಮತ್ತೆಯ ಮೂಲಕ ಅಡಿಕೆ ಮರದ ಎಲೆ ಮತ್ತು ಕಾಯಿಯ ರೋಗಗಳನ್ನು ಪತ್ತೆಹಚ್ಚುವ ಉಚಿತ ವ್ಯವಸ್ಥೆಯಾಗಿದೆ. ನಿಮ್ಮ ತೋಟದ ಗಿಡವನ್ನು ಪರೀಕ್ಷಿಸಲು, ಪ್ರಾರಂಭಿಸಿ ಬಟನ್ ಒತ್ತಿ ಎರಡನೇ ಹಂತದಲ್ಲಿ ಫೋಟೋ ಅಪ್‌ಲೋಡ್ ಮಾಡಿ.",
+      hi: "ArecaLens में आपका स्वागत है। यह कृत्रिम बुद्धिमत्ता आधारित सुपारी फसल रोग जांच प्रणाली है। अपने पेड़ की जांच शुरू करने के लिए स्टार्ट बटन दबाएं और अगले चरण पर फोटो अपलोड करें।",
+      ml: "ArecaLens ലേക്ക് സ്വാഗതം. ഇത് അടയ്ക്കയുടെ രോഗങ്ങൾ എഐ വഴി കണ്ടെത്തുന്ന സൗജന്യ സംവിധാനമാണ്. പരിശോധന ആരംഭിക്കാൻ സ്റ്റാർട്ട് ബട്ടൺ അമർത്തി അടുത്ത ഘട്ടത്തിൽ ഫോട്ടോ അപ്‌ലോഡ് ചെയ്യുക.",
+      en: "Welcome to ArecaLens Arecanut Disease Intelligence. This AI-powered tool diagnoses arecanut palm diseases from foliar and nut photographs. To inspect your crop, click Get Started and upload a clear specimen photo on Step 2."
+    },
     step2_tips: {
-      kn: "ಅಡಿಕೆ ಗಿಡದ ರೋಗ ಲಕ್ಷಣವಿರುವ ಎಲೆ ಅಥವಾ ಅಡಿಕೆ ಗೊಂಚಲನ್ನು ಹದಿನೈದರಿಂದ ಮೂವತ್ತು ಸೆಂಟಿಮೀಟರ್ ಹತ್ತಿರದಿಂದ, ನೈಸರ್ಗಿಕ ಹಗಲು ಬೆಳಕಿನಲ್ಲಿ ಸ್ಪಷ್ಟವಾಗಿ ಫೋಟೋ ತೆಗೆಯಿರಿ. ಮಸುಕಾದ ಅಥವಾ ತುಂಬಾ ದೂರದ ಫೋಟೋವನ್ನು ತಪ್ಪಿಸಿ.",
-      hi: "रोग के लक्षण वाली पत्ती या सुपारी के गुच्छे का 15 से 30 सेंटीमीटर पास से, दिन की प्राकृतिक रोशनी में साफ फोटो लें। धुंधले या बहुत दूर से लिए गए फोटो से बचें।",
-      ml: "രോഗലക്ഷണങ്ങളുള്ള ഇലയോ അടയ്ക്കയോ 15 മുതൽ 30 സെന്റീമീറ്റർ അടുത്തുനിന്ന് പകൽ വെളിച്ചത്തിൽ വ്യക്തമായി ഫോട്ടോ എടുക്കുക. മങ്ങിയ ഫോട്ടോ ഒഴിവാക്കുക.",
-      en: "Please take a sharp, close-up photograph of the affected leaf or nut cluster from 15 to 30 centimeters in natural daylight. Avoid camera shake, blurry focus, or distant whole tree photos."
+      kn: "ಹಂತ ಎರಡು: ಫೋಟೋ ಅಪ್‌ಲೋಡ್ ಮತ್ತು ಮಾರ್ಗದರ್ಶಿ. ಅಡಿಕೆ ಗಿಡದ ರೋಗ ಲಕ್ಷಣವಿರುವ ಎಲೆ ಅಥವಾ ಅಡಿಕೆ ಗೊಂಚಲನ್ನು ಹದಿನೈದರಿಂದ ಮೂವತ್ತು ಸೆಂಟಿಮೀಟರ್ ಹತ್ತಿರದಿಂದ, ನೈಸರ್ಗಿಕ ಹಗಲು ಬೆಳಕಿನಲ್ಲಿ ಸ್ಪಷ್ಟವಾಗಿ ಫೋಟೋ ತೆಗೆಯಿರಿ. ಮಸುಕಾದ ಫೋಟೋ ಅಥವಾ ತುಂಬಾ ದೂರದ ಫೋಟೋವನ್ನು ತಪ್ಪಿಸಿ. ನಂತರ ಪರೀಕ್ಷಿಸಿ ಬಟನ್ ಒತ್ತಿರಿ.",
+      hi: "चरण दो: फोटो अपलोड और गाइड। रोग के लक्षण वाली पत्ती या सुपारी के गुच्छे का 15 से 30 सेंटीमीटर पास से, दिन की प्राकृतिक रोशनी में साफ फोटो लें। धुंधले या बहुत दूर के फोटो से बचें।",
+      ml: "ഘട്ടം രണ്ട്: ഫോട്ടോ അപ്‌ലോഡ്. രോഗലക്ഷണങ്ങളുള്ള ഇലയോ അടയ്ക്കയോ 15 മുതൽ 30 സെന്റീമീറ്റർ അടുത്തുനിന്ന് പകൽ വെളിച്ചത്തിൽ വ്യക്തമായി ഫോട്ടോ എടുക്കുക. മങ്ങിയ ഫോട്ടോ ഒഴിവാക്കുക. ശേഷം പരിശോധന ആരംഭിക്കുക.",
+      en: "Step 2: Photo Input and Visual Capture Guide. Take a sharp close-up photo of the affected leaf or nut cluster from 15 to 30 centimeters in diffuse daylight. Avoid camera shake, blurry focus, or distant whole tree photos. Once uploaded, click Run Screening."
+    },
+    step3_analyzing: {
+      kn: "ಹಂತ ಮೂರು: ರೋಗ ತಪಾಸಣೆ ಪ್ರಕ್ರಿಯೆ ನಡೆಯುತ್ತಿದೆ. ರೆಸ್‌ನೆಟ್-೫೦ ಕೃತಕ ಬುದ್ಧಿಮತ್ತೆ ಇಂಜಿನ್ ನಿಮ್ಮ ಚಿತ್ರವನ್ನು ಸ್ಕ್ಯಾನ್ ಮಾಡುತ್ತಿದೆ ಮತ್ತು ರೋಗದ ಲಕ್ಷಣಗಳನ್ನು ವಿಶ್ಲೇಷಿಸುತ್ತಿದೆ. ದಯವಿಟ್ಟು ಕೆಲವು ಕ್ಷಣ ಕಾಯಿರಿ.",
+      hi: "चरण तीन: जांच जारी है। ResNet-50 एआई इंजन आपकी फोटो को स्कैन कर रहा है। कृपया प्रतीक्षा करें।",
+      ml: "ഘട്ടം മൂന്ന്: പരിശോധന പുരോഗമിക്കുന്നു. എഐ എഞ്ചിൻ നിങ്ങളുടെ ചിത്രം വിശകലനം ചെയ്യുന്നു. ദയവായി കാത്തിരിക്കുക.",
+      en: "Step 3: Neural Processing. The ResNet-50 AI engine is analyzing your specimen and computing Grad-CAM explainability heatmaps. Please wait a moment."
     },
     mahali: {
-      kn: "ಪತ್ತೆಯಾದ ರೋಗ: ಮಹಾಲಿ ಅಥವಾ ಕೊಳೆರೋಗ. ಶಿಫಾರಸು ಮಾಡಿದ ಪರಿಹಾರ: ಮುಂಗಾರು ಮಳೆಗೆ ಮುಂಚಿತವಾಗಿ ಶೇಕಡಾ ಒಂದರ ಬೋರ್ಡೋ ದ್ರಾವಣವನ್ನು ಅಡಿಕೆ ಗೊಂಚಲುಗಳಿಗೆ ಸಂಪೂರ್ಣವಾಗಿ ಸಿಂಪಡಿಸಿ. ರೋಗ ಪೀಡಿತ ಕೊಳೆತ ಕಾಯಿಗಳನ್ನು ತೋಟದಿಂದ ಕೂಡಲೇ ತೆಗೆದು ನಾಶಪಡಿಸಿ. ಹೆಚ್ಚಿನ ಮಾಹಿತಿಗೆ ಕೃಷಿ ವಿಜ್ಞಾನ ಕೇಂದ್ರವನ್ನು ಸಂಪರ್ಕಿಸಿ.",
-      hi: "जांच परिणाम: महाली या कोलेरोगा फल सड़न रोग। उपचार: मानसून से पहले 1% बोर्डो मिश्रण का सुपारी के गुच्छों पर छिड़काव करें। सड़े हुए फलों को तुरंत इकट्ठा कर नष्ट कर दें।",
-      ml: "രോഗ നിർണ്ണയം: മഹാലി അല്ലെങ്കിൽ കൊളെറോഗ കായ്ചീയൽ. പരിഹാരം: കാലവർഷത്തിന് മുൻപായി 1% ബോർഡോ മിശ്രിതം തളിക്കുക. രോഗം ബാധിച്ച അടയ്ക്കകൾ ശേഖരിച്ച് നശിപ്പിക്കുക.",
-      en: "Diagnosis Result: Mahali or Koleroga Fruit Rot. Recommended Care: Spray 1% Bordeaux mixture on nut clusters prophylactically before monsoon rains. Collect and incinerate all fallen rotten nuts immediately."
+      kn: "ಹಂತ ನಾಲ್ಕು: ತಪಾಸಣಾ ಫಲಿತಾಂಶ. ಪತ್ತೆಯಾದ ರೋಗ: ಮಹಾಲಿ ಅಥವಾ ಕೊಳೆರೋಗ. ಶಿಫಾರಸು ಮಾಡಿದ ಪರಿಹಾರ: ಮುಂಗಾರು ಮಳೆಗೆ ಮುಂಚಿತವಾಗಿ ಶೇಕಡಾ ಒಂದರ ಬೋರ್ಡೋ ದ್ರಾವಣವನ್ನು ಅಡಿಕೆ ಗೊಂಚಲುಗಳಿಗೆ ಸಂಪೂರ್ಣವಾಗಿ ಸಿಂಪಡಿಸಿ. ರೋಗ ಪೀಡಿತ ಕೊಳೆತ ಕಾಯಿಗಳನ್ನು ತೋಟದಿಂದ ಕೂಡಲೇ ಸಂಗ್ರಹಿಸಿ ಸುಟ್ಟುಹಾಕಿ ಅಥವಾ ಸುಣ್ಣದೊಂದಿಗೆ ಹೂತುಹಾಕಿ. ಹೆಚ್ಚಿನ ಮಾಹಿತಿಗೆ ಕೃಷಿ ವಿಜ್ಞಾನ ಕೇಂದ್ರವನ್ನು ಸಂಪರ್ಕಿಸಿ.",
+      hi: "चरण चार: जांच परिणाम। महाली या कोलेरोगा फल सड़न रोग पाया गया है। उपचार: मानसून से पहले 1% बोर्डो मिश्रण का सुपारी के गुच्छों पर छिड़काव करें। सड़े हुए फलों को तुरंत इकट्ठा कर नष्ट कर दें।",
+      ml: "ഘട്ടം നാല്: പരിശോധനാ ഫലം. മഹാലി അല്ലെങ്കിൽ കൊളെറോഗ കായ്ചീയൽ രോഗം സ്ഥിരീകരിച്ചു. പരിഹാരം: കാലവർഷത്തിന് മുൻപായി 1% ബോർഡോ മിശ്രിതം തളിക്കുക. രോഗം ബാധിച്ച അടയ്ക്കകൾ നശിപ്പിക്കുക.",
+      en: "Step 4: Diagnostic Results. Primary match: Mahali or Koleroga Fruit Rot. Treatment: Apply prophylactic 1% Bordeaux mixture spray to nut clusters before monsoon rains. Immediately collect and incinerate fallen rotten nuts."
     },
     yld: {
-      kn: "ಪತ್ತೆಯಾದ ರೋಗ: ಹಳದಿ ಎಲೆ ರೋಗ. ಶಿಫಾರಸು ಮಾಡಿದ ಪರಿಹಾರ: ಈ ರೋಗವು ನರಗಳ ಮೂಲಕ ಹರಡುವುದರಿಂದ ರಾಸಾಯನಿಕದಿಂದ ಗುಣಪಡಿಸಲಾಗದು. ತೋಟದಲ್ಲಿ ನೀರು ಬಸಿದು ಹೋಗಲು ಉತ್ತಮ ಕಾಲುವೆ ಮಾಡಿ. ಪ್ರತಿ ಮರಕ್ಕೆ ಸಮತೋಲಿತ ಸಾರಜನಕ, ರಂಜಕ, ಪೊಟ್ಯಾಷ್ ಜೊತೆಗೆ ಇನ್ನೂರು ಗ್ರಾಂ ಮೆಗ್ನೀಸಿಯಮ್ ಸಲ್ಫೇಟ್ ಮತ್ತು ಕೊಟ್ಟಿಗೆ ಗೊಬ್ಬರ ನೀಡಿ.",
-      hi: "जांच परिणाम: यलो लीफ डिजीज (पीला पत्ता रोग)। उपचार: जल निकासी सुधारें। प्रति पेड़ संतुलित खाद, कम्पोस्ट तथा 200 ग्राम मैग्नीशियम सल्फेट दें।",
-      ml: "രോഗ നിർണ്ണയം: മഞ്ഞളിപ്പ് രോഗം (YLD). പരിഹാരം: തോട്ടത്തിൽ നീർവാർച്ച ഉറപ്പാക്കുക. സന്തുലിത വളത്തോടൊപ്പം മഗ്നീഷ്യം സൾഫേറ്റും ജൈവവളവും നൽകുക.",
-      en: "Diagnosis Result: Yellow Leaf Disease. Recommended Care: Because phytoplasma is systemic, ensure deep drainage trenches. Apply balanced NPK fertilizers with 200 grams Magnesium Sulfate and 12 kilograms organic manure per palm annually."
+      kn: "ಹಂತ ನಾಲ್ಕು: ತಪಾಸಣಾ ಫಲಿತಾಂಶ. ಪತ್ತೆಯಾದ ರೋಗ: ಹಳದಿ ಎಲೆ ರೋಗ. ಇದು ಫೈಟೋಪ್ಲಾಸ್ಮಾ ರೋಗಾಣುವಿನಿಂದ ಬರುವುದರಿಂದ ರಾಸಾಯನಿಕದಿಂದ ಗುಣಪಡಿಸಲಾಗದು. ತೋಟದಲ್ಲಿ ನೀರು ನಿಲ್ಲದಂತೆ ಆಳವಾದ ಚರಂಡಿ ಮಾಡಿ. ಪ್ರತಿ ಮರಕ್ಕೆ ಸಮತೋಲಿತ ಸಾರಜನಕ, ರಂಜಕ, ಪೊಟ್ಯಾಷ್ ಜೊತೆಗೆ ಇನ್ನೂರು ಗ್ರಾಂ ಮೆಗ್ನೀಸಿಯಮ್ ಸಲ್ಫೇಟ್ ಮತ್ತು ಹನ್ನೆರಡು ಕೆಜಿ ಕೊಟ್ಟಿಗೆ ಗೊಬ್ಬರ ನೀಡಿ.",
+      hi: "चरण चार: जांच परिणाम। यलो लीफ डिजीज (पीला पत्ता रोग)। उपचार: जल निकासी सुधारें। प्रति पेड़ संतुलित उर्वरक के साथ 200 ग्राम मैग्नीशियम सल्फेट और जैविक खाद दें।",
+      ml: "ഘട്ടം നാല്: പരിശോധനാ ഫലം. മഞ്ഞളിപ്പ് രോഗം (YLD). പരിഹാരം: തോട്ടത്തിൽ നീർവാർച്ച ഉറപ്പാക്കുക. സന്തുലിത വളത്തോടൊപ്പം മഗ്നീഷ്യം സൾഫേറ്റും ജൈവവളവും നൽകുക.",
+      en: "Step 4: Diagnostic Results. Primary match: Yellow Leaf Disease. Treatment: Ensure deep drainage channels across the orchard. Apply balanced NPK fertilizers with 200 grams Magnesium Sulfate and 12 kilograms organic manure per bearing palm annually."
     },
     healthy_leaf: {
-      kn: "ಪತ್ತೆಯಾದ ಸ್ಥಿತಿ: ಆರೋಗ್ಯಕರ ಎಲೆ. ನಿಮ್ಮ ಅಡಿಕೆ ಗಿಡವು ಉತ್ತಮ ಕ್ಲೋರೊಫಿಲ್ ಹೊಂದಿದ್ದು ರೋಗಮುಕ್ತವಾಗಿದೆ. ಮಣ್ಣಿನಲ್ಲಿ ತೇವಾಂಶ ಕಾಪಾಡಿಕೊಳ್ಳಿ ಮತ್ತು ನಿಯಮಿತವಾಗಿ ಸಾವಯವ ಗೊಬ್ಬರ ನೀಡಿ.",
-      hi: "जांच परिणाम: स्वस्थ पत्ती। आपकी फसल में कोई रोग नहीं है। नियमित जैविक खाद दें और नमी बनाए रखें।",
-      ml: "ഫലം: ആരോഗ്യകരമായ ഇല. രോഗബാധയില്ല. ആവശ്യത്തിന് ജൈവവളവും ഈർപ്പവും നിലനിർത്തുക.",
-      en: "Diagnosis Result: Healthy Leaf. The specimen shows normal chlorophyll development with no fungal or pathogenic symptoms. Maintain routine canopy surveillance and organic manure application."
+      kn: "ಹಂತ ನಾಲ್ಕು: ತಪಾಸಣಾ ಫಲಿತಾಂಶ. ನಿಮ್ಮ ಅಡಿಕೆ ಗಿಡವು ಆರೋಗ್ಯಕರವಾಗಿದೆ ಮತ್ತು ಯಾವುದೇ ಶಿಲೀಂಧ್ರ ಅಥವಾ ರೋಗದ ಲಕ್ಷಣಗಳಿಲ್ಲ. ಉತ್ತಮ ಇಳುವರಿಗಾಗಿ ನಿಯಮಿತ ಸಾವಯವ ಗೊಬ್ಬರ ಮತ್ತು ನೀರಾವರಿ ನಿರ್ವಹಣೆ ಮುಂದುವರಿಸಿ.",
+      hi: "चरण चार: जांच परिणाम। आपकी सुपारी की फसल पूरी तरह स्वस्थ है। नियमित जैविक पोषण और सिंचाई बनाए रखें।",
+      ml: "ഘട്ടം നാല്: പരിശോധനാ ഫലം. കവുങ്ങ് പൂർണ്ണമായും ആരോഗ്യകരമാണ്. പതിവ് വളപ്രയോഗവും നനയും തുടരുക.",
+      en: "Step 4: Diagnostic Results. The specimen is healthy with optimal development and zero pathogenic symptoms. Continue routine canopy hygiene and seasonal irrigation."
     },
     healthy_nut: {
-      kn: "ಪತ್ತೆಯಾದ ಸ್ಥಿತಿ: ಆರೋಗ್ಯಕರ ಅಡಿಕೆ ಕಾಯಿ. ಅಡಿಕೆ ಗೊಂಚಲು ಗಟ್ಟಿಯಾದ ತೊಟ್ಟು ಹೊಂದಿದ್ದು ಆರೋಗ್ಯಕರವಾಗಿದೆ. ಮುಂಗಾರಿಗೆ ಮುಂಚೆ ಸ್ವಚ್ಛತೆ ಕಾಪಾಡಿ ಮತ್ತು ನಿಯಮಿತ ನೀರಾವರಿ ಒದಗಿಸಿ.",
-      hi: "जांच परिणाम: स्वस्थ सुपारी। फल का गुच्छा मजबूत और स्वस्थ है। समय पर सिंचाई और पोषण दें।",
-      ml: "ഫലം: ആരോഗ്യകരമായ അടയ്ക്ക. കായ്കൾ നല്ല നിലയിലാണ്. കൃത്യമായ നനയും പരിചരണവും നൽകുക.",
-      en: "Diagnosis Result: Healthy Nut. The specimen displays intact calyx attachment and optimal drupe development. Continue seasonal irrigation and orchard hygiene."
+      kn: "ಹಂತ ನಾಲ್ಕು: ತಪಾಸಣಾ ಫಲಿತಾಂಶ. ನಿಮ್ಮ ಅಡಿಕೆ ಕಾಯಿಗಳು ಗಟ್ಟಿಯಾದ ತೊಟ್ಟು ಹೊಂದಿದ್ದು ಆರೋಗ್ಯಕರವಾಗಿವೆ. ಮುಂಗಾರಿಗೆ ಮುಂಚೆ ಸ್ವಚ್ಛತೆ ಕಾಪಾಡಿ ಮತ್ತು ಕಾಲಕಾಲಕ್ಕೆ ನೀರಾವರಿ ಒದಗಿಸಿ.",
+      hi: "चरण चार: जांच परिणाम। फल का गुच्छा मजबूत और स्वस्थ है। समय पर सिंचाई और पोषण दें।",
+      ml: "ഘട്ടം നാല്: പരിശോധനാ ഫലം. അടയ്ക്ക നല്ല നിലയിലാണ്. കൃത്യമായ നനയും പരിചരണവും നൽകുക.",
+      en: "Step 4: Diagnostic Results. The specimen displays intact calyx attachment and optimal drupe development. Continue seasonal irrigation and orchard hygiene."
+    },
+    step5_handbook: {
+      kn: "ಹಂತ ಐದು: ಅಡಿಕೆ ರೋಗಗಳ ಕೈಪಿಡಿ. ಇಲ್ಲಿ ಅಡಿಕೆ ಬೆಳೆಯ ನಾಲ್ಕು ಮುಖ್ಯ ಸ್ಥಿತಿಗಳಾದ ಮಹಾಲಿ ಕೊಳೆರೋಗ, ಹಳದಿ ಎಲೆ ರೋಗ, ಆರೋಗ್ಯಕರ ಕಾಯಿ ಮತ್ತು ಎಲೆಯ ಸಂಪೂರ್ಣ ಮಾಹಿತಿ, ಲಕ್ಷಣಗಳು ಮತ್ತು ಐಸಿಎಆರ್ ಸಿಪಿಸಿಆರ್‌ಐ ಪರಿಹಾರ ಕ್ರಮಗಳನ್ನು ವಿವರಿಸಲಾಗಿದೆ.",
+      hi: "चरण पांच: सुपारी रोग हैंडबुक। यहां महाली, यलो लीफ डिजीज तथा स्वस्थ फसल की संपूर्ण जानकारी और कृषि विशेषज्ञों की सिफारिशें दी गई हैं।",
+      ml: "ഘട്ടം അഞ്ച്: രോഗ നിർണ്ണയ കൈപ്പുസ്തകം. മഹാലി, മഞ്ഞളിപ്പ് രോഗം എന്നിവയുടെ ലക്ഷണങ്ങളും പരിചരണ രീതികളും ഇവിടെ വിശദീകരിച്ചിരിക്കുന്നു.",
+      en: "Step 5: Field Handbook and Disease Dossier. Comprehensive guide covering Mahali Fruit Rot, Yellow Leaf Disease, Healthy Nut, and Healthy Leaf with ICAR-CPCRI certified management protocols."
     }
   };
 
@@ -51,6 +69,16 @@
   function stopFarmerVoice() {
     if ('speechSynthesis' in window) {
       window.speechSynthesis.cancel();
+    }
+    const headerBtn = document.getElementById('sound-toggle-btn');
+    if (headerBtn) {
+      headerBtn.classList.remove('speaking');
+      const wave = headerBtn.querySelector('#header-sound-waves');
+      if (wave) wave.style.display = 'none';
+      const lbl = headerBtn.querySelector('#sound-label');
+      if (lbl && I18N_STRINGS[currentLang]) {
+        lbl.textContent = I18N_STRINGS[currentLang].voice_assist_nav_label || 'Voice Assist';
+      }
     }
     if (activeVoiceButton) {
       activeVoiceButton.classList.remove('speaking');
@@ -65,7 +93,7 @@
 
   function speakFarmerAssistance(text, btnElement = null, lang = currentLang) {
     if (!('speechSynthesis' in window)) {
-      alert("Voice assistance audio: " + text);
+      alert("Voice assistance: " + text);
       return;
     }
 
@@ -84,13 +112,25 @@
       'en': 'en-IN'
     };
     utterance.lang = langTagMap[lang] || 'en-US';
-    utterance.rate = 0.92; // farmer-friendly cadence
+    utterance.rate = 0.92; // farmer-friendly clear cadence
     utterance.pitch = 1.0;
 
     const voices = window.speechSynthesis.getVoices();
     const targetTag = langTagMap[lang] || 'en';
     const match = voices.find(v => v.lang.startsWith(targetTag) || v.lang.startsWith(lang));
     if (match) utterance.voice = match;
+
+    // Update Header Button
+    const headerBtn = document.getElementById('sound-toggle-btn');
+    if (headerBtn) {
+      headerBtn.classList.add('speaking');
+      const wave = headerBtn.querySelector('#header-sound-waves');
+      if (wave) wave.style.display = 'inline-flex';
+      const lbl = headerBtn.querySelector('#sound-label');
+      if (lbl && I18N_STRINGS[lang]) {
+        lbl.textContent = I18N_STRINGS[lang].voice_assist_speaking || 'Speaking...';
+      }
+    }
 
     if (btnElement) {
       activeVoiceButton = btnElement;
@@ -109,6 +149,32 @@
     };
 
     window.speechSynthesis.speak(utterance);
+  }
+
+  // Get Spoken Voice Text for Any Current Page
+  function getSpokenScriptForCurrentPage(pageNum = null) {
+    let p = pageNum;
+    if (!p) {
+      const activeSection = document.querySelector('.book-page.active');
+      p = activeSection ? parseInt(activeSection.getAttribute('data-page') || '1') : 1;
+    }
+
+    if (p === 1) {
+      return VOICE_SPEECH_SCRIPTS.step1_intro[currentLang] || VOICE_SPEECH_SCRIPTS.step1_intro.en;
+    } else if (p === 2) {
+      return VOICE_SPEECH_SCRIPTS.step2_tips[currentLang] || VOICE_SPEECH_SCRIPTS.step2_tips.en;
+    } else if (p === 3) {
+      return VOICE_SPEECH_SCRIPTS.step3_analyzing[currentLang] || VOICE_SPEECH_SCRIPTS.step3_analyzing.en;
+    } else if (p === 4) {
+      const mainTitle = document.querySelector('.result-main-disease')?.textContent || '';
+      const clsKey = getDiseaseKeyFromName(mainTitle) || 'yld';
+      return (VOICE_SPEECH_SCRIPTS[clsKey] && VOICE_SPEECH_SCRIPTS[clsKey][currentLang])
+        || VOICE_SPEECH_SCRIPTS[clsKey]?.en
+        || VOICE_SPEECH_SCRIPTS.yld[currentLang];
+    } else if (p === 5) {
+      return VOICE_SPEECH_SCRIPTS.step5_handbook[currentLang] || VOICE_SPEECH_SCRIPTS.step5_handbook.en;
+    }
+    return VOICE_SPEECH_SCRIPTS.step1_intro[currentLang] || VOICE_SPEECH_SCRIPTS.step1_intro.en;
   }
 
 
@@ -259,43 +325,16 @@ document.addEventListener('DOMContentLoaded', function () {
   // =========================================================================
 
     function updateSoundUI() {
-
     const soundToggleBtn = document.getElementById('sound-toggle-btn');
-
-    const soundIcon = document.getElementById('sound-icon');
-
     const soundLabel = document.getElementById('sound-label');
+    const strings = I18N_STRINGS[currentLang] || I18N_STRINGS.en;
 
-    const lang = (typeof currentLang !== 'undefined' && currentLang) ? currentLang : 'en';
-
-    const strings = (typeof I18N_STRINGS !== 'undefined' && I18N_STRINGS[lang]) 
-
-      ? I18N_STRINGS[lang] 
-
-      : (typeof I18N_STRINGS !== 'undefined' && I18N_STRINGS['en'] ? I18N_STRINGS['en'] : {});
-
-
-
-    if (soundIcon) soundIcon.innerHTML = isSoundEnabled ? '<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path></svg>' : '<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><line x1="23" y1="9" x2="17" y2="15"></line><line x1="17" y1="9" x2="23" y2="15"></line></svg>';
-
-    if (soundLabel) soundLabel.textContent = isSoundEnabled ? (strings.sound_label || 'Sound') : (strings.sound_muted || 'Muted');
-
-    if (soundToggleBtn) {
-
-      soundToggleBtn.setAttribute('title', isSoundEnabled ? 'Mute sound feedback' : 'Enable sound feedback');
-
-      if (!isSoundEnabled) {
-
-        soundToggleBtn.classList.add('muted');
-
-      } else {
-
-        soundToggleBtn.classList.remove('muted');
-
-      }
-
+    if (soundLabel) {
+      soundLabel.textContent = strings.voice_assist_nav_label || 'Voice Assist';
     }
-
+    if (soundToggleBtn) {
+      soundToggleBtn.setAttribute('title', strings.voice_assist_nav_label || 'Voice Assistance');
+    }
   }
 
 
@@ -308,7 +347,7 @@ document.addEventListener('DOMContentLoaded', function () {
   "en": {
     "brand_name": "ArecaLens",
     "brand_tagline": "AI-Driven Arecanut Disease Intelligence",
-    "modal_badge": "PŪGANETRA",
+    "modal_badge": "ARECALENS",
     "photo_guide_title": "Photography Guide for Accurate Diagnosis",
     "photo_guide_desc": "Diagnostic accuracy depends on capture quality. Follow these field guidelines:",
     "badge_field_guide": "FIELD GUIDE",
@@ -582,7 +621,10 @@ document.addEventListener('DOMContentLoaded', function () {
     "vguide_dist_bad_desc": "Too far away; leaf spots or rot cannot be resolved",
     "listen_tips_btn": "🔊 Listen to Photo Guidelines",
     "listen_result_btn": "🔊 Listen to Diagnosis & Care Advisory",
-    "stop_voice_btn": "⏹ Stop Voice Audio"
+    "stop_voice_btn": "⏹ Stop Voice Audio",
+    "voice_assist_nav_label": "Voice Assist",
+    "voice_assist_speaking": "Speaking...",
+    "voice_assist_paused": "Voice Assist"
   },
   "kn": {
     "brand_name": "ಅಡಿಕೆಲೆನ್ಸ್ (ArecaLens)",
@@ -859,7 +901,10 @@ document.addEventListener('DOMContentLoaded', function () {
     "vguide_dist_bad_desc": "ತುಂಬಾ ದೂರ; ಎಲೆಯ ಕಲೆ ಅಥವಾ ಹಣ್ಣು ಕೊಳೆ ತಿಳಿಯಲು ಅಸಾಧ್ಯ",
     "listen_tips_btn": "🔊 ಫೋಟೋ ಮಾರ್ಗದರ್ಶನ ಆಲಿಸಿ",
     "listen_result_btn": "🔊 ರೋಗ ತಪಾಸಣೆ & ಪರಿಹಾರ ಆಲಿಸಿ",
-    "stop_voice_btn": "⏹ ಧ್ವನಿ ನಿಲ್ಲಿಸಿ"
+    "stop_voice_btn": "⏹ ಧ್ವನಿ ನಿಲ್ಲಿಸಿ",
+    "voice_assist_nav_label": "ಧ್ವನಿ ಸಹಾಯಕ",
+    "voice_assist_speaking": "ಮಾತನಾಡುತ್ತಿದೆ...",
+    "voice_assist_paused": "ಧ್ವನಿ ಸಹಾಯಕ"
   },
   "hi": {
     "brand_name": "अरेकालेंस (ArecaLens)",
@@ -1136,7 +1181,10 @@ document.addEventListener('DOMContentLoaded', function () {
     "vguide_dist_bad_desc": "ज्यादा दूर होने से पत्ती या फल के रोग नहीं दिखते",
     "listen_tips_btn": "🔊 फोटो निर्देश सुनें",
     "listen_result_btn": "🔊 रोग जांच और उपचार सुनें",
-    "stop_voice_btn": "⏹ आवाज रोकें"
+    "stop_voice_btn": "⏹ आवाज रोकें",
+    "voice_assist_nav_label": "ध्वनि सहायक",
+    "voice_assist_speaking": "बोल रहा है...",
+    "voice_assist_paused": "ध्वनि सहायक"
   },
   "ml": {
     "brand_name": "അരേക്കലെൻസ് (ArecaLens)",
@@ -1412,7 +1460,10 @@ document.addEventListener('DOMContentLoaded', function () {
     "vguide_dist_bad_desc": "വളരെ അകലെയായതിനാൽ ഇലയിലെ പാടുകളോ ചീയലോ തിരിച്ചറിയാനാവില്ല",
     "listen_tips_btn": "🔊 ഫോട്ടോ നിർദ്ദേശങ്ങൾ കേൾക്കുക",
     "listen_result_btn": "🔊 രോഗ നിർണ്ണയവും പ്രതിവിധിയും കേൾക്കുക",
-    "stop_voice_btn": "⏹ ശബ്ദം നിർത്തുക"
+    "stop_voice_btn": "⏹ ശബ്ദം നിർത്തുക",
+    "voice_assist_nav_label": "ശബ്ദ സഹായി",
+    "voice_assist_speaking": "സംസാരിക്കുന്നു...",
+    "voice_assist_paused": "ശബ്ദ സഹായി"
   }
 };
 
@@ -6213,19 +6264,18 @@ const CLASS_NAMES_I18N = {
 
 
   if (soundToggleBtn) {
-
-    soundToggleBtn.addEventListener('click', () => {
-
-      isSoundEnabled = !isSoundEnabled;
-
-      localStorage.setItem('puganetra_sound', isSoundEnabled ? 'enabled' : 'muted');
-
-      updateSoundUI();
-
-      if (isSoundEnabled) playSoundCue('click');
-
+    soundToggleBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      // If currently speaking, stop voice
+      if (window.speechSynthesis && window.speechSynthesis.speaking) {
+        stopFarmerVoice();
+        return;
+      }
+      // Speak the guidance for the current page in the active regional language
+      playSoundCue('click');
+      const script = getSpokenScriptForCurrentPage();
+      speakFarmerAssistance(script, null, currentLang);
     });
-
   }
 
 
@@ -6949,7 +6999,7 @@ const CLASS_NAMES_I18N = {
 
 
 
-        const textToCopy = `PŪGANETRA PHYTOSANITARY DIAGNOSTIC SUMMARY\n` +
+        const textToCopy = `ARECALENS PHYTOSANITARY DIAGNOSTIC SUMMARY\n` +
 
           `Specimen Diagnosis: ${disease}\n` +
 
@@ -7582,7 +7632,7 @@ const CLASS_NAMES_I18N = {
         </div>
 
         <!-- =========================================================================
-             SIMPLE FARMER ADVISORY & CROP HEALTH REPORT (PŪGANETRA)
+             SIMPLE FARMER ADVISORY & CROP HEALTH REPORT (ARECALENS)
              ========================================================================= -->
         <div id="official-govt-report" class="official-govt-report simple-farmer-report" aria-label="Arecanut Crop Health &amp; Advisory Report">
           <div class="report-container">

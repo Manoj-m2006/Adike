@@ -199,9 +199,17 @@
       <!-- Right Header Actions -->
       <div class="header-actions">
         <!-- Audio Haptic Feedback Toggle -->
-        <button type="button" class="sound-toggle-btn" id="sound-toggle-btn" title="Toggle audio feedback" aria-label="Toggle Sound">
-          <span id="sound-icon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:15px;height:15px;"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path></svg></span>
-          <span id="sound-label" data-i18n="sound_label">Sound</span>
+        <!-- Farmer Primary Voice Assistance Button -->
+        <button type="button" class="sound-toggle-btn voice-assist-header-btn" id="sound-toggle-btn" title="Voice Assistance" aria-label="Farmer Voice Assistance">
+          <span id="sound-icon" class="voice-icon-box">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:15px;height:15px;"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path></svg>
+          </span>
+          <span id="sound-label" data-i18n="voice_assist_nav_label">Voice Assist</span>
+          <span class="sound-waves-indicator" id="header-sound-waves" style="display: none; margin-left: 3px;">
+            <span class="wave-bar"></span>
+            <span class="wave-bar"></span>
+            <span class="wave-bar"></span>
+          </span>
         </button>
 
         <!-- Language Selector Button -->
