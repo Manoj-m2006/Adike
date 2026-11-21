@@ -14,7 +14,7 @@
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,600&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
   
   <!-- External Stylesheet with Cache-Buster -->
-  <link rel="stylesheet" href="{% static 'predictor/css/style.css' %}?v=20261121.305">
+  <link rel="stylesheet" href="{% static 'predictor/css/style.css' %}?v=20261121.360">
 
   <!-- Embedded Fail-Safe Stylesheet: Guarantees 100% Reliable Render with Zero Unstyled State -->
   <style>
@@ -494,8 +494,30 @@
     </div>
   </div>
 
+    <!-- Farmer Voice Assistance Live Subtitle HUD -->
+  <div id="farmer-voice-hud" class="farmer-voice-hud" style="display: none;">
+    <div class="farmer-voice-hud-inner">
+      <div class="voice-hud-indicator">
+        <span class="voice-hud-speaker">🔊</span>
+        <span class="sound-waves-indicator speaking" style="display: inline-flex;">
+          <span class="wave-bar"></span>
+          <span class="wave-bar"></span>
+          <span class="wave-bar"></span>
+        </span>
+      </div>
+      <div class="voice-hud-content">
+        <div class="voice-hud-title" data-i18n="voice_hud_active_title">ಧ್ವನಿ ಮಾರ್ಗದರ್ಶಿ ಮಾತನಾಡುತ್ತಿದೆ...</div>
+        <div class="voice-hud-text" id="voice-hud-text"></div>
+      </div>
+      <button type="button" class="btn-voice-hud-stop" id="voice-hud-stop-btn" title="Stop Voice">
+        <span>⏹</span>
+        <span data-i18n="stop_voice_btn">ನಿಲ್ಲಿಸಿ</span>
+      </button>
+    </div>
+  </div>
+
   <!-- Client-side Interactive Engine -->
-  <script src="{% static 'predictor/js/main.js' %}?v=20261121.305"></script>
+  <script src="{% static 'predictor/js/main.js' %}?v=20261121.360"></script>
   {% block extra_js %}{% endblock %}
 </body>
 </html>

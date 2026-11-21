@@ -7005,3 +7005,91 @@ input:focus-visible {
 .voice-assist-header-btn.speaking .wave-bar {
   background: #74c69d !important;
 }
+
+
+/* Farmer Voice Assistance Live Subtitle HUD */
+.farmer-voice-hud {
+  position: fixed;
+  bottom: 1.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 99999;
+  max-width: 92%;
+  width: 620px;
+  background: rgba(20, 56, 44, 0.96);
+  backdrop-filter: blur(12px);
+  border: 1.5px solid rgba(116, 198, 157, 0.45);
+  border-radius: 16px;
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.28);
+  padding: 0.85rem 1.15rem;
+  color: #ffffff;
+  animation: hudSlideUp 0.32s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes hudSlideUp {
+  from { opacity: 0; transform: translate(-50%, 20px); }
+  to { opacity: 1; transform: translate(-50%, 0); }
+}
+
+.farmer-voice-hud-inner {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+}
+
+.voice-hud-indicator {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 0.35rem 0.55rem;
+  border-radius: 9999px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.voice-hud-speaker {
+  font-size: 1.05rem;
+}
+
+.voice-hud-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.voice-hud-title {
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #74c69d;
+  margin-bottom: 2px;
+}
+
+.voice-hud-text {
+  font-size: 0.86rem;
+  line-height: 1.35;
+  color: #f0fdf4;
+  max-height: 52px;
+  overflow-y: auto;
+}
+
+.btn-voice-hud-stop {
+  background: rgba(220, 38, 38, 0.88);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 9999px;
+  padding: 0.4rem 0.85rem;
+  font-size: 0.78rem;
+  font-weight: 700;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.btn-voice-hud-stop:hover {
+  background: #dc2626;
+  transform: scale(1.04);
+}

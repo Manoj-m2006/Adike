@@ -65,11 +65,32 @@
   };
 
   let activeVoiceButton = null;
+  let activeAudioPlayer = null;
+  let activeUtterance = null;
 
   function stopFarmerVoice() {
-    if ('speechSynthesis' in window) {
-      window.speechSynthesis.cancel();
+    // 1. Stop HTML5 Cloud Audio
+    if (activeAudioPlayer) {
+      try {
+        activeAudioPlayer.pause();
+        activeAudioPlayer.currentTime = 0;
+      } catch (e) {}
+      activeAudioPlayer = null;
     }
+
+    // 2. Stop Web Speech Synthesis
+    if ('speechSynthesis' in window) {
+      try {
+        window.speechSynthesis.cancel();
+      } catch (e) {}
+    }
+    activeUtterance = null;
+
+    // 3. Hide Subtitle HUD
+    const hud = document.getElementById('farmer-voice-hud');
+    if (hud) hud.style.display = 'none';
+
+    // 4. Reset Header Button
     const headerBtn = document.getElementById('sound-toggle-btn');
     if (headerBtn) {
       headerBtn.classList.remove('speaking');
@@ -80,6 +101,8 @@
         lbl.textContent = I18N_STRINGS[currentLang].voice_assist_nav_label || 'Voice Assist';
       }
     }
+
+    // 5. Reset triggering button
     if (activeVoiceButton) {
       activeVoiceButton.classList.remove('speaking');
       const label = activeVoiceButton.querySelector('[data-i18n]');
@@ -91,36 +114,84 @@
     }
   }
 
-  function speakFarmerAssistance(text, btnElement = null, lang = currentLang) {
-    if (!('speechSynthesis' in window)) {
-      alert("Voice assistance: " + text);
-      return;
-    }
+  function isSpeakingNow() {
+    return !!activeAudioPlayer || (window.speechSynthesis && window.speechSynthesis.speaking);
+  }
 
-    if (window.speechSynthesis.speaking) {
+  function fallbackToNativeSpeech(text, lang) {
+    if (!('speechSynthesis' in window)) return;
+
+    try {
+      window.speechSynthesis.cancel();
+    } catch (e) {}
+
+    setTimeout(() => {
+      const utterance = new SpeechSynthesisUtterance(text);
+      activeUtterance = utterance; // Prevent V8 garbage collection bug!
+
+      const langTagMap = {
+        'kn': 'kn-IN',
+        'hi': 'hi-IN',
+        'ml': 'ml-IN',
+        'en': 'en-IN'
+      };
+      const targetTag = langTagMap[lang] || 'en-IN';
+
+      const voices = window.speechSynthesis.getVoices() || [];
+      let matchVoice = voices.find(v => v.lang.toLowerCase().replace('_', '-').startsWith(targetTag.toLowerCase()));
+      if (!matchVoice && (lang === 'kn' || lang === 'ml')) {
+        matchVoice = voices.find(v => v.lang.includes('IN') || v.lang.includes('hi'));
+      }
+      if (matchVoice) {
+        utterance.voice = matchVoice;
+        utterance.lang = matchVoice.lang;
+      } else {
+        utterance.lang = targetTag;
+      }
+
+      utterance.rate = 0.90;
+      utterance.pitch = 1.0;
+
+      utterance.onend = () => {
+        stopFarmerVoice();
+      };
+      utterance.onerror = (err) => {
+        console.warn('Native speech notice:', err);
+        stopFarmerVoice();
+      };
+
+      window.speechSynthesis.speak(utterance);
+    }, 40);
+  }
+
+  function speakFarmerAssistance(text, btnElement = null, lang = currentLang) {
+    // If already speaking, toggle off immediately
+    if (isSpeakingNow()) {
       stopFarmerVoice();
       return;
     }
 
     stopFarmerVoice();
 
-    const utterance = new SpeechSynthesisUtterance(text);
-    const langTagMap = {
-      'kn': 'kn-IN',
-      'hi': 'hi-IN',
-      'ml': 'ml-IN',
-      'en': 'en-IN'
-    };
-    utterance.lang = langTagMap[lang] || 'en-US';
-    utterance.rate = 0.92; // farmer-friendly clear cadence
-    utterance.pitch = 1.0;
+    // Visual Haptic Click Cue
+    playSoundCue('click');
 
-    const voices = window.speechSynthesis.getVoices();
-    const targetTag = langTagMap[lang] || 'en';
-    const match = voices.find(v => v.lang.startsWith(targetTag) || v.lang.startsWith(lang));
-    if (match) utterance.voice = match;
+    const cleanText = text.replace(/[*#_]/g, '').trim();
 
-    // Update Header Button
+    // 1. Show Farmer Live Subtitle HUD
+    const hud = document.getElementById('farmer-voice-hud');
+    const hudText = document.getElementById('voice-hud-text');
+    if (hud && hudText) {
+      hudText.textContent = cleanText;
+      hud.style.display = 'block';
+      const stopBtn = document.getElementById('voice-hud-stop-btn');
+      if (stopBtn && !stopBtn.hasAttribute('data-wired')) {
+        stopBtn.setAttribute('data-wired', 'true');
+        stopBtn.addEventListener('click', stopFarmerVoice);
+      }
+    }
+
+    // 2. Update Header Button Status
     const headerBtn = document.getElementById('sound-toggle-btn');
     if (headerBtn) {
       headerBtn.classList.add('speaking');
@@ -132,23 +203,51 @@
       }
     }
 
+    // 3. Update Triggering Button Status
     if (btnElement) {
       activeVoiceButton = btnElement;
       btnElement.classList.add('speaking');
       const label = btnElement.querySelector('[data-i18n]');
       if (label && I18N_STRINGS[lang]) {
-        label.textContent = I18N_STRINGS[lang].stop_voice_btn || '⏹ Stop Voice Audio';
+        label.textContent = I18N_STRINGS[lang].stop_voice_btn || '⏹ Stop Audio';
       }
     }
 
-    utterance.onend = () => {
-      stopFarmerVoice();
+    // 4. Primary High-Definition Regional Audio Stream (Google TTS Audio)
+    // Works for Kannada (kn), Hindi (hi), Malayalam (ml), English (en)
+    const langCode = (lang === 'kn' || lang === 'hi' || lang === 'ml') ? lang : 'en';
+    const encodedQuery = encodeURIComponent(cleanText.slice(0, 195));
+    const cloudAudioUrl = `https://translate.google.com/translate_tts?ie=UTF-8&tl=${langCode}&client=tw-ob&q=${encodedQuery}`;
+
+    const audio = new Audio();
+    activeAudioPlayer = audio;
+    audio.src = cloudAudioUrl;
+
+    let hasAudioStarted = false;
+
+    audio.onplay = () => {
+      hasAudioStarted = true;
+      console.log(`[ArecaLens Voice] Playing regional voice audio (${langCode})`);
     };
-    utterance.onerror = () => {
+
+    audio.onended = () => {
       stopFarmerVoice();
     };
 
-    window.speechSynthesis.speak(utterance);
+    audio.onerror = (e) => {
+      console.warn('[ArecaLens Voice] Cloud stream error, switching to native speech synthesis:', e);
+      if (!hasAudioStarted) {
+        fallbackToNativeSpeech(cleanText, lang);
+      }
+    };
+
+    const playPromise = audio.play();
+    if (playPromise !== undefined) {
+      playPromise.catch((err) => {
+        console.warn('[ArecaLens Voice] Autoplay blocked, falling back to native WebSpeech:', err);
+        fallbackToNativeSpeech(cleanText, lang);
+      });
+    }
   }
 
   // Get Spoken Voice Text for Any Current Page
@@ -621,10 +720,11 @@ document.addEventListener('DOMContentLoaded', function () {
     "vguide_dist_bad_desc": "Too far away; leaf spots or rot cannot be resolved",
     "listen_tips_btn": "🔊 Listen to Photo Guidelines",
     "listen_result_btn": "🔊 Listen to Diagnosis & Care Advisory",
-    "stop_voice_btn": "⏹ Stop Voice Audio",
+    "stop_voice_btn": "Stop Audio",
     "voice_assist_nav_label": "Voice Assist",
     "voice_assist_speaking": "Speaking...",
-    "voice_assist_paused": "Voice Assist"
+    "voice_assist_paused": "Voice Assist",
+    "voice_hud_active_title": "Voice Assistant Speaking..."
   },
   "kn": {
     "brand_name": "ಅಡಿಕೆಲೆನ್ಸ್ (ArecaLens)",
@@ -901,10 +1001,11 @@ document.addEventListener('DOMContentLoaded', function () {
     "vguide_dist_bad_desc": "ತುಂಬಾ ದೂರ; ಎಲೆಯ ಕಲೆ ಅಥವಾ ಹಣ್ಣು ಕೊಳೆ ತಿಳಿಯಲು ಅಸಾಧ್ಯ",
     "listen_tips_btn": "🔊 ಫೋಟೋ ಮಾರ್ಗದರ್ಶನ ಆಲಿಸಿ",
     "listen_result_btn": "🔊 ರೋಗ ತಪಾಸಣೆ & ಪರಿಹಾರ ಆಲಿಸಿ",
-    "stop_voice_btn": "⏹ ಧ್ವನಿ ನಿಲ್ಲಿಸಿ",
+    "stop_voice_btn": "ನಿಲ್ಲಿಸಿ",
     "voice_assist_nav_label": "ಧ್ವನಿ ಸಹಾಯಕ",
     "voice_assist_speaking": "ಮಾತನಾಡುತ್ತಿದೆ...",
-    "voice_assist_paused": "ಧ್ವನಿ ಸಹಾಯಕ"
+    "voice_assist_paused": "ಧ್ವನಿ ಸಹಾಯಕ",
+    "voice_hud_active_title": "ಧ್ವನಿ ಮಾರ್ಗದರ್ಶಿ ಮಾತನಾಡುತ್ತಿದೆ..."
   },
   "hi": {
     "brand_name": "अरेकालेंस (ArecaLens)",
@@ -1181,10 +1282,11 @@ document.addEventListener('DOMContentLoaded', function () {
     "vguide_dist_bad_desc": "ज्यादा दूर होने से पत्ती या फल के रोग नहीं दिखते",
     "listen_tips_btn": "🔊 फोटो निर्देश सुनें",
     "listen_result_btn": "🔊 रोग जांच और उपचार सुनें",
-    "stop_voice_btn": "⏹ आवाज रोकें",
+    "stop_voice_btn": "रोकें",
     "voice_assist_nav_label": "ध्वनि सहायक",
     "voice_assist_speaking": "बोल रहा है...",
-    "voice_assist_paused": "ध्वनि सहायक"
+    "voice_assist_paused": "ध्वनि सहायक",
+    "voice_hud_active_title": "ध्वनि सहायक बोल रहा है..."
   },
   "ml": {
     "brand_name": "അരേക്കലെൻസ് (ArecaLens)",
@@ -1460,10 +1562,11 @@ document.addEventListener('DOMContentLoaded', function () {
     "vguide_dist_bad_desc": "വളരെ അകലെയായതിനാൽ ഇലയിലെ പാടുകളോ ചീയലോ തിരിച്ചറിയാനാവില്ല",
     "listen_tips_btn": "🔊 ഫോട്ടോ നിർദ്ദേശങ്ങൾ കേൾക്കുക",
     "listen_result_btn": "🔊 രോഗ നിർണ്ണയവും പ്രതിവിധിയും കേൾക്കുക",
-    "stop_voice_btn": "⏹ ശബ്ദം നിർത്തുക",
+    "stop_voice_btn": "നിർത്തുക",
     "voice_assist_nav_label": "ശബ്ദ സഹായി",
     "voice_assist_speaking": "സംസാരിക്കുന്നു...",
-    "voice_assist_paused": "ശബ്ദ സഹായി"
+    "voice_assist_paused": "ശബ്ദ സഹായി",
+    "voice_hud_active_title": "ശബ്ദ സഹായി സംസാരിക്കുന്നു..."
   }
 };
 
