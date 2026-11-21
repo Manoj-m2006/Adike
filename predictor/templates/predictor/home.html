@@ -573,6 +573,131 @@
     align-items: center;
     color: #39664B;
   }
+
+/* Visual Photo Guide: Side-by-Side Comparison */
+.visual-guide-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 0.95rem;
+}
+.visual-comparison-columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.85rem;
+}
+@media (max-width: 680px) {
+  .visual-comparison-columns {
+    grid-template-columns: 1fr;
+  }
+}
+.guide-col {
+  border-radius: 12px;
+  padding: 0.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+.guide-col-correct {
+  background: #f2f9f5;
+  border: 1.5px solid #b7e4c7;
+}
+.guide-col-wrong {
+  background: #fdf5f5;
+  border: 1.5px solid #f8c9c9;
+}
+.guide-col-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 0.35rem;
+  border-bottom: 1px solid rgba(0,0,0,0.06);
+}
+.guide-col-badge {
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  padding: 0.2rem 0.55rem;
+  border-radius: 9999px;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+.badge-correct {
+  background: #d8f3dc;
+  color: #1b4332;
+  border: 1px solid #95d5b2;
+}
+.badge-wrong {
+  background: #fde8e8;
+  color: #991b1b;
+  border: 1px solid #f8a5a5;
+}
+.guide-col-title {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #4a5568;
+}
+.guide-photo-card {
+  background: #ffffff;
+  border-radius: 9px;
+  overflow: hidden;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  display: flex;
+  flex-direction: column;
+  border: 1px solid rgba(0,0,0,0.06);
+}
+.guide-photo-img-wrap {
+  width: 100%;
+  height: 115px;
+  position: relative;
+  overflow: hidden;
+  background: #e2e8f0;
+}
+.guide-photo-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.25s ease;
+}
+.guide-photo-card:hover .guide-photo-img {
+  transform: scale(1.04);
+}
+.guide-photo-status-tag {
+  position: absolute;
+  top: 6px;
+  left: 6px;
+  font-size: 0.65rem;
+  font-weight: 700;
+  padding: 2px 7px;
+  border-radius: 4px;
+  backdrop-filter: blur(4px);
+}
+.status-tag-ok {
+  background: rgba(36, 107, 80, 0.92);
+  color: #ffffff;
+}
+.status-tag-bad {
+  background: rgba(185, 28, 28, 0.92);
+  color: #ffffff;
+}
+.guide-photo-caption {
+  padding: 0.5rem 0.6rem;
+}
+.guide-photo-label {
+  font-size: 0.76rem;
+  font-weight: 700;
+  color: #1a202c;
+  line-height: 1.25;
+}
+.guide-photo-desc {
+  font-size: 0.68rem;
+  color: #718096;
+  margin-top: 2px;
+  line-height: 1.2;
+}
+
 </style>
 
 <script>
@@ -985,94 +1110,81 @@ function switchGuideTab(type) {
         <div class="card-top-header">
           <div class="card-title-group">
             <h2 style="display: flex; align-items: center; gap: 0.6rem;">
-              <span data-i18n="photo_guide_title">Photography Guide for Accurate Diagnosis</span>
+              <span data-i18n="vguide_title">Visual Capture Guide: Correct vs Wrong Angles</span>
             </h2>
-            <p data-i18n="photo_guide_desc">Diagnostic accuracy depends on capture quality. Follow these field guidelines:</p>
+            <p data-i18n="vguide_sub">Follow these side-by-side photographic examples for best neural diagnosis:</p>
           </div>
-          <span class="tag-badge" style="background: rgba(36, 107, 80, 0.1); color: #246B50; border-color: rgba(36, 107, 80, 0.25);" data-i18n="badge_field_guide">FIELD GUIDE</span>
+          <span class="tag-badge" style="background: rgba(36, 107, 80, 0.1); color: #246B50; border-color: rgba(36, 107, 80, 0.25);" data-i18n="vguide_badge">VISUAL GUIDE</span>
         </div>
 
-        <!-- Interactive Specimen Target Switcher Tabs -->
-        <div class="photo-guide-switcher">
-          <button type="button" class="guide-switch-btn active" id="guide-tab-leaf" onclick="switchGuideTab('leaf')" data-i18n="tab_leaf_guide">
-             Frond / Leaf Guide
-          </button>
-          <button type="button" class="guide-switch-btn" id="guide-tab-nut" onclick="switchGuideTab('nut')" data-i18n="tab_nut_guide">
-             Nut Cluster Guide
-          </button>
-        </div>
+        <!-- Side-by-Side Comparison Columns: Correct vs Wrong -->
+        <div class="visual-guide-wrap">
+          <div class="visual-comparison-columns">
+            
+            <!-- LEFT COLUMN: CORRECT CAPTURES (GREEN) -->
+            <div class="guide-col guide-col-correct">
+              <div class="guide-col-header">
+                <span class="guide-col-badge badge-correct" data-i18n="vguide_correct_badge">✔ CORRECT (DO THIS)</span>
+                <span class="guide-col-title" data-i18n="vguide_correct_sub">Close-Up Macro</span>
+              </div>
 
-        <!-- Dynamic Guide Content 1: Leaf Guide -->
-        <div id="guide-content-leaf" class="guide-tab-content active">
-          <div class="guide-focus-box">
-            <div class="guide-focus-header">
-              <span class="focus-badge" data-i18n="badge_target_area">TARGET AREA</span>
-              <strong data-i18n="leaf_targets_title">Leaf Frond Diagnostic Targets:</strong>
-            </div>
-            <ul class="guide-focus-points">
-              <li data-i18n-html="leaf_target_1"><strong>Leaflet Margins:</strong> Capture where yellow chlorosis starts at leaflet tips (key indicator of YLD).</li>
-              <li data-i18n-html="leaf_target_2"><strong>Lamina &amp; Midrib:</strong> Show the contrast between yellowing blade tissue and green veins.</li>
-              <li data-i18n-html="leaf_target_3"><strong>Avoid Backlighting:</strong> Do not photograph against harsh sky glare; angle camera looking down or sideways.</li>
-            </ul>
-          </div>
-        </div>
+              <!-- Photo 1: Correct Leaf -->
+              <div class="guide-photo-card">
+                <div class="guide-photo-img-wrap">
+                  <img src="{% static 'predictor/img/guide/correct_leaf.jpg' %}" alt="Correct Leaf Macro Capture" class="guide-photo-img" loading="lazy">
+                  <span class="guide-photo-status-tag status-tag-ok">✔ 15–30 cm</span>
+                </div>
+                <div class="guide-photo-caption">
+                  <div class="guide-photo-label" data-i18n="vguide_leaf_ok_label">Close-up Leaf &amp; Lesion</div>
+                  <div class="guide-photo-desc" data-i18n="vguide_leaf_ok_desc">15–30 cm macro, clear veins and chlorosis</div>
+                </div>
+              </div>
 
-        <!-- Dynamic Guide Content 2: Nut Guide -->
-        <div id="guide-content-nut" class="guide-tab-content" style="display: none;">
-          <div class="guide-focus-box">
-            <div class="guide-focus-header">
-              <span class="focus-badge" data-i18n="badge_target_area">TARGET AREA</span>
-              <strong data-i18n="nut_targets_title">Nut Bunch Diagnostic Targets:</strong>
+              <!-- Photo 2: Correct Nut Cluster -->
+              <div class="guide-photo-card">
+                <div class="guide-photo-img-wrap">
+                  <img src="{% static 'predictor/img/guide/correct_nut.jpg' %}" alt="Correct Nut Bunch Capture" class="guide-photo-img" loading="lazy">
+                  <span class="guide-photo-status-tag status-tag-ok">✔ Sharp Bunch</span>
+                </div>
+                <div class="guide-photo-caption">
+                  <div class="guide-photo-label" data-i18n="vguide_nut_ok_label">Sharp Nut Cluster</div>
+                  <div class="guide-photo-desc" data-i18n="vguide_nut_ok_desc">Clear calyx / stalk attachment, diffuse light</div>
+                </div>
+              </div>
             </div>
-            <ul class="guide-focus-points">
-              <li data-i18n-html="nut_target_1"><strong>Calyx / Perianth End:</strong> Focus on the stalk attachment point where dark water-soaked rot initiates.</li>
-              <li data-i18n-html="nut_target_2"><strong>Fruit Cluster Overview:</strong> Include 5–10 nuts to display shedding severity and button detachment.</li>
-              <li data-i18n-html="nut_target_3"><strong>Mycelial Growth:</strong> Inspect fallen nuts for telltale white cottony fungal felts (Koleroga oospores).</li>
-            </ul>
-          </div>
-        </div>
 
-        <!-- Visual Do's vs Don'ts Comparison Grid -->
-        <div class="dodont-comparison-grid">
-          <div class="dodont-col do-col">
-            <div class="dodont-badge do-badge" data-i18n="dodont_do_title">DO THIS</div>
-            <ul class="dodont-list">
-              <li data-i18n="dodont_do_1">Natural diffuse daylight (avoids harsh shadows)</li>
-              <li data-i18n="dodont_do_2">15–30 cm close-up macro (fill 70%+ of frame)</li>
-              <li data-i18n="dodont_do_3">Single leaf or nut bunch sharply focused</li>
-              <li data-i18n="dodont_do_4">Steady hands or rested camera for crisp venation</li>
-            </ul>
-          </div>
-          <div class="dodont-col dont-col">
-            <div class="dodont-badge dont-badge" data-i18n="dodont_dont_title">AVOID THIS</div>
-            <ul class="dodont-list">
-              <li data-i18n="dodont_dont_1">Fingers or hands covering lesions or calyx</li>
-              <li data-i18n="dodont_dont_2">Blurry focus or camera shake from wind</li>
-              <li data-i18n="dodont_dont_3">Direct harsh flash causing glare whiteout</li>
-              <li data-i18n="dodont_dont_4">Distant photo of the entire palm tree</li>
-            </ul>
-          </div>
-        </div>
+            <!-- RIGHT COLUMN: WRONG CAPTURES (RED) -->
+            <div class="guide-col guide-col-wrong">
+              <div class="guide-col-header">
+                <span class="guide-col-badge badge-wrong" data-i18n="vguide_wrong_badge">✖ WRONG (AVOID THIS)</span>
+                <span class="guide-col-title" data-i18n="vguide_wrong_sub">Blurry or Distant</span>
+              </div>
 
-        <!-- Live AI Quality Checklist Badges -->
-        <div class="ai-quality-checklist">
-          <div class="quality-badge-item">
-            <div class="quality-text">
-              <strong data-i18n="spec_diffuse_title">Diffuse Daylight</strong>
-              <span data-i18n="spec_diffuse_sub">High Contrast</span>
+              <!-- Photo 1: Wrong Blurry / Shake -->
+              <div class="guide-photo-card">
+                <div class="guide-photo-img-wrap">
+                  <img src="{% static 'predictor/img/guide/wrong_blurry.jpg' %}" alt="Wrong Blurry Capture" class="guide-photo-img" loading="lazy">
+                  <span class="guide-photo-status-tag status-tag-bad">✖ Blurry</span>
+                </div>
+                <div class="guide-photo-caption">
+                  <div class="guide-photo-label" data-i18n="vguide_blur_bad_label">Motion Blur / Out of Focus</div>
+                  <div class="guide-photo-desc" data-i18n="vguide_blur_bad_desc">Camera shake or wind; lesion texture is lost</div>
+                </div>
+              </div>
+
+              <!-- Photo 2: Wrong Distant Tree -->
+              <div class="guide-photo-card">
+                <div class="guide-photo-img-wrap">
+                  <img src="{% static 'predictor/img/guide/wrong_distant.jpg' %}" alt="Wrong Distant Tree Capture" class="guide-photo-img" loading="lazy">
+                  <span class="guide-photo-status-tag status-tag-bad">✖ Too Far</span>
+                </div>
+                <div class="guide-photo-caption">
+                  <div class="guide-photo-label" data-i18n="vguide_dist_bad_label">Distant Whole Palm Tree</div>
+                  <div class="guide-photo-desc" data-i18n="vguide_dist_bad_desc">Too far away; leaf spots or rot cannot be resolved</div>
+                </div>
+              </div>
             </div>
-          </div>
-          <div class="quality-badge-item">
-            <div class="quality-text">
-              <strong data-i18n="spec_macro_title">Macro 1:1 Focus</strong>
-              <span data-i18n="spec_macro_sub">Min 224px Crop</span>
-            </div>
-          </div>
-          <div class="quality-badge-item">
-            <div class="quality-text">
-              <strong data-i18n="spec_angle_title">Direct 45° Angle</strong>
-              <span data-i18n="spec_angle_sub">Clean Background</span>
-            </div>
+
           </div>
         </div>
 
