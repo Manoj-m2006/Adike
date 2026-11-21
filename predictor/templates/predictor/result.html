@@ -1,7 +1,7 @@
 {% extends "predictor/base.html" %}
 {% load static %}
 
-{% block title %}Screening Result: {{ prediction.predicted_display_name }} | PūgaNetra Compendium{% endblock %}
+{% block title %}Screening Result: {{ prediction.predicted_display_name }} | ArecaLens Compendium{% endblock %}
 
 {% block content %}
 <div class="book-wrapper">
@@ -221,7 +221,7 @@
              LEFT CARD: PATHOLOGY, DIAGNOSTIC SYMPTOMS & IMMEDIATE ACTIONS
              Balances visual layout with right card cure & prevention protocol
              ========================================================================= -->
-        <div class="class-intel-box left-intel-box">
+        <div class="class-intel-box left-intel-box" id="result-left-intel-box">
 
           {% if 'mahali' in prediction.predicted_display_name|lower or 'koleroga' in prediction.predicted_display_name|lower or 'mahali' in prediction.predicted_class|lower %}
           <!-- MAHALI / KOLEROGA: DIAGNOSIS & SYMPTOMS -->
@@ -491,7 +491,7 @@
              RIGHT CARD: COMPREHENSIVE CLASS DETAILS & DISEASE PREVENTION
              Fills the right side empty space with complete agronomic guidance
              ========================================================================= -->
-        <div class="class-intel-box right-intel-box">
+        <div class="class-intel-box right-intel-box" id="result-right-intel-box">
 
           {% if 'mahali' in prediction.predicted_display_name|lower or 'koleroga' in prediction.predicted_display_name|lower or 'mahali' in prediction.predicted_class|lower %}
           <!-- MAHALI / KOLEROGA: TREATMENT, PREVENTION & CURE -->
@@ -702,10 +702,10 @@
           <header class="report-header">
             <div class="report-header-brand">
               <div class="report-logo-box">
-                <img src="{% static 'predictor/img/puganetra_logo.jpg' %}" alt="PūgaNetra Logo" class="report-logo-img">
+                <img src="{% static 'predictor/img/puganetra_logo.jpg' %}" alt="ArecaLens Logo" class="report-logo-img">
               </div>
               <div>
-                <div class="report-brand-name">PūgaNetra <span class="report-devanagari">पूगनेत्र</span></div>
+                <div class="report-brand-name">ArecaLens <span class="report-devanagari"></span></div>
                 <div class="report-brand-sub">AI-Driven Arecanut Disease Intelligence</div>
               </div>
             </div>
@@ -745,7 +745,7 @@
                   <img src="{{ image_data_uri }}" alt="Submitted Specimen Photo" class="report-plate-img">
                 </div>
                 <div class="report-plate-title">Your Specimen Photo</div>
-                <div class="report-plate-desc">Uploaded leaf or nut specimen analyzed by PūgaNetra.</div>
+                <div class="report-plate-desc">Uploaded leaf or nut specimen analyzed by ArecaLens.</div>
               </div>
 
               <div class="report-plate">
@@ -829,10 +829,10 @@
           <!-- 5. CLEAN ADVISORY FOOTER -->
           <footer class="report-footer">
             <div class="report-footer-note">
-              <strong>PūgaNetra Farm Advisory Notice:</strong> This report provides direct guidance based on computer vision screening of your specimen. Recommendations reflect proven agronomic practices for arecanut cultivation. Adjust water and fertilizer quantities according to your local soil texture and seasonal rainfall.
+              <strong>ArecaLens Farm Advisory Notice:</strong> This report provides direct guidance based on computer vision screening of your specimen. Recommendations reflect proven agronomic practices for arecanut cultivation. Adjust water and fertilizer quantities according to your local soil texture and seasonal rainfall.
             </div>
             <div class="report-footer-meta">
-              <span>PūgaNetra (पूगनेत्र) — Intelligence Rooted in Agriculture</span>
+              <span>ArecaLens — Intelligence Rooted in Agriculture</span>
               <span>Report Generated On-Demand</span>
             </div>
           </footer>

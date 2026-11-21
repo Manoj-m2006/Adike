@@ -5,8 +5,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" type="image/jpeg" href="{% static 'predictor/img/puganetra_logo.jpg' %}">
-  <meta name="description" content="PūgaNetra (पूगनेत्र) — AI-Driven Arecanut Disease Intelligence & Explainable Grad-CAM Diagnosis.">
-  <title>{% block title %}PūgaNetra (पूगनेत्र){% endblock %} | AI-Driven Arecanut Disease Intelligence</title>
+  <meta name="description" content="ArecaLens — Intelligence rooted in agriculture. AI-Driven Arecanut Disease Intelligence & Explainable Grad-CAM Diagnosis.">
+  <title>{% block title %}ArecaLens{% endblock %} | Intelligence rooted in agriculture.</title>
   
   <!-- Editorial Typography: Instrument Serif (Headings) & IBM Plex Sans (Body) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -151,16 +151,17 @@
   <header class="site-header" id="site-header">
     <div class="container header-inner">
       <!-- Brand Logo -->
-      <a href="{% url 'predictor:home' %}" class="brand" id="brand-home-link" title="PūgaNetra Home">
+      <a href="{% url 'predictor:home' %}" class="brand" id="brand-home-link" title="ArecaLens Home">
         <div class="brand-icon">
-          <img src="{% static 'predictor/img/puganetra_logo.jpg' %}" alt="PūgaNetra Official Logo" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="width:18px;height:18px;max-width:18px;max-height:18px;">
+            <path d="M12 2L12 22"></path>
+            <path d="M12 7C8 7 4 9 4 13C4 17 8 19 12 19"></path>
+            <path d="M12 7C16 7 20 9 20 13C20 17 16 19 12 19"></path>
+          </svg>
         </div>
         <div style="display: flex; flex-direction: column;">
-          <div style="display: flex; align-items: center; gap: 0.55rem; line-height: 1;">
-            <span class="brand-name">PūgaNetra</span>
-            <span class="brand-devanagari">पूगनेत्र</span>
-          </div>
-          <div class="brand-tagline" data-i18n="brand_tagline">AI-Driven Arecanut Disease Intelligence</div>
+          <span class="brand-name">ArecaLens</span>
+          <div class="brand-tagline" data-i18n="brand_tagline">Intelligence rooted in agriculture.</div>
         </div>
       </a>
 
@@ -257,7 +258,7 @@
             <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
           </svg>
         </div>
-        <div class="modal-emblem-badge" data-i18n="modal_badge">PŪGANETRA MULTILINGUAL AI</div>
+        <div class="modal-emblem-badge" data-i18n="modal_badge">ARECALENS MULTILINGUAL AI</div>
         <h3 id="lang-modal-title" class="lang-modal-title" data-i18n="lang_modal_title">Choose your language</h3>
         <p class="lang-modal-sub" data-i18n="lang_modal_sub">Choose the language you are comfortable with. All pages translate instantly.</p>
 
@@ -338,7 +339,7 @@
             </svg>
           </div>
           <div>
-            <div class="modal-emblem-badge" data-i18n="modal_badge">PŪGANETRA HISTORY</div>
+            <div class="modal-emblem-badge" data-i18n="modal_badge">ARECALENS HISTORY</div>
             <h3 id="history-modal-title" class="history-modal-title" data-i18n="history_title">Your recent observations</h3>
             <p class="history-modal-sub" data-i18n="history_sub">The latest eight scans on this device. Clearing browser data removes them.</p>
           </div>
@@ -393,7 +394,7 @@
   <footer class="site-footer">
     <div class="container footer-inner">
       <div class="footer-brand" style="display: flex; align-items: center; gap: 0.55rem;">
-        <img src="{% static 'predictor/img/puganetra_logo.jpg' %}" alt="PūgaNetra" style="width: 22px; height: 22px; border-radius: 6px; object-fit: cover; display: block;">
+        <img src="{% static 'predictor/img/puganetra_logo.jpg' %}" alt="ArecaLens" style="width: 22px; height: 22px; border-radius: 6px; object-fit: cover; display: block;">
         <span>PūgaNetra</span>
       </div>
       <div>
@@ -412,7 +413,7 @@
        ========================================================================= -->
   <div id="areca-chat-widget" class="areca-chat-widget">
     <!-- Floating Trigger Pill -->
-    <button type="button" id="areca-chat-trigger" class="areca-chat-trigger" aria-label="Open PūgaNetra Agronomy AI Assistant" title="Ask Preloaded Agronomy AI">
+    <button type="button" id="areca-chat-trigger" class="areca-chat-trigger" aria-label="Open ArecaLens Agronomy AI Assistant" title="Ask Preloaded Agronomy AI">
       <div class="chat-trigger-icon">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
           <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
@@ -430,10 +431,10 @@
       <div class="chat-drawer-header">
         <div class="chat-header-info">
           <div class="chat-avatar-icon" style="overflow: hidden; padding: 0;">
-            <img src="{% static 'predictor/img/puganetra_logo.jpg' %}" alt="PūgaNetra Assistant" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+            <img src="{% static 'predictor/img/puganetra_logo.jpg' %}" alt="ArecaLens Assistant" style="width: 100%; height: 100%; object-fit: cover; display: block;">
           </div>
           <div>
-            <h3 id="chat-drawer-title" class="chat-drawer-title">PūgaNetra Agronomy AI</h3>
+            <h3 id="chat-drawer-title" class="chat-drawer-title">ArecaLens Agronomy AI</h3>
             <div class="chat-drawer-sub">
               <span class="chat-online-dot"></span>
               <span data-i18n="chat_status_desc">Preloaded Knowledge &amp; ICAR-CPCRI Standards</span>
@@ -447,11 +448,11 @@
 
       <!-- Quick Suggested Prompt Chips -->
       <div class="chat-quick-chips-bar" id="chat-quick-chips">
-        <button type="button" class="chat-chip-btn" data-query="How to prepare 1% Bordeaux mixture?">1% Bordeaux recipe</button>
-        <button type="button" class="chat-chip-btn" data-query="How to prevent Koleroga / Mahali?">Koleroga prevention</button>
-        <button type="button" class="chat-chip-btn" data-query="Annual fertilizer schedule for arecanut">Fertilizer schedule</button>
-        <button type="button" class="chat-chip-btn" data-query="Yellow Leaf Disease management tips">Yellow Leaf Disease</button>
-        <button type="button" class="chat-chip-btn" data-query="Irrigation water requirement in summer">Irrigation requirements</button>
+        <button type="button" class="chat-chip-btn" data-query="How to prepare 1% Bordeaux mixture?" data-i18n="chip_bordeaux">1% Bordeaux recipe</button>
+        <button type="button" class="chat-chip-btn" data-query="How to prevent Koleroga / Mahali?" data-i18n="chip_koleroga">Koleroga prevention</button>
+        <button type="button" class="chat-chip-btn" data-query="Annual fertilizer schedule for arecanut" data-i18n="chip_fertilizer">Fertilizer schedule</button>
+        <button type="button" class="chat-chip-btn" data-query="Yellow Leaf Disease management tips" data-i18n="chip_yld">Yellow Leaf Disease</button>
+        <button type="button" class="chat-chip-btn" data-query="Irrigation water requirement in summer" data-i18n="chip_irrigation">Irrigation requirements</button>
       </div>
 
       <!-- Messages Scroll Area -->
@@ -459,7 +460,7 @@
         <!-- Default Welcome Message from the Agent -->
         <div class="chat-msg msg-assistant">
           <div class="msg-bubble">
-            <div class="msg-author-tag">PūgaNetra AI Agent</div>
+            <div class="msg-author-tag">ArecaLens AI Agent</div>
             <p data-i18n="chat_welcome_msg">Welcome! I am your preloaded Arecanut Agronomy Assistant. Ask me anything about Koleroga, Yellow Leaf Disease, 1% Bordeaux mixture preparation, fertilizer schedules, or field care.</p>
           </div>
           <div class="msg-timestamp">Just now</div>

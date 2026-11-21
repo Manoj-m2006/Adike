@@ -1,7 +1,7 @@
 {% extends "predictor/base.html" %}
 {% load static %}
 
-{% block title %}PūgaNetra (पूगनेत्र) — AI-Driven Arecanut Disease Intelligence{% endblock %}
+{% block title %}ArecaLens — Intelligence rooted in agriculture.{% endblock %}
 
 {% block extra_css %}
 <style>
@@ -654,17 +654,22 @@ function switchGuideTab(type) {
         <!-- PANE 1: Intro / Get Started (Left initially) -->
         <div class="split-pane pane-intro">
           <!-- Brand Row (Clean, Large, Highlighted, No Box) -->
+          <!-- Brand Row (Clean, Large, Highlighted, No Box) -->
           <div class="split-brand-row">
             <div class="split-brand-icon">
-              <img src="{% static 'predictor/img/puganetra_logo.jpg' %}" alt="PūgaNetra Official Logo" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 2L12 22"></path>
+                <path d="M12 7C8 7 4 9 4 13C4 17 8 19 12 19"></path>
+                <path d="M12 7C16 7 20 9 20 13C20 17 16 19 12 19"></path>
+              </svg>
             </div>
             <div style="display: flex; flex-direction: column;">
               <div style="display: flex; align-items: baseline; gap: 0.65rem; line-height: 1;">
-                <span class="split-brand-name">PūgaNetra</span>
-                <span class="split-brand-native">पूगनेत्र</span>
+                <span class="split-brand-name">ArecaLens</span>
               </div>
-              <div class="split-brand-tagline">AI-Driven Arecanut Disease Intelligence</div>
+              <span class="split-brand-sub" data-i18n="brand_tagline">Intelligence rooted in agriculture.</span>
             </div>
+          </div>
           </div>
 
           <!-- Eyebrow -->
@@ -744,7 +749,7 @@ function switchGuideTab(type) {
         <div class="split-pane pane-picture">
           <img 
             src="{% static 'predictor/img/arecanut_palm_hero.jpg' %}" 
-            alt="PūgaNetra (पूगनेत्र) - Arecanut Palm Health" 
+            alt="ArecaLens - Arecanut Palm Health" 
             class="hero-scanner-art-img"
             width="935"
             height="1024"
@@ -931,45 +936,45 @@ function switchGuideTab(type) {
           <div class="sample-specimens-suite modern-sample-suite">
             <div class="sample-suite-header">
               <div class="sample-suite-title">
-                 <strong>Try Instant Test Samples:</strong>
+                 <strong data-i18n="samples_title">Try Instant Test Samples:</strong>
               </div>
-              <span class="sample-suite-sub">Click any card to auto-load &amp; test instantly</span>
+              <span class="sample-suite-sub" data-i18n="samples_sub">Click any card to auto-load &amp; test instantly</span>
             </div>
             <div class="sample-cards-grid">
               <button type="button" class="specimen-sample-btn sample-card-item sample-healthy-leaf" data-sample="healthy_leaf" title="Click to test with Healthy Leaf specimen">
-                <div class="sample-card-icon" style="font-size: 0.72rem; font-weight: 800; color: #2D6A4F; background: #E8F5EC; border-radius: 6px; padding: 2px 5px;">LEAF</div>
+                <div class="sample-card-icon" style="font-size: 0.72rem; font-weight: 800; color: #2D6A4F; background: #E8F5EC; border-radius: 6px; padding: 2px 5px;" data-i18n="sample_tag_leaf">LEAF</div>
                 <div class="sample-card-info">
-                  <div class="sample-card-name">Healthy Leaf</div>
-                  <div class="sample-card-sub">Normal Chlorophyll</div>
+                  <div class="sample-card-name" data-i18n="sample_healthy_leaf_title">Healthy Leaf</div>
+                  <div class="sample-card-sub" data-i18n="sample_healthy_leaf_sub">Normal Chlorophyll</div>
                 </div>
-                <span class="sample-card-tag tag-healthy">NORMAL</span>
+                <span class="sample-card-tag tag-healthy" data-i18n="sample_badge_normal">NORMAL</span>
               </button>
 
               <button type="button" class="specimen-sample-btn sample-card-item sample-healthy-nut" data-sample="healthy_nut" title="Click to test with Healthy Nut specimen">
-                <div class="sample-card-icon" style="font-size: 0.72rem; font-weight: 800; color: #2D6A4F; background: #E8F5EC; border-radius: 6px; padding: 2px 5px;">NUT</div>
+                <div class="sample-card-icon" style="font-size: 0.72rem; font-weight: 800; color: #2D6A4F; background: #E8F5EC; border-radius: 6px; padding: 2px 5px;" data-i18n="sample_tag_nut">NUT</div>
                 <div class="sample-card-info">
-                  <div class="sample-card-name">Healthy Nut</div>
-                  <div class="sample-card-sub">Intact Calyx Attachment</div>
+                  <div class="sample-card-name" data-i18n="sample_healthy_nut_title">Healthy Nut</div>
+                  <div class="sample-card-sub" data-i18n="sample_healthy_nut_sub">Intact Calyx Attachment</div>
                 </div>
-                <span class="sample-card-tag tag-healthy">OPTIMAL</span>
+                <span class="sample-card-tag tag-healthy" data-i18n="sample_badge_optimal">OPTIMAL</span>
               </button>
 
               <button type="button" class="specimen-sample-btn sample-card-item sample-mahali" data-sample="mahali" title="Click to test with Mahali Fruit Rot specimen">
-                <div class="sample-card-icon" style="font-size: 0.72rem; font-weight: 800; color: #9A3412; background: #FFEDD5; border-radius: 6px; padding: 2px 5px;">ROT</div>
+                <div class="sample-card-icon" style="font-size: 0.72rem; font-weight: 800; color: #9A3412; background: #FFEDD5; border-radius: 6px; padding: 2px 5px;" data-i18n="sample_tag_rot">ROT</div>
                 <div class="sample-card-info">
-                  <div class="sample-card-name">Mahali Rot</div>
-                  <div class="sample-card-sub">Fruit Rot / Koleroga</div>
+                  <div class="sample-card-name" data-i18n="sample_mahali_title">Mahali Rot</div>
+                  <div class="sample-card-sub" data-i18n="sample_mahali_sub">Fruit Rot / Koleroga</div>
                 </div>
-                <span class="sample-card-tag tag-danger">CRITICAL</span>
+                <span class="sample-card-tag tag-danger" data-i18n="sample_badge_critical">CRITICAL</span>
               </button>
 
               <button type="button" class="specimen-sample-btn sample-card-item sample-yld" data-sample="yld" title="Click to test with Yellow Leaf Disease specimen">
-                <div class="sample-card-icon" style="font-size: 0.72rem; font-weight: 800; color: #B45309; background: #FEF3C7; border-radius: 6px; padding: 2px 5px;">YLD</div>
+                <div class="sample-card-icon" style="font-size: 0.72rem; font-weight: 800; color: #B45309; background: #FEF3C7; border-radius: 6px; padding: 2px 5px;" data-i18n="sample_tag_yld">YLD</div>
                 <div class="sample-card-info">
-                  <div class="sample-card-name">Yellow Leaf</div>
-                  <div class="sample-card-sub">Margin Chlorosis (YLD)</div>
+                  <div class="sample-card-name" data-i18n="sample_yld_title">Yellow Leaf</div>
+                  <div class="sample-card-sub" data-i18n="sample_yld_sub">Margin Chlorosis (YLD)</div>
                 </div>
-                <span class="sample-card-tag tag-warning">CHRONIC</span>
+                <span class="sample-card-tag tag-warning" data-i18n="sample_badge_chronic">CHRONIC</span>
               </button>
             </div>
           </div>
