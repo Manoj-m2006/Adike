@@ -986,6 +986,14 @@ function switchGuideTab(type) {
           </div>
         </div>
 
+        <!-- Farmer Voice Assistance Guidance Button -->
+        <div style="margin-bottom: 0.95rem;">
+          <button type="button" class="btn-voice-guide" id="voice-guide-step2-btn" title="Listen to Voice Capture Tips">
+            <span class="voice-icon">🔊</span>
+            <span data-i18n="listen_tips_btn">🔊 Listen to Capture Guide</span>
+          </button>
+        </div>
+
         <!-- Django Upload Form -->
         <form id="disease-upload-form" method="POST" enctype="multipart/form-data" action="{% url 'predictor:home' %}">
           {% csrf_token %}

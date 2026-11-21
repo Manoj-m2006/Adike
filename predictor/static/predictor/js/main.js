@@ -8,6 +8,110 @@
 
 
 
+
+  // =========================================================================
+  // FARMER SOUND ASSISTANCE ENGINE (Native Web Speech API / TTS)
+  // Supports Kannada (kn-IN), Hindi (hi-IN), Malayalam (ml-IN), English (en-IN)
+  // =========================================================================
+  const VOICE_SPEECH_SCRIPTS = {
+    step2_tips: {
+      kn: "ಅಡಿಕೆ ಗಿಡದ ರೋಗ ಲಕ್ಷಣವಿರುವ ಎಲೆ ಅಥವಾ ಅಡಿಕೆ ಗೊಂಚಲನ್ನು ಹದಿನೈದರಿಂದ ಮೂವತ್ತು ಸೆಂಟಿಮೀಟರ್ ಹತ್ತಿರದಿಂದ, ನೈಸರ್ಗಿಕ ಹಗಲು ಬೆಳಕಿನಲ್ಲಿ ಸ್ಪಷ್ಟವಾಗಿ ಫೋಟೋ ತೆಗೆಯಿರಿ. ಮಸುಕಾದ ಅಥವಾ ತುಂಬಾ ದೂರದ ಫೋಟೋವನ್ನು ತಪ್ಪಿಸಿ.",
+      hi: "रोग के लक्षण वाली पत्ती या सुपारी के गुच्छे का 15 से 30 सेंटीमीटर पास से, दिन की प्राकृतिक रोशनी में साफ फोटो लें। धुंधले या बहुत दूर से लिए गए फोटो से बचें।",
+      ml: "രോഗലക്ഷണങ്ങളുള്ള ഇലയോ അടയ്ക്കയോ 15 മുതൽ 30 സെന്റീമീറ്റർ അടുത്തുനിന്ന് പകൽ വെളിച്ചത്തിൽ വ്യക്തമായി ഫോട്ടോ എടുക്കുക. മങ്ങിയ ഫോട്ടോ ഒഴിവാക്കുക.",
+      en: "Please take a sharp, close-up photograph of the affected leaf or nut cluster from 15 to 30 centimeters in natural daylight. Avoid camera shake, blurry focus, or distant whole tree photos."
+    },
+    mahali: {
+      kn: "ಪತ್ತೆಯಾದ ರೋಗ: ಮಹಾಲಿ ಅಥವಾ ಕೊಳೆರೋಗ. ಶಿಫಾರಸು ಮಾಡಿದ ಪರಿಹಾರ: ಮುಂಗಾರು ಮಳೆಗೆ ಮುಂಚಿತವಾಗಿ ಶೇಕಡಾ ಒಂದರ ಬೋರ್ಡೋ ದ್ರಾವಣವನ್ನು ಅಡಿಕೆ ಗೊಂಚಲುಗಳಿಗೆ ಸಂಪೂರ್ಣವಾಗಿ ಸಿಂಪಡಿಸಿ. ರೋಗ ಪೀಡಿತ ಕೊಳೆತ ಕಾಯಿಗಳನ್ನು ತೋಟದಿಂದ ಕೂಡಲೇ ತೆಗೆದು ನಾಶಪಡಿಸಿ. ಹೆಚ್ಚಿನ ಮಾಹಿತಿಗೆ ಕೃಷಿ ವಿಜ್ಞಾನ ಕೇಂದ್ರವನ್ನು ಸಂಪರ್ಕಿಸಿ.",
+      hi: "जांच परिणाम: महाली या कोलेरोगा फल सड़न रोग। उपचार: मानसून से पहले 1% बोर्डो मिश्रण का सुपारी के गुच्छों पर छिड़काव करें। सड़े हुए फलों को तुरंत इकट्ठा कर नष्ट कर दें।",
+      ml: "രോഗ നിർണ്ണയം: മഹാലി അല്ലെങ്കിൽ കൊളെറോഗ കായ്ചീയൽ. പരിഹാരം: കാലവർഷത്തിന് മുൻപായി 1% ബോർഡോ മിശ്രിതം തളിക്കുക. രോഗം ബാധിച്ച അടയ്ക്കകൾ ശേഖരിച്ച് നശിപ്പിക്കുക.",
+      en: "Diagnosis Result: Mahali or Koleroga Fruit Rot. Recommended Care: Spray 1% Bordeaux mixture on nut clusters prophylactically before monsoon rains. Collect and incinerate all fallen rotten nuts immediately."
+    },
+    yld: {
+      kn: "ಪತ್ತೆಯಾದ ರೋಗ: ಹಳದಿ ಎಲೆ ರೋಗ. ಶಿಫಾರಸು ಮಾಡಿದ ಪರಿಹಾರ: ಈ ರೋಗವು ನರಗಳ ಮೂಲಕ ಹರಡುವುದರಿಂದ ರಾಸಾಯನಿಕದಿಂದ ಗುಣಪಡಿಸಲಾಗದು. ತೋಟದಲ್ಲಿ ನೀರು ಬಸಿದು ಹೋಗಲು ಉತ್ತಮ ಕಾಲುವೆ ಮಾಡಿ. ಪ್ರತಿ ಮರಕ್ಕೆ ಸಮತೋಲಿತ ಸಾರಜನಕ, ರಂಜಕ, ಪೊಟ್ಯಾಷ್ ಜೊತೆಗೆ ಇನ್ನೂರು ಗ್ರಾಂ ಮೆಗ್ನೀಸಿಯಮ್ ಸಲ್ಫೇಟ್ ಮತ್ತು ಕೊಟ್ಟಿಗೆ ಗೊಬ್ಬರ ನೀಡಿ.",
+      hi: "जांच परिणाम: यलो लीफ डिजीज (पीला पत्ता रोग)। उपचार: जल निकासी सुधारें। प्रति पेड़ संतुलित खाद, कम्पोस्ट तथा 200 ग्राम मैग्नीशियम सल्फेट दें।",
+      ml: "രോഗ നിർണ്ണയം: മഞ്ഞളിപ്പ് രോഗം (YLD). പരിഹാരം: തോട്ടത്തിൽ നീർവാർച്ച ഉറപ്പാക്കുക. സന്തുലിത വളത്തോടൊപ്പം മഗ്നീഷ്യം സൾഫേറ്റും ജൈവവളവും നൽകുക.",
+      en: "Diagnosis Result: Yellow Leaf Disease. Recommended Care: Because phytoplasma is systemic, ensure deep drainage trenches. Apply balanced NPK fertilizers with 200 grams Magnesium Sulfate and 12 kilograms organic manure per palm annually."
+    },
+    healthy_leaf: {
+      kn: "ಪತ್ತೆಯಾದ ಸ್ಥಿತಿ: ಆರೋಗ್ಯಕರ ಎಲೆ. ನಿಮ್ಮ ಅಡಿಕೆ ಗಿಡವು ಉತ್ತಮ ಕ್ಲೋರೊಫಿಲ್ ಹೊಂದಿದ್ದು ರೋಗಮುಕ್ತವಾಗಿದೆ. ಮಣ್ಣಿನಲ್ಲಿ ತೇವಾಂಶ ಕಾಪಾಡಿಕೊಳ್ಳಿ ಮತ್ತು ನಿಯಮಿತವಾಗಿ ಸಾವಯವ ಗೊಬ್ಬರ ನೀಡಿ.",
+      hi: "जांच परिणाम: स्वस्थ पत्ती। आपकी फसल में कोई रोग नहीं है। नियमित जैविक खाद दें और नमी बनाए रखें।",
+      ml: "ഫലം: ആരോഗ്യകരമായ ഇല. രോഗബാധയില്ല. ആവശ്യത്തിന് ജൈവവളവും ഈർപ്പവും നിലനിർത്തുക.",
+      en: "Diagnosis Result: Healthy Leaf. The specimen shows normal chlorophyll development with no fungal or pathogenic symptoms. Maintain routine canopy surveillance and organic manure application."
+    },
+    healthy_nut: {
+      kn: "ಪತ್ತೆಯಾದ ಸ್ಥಿತಿ: ಆರೋಗ್ಯಕರ ಅಡಿಕೆ ಕಾಯಿ. ಅಡಿಕೆ ಗೊಂಚಲು ಗಟ್ಟಿಯಾದ ತೊಟ್ಟು ಹೊಂದಿದ್ದು ಆರೋಗ್ಯಕರವಾಗಿದೆ. ಮುಂಗಾರಿಗೆ ಮುಂಚೆ ಸ್ವಚ್ಛತೆ ಕಾಪಾಡಿ ಮತ್ತು ನಿಯಮಿತ ನೀರಾವರಿ ಒದಗಿಸಿ.",
+      hi: "जांच परिणाम: स्वस्थ सुपारी। फल का गुच्छा मजबूत और स्वस्थ है। समय पर सिंचाई और पोषण दें।",
+      ml: "ഫലം: ആരോഗ്യകരമായ അടയ്ക്ക. കായ്കൾ നല്ല നിലയിലാണ്. കൃത്യമായ നനയും പരിചരണവും നൽകുക.",
+      en: "Diagnosis Result: Healthy Nut. The specimen displays intact calyx attachment and optimal drupe development. Continue seasonal irrigation and orchard hygiene."
+    }
+  };
+
+  let activeVoiceButton = null;
+
+  function stopFarmerVoice() {
+    if ('speechSynthesis' in window) {
+      window.speechSynthesis.cancel();
+    }
+    if (activeVoiceButton) {
+      activeVoiceButton.classList.remove('speaking');
+      const label = activeVoiceButton.querySelector('[data-i18n]');
+      if (label && I18N_STRINGS[currentLang]) {
+        const key = label.getAttribute('data-i18n');
+        if (I18N_STRINGS[currentLang][key]) label.textContent = I18N_STRINGS[currentLang][key];
+      }
+      activeVoiceButton = null;
+    }
+  }
+
+  function speakFarmerAssistance(text, btnElement = null, lang = currentLang) {
+    if (!('speechSynthesis' in window)) {
+      alert("Voice assistance audio: " + text);
+      return;
+    }
+
+    if (window.speechSynthesis.speaking) {
+      stopFarmerVoice();
+      return;
+    }
+
+    stopFarmerVoice();
+
+    const utterance = new SpeechSynthesisUtterance(text);
+    const langTagMap = {
+      'kn': 'kn-IN',
+      'hi': 'hi-IN',
+      'ml': 'ml-IN',
+      'en': 'en-IN'
+    };
+    utterance.lang = langTagMap[lang] || 'en-US';
+    utterance.rate = 0.92; // farmer-friendly cadence
+    utterance.pitch = 1.0;
+
+    const voices = window.speechSynthesis.getVoices();
+    const targetTag = langTagMap[lang] || 'en';
+    const match = voices.find(v => v.lang.startsWith(targetTag) || v.lang.startsWith(lang));
+    if (match) utterance.voice = match;
+
+    if (btnElement) {
+      activeVoiceButton = btnElement;
+      btnElement.classList.add('speaking');
+      const label = btnElement.querySelector('[data-i18n]');
+      if (label && I18N_STRINGS[lang]) {
+        label.textContent = I18N_STRINGS[lang].stop_voice_btn || '⏹ Stop Voice Audio';
+      }
+    }
+
+    utterance.onend = () => {
+      stopFarmerVoice();
+    };
+    utterance.onerror = () => {
+      stopFarmerVoice();
+    };
+
+    window.speechSynthesis.speak(utterance);
+  }
+
+
 document.addEventListener('DOMContentLoaded', function () {
 
   // Web Audio Tactile Synthesizer (Safe Top Declaration)
@@ -475,7 +579,10 @@ document.addEventListener('DOMContentLoaded', function () {
     "vguide_blur_bad_label": "Motion Blur / Out of Focus",
     "vguide_blur_bad_desc": "Camera shake or wind; lesion texture is lost",
     "vguide_dist_bad_label": "Distant Whole Palm Tree",
-    "vguide_dist_bad_desc": "Too far away; leaf spots or rot cannot be resolved"
+    "vguide_dist_bad_desc": "Too far away; leaf spots or rot cannot be resolved",
+    "listen_tips_btn": "🔊 Listen to Photo Guidelines",
+    "listen_result_btn": "🔊 Listen to Diagnosis & Care Advisory",
+    "stop_voice_btn": "⏹ Stop Voice Audio"
   },
   "kn": {
     "brand_name": "ಅಡಿಕೆಲೆನ್ಸ್ (ArecaLens)",
@@ -749,7 +856,10 @@ document.addEventListener('DOMContentLoaded', function () {
     "vguide_blur_bad_label": "ಮಸುಕಾದ / ಅಲುಗಾಡಿದ ಚಿತ್ರ",
     "vguide_blur_bad_desc": "ಗಾಳಿ ಅಥವಾ ಕೈ ಅಲುಗಾಟ; ರೋಗದ ವಿವರಗಳು ಕಳೆದುಹೋಗುತ್ತವೆ",
     "vguide_dist_bad_label": "ತುಂಬಾ ದೂರದ ಇಡೀ ಮರ",
-    "vguide_dist_bad_desc": "ತುಂಬಾ ದೂರ; ಎಲೆಯ ಕಲೆ ಅಥವಾ ಹಣ್ಣು ಕೊಳೆ ತಿಳಿಯಲು ಅಸಾಧ್ಯ"
+    "vguide_dist_bad_desc": "ತುಂಬಾ ದೂರ; ಎಲೆಯ ಕಲೆ ಅಥವಾ ಹಣ್ಣು ಕೊಳೆ ತಿಳಿಯಲು ಅಸಾಧ್ಯ",
+    "listen_tips_btn": "🔊 ಫೋಟೋ ಮಾರ್ಗದರ್ಶನ ಆಲಿಸಿ",
+    "listen_result_btn": "🔊 ರೋಗ ತಪಾಸಣೆ & ಪರಿಹಾರ ಆಲಿಸಿ",
+    "stop_voice_btn": "⏹ ಧ್ವನಿ ನಿಲ್ಲಿಸಿ"
   },
   "hi": {
     "brand_name": "अरेकालेंस (ArecaLens)",
@@ -1023,7 +1133,10 @@ document.addEventListener('DOMContentLoaded', function () {
     "vguide_blur_bad_label": "धुंधला / हिला हुआ फोटो",
     "vguide_blur_bad_desc": "कैमरा हिलने से रोग का विवरण स्पष्ट नहीं दिखता",
     "vguide_dist_bad_label": "बहुत दूर से पूरा पेड़",
-    "vguide_dist_bad_desc": "ज्यादा दूर होने से पत्ती या फल के रोग नहीं दिखते"
+    "vguide_dist_bad_desc": "ज्यादा दूर होने से पत्ती या फल के रोग नहीं दिखते",
+    "listen_tips_btn": "🔊 फोटो निर्देश सुनें",
+    "listen_result_btn": "🔊 रोग जांच और उपचार सुनें",
+    "stop_voice_btn": "⏹ आवाज रोकें"
   },
   "ml": {
     "brand_name": "അരേക്കലെൻസ് (ArecaLens)",
@@ -1296,7 +1409,10 @@ document.addEventListener('DOMContentLoaded', function () {
     "vguide_blur_bad_label": "മങ്ങിയ / കുലുങ്ങിയ ചിത്രം",
     "vguide_blur_bad_desc": "കൈ കുലുങ്ങുകയോ കാറ്റടിക്കുകയോ ചെയ്താൽ രോഗവിവരം നഷ്ടപ്പെടും",
     "vguide_dist_bad_label": "വളരെ ദൂരെയുള്ള മുഴുവൻ മരം",
-    "vguide_dist_bad_desc": "വളരെ അകലെയായതിനാൽ ഇലയിലെ പാടുകളോ ചീയലോ തിരിച്ചറിയാനാവില്ല"
+    "vguide_dist_bad_desc": "വളരെ അകലെയായതിനാൽ ഇലയിലെ പാടുകളോ ചീയലോ തിരിച്ചറിയാനാവില്ല",
+    "listen_tips_btn": "🔊 ഫോട്ടോ നിർദ്ദേശങ്ങൾ കേൾക്കുക",
+    "listen_result_btn": "🔊 രോഗ നിർണ്ണയവും പ്രതിവിധിയും കേൾക്കുക",
+    "stop_voice_btn": "⏹ ശബ്ദം നിർത്തുക"
   }
 };
 
@@ -8094,5 +8210,40 @@ const CLASS_NAMES_I18N = {
 
   // Initialize Chatbot
   initAgronomyChatbot();
+
+
+  // =========================================================================
+  // Wire Farmer Sound Assistance Listeners
+  // =========================================================================
+  function initVoiceAssistButtons(container = document) {
+    // Step 2 Tips Button
+    const step2Btn = container.querySelector('#voice-guide-step2-btn');
+    if (step2Btn && !step2Btn.hasAttribute('data-voice-wired')) {
+      step2Btn.setAttribute('data-voice-wired', 'true');
+      step2Btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        const script = VOICE_SPEECH_SCRIPTS.step2_tips[currentLang] || VOICE_SPEECH_SCRIPTS.step2_tips.en;
+        speakFarmerAssistance(script, step2Btn, currentLang);
+      });
+    }
+
+    // Step 4 Result Audio Button
+    const resultBtn = container.querySelector('#voice-guide-result-btn');
+    if (resultBtn && !resultBtn.hasAttribute('data-voice-wired')) {
+      resultBtn.setAttribute('data-voice-wired', 'true');
+      resultBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        const mainTitle = document.querySelector('.result-main-disease')?.textContent || '';
+        const clsKey = getDiseaseKeyFromName(mainTitle) || 'yld';
+        const script = (VOICE_SPEECH_SCRIPTS[clsKey] && VOICE_SPEECH_SCRIPTS[clsKey][currentLang])
+          || VOICE_SPEECH_SCRIPTS[clsKey]?.en
+          || VOICE_SPEECH_SCRIPTS.yld[currentLang];
+        speakFarmerAssistance(script, resultBtn, currentLang);
+      });
+    }
+  }
+
+  // Initial call on page load
+  initVoiceAssistButtons();
 
 });

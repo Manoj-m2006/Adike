@@ -150,6 +150,12 @@
 
         <!-- Main Predicted Disease Title -->
         <h2 class="result-main-disease">{{ prediction.predicted_display_name }}</h2>
+        <div style="margin: 0.4rem 0 0.8rem 0;">
+          <button type="button" class="btn-voice-guide btn-voice-result" id="voice-guide-result-btn" title="Listen to Spoken Diagnosis & Treatment">
+            <span class="voice-icon">🔊</span>
+            <span data-i18n="listen_result_btn">🔊 Listen to Diagnosis & Care Advisory</span>
+          </button>
+        </div>
         <p class="result-advisory-caption" data-i18n="advisory_caption">
           A suggestion from this photo. Check the plant and consider expert advice.
         </p>
