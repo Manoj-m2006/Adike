@@ -654,25 +654,18 @@ function switchGuideTab(type) {
         <!-- PANE 1: Intro / Get Started (Left initially) -->
         <div class="split-pane pane-intro">
           <!-- Brand Row (Clean, Large, Highlighted, No Box) -->
-          <!-- Brand Row (Clean, Large, Highlighted, No Box) -->
           <div class="split-brand-row">
             <div class="split-brand-icon">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M12 2L12 22"></path>
-                <path d="M12 7C8 7 4 9 4 13C4 17 8 19 12 19"></path>
-                <path d="M12 7C16 7 20 9 20 13C20 17 16 19 12 19"></path>
-              </svg>
+              <img src="{% static 'predictor/img/puganetra_logo.jpg' %}" alt="ArecaLens Official Logo" style="width: 100%; height: 100%; object-fit: cover; display: block;">
             </div>
             <div style="display: flex; flex-direction: column;">
               <div style="display: flex; align-items: baseline; gap: 0.65rem; line-height: 1;">
                 <span class="split-brand-name">ArecaLens</span>
               </div>
-              <span class="split-brand-sub" data-i18n="brand_tagline">Intelligence rooted in agriculture.</span>
+              <div class="split-brand-tagline" data-i18n="brand_tagline">AI-Driven Arecanut Disease Intelligence</div>
             </div>
           </div>
-          </div>
 
-          <!-- Eyebrow -->
           <div class="split-eyebrow">
             
             <span class="split-eyebrow-text" data-i18n="hero_split_eyebrow">ARECANUT CROP HEALTH</span>
@@ -992,20 +985,19 @@ function switchGuideTab(type) {
         <div class="card-top-header">
           <div class="card-title-group">
             <h2 style="display: flex; align-items: center; gap: 0.6rem;">
-              
-              <span>Photography Guide for Accurate Diagnosis</span>
+              <span data-i18n="photo_guide_title">Photography Guide for Accurate Diagnosis</span>
             </h2>
-            <p>Diagnostic accuracy depends on capture quality. Follow these field guidelines:</p>
+            <p data-i18n="photo_guide_desc">Diagnostic accuracy depends on capture quality. Follow these field guidelines:</p>
           </div>
-          <span class="tag-badge" style="background: rgba(36, 107, 80, 0.1); color: #246B50; border-color: rgba(36, 107, 80, 0.25);">FIELD GUIDE</span>
+          <span class="tag-badge" style="background: rgba(36, 107, 80, 0.1); color: #246B50; border-color: rgba(36, 107, 80, 0.25);" data-i18n="badge_field_guide">FIELD GUIDE</span>
         </div>
 
         <!-- Interactive Specimen Target Switcher Tabs -->
         <div class="photo-guide-switcher">
-          <button type="button" class="guide-switch-btn active" id="guide-tab-leaf" onclick="switchGuideTab('leaf')">
+          <button type="button" class="guide-switch-btn active" id="guide-tab-leaf" onclick="switchGuideTab('leaf')" data-i18n="tab_leaf_guide">
              Frond / Leaf Guide
           </button>
-          <button type="button" class="guide-switch-btn" id="guide-tab-nut" onclick="switchGuideTab('nut')">
+          <button type="button" class="guide-switch-btn" id="guide-tab-nut" onclick="switchGuideTab('nut')" data-i18n="tab_nut_guide">
              Nut Cluster Guide
           </button>
         </div>
@@ -1014,13 +1006,13 @@ function switchGuideTab(type) {
         <div id="guide-content-leaf" class="guide-tab-content active">
           <div class="guide-focus-box">
             <div class="guide-focus-header">
-              <span class="focus-badge">TARGET AREA</span>
-              <strong>Leaf Frond Diagnostic Targets:</strong>
+              <span class="focus-badge" data-i18n="badge_target_area">TARGET AREA</span>
+              <strong data-i18n="leaf_targets_title">Leaf Frond Diagnostic Targets:</strong>
             </div>
             <ul class="guide-focus-points">
-              <li><strong>Leaflet Margins:</strong> Capture where yellow chlorosis starts at leaflet tips (key indicator of YLD).</li>
-              <li><strong>Lamina &amp; Midrib:</strong> Show the contrast between yellowing blade tissue and green veins.</li>
-              <li><strong>Avoid Backlighting:</strong> Do not photograph against harsh sky glare; angle camera looking down or sideways.</li>
+              <li data-i18n-html="leaf_target_1"><strong>Leaflet Margins:</strong> Capture where yellow chlorosis starts at leaflet tips (key indicator of YLD).</li>
+              <li data-i18n-html="leaf_target_2"><strong>Lamina &amp; Midrib:</strong> Show the contrast between yellowing blade tissue and green veins.</li>
+              <li data-i18n-html="leaf_target_3"><strong>Avoid Backlighting:</strong> Do not photograph against harsh sky glare; angle camera looking down or sideways.</li>
             </ul>
           </div>
         </div>
@@ -1029,13 +1021,13 @@ function switchGuideTab(type) {
         <div id="guide-content-nut" class="guide-tab-content" style="display: none;">
           <div class="guide-focus-box">
             <div class="guide-focus-header">
-              <span class="focus-badge">TARGET AREA</span>
-              <strong>Nut Bunch Diagnostic Targets:</strong>
+              <span class="focus-badge" data-i18n="badge_target_area">TARGET AREA</span>
+              <strong data-i18n="nut_targets_title">Nut Bunch Diagnostic Targets:</strong>
             </div>
             <ul class="guide-focus-points">
-              <li><strong>Calyx / Perianth End:</strong> Focus on the stalk attachment point where dark water-soaked rot initiates.</li>
-              <li><strong>Fruit Cluster Overview:</strong> Include 5–10 nuts to display shedding severity and button detachment.</li>
-              <li><strong>Mycelial Growth:</strong> Inspect fallen nuts for telltale white cottony fungal felts (Koleroga oospores).</li>
+              <li data-i18n-html="nut_target_1"><strong>Calyx / Perianth End:</strong> Focus on the stalk attachment point where dark water-soaked rot initiates.</li>
+              <li data-i18n-html="nut_target_2"><strong>Fruit Cluster Overview:</strong> Include 5–10 nuts to display shedding severity and button detachment.</li>
+              <li data-i18n-html="nut_target_3"><strong>Mycelial Growth:</strong> Inspect fallen nuts for telltale white cottony fungal felts (Koleroga oospores).</li>
             </ul>
           </div>
         </div>
@@ -1043,21 +1035,21 @@ function switchGuideTab(type) {
         <!-- Visual Do's vs Don'ts Comparison Grid -->
         <div class="dodont-comparison-grid">
           <div class="dodont-col do-col">
-            <div class="dodont-badge do-badge">DO THIS</div>
+            <div class="dodont-badge do-badge" data-i18n="dodont_do_title">DO THIS</div>
             <ul class="dodont-list">
-              <li>Natural diffuse daylight (avoids harsh shadows)</li>
-              <li>15–30 cm close-up macro (fill 70%+ of frame)</li>
-              <li>Single leaf or nut bunch sharply focused</li>
-              <li>Steady hands or rested camera for crisp venation</li>
+              <li data-i18n="dodont_do_1">Natural diffuse daylight (avoids harsh shadows)</li>
+              <li data-i18n="dodont_do_2">15–30 cm close-up macro (fill 70%+ of frame)</li>
+              <li data-i18n="dodont_do_3">Single leaf or nut bunch sharply focused</li>
+              <li data-i18n="dodont_do_4">Steady hands or rested camera for crisp venation</li>
             </ul>
           </div>
           <div class="dodont-col dont-col">
-            <div class="dodont-badge dont-badge">AVOID THIS</div>
+            <div class="dodont-badge dont-badge" data-i18n="dodont_dont_title">AVOID THIS</div>
             <ul class="dodont-list">
-              <li>Fingers or hands covering lesions or calyx</li>
-              <li>Blurry focus or camera shake from wind</li>
-              <li>Direct harsh flash causing glare whiteout</li>
-              <li>Distant photo of the entire palm tree</li>
+              <li data-i18n="dodont_dont_1">Fingers or hands covering lesions or calyx</li>
+              <li data-i18n="dodont_dont_2">Blurry focus or camera shake from wind</li>
+              <li data-i18n="dodont_dont_3">Direct harsh flash causing glare whiteout</li>
+              <li data-i18n="dodont_dont_4">Distant photo of the entire palm tree</li>
             </ul>
           </div>
         </div>
@@ -1065,24 +1057,21 @@ function switchGuideTab(type) {
         <!-- Live AI Quality Checklist Badges -->
         <div class="ai-quality-checklist">
           <div class="quality-badge-item">
-            
             <div class="quality-text">
-              <strong>Diffuse Daylight</strong>
-              <span>High Contrast</span>
+              <strong data-i18n="spec_diffuse_title">Diffuse Daylight</strong>
+              <span data-i18n="spec_diffuse_sub">High Contrast</span>
             </div>
           </div>
           <div class="quality-badge-item">
-            
             <div class="quality-text">
-              <strong>Macro 1:1 Focus</strong>
-              <span>Min 224px Crop</span>
+              <strong data-i18n="spec_macro_title">Macro 1:1 Focus</strong>
+              <span data-i18n="spec_macro_sub">Min 224px Crop</span>
             </div>
           </div>
           <div class="quality-badge-item">
-            
             <div class="quality-text">
-              <strong>Direct 45° Angle</strong>
-              <span>Clean Background</span>
+              <strong data-i18n="spec_angle_title">Direct 45° Angle</strong>
+              <span data-i18n="spec_angle_sub">Clean Background</span>
             </div>
           </div>
         </div>
@@ -1090,8 +1079,7 @@ function switchGuideTab(type) {
         <!-- Neural Engine Status Bar -->
         <div class="neural-engine-status-bar">
           <div class="engine-status-left">
-            
-            <span><strong>ResNet-50 AI Engine Active:</strong> Layer4 Grad-CAM • 99.4% F1-Score • Zero-Disk Memory Security</span>
+            <span data-i18n="photo_footer_badge"><strong>ResNet-50 AI Engine Active:</strong> Layer4 Grad-CAM • 99.4% F1-Score • Zero-Disk Memory Security</span>
           </div>
           <span class="engine-ver-tag">v2.4</span>
         </div>

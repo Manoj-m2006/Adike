@@ -3971,6 +3971,734 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 
+  function getIntelBoxHtml(clsKey, lang) {
+    const l = (lang === 'kn' || lang === 'hi' || lang === 'ml') ? lang : 'en';
+
+    const DATA = {
+      mahali: {
+        en: {
+          leftKicker: "PATHOLOGY & FIELD DIAGNOSIS",
+          leftTitle: "Mahali / Koleroga — Disease Profile & Symptoms",
+          leftRisk: "CRITICAL RISK",
+          pathogenLabel: "Causal Pathogen",
+          pathogenVal: "<em>Phytophthora meadii</em> McRae (destructive oomycete water-mold)",
+          lossLabel: "Expected Crop Loss",
+          lossVal: "50% to 90% harvest destruction if untreated",
+          triggersTitle: "Climatic Triggers & Epidemiology:",
+          triggersDesc: "Mahali is triggered by continuous southwest monsoon rains (June to September) with relative humidity >90% and moderate temperatures (20°C–24°C). Rain splashes actively detach sporangia, dispersing motile zoospores across bunches and adjacent palms.",
+          symptomsTitle: "Diagnostic Symptoms & Visual Identification:",
+          symptoms: [
+            "<strong>Early Stage:</strong> Water-soaked, dark green or brownish lesions appear near the perianth (calyx end) of young tender arecanuts.",
+            "<strong>Advanced Stage:</strong> Lesions spread rapidly over the entire nut surface; nuts turn dark brown to black, rot, and shed prematurely.",
+            "<strong>Mycelial Growth:</strong> Fallen shed nuts develop a conspicuous, thick white cottony fungal felt (sporangial mat).",
+            "<strong>Crown / Bud Rot:</strong> Rain washes fungal zoospores into the central spindle, leading to terminal bud rot and palm death."
+          ],
+          actionsTitle: "Immediate Emergency Field Actions:",
+          actions: [
+            "<strong>Halt Overhead Irrigation:</strong> Immediately shut down sprinkler irrigation to minimize canopy moisture.",
+            "<strong>Collect and Destroy Diseased Nuts:</strong> Gather every fallen rotten nut on the same day. Incinerate or bury in deep trenches with lime.",
+            "<strong>Isolate Infected Palms:</strong> Mark affected palms and sanitize pruning tools before moving to healthy palms."
+          ],
+          rightKicker: "ICAR-CPCRI TREATMENT & CURE SYSTEM",
+          rightTitle: "Mahali / Koleroga — Treatment & Prevention Protocol",
+          rightPill: "PROVEN PROTOCOL",
+          treatTitle: "ICAR-CPCRI Standard Treatment & Cure Protocol:",
+          treatList: [
+            "<strong>1% Bordeaux Mixture Spray:</strong> Dissolve 1 kg Copper Sulfate (CuSO₄) and 1 kg slaked lime in 100 L water. Apply with continuous agitation.",
+            "<strong>3-Stage Spray Schedule:</strong> 1st prophylactic spray in late May/early June; 2nd spray 40-45 days later in July/August; 3rd spray if heavy rains continue in September.",
+            "<strong>Polythene Bunch Hooding:</strong> Cover bunches with 125-gauge polythene bags (75 × 60 cm) tied at the stalk for 100% mechanical protection.",
+            "<strong>Systemic Alternative:</strong> Spray Metalaxyl MZ (2 g/L) or Fosetyl-Al (2 g/L) directly on infected bunches."
+          ],
+          prevTitle: "Long-Term Prevention & Orchard Protection:",
+          prevList: [
+            "<strong>Field Drainage System:</strong> Excavate 2 to 3 feet deep drainage trenches between alternate palm rows.",
+            "<strong>Canopy Spacing:</strong> Maintain optimal palm spacing (2.7 m × 2.7 m) for sunlight penetration and aeration.",
+            "<strong>Annual Pre-Monsoon Sanitation:</strong> Thoroughly clean palm crowns in April–May to eradicate overwintering oospores."
+          ],
+          advisoryText: "<strong>ICAR-CPCRI Advisory:</strong> Prophylactic Bordeaux mixture spray before monsoon rains is the single most proven defense against Koleroga fruit rot. Contact your nearest KVK for on-field verification."
+        },
+        kn: {
+          leftKicker: "ರೋಗಶಾಸ್ತ್ರ ಮತ್ತು ಕ್ಷೇತ್ರ ರೋಗನಿರ್ಣಯ",
+          leftTitle: "ಮಹಾಲಿ / ಕೊಳೆರೋಗ — ರೋಗದ ವಿವರ ಮತ್ತು ಲಕ್ಷಣಗಳು",
+          leftRisk: "ತೀವ್ರ ಗಂಭೀರ ಅಪಾಯ",
+          pathogenLabel: "ರೋಗಕಾರಕ ಸೂಕ್ಷ್ಮಜೀವಿ",
+          pathogenVal: "<em>ಫೈಟೊಫ್ಥೊರಾ ಮೀಡಿಯಿ</em> (ವಿನಾಶಕಾರಿ ಜಲ-ಶಿಲೀಂಧ್ರ)",
+          lossLabel: "ನಿರೀಕ್ಷಿತ ಬೆಳೆ ನಷ್ಟ",
+          lossVal: "ಚಿಕಿತ್ಸೆ ನೀಡದಿದ್ದರೆ ಶೇಕಡಾ ೫೦% ರಿಂದ ೯೦% ಇಳುವರಿ ನಾಶ",
+          triggersTitle: "ಹವಾಮಾನ ಪ್ರಚೋದಕಗಳು ಮತ್ತು ಹರಡುವಿಕೆ:",
+          triggersDesc: "ನಿರಂತರ ನೈಋತ್ಯ ಮಾನ್ಸೂನ್ ಮಳೆ (ಜೂನ್‌ನಿಂದ ಸೆಪ್ಟೆಂಬರ್), ೯೦% ಕ್ಕಿಂತ ಹೆಚ್ಚು ತೇವಾಂಶ ಮತ್ತು ಸಾಧಾರಣ ತಾಪಮಾನದಲ್ಲಿ ಕೊಳೆರೋಗ ಉಲ್ಬಣಗೊಳ್ಳುತ್ತದೆ. ಮಳೆಯ ಹನಿಗಳು ರೋಗಾಣುಗಳನ್ನು ಪಕ್ಕದ ಗೊನೆ ಮತ್ತು ಮರಗಳಿಗೆ ಹರಡುತ್ತವೆ.",
+          symptomsTitle: "ರೋಗನಿರ್ಣಯದ ಲಕ್ಷಣಗಳು ಮತ್ತು ಗುರುತಿಸುವಿಕೆ:",
+          symptoms: [
+            "<strong>ಆರಂಭಿಕ ಹಂತ:</strong> ಎಳೆಯ ಅಡಿಕೆಯ ತೊಟ್ಟಿನ ಭಾಗದಲ್ಲಿ ನೀರಿನಲ್ಲಿ ನೆನೆದಂತಹ ಕಡು ಹಸಿರು ಅಥವಾ ಕಂದು ಬಣ್ಣದ ಕಲೆಗಳು ಕಾಣಿಸಿಕೊಳ್ಳುತ್ತವೆ.",
+            "<strong>ತೀವ್ರ ಹಂತ:</strong> ಕಲೆಗಳು ಇಡೀ ಅಡಿಕೆಗೆ ಹರಡಿ, ಅಡಿಕೆಗಳು ಕಪ್ಪಾಗಿ ಕೊಳೆತು ಅಕಾಲಿಕವಾಗಿ ಉದುರುತ್ತವೆ.",
+            "<strong>ಶಿಲೀಂಧ್ರ ಬೆಳವಣಿಗೆ:</strong> ಉದುರಿ ಬಿದ್ದ ಅಡಿಕೆಗಳ ಮೇಲೆ ದಪ್ಪನೆಯ ಬಿಳಿ ಹತ್ತಿಯಂತಹ ಶಿಲೀಂಧ್ರ ಪದರ ಬೆಳೆಯುತ್ತದೆ.",
+            "<strong>ಸುಳಿ ಕೊಳೆ ರೋಗ:</strong> ಮಳೆಯ ನೀರು ಶಿಲೀಂಧ್ರದ ಬೀಜಕಗಳನ್ನು ಸುಳಿಗೆ ಸಾಗಿಸಿದಾಗ ಸುಳಿಕೊಳೆ ಉಂಟಾಗಿ ಮರವೇ ಸಾಯುತ್ತದೆ."
+          ],
+          actionsTitle: "ತಕ್ಷಣದ ತುರ್ತು ಕ್ಷೇತ್ರ ಕ್ರಮಗಳು:",
+          actions: [
+            "<strong>ಮೇಲ್ಮೈ ನೀರಾವರಿ ನಿಲ್ಲಿಸಿ:</strong> ತೋಟದಲ್ಲಿ ತೇವಾಂಶ ಕಡಿಮೆ ಮಾಡಲು ಸ್ಪ್ರಿಂಕ್ಲರ್ ನೀರಾವರಿಯನ್ನು ತಕ್ಷಣ ನಿಲ್ಲಿಸಿ.",
+            "<strong>ಕೊಳೆತ ಅಡಿಕೆಗಳನ್ನು ನಾಶಪಡಿಸಿ:</strong> ಬಿದ್ದ ಎಲ್ಲಾ ಕೊಳೆತ ಅಡಿಕೆಗಳನ್ನು ಪ್ರತಿದಿನ ಸಂಗ್ರಹಿಸಿ ಸುಟ್ಟುಹಾಕಿ ಅಥವಾ ಸುಣ್ಣ ಹಾಕಿ ಆಳವಾದ ಗುಂಡಿಯಲ್ಲಿ ಮುಚ್ಚಿ.",
+            "<strong>ಸೋಂಕಿತ ಮರಗಳನ್ನು ಪ್ರತ್ಯೇಕಿಸಿ:</strong> ಸೋಂಕಿತ ಮರಗಳನ್ನು ಗುರುತಿಸಿ ಮತ್ತು ಕತ್ತರಿಸುವ ಉಪಕರಣಗಳನ್ನು ಸೋಂಕುರಹಿತಗೊಳಿಸಿ ಬಳಸಿ."
+          ],
+          rightKicker: "ICAR-CPCRI ಚಿಕಿತ್ಸೆ ಮತ್ತು ಪರಿಹಾರ ವ್ಯವಸ್ಥೆ",
+          rightTitle: "ಮಹಾಲಿ / ಕೊಳೆರೋಗ — ಚಿಕಿತ್ಸೆ ಮತ್ತು ತಡೆಗಟ್ಟುವ ಪ್ರೋಟೋಕಾಲ್",
+          rightPill: "ಸಾಬೀತಾದ ಪ್ರೋಟೋಕಾಲ್",
+          treatTitle: "ICAR-CPCRI ಪ್ರಮಾಣಿತ ಚಿಕಿತ್ಸಾ ಪ್ರೋಟೋಕಾಲ್:",
+          treatList: [
+            "<strong>೧% ಬೋರ್ಡೋ ದ್ರಾವಣ ಸಿಂಪಡಣೆ:</strong> ೧ ಕೆಜಿ ತಾಮ್ರದ ಸಲ್ಫೇಟ್ (ಮೈಲುತುತ್ತ) ಮತ್ತು ೧ ಕೆಜಿ ಸುಣ್ಣವನ್ನು ೧೦೦ ಲೀಟರ್ ನೀರಿನಲ್ಲಿ ಕರಗಿಸಿ, ನಿರಂತರವಾಗಿ ಬೆರೆಸಿ ಸಿಂಪಡಿಸಿ.",
+            "<strong>೩ ಹಂತದ ಸಿಂಪಡಣೆ ವೇಳಾಪಟ್ಟಿ:</strong> ೧ನೇ ರಕ್ಷಣಾತ್ಮಕ ಸಿಂಪಡಣೆ ಮೇ ಅಂತ್ಯ/ಜೂನ್ ಆರಂಭದಲ್ಲಿ; ೨ನೇ ಸಿಂಪಡಣೆ ೪೦-೪೫ ದಿನಗಳ ನಂತರ (ಜುಲೈ/ಆಗಸ್ಟ್); ಸೆಪ್ಟೆಂಬರ್‌ನಲ್ಲಿ ಮಳೆ ಮುಂದುವರಿದರೆ ೩ನೇ ಸಿಂಪಡಣೆ.",
+            "<strong>ಪಾಲಿಥೀನ್ ಹೊದಿಕೆ ಕಟ್ಟುವುದು:</strong> ಮಳೆಯಿಂದ ೧೦೦% ರಕ್ಷಣೆಗಾಗಿ ಗೊನೆಗಳಿಗೆ ೧೨೫-ಗೇಜ್ ಪಾಲಿಥೀನ್ ಚೀಲಗಳನ್ನು (೭೫ × ೬೦ ಸೆಂ.ಮೀ) ಕಟ್ಟಿ.",
+            "<strong>ಶಿಲೀಂಧ್ರನಾಶಕ ಪರ್ಯಾಯ:</strong> ಸೋಂಕು ಹೆಚ್ಚಿದ್ದರೆ ಮೆಟಲಾಕ್ಸಿಲ್ MZ (೨ ಗ್ರಾಂ/ಲೀ) ಅಥವಾ ಫೋಸೆಟೈಲ್-Al (೨ ಗ್ರಾಂ/ಲೀ) ನೇರವಾಗಿ ಸಿಂಪಡಿಸಿ."
+          ],
+          prevTitle: "ದೀರ್ಘಕಾಲೀನ ತಡೆಗಟ್ಟುವಿಕೆ ಮತ್ತು ತೋಟದ ಸಂರಕ್ಷಣೆ:",
+          prevList: [
+            "<strong>ಚರಂಡಿ ವ್ಯವಸ್ಥೆ:</strong> ಸಾಲುಗಳ ನಡುವೆ ೨ ರಿಂದ ೩ ಅಡಿ ಆಳದ ಒಳಚರಂಡಿ ಕಾಲುವೆಗಳನ್ನು ತೋಡಿ ನೀರು ನಿಲ್ಲದಂತೆ ಮಾಡಿ.",
+            "<strong>ಸಾಕಷ್ಟು ಅಂತರ:</strong> ಸೂರ್ಯನ ಬೆಳಕು ಮತ್ತು ಗಾಳಿಯಾಡಲು ಮರಗಳ ನಡುವೆ ಸೂಕ್ತ ಅಂತರವನ್ನು (೨.೭ ಮೀ × ೨.೭ ಮೀ) ಕಾಪಾಡಿಕೊಳ್ಳಿ.",
+            "<strong>ಮಾನ್ಸೂನ್ ಪೂರ್ವ ಶುಚಿತ್ವ:</strong> ಏಪ್ರಿಲ್-ಮೇ ತಿಂಗಳಲ್ಲಿ ಮರದ ಸುಳಿಯನ್ನು ಸ್ವಚ್ಛಗೊಳಿಸಿ ಹಳೆಯ ಒಣಗಿದ ಕವಚಗಳನ್ನು ತೆಗೆದುಹಾಕಿ."
+          ],
+          advisoryText: "<strong>ICAR-CPCRI ಸಲಹೆ:</strong> ಮಳೆಗಾಲಕ್ಕೆ ಮುಂಚಿತವಾಗಿ ರಕ್ಷಣಾತ್ಮಕ ಬೋರ್ಡೋ ದ್ರಾವಣ ಸಿಂಪಡಿಸುವುದು ಕೊಳೆರೋಗದ ವಿರುದ್ಧ ಅತ್ಯಂತ ಪರಿಣಾಮಕಾರಿ ರಕ್ಷಣೆಯಾಗಿದೆ. ಹೆಚ್ಚಿನ ಮಾರ್ಗದರ್ಶನಕ್ಕಾಗಿ ಸ್ಥಳೀಯ ಕೃಷಿ ವಿಜ್ಞಾನ ಕೇಂದ್ರವನ್ನು (KVK) ಸಂಪರ್ಕಿಸಿ."
+        },
+        hi: {
+          leftKicker: "पैथोलॉजी और क्षेत्रीय निदान",
+          leftTitle: "महाली / फल सड़न (कोलेरोगा) — रोग प्रोफ़ाइल और लक्षण",
+          leftRisk: "गंभीर जोखिम",
+          pathogenLabel: "रोगकारक रोगज़नक़",
+          pathogenVal: "<em>फाइटोफ्थोरा मीडी</em> (विनाशकारी कवक जल-मोल्ड)",
+          lossLabel: "अपेक्षित फसल नुकसान",
+          lossVal: "उपचार न करने पर 50% से 90% फसल नष्ट",
+          triggersTitle: "मौसमी कारण एवं फैलाव:",
+          triggersDesc: "लगातार दक्षिण-पश्चिम मानसूनी बारिश (जून से सितंबर), 90% से अधिक आर्द्रता और 20°C-24°C तापमान में कोलेरोगा तेजी से फैलता है। बारिश की बूंदों से कवक के बीजाणु आस-पास के पेड़ों में फैलते हैं।",
+          symptomsTitle: "नैदानिक लक्षण एवं पहचान:",
+          symptoms: [
+            "<strong>प्रारंभिक अवस्था:</strong> कच्ची सुपारी के डंठल के पास पानी से भीगे हुए गहरे हरे या भूरे रंग के धब्बे दिखाई देते हैं।",
+            "<strong>गंभीर अवस्था:</strong> धब्बे तेजी से पूरी सुपारी पर फैल जाते हैं; फल काले पड़कर समय से पहले झड़ने लगते हैं।",
+            "<strong>फफूंद विकास:</strong> गिरे हुए फलों पर घनी सफेद कपास जैसी फफूंद उग आती है।",
+            "<strong>कली सड़न (Bud Rot):</strong> बारिश का पानी कवक बीजाणुओं को शीर्ष कली में ले जाता है, जिससे पेड़ सूखकर मर जाता है।"
+          ],
+          actionsTitle: "तत्काल आपातकालीन क्षेत्रीय कार्रवाई:",
+          actions: [
+            "<strong>स्प्रिंकलर सिंचाई बंद करें:</strong> नमी कम करने के लिए ऊपर से होने वाली सिंचाई तुरंत रोकें।",
+            "<strong>सड़े फलों को नष्ट करें:</strong> गिरे हुए सभी सड़े फलों को इकट्ठा करके जला दें या चूने के साथ गहरे गड्ढे में दबाएं।",
+            "<strong>संक्रमित पेड़ों को चिह्नित करें:</strong> रोगग्रस्त पेड़ों के उपकरण स्वस्थ पेड़ों में इस्तेमाल करने से पहले साफ करें।"
+          ],
+          rightKicker: "ICAR-CPCRI उपचार और रोकथाम प्रणाली",
+          rightTitle: "महाली / कोलेरोगा — उपचार एवं निवारण प्रोटोकॉल",
+          rightPill: "प्रमाणित प्रोटोकॉल",
+          treatTitle: "ICAR-CPCRI मानक उपचार प्रोटोकॉल:",
+          treatList: [
+            "<strong>1% बोर्डो मिश्रण छिड़काव:</strong> 1 किलो कॉपर सल्फेट (नीला थोथा) और 1 किलो बुझा हुआ चूना 100 लीटर पानी में मिलाकर अच्छी तरह हिलाते हुए छिड़कें।",
+            "<strong>3-चरणीय छिड़काव अनुसूची:</strong> पहला छिड़काव मई के अंत/जून की शुरुआत में; दूसरा छिड़काव 40-45 दिन बाद (जुलाई/अगस्त); बारिश जारी रहने पर तीसरा छिड़काव सितंबर में।",
+            "<strong>पॉलीथीन कवर बांधना:</strong> गुच्छों को बारिश से 100% बचाने के लिए 125-गेज पॉलीथीन बैग (75 × 60 सेमी) से ढकें।",
+            "<strong>प्रणालीगत कवकनाशी:</strong> संक्रमित गुच्छों पर सीधे मेटलॅक्सिल MZ (2 ग्राम/लीटर) या फोसेटाइल-Al का छिड़काव करें।"
+          ],
+          prevTitle: "दीर्घकालिक रोकथाम और बाग सुरक्षा:",
+          prevList: [
+            "<strong>जल निकासी व्यवस्था:</strong> कतारों के बीच 2 से 3 फीट गहरी जल निकासी नालियां बनाएं।",
+            "<strong>उचित दूरी:</strong> धूप और हवा के संचार के लिए पेड़ों के बीच 2.7 मीटर × 2.7 मीटर की दूरी रखें।",
+            "<strong>मानसून पूर्व सफाई:</strong> कवक के बीजाणुओं को नष्ट करने के लिए अप्रैल-मई में पेड़ों की सूखी पत्तियों और मलबे को साफ करें।"
+          ],
+          advisoryText: "<strong>ICAR-CPCRI सलाह:</strong> मानसून से पहले 1% बोर्डो मिश्रण का छिड़काव कोलेरोगा के खिलाफ सबसे कारगर उपाय है। खुराक की पुष्टि के लिए नजदीकी कृषि विज्ञान केंद्र (KVK) से संपर्क करें।"
+        },
+        ml: {
+          leftKicker: "പാത്തോളജിയും രോഗനിർണ്ണയവും",
+          leftTitle: "മഹാലി / കൊളെറോഗ (കായ് ചീയൽ) — രോഗവിവരം",
+          leftRisk: "ഗുരുതരമായ അപകടസാധ്യത",
+          pathogenLabel: "രോഗകാരിയായ കുമിൾ",
+          pathogenVal: "<em>ഫൈറ്റോഫ്തോറ മീഡി</em> (വിനാശകാരിയായ കുമിൾ)",
+          lossLabel: "പ്രതീക്ഷിക്കുന്ന വിളനഷ്ടം",
+          lossVal: "ചികിത്സിച്ചില്ലെങ്കിൽ 50% മുതൽ 90% വരെ വിളനഷ്ടം",
+          triggersTitle: "കാലാവസ്ഥയും രോഗവ്യാപനവും:",
+          triggersDesc: "കാലവർഷ മഴ, 90 ശതമാനത്തിലധികം അന്തരീക്ഷ ഈർപ്പം, മിതമായ താപനില എന്നിവ കൊളെറോഗ പടരുന്നതിന് കാരണമാകുന്നു. മഴത്തുള്ളികൾ വഴി കുമിൾ ബീജങ്ങൾ അടുത്തുള്ള കുലകളിലേക്കും മരങ്ങളിലേക്കും വ്യാപിക്കുന്നു.",
+          symptomsTitle: "രോഗലക്ഷണങ്ങളും തിരിച്ചറിയലും:",
+          symptoms: [
+            "<strong>ആദ്യ ഘട്ടം:</strong> ഇളം അടയ്ക്കയുടെ ഞെട്ടിന് സമീപം വെള്ളം നനഞ്ഞ പച്ചയോ തവിട്ടോ നിറത്തിലുള്ള പാടുകൾ കാണപ്പെടുന്നു.",
+            "<strong>രണ്ടാം ഘട്ടം:</strong> പാടുകൾ വേഗത്തിൽ പടർന്ന് അടയ്ക്ക കറുത്ത് ചീഞ്ഞ് കൊഴിഞ്ഞുവീഴുന്നു.",
+            "<strong>കുമിൾ വളർച്ച:</strong> വീണ അടയ്ക്കകളിൽ പഞ്ഞിപോലുള്ള വെളുത്ത കുമിൾ പടലങ്ങൾ കാണാം.",
+            "<strong>കൂമ്പ് ചീയൽ:</strong> മഴവെള്ളത്തിലൂടെ കുമിൾ നാമ്പിലേക്ക് എത്തുമ്പോൾ കൂമ്പ് ചീഞ്ഞ് മരം നശിക്കുന്നു."
+          ],
+          actionsTitle: "ഉടൻ ചെയ്യേണ്ട മുൻകരുതലുകൾ:",
+          actions: [
+            "<strong>നനയ്ക്കുന്നത് നിർത്തുക:</strong> ഈർപ്പം കുറയ്ക്കാൻ മുകളിൽനിന്നുള്ള നന ഉടൻ നിർത്തുക.",
+            "<strong>ചീഞ്ഞ അടയ്ക്കകൾ നശിപ്പിക്കുക:</strong> വീണുകിടക്കുന്ന അടയ്ക്കകൾ ശേഖരിച്ച് കുമ്മായമിട്ട് കുഴിച്ചുമൂടുക അല്ലെങ്കിൽ കത്തിക്കുക.",
+            "<strong>ഉപകരണങ്ങൾ അണുവിമുക്തമാക്കുക:</strong> രോഗബാധിത മരങ്ങളിൽ ഉപയോഗിച്ച ഉപകരണങ്ങൾ വൃത്തിയാക്കുക."
+          ],
+          rightKicker: "ICAR-CPCRI സംരക്ഷണ രീതികൾ",
+          rightTitle: "മഹാലി / കൊളെറോഗ — ചികിത്സാ മാനദണ്ഡങ്ങൾ",
+          rightPill: "ശാസ്ത്രീയ രീതി",
+          treatTitle: "ICAR-CPCRI നിർദ്ദേശിച്ച ചികിത്സ:",
+          treatList: [
+            "<strong>1% ബോർഡോ മിശ്രിതം തളിക്കൽ:</strong> 1 കിലോ തുരിശും 1 കിലോ ചുണ്ണാമ്പും 100 ലിറ്റർ വെള്ളത്തിൽ ലയിപ്പിച്ച് നന്നായി ഇളക്കി തളിക്കുക.",
+            "<strong>3 ഘട്ട തളിക്കൽ ക്രമം:</strong> മഴക്കാലത്തിന് തൊട്ടുമുമ്പ് ആദ്യ തളിക്കൽ; 40-45 ദിവസങ്ങൾക്ക് ശേഷം രണ്ടാം തളിക്കൽ; സെപ്റ്റംബറിൽ മൂന്നാം തളിക്കൽ.",
+            "<strong>പോളിത്തീൻ കവർ കെട്ടൽ:</strong> അടയ്ക്ക കുലകൾക്ക് 125 ഗേജ് പോളിത്തീൻ കവറുകൾ (75 × 60 സെ.മീ) കെട്ടി മഴവെള്ളത്തിൽനിന്ന് 100% സംരക്ഷണം നൽകുക.",
+            "<strong>കുമിൾനാശിനി പ്രയോഗം:</strong> രോഗബാധയുള്ള കുലകളിൽ മെറ്റലാക്സിൽ MZ (2 ഗ്രാം/ലിറ്റർ) തളിക്കുക."
+          ],
+          prevTitle: "ദീർഘകാല സംരക്ഷണ രീതികൾ:",
+          prevList: [
+            "<strong>നീർവാർച്ച സൗകര്യം:</strong> തോട്ടത്തിൽ വെള്ളം കെട്ടിക്കിടക്കാതിരിക്കാൻ 2-3 അടി ആഴത്തിൽ ചാലുകൾ കീറുക.",
+            "<strong>മതിയായ അകലം:</strong> സൂര്യപ്രകാശവും വായുസഞ്ചാരവും ലഭിക്കാൻ മരങ്ങൾ തമ്മിൽ 2.7 മീറ്റർ അകലം പാലിക്കുക.",
+            "<strong>മഴയ്ക്ക് മുമ്പുള്ള ശുചീകരണം:</strong> വേനൽക്കാലത്ത് തന്നെ മരങ്ങളുടെ ഉണങ്ങിയ പട്ടകളും അവശിഷ്ടങ്ങളും വൃത്തിയാക്കുക."
+          ],
+          advisoryText: "<strong>ICAR-CPCRI മുന്നറിയിപ്പ്:</strong> മഴക്കാലത്തിന് മുമ്പ് 1% ബോർഡോ മിശ്രിതം തളിക്കുന്നതാണ് കൊളെറോഗയ്ക്കെതിരെയുള്ള ഏറ്റവും ഫലപ്രദമായ പ്രതിരോധം. കൂടുതൽ വിവരങ്ങൾക്ക് അടുത്തുള്ള കൃഷിഭവനുമായോ KVK യുമായോ ബന്ധപ്പെടുക."
+        }
+      },
+      yld: {
+        en: {
+          leftKicker: "PATHOLOGY & FIELD DIAGNOSIS",
+          leftTitle: "Yellow Leaf Disease (YLD) — Pathological Profile",
+          leftRisk: "CHRONIC RISK",
+          pathogenLabel: "Associated Pathogen",
+          pathogenVal: "Phytoplasma organisms (phloem-inhabiting, cell-wall-less prokaryotes)",
+          lossLabel: "Expected Crop Impact",
+          lossVal: "60% to 80% yield reduction over 3–5 years",
+          triggersTitle: "Insect Vectors & Transmission:",
+          triggersDesc: "Transmitted between palms by phloem-feeding plant hoppers (<em>Proutista moesta</em>) and lace bugs (<em>Stephanitis typica</em>). Predisposing triggers include waterlogging, severe soil acidity (pH <5.0), and potassium/magnesium deficiency.",
+          symptomsTitle: "Diagnostic Symptoms & Field Identification:",
+          symptoms: [
+            "<strong>Foliar Chlorosis:</strong> Intense yellowing initiates at tips of outer leaflets in lower whorls, progressing inward while midribs remain green.",
+            "<strong>Crown Reduction:</strong> Leaves become short, stiff, and brittle. Crown shrinks, giving the trunk a tapered pencil-point look.",
+            "<strong>Kernel Degeneration:</strong> Nuts become small, corrugated, and cracked with spongy blackened endosperm.",
+            "<strong>Root Dieback:</strong> Feeder roots turn black, decay, and suffer cortical breakdown."
+          ],
+          actionsTitle: "Immediate Field Actions (Do Today):",
+          actions: [
+            "<strong>Excavate Drainage Channels:</strong> Dig 2–3 ft deep trenches immediately to relieve water stagnation.",
+            "<strong>Foliar Micronutrients:</strong> Spray 0.5% Zinc Sulfate + 0.1% Boric Acid onto fronds to stimulate chlorophyll.",
+            "<strong>Vector Trapping:</strong> Install yellow sticky traps (15–20 traps/acre) at canopy level."
+          ],
+          rightKicker: "ICAR-CPCRI REHABILITATION SYSTEM",
+          rightTitle: "Yellow Leaf Disease (YLD) — Nutritional Cure & Prevention",
+          rightPill: "REHABILITATION",
+          treatTitle: "ICAR-CPCRI Rehabilitation & Nutritional Management:",
+          treatList: [
+            "<strong>Balanced NPK Dosage (per palm/year):</strong> 100 g Nitrogen (220 g Urea), 40 g Phosphorus (200 g Rock Phosphate), 140 g Potassium (230 g Muriate of Potash) in 2 equal splits (May–June and Sept–Oct).",
+            "<strong>Organic Soil Enrichment:</strong> Apply 12 kg Farmyard Manure (FYM) or vermicompost + 12 kg green leaf mulch per palm annually.",
+            "<strong>Magnesium Correction:</strong> Apply 200 g Magnesium Sulfate (MgSO₄) per palm per year in two splits.",
+            "<strong>Soil Liming:</strong> Apply agricultural lime or dolomite at 1 kg per palm once every 2 years in acidic soils (pH <5.5)."
+          ],
+          prevTitle: "Long-Term Prevention & Intercropping:",
+          prevList: [
+            "<strong>Multi-Species Cropping:</strong> Intercrop with cocoa, banana, and pepper to improve soil organic matter and root aeration.",
+            "<strong>Vector Management:</strong> Spray neem-based formulation (Azadirachtin 0.03% @ 5 mL/L) on fronds during post-monsoon vector season."
+          ],
+          advisoryText: "<strong>ICAR-CPCRI Advisory:</strong> Phytoplasma is systemic within vascular phloem; disease mitigation relies on integrated soil rehabilitation, drainage, balanced NPK+Mg nutrition, and vector control."
+        },
+        kn: {
+          leftKicker: "ರೋಗಶಾಸ್ತ್ರ ಮತ್ತು ಕ್ಷೇತ್ರ ರೋಗನಿರ್ಣಯ",
+          leftTitle: "ಹಳದಿ ಎಲೆ ರೋಗ (ವೈಎಲ್ ಡಿ) — ರೋಗದ ಪ್ರೊಫೈಲ್",
+          leftRisk: "ದೀರ್ಘಕಾಲಿಕ ಅಪಾಯ",
+          pathogenLabel: "ಸಂಬಂಧಿತ ರೋಗಕಾರಕ",
+          pathogenVal: "ಫೈಟೋಪ್ಲಾಸ್ಮಾ ಸೂಕ್ಷ್ಮಜೀವಿಗಳು (ಫ್ಲೋಯಮ್ ನರಗಳಲ್ಲಿ ವಾಸಿಸುವ ಜೀವಿಗಳು)",
+          lossLabel: "ನಿರೀಕ್ಷಿತ ಬೆಳೆ ನಷ್ಟ",
+          lossVal: "೩-೫ ವರ್ಷಗಳಲ್ಲಿ ೬೦% ರಿಂದ ೮೦% ಇಳುವರಿ ಕುಸಿತ",
+          triggersTitle: "ವಾಹಕ ಕೀಟಗಳು ಮತ್ತು ಹರಡುವಿಕೆ:",
+          triggersDesc: "ಸಸ್ಯ ರಸ ಹೀರುವ ಜಿಗಿ ಹುಳುಗಳು (<em>ಪ್ರೌಟಿಸ್ಟಾ ಮೊಯೆಸ್ಟಾ</em>) ಮತ್ತು ಲೇಸ್ ಬಗ್ (<em>ಸ್ಟೆಫಾನಿಟಿಸ್ ಟಿಪಿಕಾ</em>) ಕೀಟಗಳ ಮೂಲಕ ಹರಡುತ್ತದೆ. ಜಲಾವೃತ ಮಣ್ಣು, ತೀವ್ರ ಆಮ್ಲೀಯತೆ (pH < 5.0) ಮತ್ತು ಪೊಟ್ಯಾಶ್/ಮೆಗ್ನೀಸಿಯಮ್ ಕೊರತೆಯು ರೋಗವನ್ನು ತೀವ್ರಗೊಳಿಸುತ್ತದೆ.",
+          symptomsTitle: "ರೋಗನಿರ್ಣಯದ ಲಕ್ಷಣಗಳು ಮತ್ತು ಗುರುತಿಸುವಿಕೆ:",
+          symptoms: [
+            "<strong>ಎಲೆಯ ಹಳದಿ ಬಣ್ಣ:</strong> ಕೆಳಭಾಗದ ಗರಿಗಳ ತುದಿಯಲ್ಲಿ ತೀವ್ರ ಹಳದಿ ಬಣ್ಣ ಪ್ರಾರಂಭವಾಗಿ ಒಳಮುಖವಾಗಿ ಹರಡುತ್ತದೆ; ನಡುದಿಂಡು ಹಸಿರಾಗಿಯೇ ಇರುತ್ತದೆ.",
+            "<strong>ಸುಳಿ ಕಿರಿದಾಗುವಿಕೆ:</strong> ಎಲೆಗಳು ಗಿಡ್ಡವಾಗಿ, ಗಟ್ಟಿಯಾಗಿ ಮತ್ತು ಸುಲಭವಾಗಿ ಮುರಿಯುತ್ತವೆ. ಮರದ ತುದಿ ಸಣ್ಣದಾಗಿ ಪೆನ್ಸಿಲ್ ಮೊನೆಯಂತೆ ಕಾಣುತ್ತದೆ.",
+            "<strong>ಅಡಿಕೆ ಗುಣಮಟ್ಟ ಹಾಳು:</strong> ಅಡಿಕೆಗಳು ಸಣ್ಣದಾಗಿ ಬಿರುಕು ಬಿಡುತ್ತವೆ ಮತ್ತು ಒಳಗಿನ ಚಾಲಿ ಕಪ್ಪಾಗಿ ಸ್ಪಂಜಿನಂತಾಗುತ್ತದೆ.",
+            "<strong>ಬೇರು ಕೊಳೆಯುವಿಕೆ:</strong> ಆಹಾರ ಹೀರುವ ಬೇರುಗಳು ಕಪ್ಪಾಗಿ ಕೊಳೆಯುತ್ತವೆ, ಇದರಿಂದ ಪೋಷಕಾಂಶ ಹೀರುವಿಕೆ ಕುಂಠಿತಗೊಳ್ಳುತ್ತದೆ."
+          ],
+          actionsTitle: "ತಕ್ಷಣದ ಕ್ಷೇತ್ರ ಕ್ರಮಗಳು (ಇಂದೇ ಮಾಡಿ):",
+          actions: [
+            "<strong>ಚರಂಡಿ ತೋಡುವುದು:</strong> ಬೇರಿನ ವಲಯದಲ್ಲಿ ನೀರು ನಿಲ್ಲದಂತೆ ತಕ್ಷಣ ೨-೩ ಅಡಿ ಆಳದ ಒಳಚರಂಡಿ ಕಾಲುವೆಗಳನ್ನು ತೋಡಿ.",
+            "<strong>ಸೂಕ್ಷ್ಮ ಪೋಷಕಾಂಶ ಸಿಂಪಡಣೆ:</strong> ಕ್ಲೋರೊಫಿಲ್ ಪುನರುಜ್ಜೀವನಕ್ಕೆ ೦.೫% ಜಿಂಕ್ ಸಲ್ಫೇಟ್ + ೦.೧% ಬೋರಿಕ್ ಆಮ್ಲವನ್ನು ಎಲೆಗಳಿಗೆ ಸಿಂಪಡಿಸಿ.",
+            "<strong>ಜಿಗಿಹುಳುಗಳ ನಿಯಂತ್ರಣ:</strong> ವಾಹಕ ಕೀಟಗಳನ್ನು ಹಿಡಿಯಲು ಪ್ರತಿ ಎಕರೆಗೆ ೧೫-೨೦ ಹಳದಿ ಜಿಗುಟು ಬಲೆಗಳನ್ನು (Yellow Sticky Traps) ಅಳವಡಿಸಿ."
+          ],
+          rightKicker: "ICAR-CPCRI ಪುನಶ್ಚೇತನ ವ್ಯವಸ್ಥೆ",
+          rightTitle: "ಹಳದಿ ಎಲೆ ರೋಗ (ವೈಎಲ್ ಡಿ) — ಪೌಷ್ಟಿಕ ಚಿಕಿತ್ಸೆ ಮತ್ತು ತಡೆಗಟ್ಟುವಿಕೆ",
+          rightPill: "ಪುನಶ್ಚೇತನ",
+          treatTitle: "ICAR-CPCRI ಪುನಶ್ಚೇತನ ಮತ್ತು ಪೌಷ್ಟಿಕಾಂಶ ನಿರ್ವಹಣೆ:",
+          treatList: [
+            "<strong>ಸಮತೋಲಿತ NPK ಗೊಬ್ಬರ (ಪ್ರತಿ ಮರಕ್ಕೆ/ವರ್ಷಕ್ಕೆ):</strong> ೧೦೦ ಗ್ರಾಂ ಸಾರಜನಕ (೨೨೦ ಗ್ರಾಂ ಯೂರಿಯಾ), ೪೦ ಗ್ರಾಂ ರಂಜಕ (೨೦೦ ಗ್ರಾಂ ರಾಕ್ ಫಾಸ್ಫೇಟ್), ೧೪೦ ಗ್ರಾಂ ಪೊಟ್ಯಾಶ್ (೨೩೦ ಗ್ರಾಂ ಎಂಒಪಿ) - ಮೇ-ಜೂನ್ ಮತ್ತು ಸೆಪ್ಟೆಂಬರ್-ಅಕ್ಟೋಬರ್‌ನಲ್ಲಿ ೨ ಸಮಾನ ಕಂತುಗಳಲ್ಲಿ ನೀಡಿ.",
+            "<strong>ಸಾವಯವ ಮಣ್ಣಿನ ಪುಷ್ಟೀಕರಣ:</strong> ಪ್ರತಿ ಮರಕ್ಕೆ ವಾರ್ಷಿಕವಾಗಿ ೧೨ ಕೆಜಿ ಕೊಟ್ಟಿಗೆ ಗೊಬ್ಬರ/ಎರೆಹುಳು ಗೊಬ್ಬರ + ೧೨ ಕೆಜಿ ಹಸಿರೆಲೆ ಗೊಬ್ಬರ ಹಾಕಿ.",
+            "<strong>ಮೆಗ್ನೀಸಿಯಮ್ ತಿದ್ದುಪಡಿ:</strong> ಎಲೆಗಳ ಹಳದಿ ಬಣ್ಣ ಹೋಗಲಾಡಿಸಲು ಪ್ರತಿ ಮರಕ್ಕೆ ವರ್ಷಕ್ಕೆ ೨೦೦ ಗ್ರಾಂ ಮೆಗ್ನೀಸಿಯಮ್ ಸಲ್ಫೇಟ್ (MgSO₄) ಅನ್ನು ೨ ಕಂತುಗಳಲ್ಲಿ ನೀಡಿ.",
+            "<strong>ಕೃಷಿ ಸುಣ್ಣ ಬಳಕೆ:</strong> ಆಮ್ಲೀಯ ಮಣ್ಣಿನಲ್ಲಿ (pH <5.5) ಪ್ರತಿ ೨ ವರ್ಷಕ್ಕೊಮ್ಮೆ ಮರಕ್ಕೆ ೧ ಕೆಜಿ ಕೃಷಿ ಸುಣ್ಣ ಅಥವಾ ಡಾಲಮೈಟ್ ಹಾಕಿ."
+          ],
+          prevTitle: "ದೀರ್ಘಕಾಲೀನ ತಡೆಗಟ್ಟುವಿಕೆ ಮತ್ತು ಮಿಶ್ರ ಬೆಳೆ:",
+          prevList: [
+            "<strong>ಮಿಶ್ರ ಬೆಳೆ ಪದ್ಧತಿ:</strong> ಮಣ್ಣಿನ ಸಾವಯವ ಅಂಶ ಮತ್ತು ಬೇರುಗಳ ಆರೋಗ್ಯ ಸುಧಾರಿಸಲು ಕೋಕೋ, ಬಾಳೆ ಮತ್ತು ಕಾಳುಮೆಣಸು ಮಿಶ್ರಬೆಳೆಯಾಗಿ ಬೆಳೆಯಿರಿ.",
+            "<strong>ಕೀಟ ನಿಯಂತ್ರಣ:</strong> ಮಳೆಗಾಲದ ನಂತರ ಕೀಟಗಳು ಬರದಂತೆ ಬೇವಿನ ಎಣ್ಣೆ ಆಧಾರಿತ ಕೀಟನಾಶಕವನ್ನು (ಅಜಾಡಿರಾಕ್ಟಿನ್ ೦.೦೩% @ ೫ ಮಿಲಿ/ಲೀಟರ್) ಸಿಂಪಡಿಸಿ."
+          ],
+          advisoryText: "<strong>ICAR-CPCRI ಸಲಹೆ:</strong> ಫೈಟೋಪ್ಲಾಸ್ಮಾ ಮರದ ನಾಳಗಳ ಒಳಗೆ ಇರುವುದರಿಂದ ಕೇವಲ ರಾಸಾಯನಿಕ ಸಿಂಪಡಣೆಯಿಂದ ಗುಣಪಡಿಸಲಾಗುವುದಿಲ್ಲ. ಮಣ್ಣಿನ ಸುಧಾರಣೆ, ಒಳಚರಂಡಿ, ಸಮತೋಲಿತ NPK+ಮೆಗ್ನೀಸಿಯಮ್ ಪೋಷಣೆ ಮತ್ತು ಕೀಟ ನಿಯಂತ್ರಣದಿಂದ ಮರಗಳನ್ನು ರಕ್ಷಿಸಬಹುದು."
+        },
+        hi: {
+          leftKicker: "पैथोलॉजी और क्षेत्रीय निदान",
+          leftTitle: "पीली पत्ती रोग (YLD) — रोग प्रोफ़ाइल",
+          leftRisk: "दीर्घकालिक जोखिम",
+          pathogenLabel: "संबंधित रोगज़नक़",
+          pathogenVal: "फाइटोप्लाज्मा जीव (फ्लोएम में रहने वाले परजीवी)",
+          lossLabel: "अपेक्षित फसल नुकसान",
+          lossVal: "3-5 वर्षों में 60% से 80% पैदावार में गिरावट",
+          triggersTitle: "कीट वाहक और संचरण:",
+          triggersDesc: "पौधों का रस चूसने वाले फुदके (<em>प्राउटिस्टा मोएस्टा</em>) और लेस बग कीटों द्वारा फैलता है। जलभराव, मिट्टी की अम्लता (pH <5.0) और पोटाश/मैग्नीशियम की कमी से रोग बढ़ता है।",
+          symptomsTitle: "पहचान के लक्षण:",
+          symptoms: [
+            "<strong>पत्तियों का पीलापन:</strong> निचली पत्तियों के सिरों से तीव्र पीलापन शुरू होकर अंदर की ओर बढ़ता है, मध्य शिरा हरी रहती है।",
+            "<strong>छत्र में कमी:</strong> पत्तियां छोटी, सख्त और भंगुर हो जाती हैं। तना ऊपर से पतला होकर पेंसिल जैसा हो जाता है।",
+            "<strong>सुपारी का क्षरण:</strong> फल छोटे, झुर्रीदार होते हैं और अंदर की गिरी काली व स्पंजी हो जाती है।",
+            "<strong>जड़ों का सड़ना:</strong> पोषक तत्व सोखने वाली जड़ें काली पड़कर सड़ जाती हैं।"
+          ],
+          actionsTitle: "तत्काल कार्रवाई (आज ही करें):",
+          actions: [
+            "<strong>नालियां बनाएं:</strong> जड़ों में पानी का ठहराव रोकने के लिए 2-3 फीट गहरी नालियां खोदें।",
+            "<strong>सूक्ष्म पोषक तत्व छिड़काव:</strong> क्लोरोफिल बढ़ाने के लिए पत्तियों पर 0.5% जिंक सल्फेट + 0.1% बोरिक एसिड छिड़कें।",
+            "<strong>कीट नियंत्रण:</strong> कीटों को पकड़ने के लिए प्रति एकड़ 15-20 पीले चिपचिपे जाल (Yellow Sticky Traps) लगाएं।"
+          ],
+          rightKicker: "ICAR-CPCRI पुनर्वास प्रणाली",
+          rightTitle: "पीली पत्ती रोग (YLD) — पोषण उपचार एवं रोकथाम",
+          rightPill: "पुनर्वास",
+          treatTitle: "ICAR-CPCRI पुनर्वास एवं पोषण प्रबंधन:",
+          treatList: [
+            "<strong>संतुलित NPK खुराक (प्रति पेड़/वर्ष):</strong> 100 ग्राम नाइट्रोजन (220 ग्राम यूरिया), 40 ग्राम फास्फोरस (200 ग्राम रॉक फास्फेट), 140 ग्राम पोटाश (230 ग्राम MOP) - मई-जून और सितंबर-अक्टूबर में दो बराबर किश्तों में दें।",
+            "<strong>जैविक खाद:</strong> प्रति पेड़ प्रति वर्ष 12 किलो गोबर की खाद/केंचुआ खाद + 12 किलो हरी पत्ती की खाद डालें।",
+            "<strong>मैग्नीशियम सुधार:</strong> पत्तियों का पीलापन दूर करने के लिए प्रति पेड़ प्रति वर्ष 200 ग्राम मैग्नीशियम सल्फेट (MgSO₄) दो बार दें।",
+            "<strong>कृषि चूना:</strong> अम्लीय मिट्टी में हर 2 साल में एक बार प्रति पेड़ 1 किलो कृषि चूना या डोलोमाइट डालें।"
+          ],
+          prevTitle: "दीर्घकालिक रोकथाम और मिश्रित खेती:",
+          prevList: [
+            "<strong>मिश्रित फसलें:</strong> मिट्टी में सुधार के लिए कोको, केला और काली मिर्च को मिश्रित फसल के रूप में लगाएं।",
+            "<strong>वाहक नियंत्रण:</strong> मानसून के बाद नीम आधारित कीटनाशक (एज़ाडिराक्टिन 0.03% @ 5 मिली/लीटर) का छिड़काव करें।"
+          ],
+          advisoryText: "<strong>ICAR-CPCRI सलाह:</strong> फाइटोप्लाज्मा संवहनी ऊतकों के अंदर रहता है, इसलिए केवल रासायनिक कीटनाशकों से इलाज संभव नहीं है। मिट्टी की सेहत, जल निकासी, संतुलित NPK+Mg पोषण और कीट नियंत्रण से ही पेड़ स्वस्थ रह सकते हैं।"
+        },
+        ml: {
+          leftKicker: "പാത്തോളജിയും രോഗനിർണ്ണയവും",
+          leftTitle: "മഞ്ഞളിപ്പ് രോഗം (YLD) — രോഗവിവരങ്ങൾ",
+          leftRisk: "ദീർഘകാല അപകടസാധ്യത",
+          pathogenLabel: "രോഗകാരിയായ ജീവി",
+          pathogenVal: "ഫൈറ്റോപ്ലാസ്മ (സസ്യ കോശങ്ങളിൽ വസിക്കുന്ന ജീവി)",
+          lossLabel: "പ്രതീക്ഷിക്കുന്ന വിളനഷ്ടം",
+          lossVal: "3-5 വർഷത്തിനുള്ളിൽ 60% മുതൽ 80% വരെ വിളനഷ്ടം",
+          triggersTitle: "വാഹക പ്രാണികളും വ്യാപനവും:",
+          triggersDesc: "നീരൂറ്റിക്കുടിക്കുന്ന ചെള്ളുകൾ (<em>പ്രൗട്ടിസ്റ്റ മോയെസ്റ്റ</em>), ലേസ് ബഗ്ഗുകൾ എന്നിവ വഴി പകരുന്നു. മണ്ണിലെ വെള്ളക്കെട്ടും അസിഡിറ്റിയും (pH <5.0) പൊട്ടാഷ്/മഗ്നീഷ്യം കുറവും രോഗം മൂർച്ഛിപ്പിക്കുന്നു.",
+          symptomsTitle: "പ്രധാന രോഗലക്ഷണങ്ങൾ:",
+          symptoms: [
+            "<strong>ഓല മഞ്ഞളിപ്പ്:</strong> താഴത്തെ ഓലകളുടെ അഗ്രഭാഗത്തുനിന്ന് ആരംഭിച്ച് ഉള്ളിലേക്ക് പടരുന്ന കടുത്ത മഞ്ഞനിറം; ഈർക്കിൽ പച്ചയായി തുടരും.",
+            "<strong>തലപ്പ് ചുരുങ്ങൽ:</strong> ഓലകൾ ചെറുതും കട്ടിയുള്ളതുമാകുന്നു. മരത്തിന്റെ തലപ്പ് ചുരുങ്ങി പെൻസിൽ പോലെ കൂർത്ത രൂപത്തിലാകുന്നു.",
+            "<strong>അടയ്ക്ക നശിക്കൽ:</strong> അടയ്ക്കകൾ ചെറുതായി ചുരുങ്ങുകയും ഉള്ളിലെ കാമ്പ് കറുത്ത് പഞ്ഞിപോലെയാവുകയും ചെയ്യുന്നു.",
+            "<strong>വേര് ചീയൽ:</strong> ആഹാരം വലിച്ചെടുക്കുന്ന വേരുകൾ കറുത്ത് ചീഞ്ഞുപോകുന്നു."
+          ],
+          actionsTitle: "ഉടൻ ചെയ്യേണ്ട ഫീൽഡ് നടപടികൾ:",
+          actions: [
+            "<strong>നീർവാർച്ച ചാലുകൾ:</strong> വേരുകളിൽ വെള്ളം കെട്ടിനിൽക്കാതിരിക്കാൻ ഉടൻ 2-3 അടി ആഴത്തിൽ ചാലുകൾ കീറുക.",
+            "<strong>സൂക്ഷ്മ മൂലക പ്രയോഗം:</strong> ഹരിതകം വീണ്ടെടുക്കാൻ 0.5% സിങ്ക് സൾഫേറ്റും 0.1% ബോറിക് ആസിഡും ഓലകളിൽ തളിക്കുക.",
+            "<strong>പ്രാണി നിയന്ത്രണം:</strong> തോട്ടത്തിൽ മഞ്ഞക്കെണികൾ (ഏക്കറിന് 15-20 എണ്ണം) സ്ഥാപിക്കുക."
+          ],
+          rightKicker: "ICAR-CPCRI പുനരുജ്ജീവന പദ്ധതി",
+          rightTitle: "മഞ്ഞളിപ്പ് രോഗം (YLD) — പോഷണ ചികിത്സയും പ്രതിരോധവും",
+          rightPill: "പുനരുജ്ജീവനം",
+          treatTitle: "ICAR-CPCRI പോഷണ മാനേജ്മെന്റ്:",
+          treatList: [
+            "<strong>സന്തുലിത NPK വളപ്രയോഗം (പ്രതിവർഷം ഒരു മരത്തിന്):</strong> 100 ഗ്രാം നൈട്രജൻ (220 ഗ്രാം യൂറിയ), 40 ഗ്രാം ഫോസ്ഫറസ് (200 ഗ്രാം രാജ്ഫോസ്), 140 ഗ്രാം പൊട്ടാഷ് (230 ഗ്രാം എം.ഒ.പി) - മെയ്-ജൂൺ, സെപ്റ്റംബർ-ഒക്ടോബർ മാസങ്ങളിലായി തുല്യ തവണകളായി നൽകുക.",
+            "<strong>ജൈവവളം:</strong> പ്രതിവർഷം 12 കിലോ കാലിവളം/കമ്പോസ്റ്റ് + 12 കിലോ പച്ചിലവളം നൽകുക.",
+            "<strong>മഗ്നീഷ്യം പോഷണം:</strong> മഞ്ഞളിപ്പ് മാറ്റാൻ പ്രതിവർഷം 200 ഗ്രാം മഗ്നീഷ്യം സൾഫേറ്റ് (MgSO₄) രണ്ട് തവണയായി നൽകുക.",
+            "<strong>കുമ്മായ പ്രയോഗം:</strong> അമ്ലത്വമുള്ള മണ്ണിൽ രണ്ട് വർഷത്തിലൊരിക്കൽ 1 കിലോ കുമ്മായം അല്ലെങ്കിൽ ഡോളമൈറ്റ് ചേർക്കുക."
+          ],
+          prevTitle: "ദീർഘകാല പ്രതിരോധവും ഇടവിളകളും:",
+          prevList: [
+            "<strong>ഇടവിള കൃഷി:</strong> മണ്ണിന്റെ ഫലഭൂയിഷ്ഠത കൂട്ടാൻ കൊക്കോ, വാഴ, കുരുമുളക് എന്നിവ ഇടവിളയായി കൃഷി ചെയ്യുക.",
+            "<strong>കീട നിയന്ത്രണം:</strong> വേപ്പെണ്ണ അധിഷ്ഠിത കീടനാശിനി (അസാഡിറാക്റ്റിൻ 0.03% @ 5 മി.ലി/ലിറ്റർ) തളിക്കുക."
+          ],
+          advisoryText: "<strong>ICAR-CPCRI നിർദ്ദേശം:</strong> ഫൈറ്റോപ്ലാസ്മ മരത്തിന്റെ രസായന നാളികൾക്കുള്ളിൽ ഉള്ളതിനാൽ രാസകീടനാശിനികൾ കൊണ്ട് പൂർണ്ണമായി മാറ്റാനാവില്ല. മണ്ണിലെ നീർവാർച്ച, സന്തുലിത NPK+Mg പോഷണം, കീടനിയന്ത്രണം എന്നിവയിലൂടെ മാത്രമേ മരങ്ങളെ സംരക്ഷിക്കാനാകൂ."
+        }
+      },
+      healthy_nut: {
+        en: {
+          leftKicker: "AGRONOMIC HEALTH & QUALITY PROFILE",
+          leftTitle: "Healthy Nut Specimen — Morphological Standards",
+          leftRisk: "OPTIMAL GRADE",
+          pathogenLabel: "Crop Health Status",
+          pathogenVal: "Pristine Drupe Cluster — No Pathological Lesions",
+          lossLabel: "Expected Harvest Yield",
+          lossVal: "Peak Market Grade A Yield (Optimal Dry Chali)",
+          triggersTitle: "Optimal Field Environment:",
+          triggersDesc: "Healthy nuts indicate balanced nutrition, regular summer irrigation, and timely prophylactic fungal management. Continue seasonal surveillance.",
+          symptomsTitle: "Healthy Botanical Characteristics Observed:",
+          symptoms: [
+            "<strong>Intact Epicarp:</strong> Smooth, firm, deep green outer skin with zero water-soaked lesions or rotting.",
+            "<strong>Firm Calyx Perianth:</strong> Strong attachment to bunch stalk with tight calyx cups and no dark margin discoloration.",
+            "<strong>Normal Fruit Cluster:</strong> High fruit retention count (30–50 nuts per bunch) without abnormal shedding.",
+            "<strong>Absence of Mycelium:</strong> Clean fruit surfaces completely free from white fluffy mycelial felts."
+          ],
+          actionsTitle: "Early Warning Symptoms to Monitor in Field:",
+          actions: [
+            "Tiny water-soaked dark spots appearing near the nut perianth stalk.",
+            "Sudden shedding of green buttons (more than 5 green nuts per day under a palm)."
+          ],
+          rightKicker: "PROACTIVE CROP PROTECTION",
+          rightTitle: "Healthy Nut — Protection Protocols & Care Calendar",
+          rightPill: "BEST PRACTICES",
+          treatTitle: "Proactive Crop Protection (Prevent Koleroga & Drop):",
+          treatList: [
+            "<strong>Pre-Monsoon Bunch Bagging:</strong> Tie 125-gauge polythene covers (75 × 60 cm) over bunches in May to protect developing nuts.",
+            "<strong>Prophylactic 1% Bordeaux Spray:</strong> Apply fine spray over bunches before southwest monsoon rains commence.",
+            "<strong>Nutrient Support:</strong> Apply Borax (12 g/palm) and Zinc Sulfate (20 g/palm) for uniform kernel fill.",
+            "<strong>Summer Irrigation:</strong> Maintain 175–200 L per palm every 4 to 6 days during dry summer months."
+          ],
+          prevTitle: "Seasonal Nut Care & Harvest Calendar:",
+          prevList: [
+            "<strong>May–June:</strong> Pre-monsoon bunch bagging and 1st Bordeaux mixture spray.",
+            "<strong>July–August:</strong> Mid-monsoon break inspection and 2nd prophylactic spray.",
+            "<strong>October–December:</strong> Harvest mature ripe nuts; clean plantation floor."
+          ],
+          advisoryText: "<strong>ICAR-CPCRI Guidance:</strong> Maintain clean palm basins and prophylactic spray schedules to safeguard your high-grade harvest."
+        },
+        kn: {
+          leftKicker: "ಕೃಷಿ ಆರೋಗ್ಯ ಮತ್ತು ಗುಣಮಟ್ಟ ಪ್ರೊಫೈಲ್",
+          leftTitle: "ಆರೋಗ್ಯಕರ ಅಡಿಕೆ ಕಾಯಿ — ಕೃಷಿ ಮಾನದಂಡಗಳು",
+          leftRisk: "ಉತ್ತಮ ಶ್ರೇಣಿ",
+          pathogenLabel: "ಬೆಳೆ ಆರೋಗ್ಯ ಸ್ಥಿತಿ",
+          pathogenVal: "ಉತ್ತಮ ಅಡಿಕೆ ಗೊನೆ — ಯಾವುದೇ ರೋಗಲಕ್ಷಣಗಳಿಲ್ಲ",
+          lossLabel: "ನಿರೀಕ್ಷಿತ ಇಳುವರಿ",
+          lossVal: "ಗರಿಷ್ಠ ಮಾರುಕಟ್ಟೆ 'ಎ' ಗ್ರೇಡ್ ಇಳುವರಿ (ಉತ್ತಮ ಚಾಲಿ)",
+          triggersTitle: "ಉತ್ತಮ ತೋಟಗಾರಿಕಾ ಪರಿಸರ:",
+          triggersDesc: "ಆರೋಗ್ಯಕರ ಕಾಯಿಗಳು ಸಮತೋಲಿತ ಪೋಷಣೆ, ನಿಯಮಿತ ಬೇಸಿಗೆ ನೀರಾವರಿ ಮತ್ತು ಸಕಾಲಿಕ ಶಿಲೀಂಧ್ರ ನಿರ್ವಹಣೆಯನ್ನು ಸೂಚಿಸುತ್ತವೆ.",
+          symptomsTitle: "ಗಮನಿಸಲಾದ ಆರೋಗ್ಯಕರ ಲಕ್ಷಣಗಳು:",
+          symptoms: [
+            "<strong>ಉತ್ತಮ ಸಿಪ್ಪೆ:</strong> ಮೃದುವಾದ, ದೃಢವಾದ ಕಡು ಹಸಿರು ಹೊರಮೈ, ನೀರಿನ ಕಲೆಗಳು ಅಥವಾ ಕೊಳೆತ ಇರುವುದಿಲ್ಲ.",
+            "<strong>ಭದ್ರವಾದ ತೊಟ್ಟು:</strong> ತೊಟ್ಟಿಗೆ ಬಲವಾದ ಜೋಡಣೆ, ಯಾವುದೇ ಕಪ್ಪು ಬಣ್ಣದ ಕಲೆಗಳಿರುವುದಿಲ್ಲ.",
+            "<strong>ಸಾಮಾನ್ಯ ಗೊನೆ:</strong> ಅಕಾಲಿಕ ಉದುರುವಿಕೆ ಇಲ್ಲದೆ ಗೊನೆಯಲ್ಲಿ ೩೦-೫೦ ಕಾಯಿಗಳು ಭದ್ರವಾಗಿರುತ್ತವೆ.",
+            "<strong>ಶಿಲೀಂಧ್ರ ಮುಕ್ತ:</strong> ಕಾಯಿಗಳ ಮೇಲೆ ಯಾವುದೇ ಬಿಳಿ ಶಿಲೀಂಧ್ರದ ಕುರುಹುಗಳಿರುವುದಿಲ್ಲ."
+          ],
+          actionsTitle: "ತೋಟದಲ್ಲಿ ಗಮನಿಸಬೇಕಾದ ಆರಂಭಿಕ ಎಚ್ಚರಿಕೆಗಳು:",
+          actions: [
+            "ಅಡಿಕೆ ತೊಟ್ಟಿನ ಬಳಿ ಸಣ್ಣ ನೀರಿನ ಕಲೆಗಳು ಕಾಣಿಸಿಕೊಳ್ಳುವುದು.",
+            "ದಿನಕ್ಕೆ ೫ಕ್ಕಿಂತ ಹೆಚ್ಚು ಹಸಿರು ಅಡಿಕೆಗಳು ಅಕಾಲಿಕವಾಗಿ ಉದುರುವುದು."
+          ],
+          rightKicker: "ಮುನ್ನೆಚ್ಚರಿಕೆ ಬೆಳೆ ರಕ್ಷಣೆ",
+          rightTitle: "ಆರೋಗ್ಯಕರ ಅಡಿಕೆ — ರಕ್ಷಣಾ ಪ್ರೋಟೋಕಾಲ್ ಮತ್ತು ಆರೈಕೆ ಕ್ಯಾಲೆಂಡರ್",
+          rightPill: "ಉತ್ತಮ ಪದ್ಧತಿಗಳು",
+          treatTitle: "ಮುನ್ನೆಚ್ಚರಿಕೆ ರಕ್ಷಣೆ (ಕೊಳೆರೋಗ ಮತ್ತು ಉದುರುವಿಕೆ ತಡೆಗಟ್ಟಿ):",
+          treatList: [
+            "<strong>ಮಾನ್ಸೂನ್ ಪೂರ್ವ ಗೊನೆ ಚೀಲ ಕಟ್ಟುವುದು:</strong> ಬೆಳೆಯುತ್ತಿರುವ ಕಾಯಿಗಳನ್ನು ರಕ್ಷಿಸಲು ಮೇ ತಿಂಗಳಲ್ಲಿ ಗೊನೆಗಳಿಗೆ ೧೨೫-ಗೇಜ್ ಪಾಲಿಥೀನ್ ಚೀಲಗಳನ್ನು ಕಟ್ಟಿ.",
+            "<strong>೧% ಬೋರ್ಡೋ ಸಿಂಪಡಣೆ:</strong> ನೈಋತ್ಯ ಮುಂಗಾರು ಆರಂಭವಾಗುವ ಮುನ್ನ ಗೊನೆಗಳಿಗೆ ಬೋರ್ಡೋ ದ್ರಾವಣ ಸಿಂಪಡಿಸಿ.",
+            "<strong>ಪೋಷಕಾಂಶ ಬೆಂಬಲ:</strong> ಕಾಯಿಗಳು ಗಟ್ಟಿಯಾಗಲು ಬೋರಾಕ್ಸ್ (೧೨ ಗ್ರಾಂ) ಮತ್ತು ಜಿಂಕ್ ಸಲ್ಫೇಟ್ (೨೦ ಗ್ರಾಂ) ನೀಡಿ.",
+            "<strong>ಬೇಸಿಗೆ ನೀರಾವರಿ:</strong> ಒಣ ಬೇಸಿಗೆಯಲ್ಲಿ ಪ್ರತಿ ೪-೬ ದಿನಗಳಿಗೊಮ್ಮೆ ಮರಕ್ಕೆ ೧೭೫-೨೦೦ ಲೀಟರ್ ನೀರು ನೀಡಿ."
+          ],
+          prevTitle: "ಋತುಮಾನದ ಅಡಿಕೆ ಆರೈಕೆ ಮತ್ತು ಕೊಯ್ಲು ಕ್ಯಾಲೆಂಡರ್:",
+          prevList: [
+            "<strong>ಮೇ–ಜೂನ್:</strong> ಮುಂಗಾರು ಪೂರ್ವ ಗೊನೆ ಚೀಲ ಕಟ್ಟುವುದು ಮತ್ತು ೧ನೇ ಬೋರ್ಡೋ ಸಿಂಪಡಣೆ.",
+            "<strong>ಜುಲೈ–ಆಗಸ್ಟ್:</strong> ಮಳೆಯ ಬಿಡುವಿನ ಸಮಯದಲ್ಲಿ ಪರಿಶೀಲನೆ ಮತ್ತು ೨ನೇ ರಕ್ಷಣಾತ್ಮಕ ಸಿಂಪಡಣೆ.",
+            "<strong>ಅಕ್ಟೋಬರ್–ಡಿಸೆಂಬರ್:</strong> ಹಣ್ಣಾದ ಅಡಿಕೆ ಕೊಯ್ಲು ಮತ್ತು ತೋಟದ ಸ್ವಚ್ಛತೆ."
+          ],
+          advisoryText: "<strong>ICAR-CPCRI ಮಾರ್ಗದರ್ಶನ:</strong> ನಿಮ್ಮ ಉತ್ತಮ ಗುಣಮಟ್ಟದ ಇಳುವರಿಯನ್ನು ಉಳಿಸಿಕೊಳ್ಳಲು ತೋಟದ ಸ್ವಚ್ಛತೆ ಮತ್ತು ರಕ್ಷಣಾತ್ಮಕ ಸಿಂಪಡಣಾ ವೇಳಾಪಟ್ಟಿಯನ್ನು ಮುಂದುವರಿಸಿ."
+        },
+        hi: {
+          leftKicker: "कृषि स्वास्थ्य एवं गुणवत्ता प्रोफ़ाइल",
+          leftTitle: "स्वस्थ सुपारी फल — मानक",
+          leftRisk: "सर्वोत्तम ग्रेड",
+          pathogenLabel: "फसल स्वास्थ्य स्थिति",
+          pathogenVal: "स्वस्थ फल गुच्छा — कोई रोग नहीं",
+          lossLabel: "अपेक्षित पैदावार",
+          lossVal: "उच्चतम बाजार 'ए' ग्रेड पैदावार",
+          triggersTitle: "अनुकूल बाग का माहौल:",
+          triggersDesc: "स्वस्थ फल संतुलित पोषण, नियमित सिंचाई और समय पर रोग प्रबंधन का संकेत देते हैं।",
+          symptomsTitle: "देखे गए स्वस्थ लक्षण:",
+          symptoms: [
+            "<strong>स्वस्थ छिलका:</strong> चिकनी, मजबूत, गहरे हरे रंग की बाहरी त्वचा, कोई धब्बा या सड़न नहीं।",
+            "<strong>मजबूत डंठल:</strong> डंठल से मजबूत जुड़ाव, कोई कालापन नहीं।",
+            "<strong>सामान्य गुच्छा:</strong> प्रति गुच्छा 30-50 फल बिना किसी असामान्य झड़ने के।",
+            "<strong>फफूंद मुक्त:</strong> फल की सतह पर कोई सफेद फफूंद नहीं।"
+          ],
+          actionsTitle: "बाग में ध्यान देने योग्य चेतावनी संकेत:",
+          actions: [
+            "डंठल के पास पानी जैसे छोटे धब्बे दिखाई देना।",
+            "प्रतिदिन 5 से अधिक हरे फलों का अचानक झड़ना।"
+          ],
+          rightKicker: "सक्रिय फसल सुरक्षा",
+          rightTitle: "स्वस्थ सुपारी — सुरक्षा प्रोटोकॉल एवं देखभाल कैलेंडर",
+          rightPill: "सर्वोत्तम अभ्यास",
+          treatTitle: "सक्रिय फसल सुरक्षा (सड़न और फल झड़ने से बचाएं):",
+          treatList: [
+            "<strong>गुच्छों को ढकना:</strong> मई में गुच्छों को 125-गेज पॉलीथीन कवर (75 × 60 सेमी) से बांधें।",
+            "<strong>1% बोर्डो छिड़काव:</strong> मानसून शुरू होने से पहले गुच्छों पर बोर्डो मिश्रण का छिड़काव करें।",
+            "<strong>पोषक तत्व सहायता:</strong> फल भरने के लिए बोरेक्स (12 ग्राम) और जिंक सल्फेट (20 ग्राम) डालें।",
+            "<strong>गर्मी में सिंचाई:</strong> गर्मियों में हर 4-6 दिन में प्रति पेड़ 175-200 लीटर पानी दें।"
+          ],
+          prevTitle: "मौसमी देखभाल और कटाई कैलेंडर:",
+          prevList: [
+            "<strong>मई–जून:</strong> गुच्छों को ढकना और पहला बोर्डो छिड़काव।",
+            "<strong>जुलाई–अगस्त:</strong> बारिश के बीच निरीक्षण और दूसरा छिड़काव।",
+            "<strong>अक्टूबर–दिसंबर:</strong> पकी सुपारी की तुड़ाई और बाग की सफाई।"
+          ],
+          advisoryText: "<strong>ICAR-CPCRI मार्गदर्शन:</strong> अपनी उच्च गुणवत्ता वाली पैदावार बनाए रखने के लिए समय पर छिड़काव और देखभाल जारी रखें।"
+        },
+        ml: {
+          leftKicker: "കാർഷിക ഗുണനിലവാര വിവരങ്ങൾ",
+          leftTitle: "ആരോഗ്യമുള്ള അടയ്ക്ക — മാനദണ്ഡങ്ങൾ",
+          leftRisk: "മികച്ച ഗ്രേഡ്",
+          pathogenLabel: "വിള ആരോഗ്യ നില",
+          pathogenVal: "രോഗബാധയില്ലാത്ത അടയ്ക്ക കുല",
+          lossLabel: "പ്രതീക്ഷിക്കുന്ന വിളവ്",
+          lossVal: "ഉയർന്ന വിപണി മൂല്യമുള്ള 'എ' ഗ്രേഡ് വിളവ്",
+          triggersTitle: "അനുകൂല തോട്ടാന്തരീക്ഷം:",
+          triggersDesc: "ആരോഗ്യമുള്ള അടയ്ക്കകൾ സന്തുലിത പോഷണത്തെയും കൃത്യമായ വേനൽക്കാല നനയെയും സൂചിപ്പിക്കുന്നു.",
+          symptomsTitle: "കണ്ടെത്തിയ നല്ല ലക്ഷണങ്ങൾ:",
+          symptoms: [
+            "<strong>നല്ല തൊണ്ട്:</strong> മൃദുവായതും ഉറപ്പുള്ളതുമായ കടുംപച്ച തൊണ്ട്, പാടുകളോ ചീയലോ ഇല്ല.",
+            "<strong>ഉറപ്പുള്ള ഞെട്ട്:</strong> ഞെട്ടിൽ ബലമായി ചേർന്നിരിക്കുന്നു, കറുത്ത പാടുകളില്ല.",
+            "<strong>കുലയുടെ ഘടന:</strong> കൊഴിച്ചിലില്ലാതെ കുലയിൽ 30-50 അടയ്ക്കകൾ ഭദ്രമാണ്.",
+            "<strong>കുമിൾരഹിതം:</strong> അടയ്ക്കയിൽ പഞ്ഞിപോലുള്ള കുമിൾ വളർച്ചയില്ല."
+          ],
+          actionsTitle: "ശ്രദ്ധിക്കേണ്ട ആദ്യ ലക്ഷണങ്ങൾ:",
+          actions: [
+            "ഞെട്ടിന് സമീപം വെള്ളം നനഞ്ഞ ചെറിയ പാടുകൾ കാണുന്നത്.",
+            "ദിവസവും 5 എണ്ണത്തിലധികം പച്ച അടയ്ക്കകൾ അകാരണമായി കൊഴിയുന്നത്."
+          ],
+          rightKicker: "മുൻകരുതൽ വിള സംരക്ഷണം",
+          rightTitle: "ആരോഗ്യമുള്ള അടയ്ക്ക — സംരക്ഷണ കലണ്ടർ",
+          rightPill: "ശാസ്ത്രീയ രീതി",
+          treatTitle: "പ്രതിരോധ മാർഗ്ഗങ്ങൾ (കൊളെറോഗയും കൊഴിച്ചിലും തടയാൻ):",
+          treatList: [
+            "<strong>പോളിത്തീൻ കവർ കെട്ടൽ:</strong> മെയ് മാസത്തിൽ കുലകൾക്ക് 125 ഗേജ് പോളിത്തീൻ കവറുകൾ കെട്ടുക.",
+            "<strong>1% ബോർഡോ തളിക്കൽ:</strong> കാലവർഷത്തിന് മുമ്പ് കുലകളിൽ ബോർഡോ മിശ്രിതം തളിക്കുക.",
+            "<strong>പോഷകങ്ങൾ:</strong> ബോറാക്സ് (12 ഗ്രാം), സിങ്ക് സൾഫേറ്റ് (20 ഗ്രാം) എന്നിവ നൽകുക.",
+            "<strong>വേനൽക്കാല നന:</strong> വേനൽക്കാലത്ത് 4-6 ദിവസത്തിലൊരിക്കൽ 175-200 ലിറ്റർ വെള്ളം നൽകുക."
+          ],
+          prevTitle: "സീസണൽ കലണ്ടർ:",
+          prevList: [
+            "<strong>മെയ്–ജൂൺ:</strong> കവർ കെട്ടലും ഒന്നാം ബോർഡോ തളിക്കലും.",
+            "<strong>ജൂലൈ–ആഗസ്റ്റ്:</strong> പരിശോധനയും രണ്ടാം തളിക്കലും.",
+            "<strong>ഒക്ടോബർ–ഡിസംബർ:</strong> വിളവെടുപ്പും തോട്ടം വൃത്തിയാക്കലും."
+          ],
+          advisoryText: "<strong>ICAR-CPCRI നിർദ്ദേശം:</strong> മികച്ച വിളവ് നിലനിർത്താൻ ശുചിത്വവും ബോർഡോ മിശ്രിതം തളിക്കലും മുടങ്ങാതെ ചെയ്യുക."
+        }
+      },
+      healthy_leaf: {
+        en: {
+          leftKicker: "CANOPY HEALTH & FOLIAR WELLNESS",
+          leftTitle: "Healthy Leaf Specimen — Frond Standards",
+          leftRisk: "OPTIMAL GRADE",
+          pathogenLabel: "Foliar Vigor Status",
+          pathogenVal: "Optimal Photosynthetic Health — Zero Necrosis",
+          lossLabel: "Yield Potential",
+          lossVal: "Sustained Peak Canopy Productivity",
+          triggersTitle: "Canopy Ecosystem:",
+          triggersDesc: "Healthy foliage reflects balanced root-zone moisture, optimal nutrient uptake, and absence of phloem-dwelling phytoplasma vectors.",
+          symptomsTitle: "Healthy Foliar Characteristics Observed:",
+          symptoms: [
+            "<strong>Vigorous Chlorophyll:</strong> Deep uniform green color across all leaflets with balanced photosynthetic pigmentation.",
+            "<strong>Healthy Venation:</strong> Strong prominent parallel veins with zero interveinal chlorosis or marginal necrosis.",
+            "<strong>Pinnate Architecture:</strong> Full arching fronds with healthy turgidity and no crinkling or leaf shortening.",
+            "<strong>Erect Central Spindle:</strong> Upright, healthy growing spear leaf free from crown rot or bud rot."
+          ],
+          actionsTitle: "Early Foliar Symptoms to Watch For:",
+          actions: [
+            "Yellowing beginning at outer leaflet tips (primary trigger sign of YLD).",
+            "Brown necrotic spots with yellow halos (leaf spot / Colletotrichum blight)."
+          ],
+          rightKicker: "CANOPY CARE & SURVEILLANCE",
+          rightTitle: "Healthy Leaf — Nutrition Schedule & Surveillance",
+          rightPill: "BEST PRACTICES",
+          treatTitle: "Routine Canopy Maintenance & Nutrient Management:",
+          treatList: [
+            "<strong>Maintain 9–12 Functional Fronds:</strong> Retain at least 9 to 12 active green fronds per palm crown to sustain peak photosynthetic yield.",
+            "<strong>Balanced NPK Nutrition:</strong> Apply 100g N, 40g P, and 140g K per palm in 2 splits (May–June and Sept–Oct).",
+            "<strong>Organic Mulching:</strong> Mulch palm basins with 12 kg dry leaves or coconut husk to retain moisture and foster beneficial mycorrhizae.",
+            "<strong>Basin Drainage:</strong> Ensure root basins have gentle slopes leading to drainage ditches to prevent root hypoxia during monsoon."
+          ],
+          prevTitle: "Annual Foliar Surveillance Calendar:",
+          prevList: [
+            "<strong>January–April:</strong> Basin mulching and drip irrigation (175–200 L/palm/day).",
+            "<strong>May–June:</strong> Pre-monsoon crown cleaning, remove dead fronds, apply 1st fertilizer split.",
+            "<strong>September–October:</strong> Post-monsoon drainage maintenance, 2nd fertilizer split + MgSO₄.",
+            "<strong>December:</strong> General orchard phytosanitation, rake and burn debris."
+          ],
+          advisoryText: "<strong>ICAR-CPCRI Guidance:</strong> Maintain balanced organic mulching and crown phytosanitation to keep your palms healthy and vigorous."
+        },
+        kn: {
+          leftKicker: "ಗರಿ ಆರೋಗ್ಯ ಮತ್ತು ಸಸ್ಯ ಸಂರಕ್ಷಣೆ",
+          leftTitle: "ಆರೋಗ್ಯಕರ ಅಡಿಕೆ ಗರಿ — ಗುಣಮಟ್ಟದ ಮಾನದಂಡಗಳು",
+          leftRisk: "ಉತ್ತಮ ಶ್ರೇಣಿ",
+          pathogenLabel: "ಎಲೆಯ ಆರೋಗ್ಯ ಸ್ಥಿತಿ",
+          pathogenVal: "ಉತ್ತಮ ಕ್ಲೋರೊಫಿಲ್ — ರೋಗಮುಕ್ತ ಹಸಿರು ಗರಿ",
+          lossLabel: "ಇಳುವರಿ ಸಾಮರ್ಥ್ಯ",
+          lossVal: "ಗರಿಷ್ಠ ದ್ಯುತಿಸಂಶ್ಲೇಷಣೆ ಮತ್ತು ಸಮೃದ್ಧ ಇಳುವರಿ",
+          triggersTitle: "ಆರೋಗ್ಯಕರ ಪರಿಸರ:",
+          triggersDesc: "ಆರೋಗ್ಯಕರ ಗರಿಗಳು ಮಣ್ಣಿನಲ್ಲಿ ಉತ್ತಮ ಪೋಷಕಾಂಶ, ಬೇರುಗಳಲ್ಲಿ ಸರಿಯಾದ ತೇವಾಂಶ ಮತ್ತು ರೋಗಾಣುಗಳ ಅನುಪಸ್ಥಿತಿಯನ್ನು ಸೂಚಿಸುತ್ತವೆ.",
+          symptomsTitle: "ಗಮನಿಸಲಾದ ಉತ್ತಮ ಲಕ್ಷಣಗಳು:",
+          symptoms: [
+            "<strong>ಸಮೃದ್ಧ ಹಸಿರು ಬಣ್ಣ:</strong> ಎಲ್ಲಾ ಎಲೆಗಳಲ್ಲೂ ಸಮಾನವಾದ ಕಡು ಹಸಿರು ಕ್ಲೋರೊಫಿಲ್ ಬಣ್ಣವಿದೆ.",
+            "<strong>ಸ್ಪಷ್ಟ ನರಗಳು:</strong> ಎಲೆಗಳಲ್ಲಿ ಯಾವುದೇ ಹಳದಿ ಅಥವಾ ಕಂದು ಬಣ್ಣದ ಕಲೆಗಳಿಲ್ಲದೆ ಬಲವಾದ ನರಗಳಿವೆ.",
+            "<strong>ಉತ್ತಮ ಗರಿಯ ರಚನೆ:</strong> ಸುರುಟಿಕೊಳ್ಳದೆ ಅಥವಾ ಗಿಡ್ಡವಾಗದೆ ಪೂರ್ಣವಾಗಿ ಹರಡಿದ ಗರಿಗಳು.",
+            "<strong>ನೇರವಾದ ಸುಳಿ:</strong> ಸುಳಿಕೊಳೆ ಇಲ್ಲದೆ ನೇರವಾಗಿ ಬೆಳೆಯುತ್ತಿರುವ ಆರೋಗ್ಯಕರ ಸುಳಿ ಎಲೆ."
+          ],
+          actionsTitle: "ಗಮನಿಸಬೇಕಾದ ಆರಂಭಿಕ ಲಕ್ಷಣಗಳು:",
+          actions: [
+            "ಎಲೆಗಳ ತುದಿಯಲ್ಲಿ ಹಳದಿ ಬಣ್ಣ ಆರಂಭವಾಗುವುದು (ವೈಎಲ್ ಡಿ ಆರಂಭಿಕ ಲಕ್ಷಣ).",
+            "ಕಂದು ಬಣ್ಣದ ಕಲೆಗಳ ಸುತ್ತ ಹಳದಿ ವೃತ್ತ ಕಾಣಿಸಿಕೊಳ್ಳುವುದು (ಎಲೆ ಚುಕ್ಕೆ ರೋಗ)."
+          ],
+          rightKicker: "ಗರಿ ಆರೈಕೆ ಮತ್ತು ಕಣ್ಗಾವಲು",
+          rightTitle: "ಆರೋಗ್ಯಕರ ಎಲೆ — ಪೋಷಕಾಂಶ ವೇಳಾಪಟ್ಟಿ ಮತ್ತು ನಿರ್ವಹಣೆ",
+          rightPill: "ಉತ್ತಮ ಪದ್ಧತಿಗಳು",
+          treatTitle: "ದೈನಂದಿನ ಗರಿ ನಿರ್ವಹಣೆ ಮತ್ತು ಪೋಷಕಾಂಶಗಳು:",
+          treatList: [
+            "<strong>೯-೧೨ ಹಸಿರು ಗರಿಗಳನ್ನು ಉಳಿಸಿಕೊಳ್ಳಿ:</strong> ಗರಿಷ್ಠ ಇಳುವರಿಗಾಗಿ ಮರದಲ್ಲಿ ಕನಿಷ್ಠ ೯ ರಿಂದ ೧೨ ಸಕ್ರಿಯ ಹಸಿರು ಗರಿಗಳು ಇರಬೇಕು.",
+            "<strong>ಸಮತೋಲಿತ NPK ಗೊಬ್ಬರ:</strong> ಪ್ರತಿ ಮರಕ್ಕೆ ೧೦೦ ಗ್ರಾಂ N, ೪೦ ಗ್ರಾಂ P ಮತ್ತು ೧೪೦ ಗ್ರಾಂ K ಅನ್ನು ಮೇ-ಜೂನ್ ಮತ್ತು ಸೆಪ್ಟೆಂಬರ್-ಅಕ್ಟೋಬರ್‌ನಲ್ಲಿ ನೀಡಿ.",
+            "<strong>ಸಾವಯವ ಹೊದಿಕೆ:</strong> ತೇವಾಂಶ ಉಳಿಸಿಕೊಳ್ಳಲು ಮರದ ಬುಡಕ್ಕೆ ೧೨ ಕೆಜಿ ಒಣ ಎಲೆಗಳು ಅಥವಾ ಅಡಿಕೆ ಸಿಪ್ಪೆಯ ಹೊದಿಕೆ ಹಾಕಿ.",
+            "<strong>ಒಳಚರಂಡಿ:</strong> ಮಳೆಗಾಲದಲ್ಲಿ ಬೇರು ಕೊಳೆಯುವುದನ್ನು ತಪ್ಪಿಸಲು ಬುಡದಲ್ಲಿ ನೀರು ನಿಲ್ಲದಂತೆ ಇಳಿಜಾರು ಚರಂಡಿ ಮಾಡಿ."
+          ],
+          prevTitle: "ವಾರ್ಷಿಕ ಗರಿ ಕಣ್ಗಾವಲು ಕ್ಯಾಲೆಂಡರ್:",
+          prevList: [
+            "<strong>ಜನವರಿ–ಏಪ್ರಿಲ್:</strong> ಮರದ ಬುಡಕ್ಕೆ ಹೊದಿಕೆ ಮತ್ತು ಹನಿ ನೀರಾವರಿ (೧೭೫-೨೦೦ ಲೀ/ಮರ/ದಿನ).",
+            "<strong>ಮೇ–ಜೂನ್:</strong> ಮುಂಗಾರು ಪೂರ್ವ ಮರದ ಸುಳಿ ಸ್ವಚ್ಛತೆ, ಒಣ ಗರಿ ತೆಗೆಯುವುದು ಮತ್ತು ೧ನೇ ಕಂತಿನ ಗೊಬ್ಬರ.",
+            "<strong>ಸೆಪ್ಟೆಂಬರ್–ಅಕ್ಟೋಬರ್:</strong> ಚರಂಡಿ ನಿರ್ವಹಣೆ, ೨ನೇ ಕಂತಿನ ಗೊಬ್ಬರ + ಮೆಗ್ನೀಸಿಯಮ್ ಸಲ್ಫೇಟ್.",
+            "<strong>ಡಿಸೆಂಬರ್:</strong> ತೋಟದ ಸ್ವಚ್ಛತೆ, ಒಣ ತ್ಯಾಜ್ಯ ತೆಗೆದುಹಾಕುವುದು."
+          ],
+          advisoryText: "<strong>ICAR-CPCRI ಮಾರ್ಗದರ್ಶನ:</strong> ಮರಗಳನ್ನು ಸಮೃದ್ಧವಾಗಿ ಮತ್ತು ರೋಗಮುಕ್ತವಾಗಿಡಲು ಸಾವಯವ ಹೊದಿಕೆ ಮತ್ತು ಮರದ ಸುಳಿಯ ಸ್ವಚ್ಛತೆಯನ್ನು ಕಾಪಾಡಿಕೊಳ್ಳಿ."
+        },
+        hi: {
+          leftKicker: "पत्ती स्वास्थ्य एवं गुणवत्ता प्रोफ़ाइल",
+          leftTitle: "स्वस्थ पत्ती — मानक",
+          leftRisk: "सर्वोत्तम ग्रेड",
+          pathogenLabel: "पत्ती स्वास्थ्य स्थिति",
+          pathogenVal: "उत्तम क्लोरोफिल — रोगमुक्त पत्ती",
+          lossLabel: "पैदावार क्षमता",
+          lossVal: "निरंतर उच्च उत्पादकता",
+          triggersTitle: "स्वस्थ वातावरण:",
+          triggersDesc: "स्वस्थ पत्तियां जड़ों में उचित नमी, संतुलित पोषण और कीटों की अनुपस्थिति का प्रमाण हैं।",
+          symptomsTitle: "देखे गए स्वस्थ लक्षण:",
+          symptoms: [
+            "<strong>गहरा हरा रंग:</strong> सभी पत्तियों पर एक समान गहरा हरा रंग।",
+            "<strong>मजबूत नसें:</strong> पत्तियों में कोई पीलापन या सूखापन नहीं।",
+            "<strong>पत्तियों का सामान्य फैलाव:</strong> पत्तियां मुड़ी हुई या छोटी नहीं हैं।",
+            "<strong>स्वस्थ केंद्रीय कली:</strong> शीर्ष पत्ती सीधी और स्वस्थ है।"
+          ],
+          actionsTitle: "शुरुआती लक्षण जिन पर नजर रखें:",
+          actions: [
+            "पत्ती के सिरों से पीलापन शुरू होना (YLD का लक्षण)।",
+            "पत्तियों पर भूरे धब्बे पड़ना (लीफ स्पॉट)।"
+          ],
+          rightKicker: "छत्र देखभाल और निगरानी",
+          rightTitle: "स्वस्थ पत्ती — पोषण अनुसूची एवं निगरानी",
+          rightPill: "सर्वोत्तम अभ्यास",
+          treatTitle: "नियमित पत्ती रखरखाव और पोषण प्रबंधन:",
+          treatList: [
+            "<strong>9-12 हरी पत्तियां रखें:</strong> अच्छी पैदावार के लिए पेड़ पर कम से कम 9 से 12 हरी पत्तियां होनी चाहिए।",
+            "<strong>संतुलित NPK खाद:</strong> 100g N, 40g P, 140g K को दो किश्तों (मई-जून और सितंबर-अक्टूबर) में दें।",
+            "<strong>जैविक मल्चिंग:</strong> नमी बनाए रखने के लिए पेड़ के थाले में 12 किलो सूखी पत्तियां या छिलके बिछाएं।",
+            "<strong>जल निकासी:</strong> जड़ों में पानी का जमाव रोकने के लिए उचित ढलान वाली नालियां बनाएं।"
+          ],
+          prevTitle: "वार्षिक निगरानी कैलेंडर:",
+          prevList: [
+            "<strong>जनवरी–अप्रैल:</strong> मल्चिंग और ड्रिप सिंचाई (175-200 लीटर/पेड़)।",
+            "<strong>मई–जून:</strong> मानसून पूर्व सफाई, सूखी पत्तियां हटाना और पहली खाद।",
+            "<strong>सितंबर–अक्टूबर:</strong> नाली की सफाई, दूसरी खाद + मैग्नीशियम सल्फेट।",
+            "<strong>दिसंबर:</strong> बाग की समग्र सफाई।"
+          ],
+          advisoryText: "<strong>ICAR-CPCRI मार्गदर्शन:</strong> पेड़ों को स्वस्थ और मजबूत बनाए रखने के लिए जैविक खाद और नियमित सफाई जारी रखें।"
+        },
+        ml: {
+          leftKicker: "ഓല ആരോഗ്യ വിവരങ്ങൾ",
+          leftTitle: "ആരോഗ്യമുള്ള ഓല — മാനദണ്ഡങ്ങൾ",
+          leftRisk: "മികച്ച ഗ്രേഡ്",
+          pathogenLabel: "ഓലയുടെ ആരോഗ്യ നില",
+          pathogenVal: "ഉത്തമ ഹരിതകം — രോഗരഹിതം",
+          lossLabel: "ഉത്പാദന ശേഷി",
+          lossVal: "ഉയർന്ന വിളവ് ഉറപ്പാക്കുന്നു",
+          triggersTitle: "നല്ല തോട്ടാന്തരീക്ഷം:",
+          triggersDesc: "ആരോഗ്യമുള്ള ഓലകൾ വേരുകളിലെ ശരിയായ ഈർപ്പത്തെയും രോഗമില്ലായ്മയെയും കാണിക്കുന്നു.",
+          symptomsTitle: "നല്ല ലക്ഷണങ്ങൾ:",
+          symptoms: [
+            "<strong>കടും പച്ച നിറം:</strong> എല്ലാ ഓലകളിലും ഒരുപോലെയുള്ള കടും പച്ചനിറം.",
+            "<strong>വ്യക്തമായ ഈർക്കിൽ:</strong> ഓലകളിൽ മഞ്ഞനിറമോ കരിഞ്ഞുണങ്ങലോ ഇല്ല.",
+            "<strong>ഓലകളുടെ ഘടന:</strong> വളച്ചിലോ ചുരുങ്ങലോ ഇല്ലാതെ വിടർന്ന ഓലകൾ.",
+            "<strong>നേരായ കൂമ്പ്:</strong> ചീയലില്ലാതെ വളരുന്ന ആരോഗ്യമുള്ള നാമ്പ്."
+          ],
+          actionsTitle: "ശ്രദ്ധിക്കേണ്ട ആദ്യ ലക്ഷണങ്ങൾ:",
+          actions: [
+            "ഓലയുടെ അറ്റത്ത് മഞ്ഞനിറം തുടങ്ങുന്നത്.",
+            "ഓലകളിൽ തവിട്ടുനിറത്തിലുള്ള പുള്ളികൾ കാണുന്നത്."
+          ],
+          rightKicker: "ഓല പരിചരണവും നിരീക്ഷണവും",
+          rightTitle: "ആരോഗ്യമുള്ള ഓല — വളപ്രയോഗ കലണ്ടർ",
+          rightPill: "ശാസ്ത്രീയ രീതി",
+          treatTitle: "പോഷണ മാനേജ്മെന്റും പരിചരണവും:",
+          treatList: [
+            "<strong>9-12 പച്ച ഓലകൾ നിലനിർത്തുക:</strong> നല്ല വിളവിന് ഒരു മരത്തിൽ 9-12 പച്ച ഓലകൾ ഉണ്ടായിരിക്കണം.",
+            "<strong>സന്തുലിത NPK വളം:</strong> 100g N, 40g P, 140g K രണ്ട് തവണകളായി (മെയ്-ജൂൺ, സെപ്റ്റംബർ-ഒക്ടോബർ) നൽകുക.",
+            "<strong>പുതയിടൽ:</strong> ഈർപ്പം നിലനിർത്താൻ തടത്തിൽ 12 കിലോ ഉണങ്ങിയ ഇലകളോ ചകിരിയോ ഇടുക.",
+            "<strong>നീർവാർച്ച:</strong> മഴക്കാലത്ത് വേര് ചീയൽ തടയാൻ നീർവാർച്ച സൗകര്യം ഉറപ്പാക്കുക."
+          ],
+          prevTitle: "വാർഷിക നിരീക്ഷണ കലണ്ടർ:",
+          prevList: [
+            "<strong>ജനുവരി–ഏപ്രിൽ:</strong> പുതയിടലും തുള്ളിനനയും (175-200 ലിറ്റർ/മരം).",
+            "<strong>മെയ്–ജൂൺ:</strong> തലപ്പ് ശുചീകരണവും ഒന്നാം വളപ്രയോഗവും.",
+            "<strong>സെപ്റ്റംബർ–ഒക്ടോബർ:</strong> ചാലുകൾ വൃത്തിയാക്കലും രണ്ടാം വളപ്രയോഗവും + മഗ്നീഷ്യം സൾഫേറ്റും.",
+            "<strong>ഡിസംബർ:</strong> തോട്ടം വൃത്തിയാക്കൽ."
+          ],
+          advisoryText: "<strong>ICAR-CPCRI നിർദ്ദേശം:</strong> മരങ്ങളുടെ കരുത്ത് നിലനിർത്താൻ ജൈവവള പ്രയോഗവും നാമ്പ് ശുചീകരണവും കൃത്യമായി പാലിക്കുക."
+        }
+      }
+    };
+
+    const d = DATA[clsKey] ? DATA[clsKey][l] : DATA.yld[l];
+
+    const leftIntelHtml = `
+      <div class="intel-header-badge disease-badge">
+        <div class="intel-badge-content">
+          <span class="intel-badge-kicker">${d.leftKicker}</span>
+          <h3 class="intel-badge-title">${d.leftTitle}</h3>
+        </div>
+        <span class="intel-risk-pill">${d.leftRisk}</span>
+      </div>
+      <div class="intel-info-row">
+        <div class="intel-info-col">
+          <span class="intel-label">${d.pathogenLabel}</span>
+          <span class="intel-val">${d.pathogenVal}</span>
+        </div>
+        <div class="intel-info-col">
+          <span class="intel-label">${d.lossLabel}</span>
+          <span class="intel-val" style="color: #b54747; font-weight: 800;">${d.lossVal}</span>
+        </div>
+      </div>
+      <div class="intel-action-box alert-neutral">
+        <div class="intel-box-title"><strong>${d.triggersTitle}</strong></div>
+        <p class="intel-box-desc">${d.triggersDesc}</p>
+      </div>
+      <div class="intel-action-box alert-red">
+        <div class="intel-box-title"><strong>${d.symptomsTitle}</strong></div>
+        <ul class="intel-bullet-list">
+          ${d.symptoms.map(s => `<li>${s}</li>`).join('')}
+        </ul>
+      </div>
+      <div class="intel-action-box alert-orange">
+        <div class="intel-box-title"><strong>${d.actionsTitle}</strong></div>
+        <ul class="intel-bullet-list">
+          ${d.actions.map(a => `<li>${a}</li>`).join('')}
+        </ul>
+      </div>
+    `;
+
+    const rightIntelHtml = `
+      <div class="intel-header-badge disease-badge">
+        <div class="intel-badge-content">
+          <span class="intel-badge-kicker">${d.rightKicker}</span>
+          <h3 class="intel-badge-title">${d.rightTitle}</h3>
+        </div>
+        <span class="intel-risk-pill" style="background: rgba(36, 107, 80, 0.12); color: #246B50; border-color: rgba(36, 107, 80, 0.25);">${d.rightPill}</span>
+      </div>
+      <div class="intel-action-box alert-blue">
+        <div class="intel-box-title"><strong>${d.treatTitle}</strong></div>
+        <ol class="intel-ordered-list">
+          ${d.treatList.map(t => `<li>${t}</li>`).join('')}
+        </ol>
+      </div>
+      <div class="intel-action-box alert-green">
+        <div class="intel-box-title"><strong>${d.prevTitle}</strong></div>
+        <ul class="intel-bullet-list">
+          ${d.prevList.map(p => `<li>${p}</li>`).join('')}
+        </ul>
+      </div>
+      <div class="intel-expert-footer">
+        <span>${d.advisoryText}</span>
+      </div>
+    `;
+
+    return { leftIntelHtml, rightIntelHtml };
+  }
+
   function applyLanguage(lang) {
 
     if (!I18N_STRINGS[lang]) return;
@@ -4115,26 +4843,47 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 
-    // 8. Translate Understanding Result Bullets
-
+        // 8. Translate Understanding Result Bullets
     const bulletsUl = document.querySelector('.understanding-bullets');
-
     if (bulletsUl) {
-
       const mainTitle = document.querySelector('.result-main-disease')?.textContent || '';
-
       const clsKey = getDiseaseKeyFromName(mainTitle);
-
       const bulletsList = (UNDERSTANDING_BULLETS_I18N[lang] && UNDERSTANDING_BULLETS_I18N[lang][clsKey])
-
         || UNDERSTANDING_BULLETS_I18N['en'][clsKey];
-
       if (bulletsList && bulletsList.length > 0) {
-
         bulletsUl.innerHTML = bulletsList.map(b => `<li>${b}</li>`).join('');
-
       }
+    }
 
+    // 8b. Translate Left & Right Intel Cards (ICAR-CPCRI Protocol & Pathology Diagnosis)
+    const leftBox = document.getElementById('result-left-intel-box');
+    const rightBox = document.getElementById('result-right-intel-box');
+    if (leftBox || rightBox) {
+      const mainTitle = document.querySelector('.result-main-disease')?.textContent || '';
+      const clsKey = getDiseaseKeyFromName(mainTitle);
+      if (clsKey && typeof getIntelBoxHtml === 'function') {
+        const intel = getIntelBoxHtml(clsKey, lang);
+        if (leftBox && intel.leftIntelHtml) leftBox.innerHTML = intel.leftIntelHtml;
+        if (rightBox && intel.rightIntelHtml) rightBox.innerHTML = intel.rightIntelHtml;
+      }
+    }
+
+    // 8c. Translate Input Placeholders
+    document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+      const key = el.getAttribute('data-i18n-placeholder');
+      if (strings[key]) {
+        el.setAttribute('placeholder', strings[key]);
+      }
+    });
+
+    // 8d. Update Chat trigger and header text
+    const chatTriggerLabel = document.querySelector('.chat-trigger-label');
+    if (chatTriggerLabel && strings.chat_trigger_label) {
+      chatTriggerLabel.textContent = strings.chat_trigger_label;
+    }
+    const chatTitle = document.getElementById('chat-drawer-title');
+    if (chatTitle && strings.chat_drawer_title) {
+      chatTitle.textContent = strings.chat_drawer_title;
     }
 
 
@@ -6942,733 +7691,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
   
   // Complete Multilingual Agronomic Intel Box Generator
-  function getIntelBoxHtml(clsKey, lang) {
-    const l = (lang === 'kn' || lang === 'hi' || lang === 'ml') ? lang : 'en';
-
-    const DATA = {
-      mahali: {
-        en: {
-          leftKicker: "PATHOLOGY & FIELD DIAGNOSIS",
-          leftTitle: "Mahali / Koleroga — Disease Profile & Symptoms",
-          leftRisk: "CRITICAL RISK",
-          pathogenLabel: "Causal Pathogen",
-          pathogenVal: "<em>Phytophthora meadii</em> McRae (destructive oomycete water-mold)",
-          lossLabel: "Expected Crop Loss",
-          lossVal: "50% to 90% harvest destruction if untreated",
-          triggersTitle: "Climatic Triggers & Epidemiology:",
-          triggersDesc: "Mahali is triggered by continuous southwest monsoon rains (June to September) with relative humidity >90% and moderate temperatures (20°C–24°C). Rain splashes actively detach sporangia, dispersing motile zoospores across bunches and adjacent palms.",
-          symptomsTitle: "Diagnostic Symptoms & Visual Identification:",
-          symptoms: [
-            "<strong>Early Stage:</strong> Water-soaked, dark green or brownish lesions appear near the perianth (calyx end) of young tender arecanuts.",
-            "<strong>Advanced Stage:</strong> Lesions spread rapidly over the entire nut surface; nuts turn dark brown to black, rot, and shed prematurely.",
-            "<strong>Mycelial Growth:</strong> Fallen shed nuts develop a conspicuous, thick white cottony fungal felt (sporangial mat).",
-            "<strong>Crown / Bud Rot:</strong> Rain washes fungal zoospores into the central spindle, leading to terminal bud rot and palm death."
-          ],
-          actionsTitle: "Immediate Emergency Field Actions:",
-          actions: [
-            "<strong>Halt Overhead Irrigation:</strong> Immediately shut down sprinkler irrigation to minimize canopy moisture.",
-            "<strong>Collect and Destroy Diseased Nuts:</strong> Gather every fallen rotten nut on the same day. Incinerate or bury in deep trenches with lime.",
-            "<strong>Isolate Infected Palms:</strong> Mark affected palms and sanitize pruning tools before moving to healthy palms."
-          ],
-          rightKicker: "ICAR-CPCRI TREATMENT & CURE SYSTEM",
-          rightTitle: "Mahali / Koleroga — Treatment & Prevention Protocol",
-          rightPill: "PROVEN PROTOCOL",
-          treatTitle: "ICAR-CPCRI Standard Treatment & Cure Protocol:",
-          treatList: [
-            "<strong>1% Bordeaux Mixture Spray:</strong> Dissolve 1 kg Copper Sulfate (CuSO₄) and 1 kg slaked lime in 100 L water. Apply with continuous agitation.",
-            "<strong>3-Stage Spray Schedule:</strong> 1st prophylactic spray in late May/early June; 2nd spray 40-45 days later in July/August; 3rd spray if heavy rains continue in September.",
-            "<strong>Polythene Bunch Hooding:</strong> Cover bunches with 125-gauge polythene bags (75 × 60 cm) tied at the stalk for 100% mechanical protection.",
-            "<strong>Systemic Alternative:</strong> Spray Metalaxyl MZ (2 g/L) or Fosetyl-Al (2 g/L) directly on infected bunches."
-          ],
-          prevTitle: "Long-Term Prevention & Orchard Protection:",
-          prevList: [
-            "<strong>Field Drainage System:</strong> Excavate 2 to 3 feet deep drainage trenches between alternate palm rows.",
-            "<strong>Canopy Spacing:</strong> Maintain optimal palm spacing (2.7 m × 2.7 m) for sunlight penetration and aeration.",
-            "<strong>Annual Pre-Monsoon Sanitation:</strong> Thoroughly clean palm crowns in April–May to eradicate overwintering oospores."
-          ],
-          advisoryText: "<strong>ICAR-CPCRI Advisory:</strong> Prophylactic Bordeaux mixture spray before monsoon rains is the single most proven defense against Koleroga fruit rot. Contact your nearest KVK for on-field verification."
-        },
-        kn: {
-          leftKicker: "ರೋಗಶಾಸ್ತ್ರ ಮತ್ತು ಕ್ಷೇತ್ರ ರೋಗನಿರ್ಣಯ",
-          leftTitle: "ಮಹಾಲಿ / ಕೊಳೆರೋಗ — ರೋಗದ ವಿವರ ಮತ್ತು ಲಕ್ಷಣಗಳು",
-          leftRisk: "ತೀವ್ರ ಗಂಭೀರ ಅಪಾಯ",
-          pathogenLabel: "ರೋಗಕಾರಕ ಸೂಕ್ಷ್ಮಜೀವಿ",
-          pathogenVal: "<em>ಫೈಟೊಫ್ಥೊರಾ ಮೀಡಿಯಿ</em> (ವಿನಾಶಕಾರಿ ಜಲ-ಶಿಲೀಂಧ್ರ)",
-          lossLabel: "ನಿರೀಕ್ಷಿತ ಬೆಳೆ ನಷ್ಟ",
-          lossVal: "ಚಿಕಿತ್ಸೆ ನೀಡದಿದ್ದರೆ ಶೇಕಡಾ ೫೦% ರಿಂದ ೯೦% ಇಳುವರಿ ನಾಶ",
-          triggersTitle: "ಹವಾಮಾನ ಪ್ರಚೋದಕಗಳು ಮತ್ತು ಹರಡುವಿಕೆ:",
-          triggersDesc: "ನಿರಂತರ ನೈಋತ್ಯ ಮಾನ್ಸೂನ್ ಮಳೆ (ಜೂನ್‌ನಿಂದ ಸೆಪ್ಟೆಂಬರ್), ೯೦% ಕ್ಕಿಂತ ಹೆಚ್ಚು ತೇವಾಂಶ ಮತ್ತು ಸಾಧಾರಣ ತಾಪಮಾನದಲ್ಲಿ ಕೊಳೆರೋಗ ಉಲ್ಬಣಗೊಳ್ಳುತ್ತದೆ. ಮಳೆಯ ಹನಿಗಳು ರೋಗಾಣುಗಳನ್ನು ಪಕ್ಕದ ಗೊನೆ ಮತ್ತು ಮರಗಳಿಗೆ ಹರಡುತ್ತವೆ.",
-          symptomsTitle: "ರೋಗನಿರ್ಣಯದ ಲಕ್ಷಣಗಳು ಮತ್ತು ಗುರುತಿಸುವಿಕೆ:",
-          symptoms: [
-            "<strong>ಆರಂಭಿಕ ಹಂತ:</strong> ಎಳೆಯ ಅಡಿಕೆಯ ತೊಟ್ಟಿನ ಭಾಗದಲ್ಲಿ ನೀರಿನಲ್ಲಿ ನೆನೆದಂತಹ ಕಡು ಹಸಿರು ಅಥವಾ ಕಂದು ಬಣ್ಣದ ಕಲೆಗಳು ಕಾಣಿಸಿಕೊಳ್ಳುತ್ತವೆ.",
-            "<strong>ತೀವ್ರ ಹಂತ:</strong> ಕಲೆಗಳು ಇಡೀ ಅಡಿಕೆಗೆ ಹರಡಿ, ಅಡಿಕೆಗಳು ಕಪ್ಪಾಗಿ ಕೊಳೆತು ಅಕಾಲಿಕವಾಗಿ ಉದುರುತ್ತವೆ.",
-            "<strong>ಶಿಲೀಂಧ್ರ ಬೆಳವಣಿಗೆ:</strong> ಉದುರಿ ಬಿದ್ದ ಅಡಿಕೆಗಳ ಮೇಲೆ ದಪ್ಪನೆಯ ಬಿಳಿ ಹತ್ತಿಯಂತಹ ಶಿಲೀಂಧ್ರ ಪದರ ಬೆಳೆಯುತ್ತದೆ.",
-            "<strong>ಸುಳಿ ಕೊಳೆ ರೋಗ:</strong> ಮಳೆಯ ನೀರು ಶಿಲೀಂಧ್ರದ ಬೀಜಕಗಳನ್ನು ಸುಳಿಗೆ ಸಾಗಿಸಿದಾಗ ಸುಳಿಕೊಳೆ ಉಂಟಾಗಿ ಮರವೇ ಸಾಯುತ್ತದೆ."
-          ],
-          actionsTitle: "ತಕ್ಷಣದ ತುರ್ತು ಕ್ಷೇತ್ರ ಕ್ರಮಗಳು:",
-          actions: [
-            "<strong>ಮೇಲ್ಮೈ ನೀರಾವರಿ ನಿಲ್ಲಿಸಿ:</strong> ತೋಟದಲ್ಲಿ ತೇವಾಂಶ ಕಡಿಮೆ ಮಾಡಲು ಸ್ಪ್ರಿಂಕ್ಲರ್ ನೀರಾವರಿಯನ್ನು ತಕ್ಷಣ ನಿಲ್ಲಿಸಿ.",
-            "<strong>ಕೊಳೆತ ಅಡಿಕೆಗಳನ್ನು ನಾಶಪಡಿಸಿ:</strong> ಬಿದ್ದ ಎಲ್ಲಾ ಕೊಳೆತ ಅಡಿಕೆಗಳನ್ನು ಪ್ರತಿದಿನ ಸಂಗ್ರಹಿಸಿ ಸುಟ್ಟುಹಾಕಿ ಅಥವಾ ಸುಣ್ಣ ಹಾಕಿ ಆಳವಾದ ಗುಂಡಿಯಲ್ಲಿ ಮುಚ್ಚಿ.",
-            "<strong>ಸೋಂಕಿತ ಮರಗಳನ್ನು ಪ್ರತ್ಯೇಕಿಸಿ:</strong> ಸೋಂಕಿತ ಮರಗಳನ್ನು ಗುರುತಿಸಿ ಮತ್ತು ಕತ್ತರಿಸುವ ಉಪಕರಣಗಳನ್ನು ಸೋಂಕುರಹಿತಗೊಳಿಸಿ ಬಳಸಿ."
-          ],
-          rightKicker: "ICAR-CPCRI ಚಿಕಿತ್ಸೆ ಮತ್ತು ಪರಿಹಾರ ವ್ಯವಸ್ಥೆ",
-          rightTitle: "ಮಹಾಲಿ / ಕೊಳೆರೋಗ — ಚಿಕಿತ್ಸೆ ಮತ್ತು ತಡೆಗಟ್ಟುವ ಪ್ರೋಟೋಕಾಲ್",
-          rightPill: "ಸಾಬೀತಾದ ಪ್ರೋಟೋಕಾಲ್",
-          treatTitle: "ICAR-CPCRI ಪ್ರಮಾಣಿತ ಚಿಕಿತ್ಸಾ ಪ್ರೋಟೋಕಾಲ್:",
-          treatList: [
-            "<strong>೧% ಬೋರ್ಡೋ ದ್ರಾವಣ ಸಿಂಪಡಣೆ:</strong> ೧ ಕೆಜಿ ತಾಮ್ರದ ಸಲ್ಫೇಟ್ (ಮೈಲುತುತ್ತ) ಮತ್ತು ೧ ಕೆಜಿ ಸುಣ್ಣವನ್ನು ೧೦೦ ಲೀಟರ್ ನೀರಿನಲ್ಲಿ ಕರಗಿಸಿ, ನಿರಂತರವಾಗಿ ಬೆರೆಸಿ ಸಿಂಪಡಿಸಿ.",
-            "<strong>೩ ಹಂತದ ಸಿಂಪಡಣೆ ವೇಳಾಪಟ್ಟಿ:</strong> ೧ನೇ ರಕ್ಷಣಾತ್ಮಕ ಸಿಂಪಡಣೆ ಮೇ ಅಂತ್ಯ/ಜೂನ್ ಆರಂಭದಲ್ಲಿ; ೨ನೇ ಸಿಂಪಡಣೆ ೪೦-೪೫ ದಿನಗಳ ನಂತರ (ಜುಲೈ/ಆಗಸ್ಟ್); ಸೆಪ್ಟೆಂಬರ್‌ನಲ್ಲಿ ಮಳೆ ಮುಂದುವರಿದರೆ ೩ನೇ ಸಿಂಪಡಣೆ.",
-            "<strong>ಪಾಲಿಥೀನ್ ಹೊದಿಕೆ ಕಟ್ಟುವುದು:</strong> ಮಳೆಯಿಂದ ೧೦೦% ರಕ್ಷಣೆಗಾಗಿ ಗೊನೆಗಳಿಗೆ ೧೨೫-ಗೇಜ್ ಪಾಲಿಥೀನ್ ಚೀಲಗಳನ್ನು (೭೫ × ೬೦ ಸೆಂ.ಮೀ) ಕಟ್ಟಿ.",
-            "<strong>ಶಿಲೀಂಧ್ರನಾಶಕ ಪರ್ಯಾಯ:</strong> ಸೋಂಕು ಹೆಚ್ಚಿದ್ದರೆ ಮೆಟಲಾಕ್ಸಿಲ್ MZ (೨ ಗ್ರಾಂ/ಲೀ) ಅಥವಾ ಫೋಸೆಟೈಲ್-Al (೨ ಗ್ರಾಂ/ಲೀ) ನೇರವಾಗಿ ಸಿಂಪಡಿಸಿ."
-          ],
-          prevTitle: "ದೀರ್ಘಕಾಲೀನ ತಡೆಗಟ್ಟುವಿಕೆ ಮತ್ತು ತೋಟದ ಸಂರಕ್ಷಣೆ:",
-          prevList: [
-            "<strong>ಚರಂಡಿ ವ್ಯವಸ್ಥೆ:</strong> ಸಾಲುಗಳ ನಡುವೆ ೨ ರಿಂದ ೩ ಅಡಿ ಆಳದ ಒಳಚರಂಡಿ ಕಾಲುವೆಗಳನ್ನು ತೋಡಿ ನೀರು ನಿಲ್ಲದಂತೆ ಮಾಡಿ.",
-            "<strong>ಸಾಕಷ್ಟು ಅಂತರ:</strong> ಸೂರ್ಯನ ಬೆಳಕು ಮತ್ತು ಗಾಳಿಯಾಡಲು ಮರಗಳ ನಡುವೆ ಸೂಕ್ತ ಅಂತರವನ್ನು (೨.೭ ಮೀ × ೨.೭ ಮೀ) ಕಾಪಾಡಿಕೊಳ್ಳಿ.",
-            "<strong>ಮಾನ್ಸೂನ್ ಪೂರ್ವ ಶುಚಿತ್ವ:</strong> ಏಪ್ರಿಲ್-ಮೇ ತಿಂಗಳಲ್ಲಿ ಮರದ ಸುಳಿಯನ್ನು ಸ್ವಚ್ಛಗೊಳಿಸಿ ಹಳೆಯ ಒಣಗಿದ ಕವಚಗಳನ್ನು ತೆಗೆದುಹಾಕಿ."
-          ],
-          advisoryText: "<strong>ICAR-CPCRI ಸಲಹೆ:</strong> ಮಳೆಗಾಲಕ್ಕೆ ಮುಂಚಿತವಾಗಿ ರಕ್ಷಣಾತ್ಮಕ ಬೋರ್ಡೋ ದ್ರಾವಣ ಸಿಂಪಡಿಸುವುದು ಕೊಳೆರೋಗದ ವಿರುದ್ಧ ಅತ್ಯಂತ ಪರಿಣಾಮಕಾರಿ ರಕ್ಷಣೆಯಾಗಿದೆ. ಹೆಚ್ಚಿನ ಮಾರ್ಗದರ್ಶನಕ್ಕಾಗಿ ಸ್ಥಳೀಯ ಕೃಷಿ ವಿಜ್ಞಾನ ಕೇಂದ್ರವನ್ನು (KVK) ಸಂಪರ್ಕಿಸಿ."
-        },
-        hi: {
-          leftKicker: "पैथोलॉजी और क्षेत्रीय निदान",
-          leftTitle: "महाली / फल सड़न (कोलेरोगा) — रोग प्रोफ़ाइल और लक्षण",
-          leftRisk: "गंभीर जोखिम",
-          pathogenLabel: "रोगकारक रोगज़नक़",
-          pathogenVal: "<em>फाइटोफ्थोरा मीडी</em> (विनाशकारी कवक जल-मोल्ड)",
-          lossLabel: "अपेक्षित फसल नुकसान",
-          lossVal: "उपचार न करने पर 50% से 90% फसल नष्ट",
-          triggersTitle: "मौसमी कारण एवं फैलाव:",
-          triggersDesc: "लगातार दक्षिण-पश्चिम मानसूनी बारिश (जून से सितंबर), 90% से अधिक आर्द्रता और 20°C-24°C तापमान में कोलेरोगा तेजी से फैलता है। बारिश की बूंदों से कवक के बीजाणु आस-पास के पेड़ों में फैलते हैं।",
-          symptomsTitle: "नैदानिक लक्षण एवं पहचान:",
-          symptoms: [
-            "<strong>प्रारंभिक अवस्था:</strong> कच्ची सुपारी के डंठल के पास पानी से भीगे हुए गहरे हरे या भूरे रंग के धब्बे दिखाई देते हैं।",
-            "<strong>गंभीर अवस्था:</strong> धब्बे तेजी से पूरी सुपारी पर फैल जाते हैं; फल काले पड़कर समय से पहले झड़ने लगते हैं।",
-            "<strong>फफूंद विकास:</strong> गिरे हुए फलों पर घनी सफेद कपास जैसी फफूंद उग आती है।",
-            "<strong>कली सड़न (Bud Rot):</strong> बारिश का पानी कवक बीजाणुओं को शीर्ष कली में ले जाता है, जिससे पेड़ सूखकर मर जाता है।"
-          ],
-          actionsTitle: "तत्काल आपातकालीन क्षेत्रीय कार्रवाई:",
-          actions: [
-            "<strong>स्प्रिंकलर सिंचाई बंद करें:</strong> नमी कम करने के लिए ऊपर से होने वाली सिंचाई तुरंत रोकें।",
-            "<strong>सड़े फलों को नष्ट करें:</strong> गिरे हुए सभी सड़े फलों को इकट्ठा करके जला दें या चूने के साथ गहरे गड्ढे में दबाएं।",
-            "<strong>संक्रमित पेड़ों को चिह्नित करें:</strong> रोगग्रस्त पेड़ों के उपकरण स्वस्थ पेड़ों में इस्तेमाल करने से पहले साफ करें।"
-          ],
-          rightKicker: "ICAR-CPCRI उपचार और रोकथाम प्रणाली",
-          rightTitle: "महाली / कोलेरोगा — उपचार एवं निवारण प्रोटोकॉल",
-          rightPill: "प्रमाणित प्रोटोकॉल",
-          treatTitle: "ICAR-CPCRI मानक उपचार प्रोटोकॉल:",
-          treatList: [
-            "<strong>1% बोर्डो मिश्रण छिड़काव:</strong> 1 किलो कॉपर सल्फेट (नीला थोथा) और 1 किलो बुझा हुआ चूना 100 लीटर पानी में मिलाकर अच्छी तरह हिलाते हुए छिड़कें।",
-            "<strong>3-चरणीय छिड़काव अनुसूची:</strong> पहला छिड़काव मई के अंत/जून की शुरुआत में; दूसरा छिड़काव 40-45 दिन बाद (जुलाई/अगस्त); बारिश जारी रहने पर तीसरा छिड़काव सितंबर में।",
-            "<strong>पॉलीथीन कवर बांधना:</strong> गुच्छों को बारिश से 100% बचाने के लिए 125-गेज पॉलीथीन बैग (75 × 60 सेमी) से ढकें।",
-            "<strong>प्रणालीगत कवकनाशी:</strong> संक्रमित गुच्छों पर सीधे मेटलॅक्सिल MZ (2 ग्राम/लीटर) या फोसेटाइल-Al का छिड़काव करें।"
-          ],
-          prevTitle: "दीर्घकालिक रोकथाम और बाग सुरक्षा:",
-          prevList: [
-            "<strong>जल निकासी व्यवस्था:</strong> कतारों के बीच 2 से 3 फीट गहरी जल निकासी नालियां बनाएं।",
-            "<strong>उचित दूरी:</strong> धूप और हवा के संचार के लिए पेड़ों के बीच 2.7 मीटर × 2.7 मीटर की दूरी रखें।",
-            "<strong>मानसून पूर्व सफाई:</strong> कवक के बीजाणुओं को नष्ट करने के लिए अप्रैल-मई में पेड़ों की सूखी पत्तियों और मलबे को साफ करें।"
-          ],
-          advisoryText: "<strong>ICAR-CPCRI सलाह:</strong> मानसून से पहले 1% बोर्डो मिश्रण का छिड़काव कोलेरोगा के खिलाफ सबसे कारगर उपाय है। खुराक की पुष्टि के लिए नजदीकी कृषि विज्ञान केंद्र (KVK) से संपर्क करें।"
-        },
-        ml: {
-          leftKicker: "പാത്തോളജിയും രോഗനിർണ്ണയവും",
-          leftTitle: "മഹാലി / കൊളെറോഗ (കായ് ചീയൽ) — രോഗവിവരം",
-          leftRisk: "ഗുരുതരമായ അപകടസാധ്യത",
-          pathogenLabel: "രോഗകാരിയായ കുമിൾ",
-          pathogenVal: "<em>ഫൈറ്റോഫ്തോറ മീഡി</em> (വിനാശകാരിയായ കുമിൾ)",
-          lossLabel: "പ്രതീക്ഷിക്കുന്ന വിളനഷ്ടം",
-          lossVal: "ചികിത്സിച്ചില്ലെങ്കിൽ 50% മുതൽ 90% വരെ വിളനഷ്ടം",
-          triggersTitle: "കാലാവസ്ഥയും രോഗവ്യാപനവും:",
-          triggersDesc: "കാലവർഷ മഴ, 90 ശതമാനത്തിലധികം അന്തരീക്ഷ ഈർപ്പം, മിതമായ താപനില എന്നിവ കൊളെറോഗ പടരുന്നതിന് കാരണമാകുന്നു. മഴത്തുള്ളികൾ വഴി കുമിൾ ബീജങ്ങൾ അടുത്തുള്ള കുലകളിലേക്കും മരങ്ങളിലേക്കും വ്യാപിക്കുന്നു.",
-          symptomsTitle: "രോഗലക്ഷണങ്ങളും തിരിച്ചറിയലും:",
-          symptoms: [
-            "<strong>ആദ്യ ഘട്ടം:</strong> ഇളം അടയ്ക്കയുടെ ഞെട്ടിന് സമീപം വെള്ളം നനഞ്ഞ പച്ചയോ തവിട്ടോ നിറത്തിലുള്ള പാടുകൾ കാണപ്പെടുന്നു.",
-            "<strong>രണ്ടാം ഘട്ടം:</strong> പാടുകൾ വേഗത്തിൽ പടർന്ന് അടയ്ക്ക കറുത്ത് ചീഞ്ഞ് കൊഴിഞ്ഞുവീഴുന്നു.",
-            "<strong>കുമിൾ വളർച്ച:</strong> വീണ അടയ്ക്കകളിൽ പഞ്ഞിപോലുള്ള വെളുത്ത കുമിൾ പടലങ്ങൾ കാണാം.",
-            "<strong>കൂമ്പ് ചീയൽ:</strong> മഴവെള്ളത്തിലൂടെ കുമിൾ നാമ്പിലേക്ക് എത്തുമ്പോൾ കൂമ്പ് ചീഞ്ഞ് മരം നശിക്കുന്നു."
-          ],
-          actionsTitle: "ഉടൻ ചെയ്യേണ്ട മുൻകരുതലുകൾ:",
-          actions: [
-            "<strong>നനയ്ക്കുന്നത് നിർത്തുക:</strong> ഈർപ്പം കുറയ്ക്കാൻ മുകളിൽനിന്നുള്ള നന ഉടൻ നിർത്തുക.",
-            "<strong>ചീഞ്ഞ അടയ്ക്കകൾ നശിപ്പിക്കുക:</strong> വീണുകിടക്കുന്ന അടയ്ക്കകൾ ശേഖരിച്ച് കുമ്മായമിട്ട് കുഴിച്ചുമൂടുക അല്ലെങ്കിൽ കത്തിക്കുക.",
-            "<strong>ഉപകരണങ്ങൾ അണുവിമുക്തമാക്കുക:</strong> രോഗബാധിത മരങ്ങളിൽ ഉപയോഗിച്ച ഉപകരണങ്ങൾ വൃത്തിയാക്കുക."
-          ],
-          rightKicker: "ICAR-CPCRI സംരക്ഷണ രീതികൾ",
-          rightTitle: "മഹാലി / കൊളെറോഗ — ചികിത്സാ മാനദണ്ഡങ്ങൾ",
-          rightPill: "ശാസ്ത്രീയ രീതി",
-          treatTitle: "ICAR-CPCRI നിർദ്ദേശിച്ച ചികിത്സ:",
-          treatList: [
-            "<strong>1% ബോർഡോ മിശ്രിതം തളിക്കൽ:</strong> 1 കിലോ തുരിശും 1 കിലോ ചുണ്ണാമ്പും 100 ലിറ്റർ വെള്ളത്തിൽ ലയിപ്പിച്ച് നന്നായി ഇളക്കി തളിക്കുക.",
-            "<strong>3 ഘട്ട തളിക്കൽ ക്രമം:</strong> മഴക്കാലത്തിന് തൊട്ടുമുമ്പ് ആദ്യ തളിക്കൽ; 40-45 ദിവസങ്ങൾക്ക് ശേഷം രണ്ടാം തളിക്കൽ; സെപ്റ്റംബറിൽ മൂന്നാം തളിക്കൽ.",
-            "<strong>പോളിത്തീൻ കവർ കെട്ടൽ:</strong> അടയ്ക്ക കുലകൾക്ക് 125 ഗേജ് പോളിത്തീൻ കവറുകൾ (75 × 60 സെ.മീ) കെട്ടി മഴവെള്ളത്തിൽനിന്ന് 100% സംരക്ഷണം നൽകുക.",
-            "<strong>കുമിൾനാശിനി പ്രയോഗം:</strong> രോഗബാധയുള്ള കുലകളിൽ മെറ്റലാക്സിൽ MZ (2 ഗ്രാം/ലിറ്റർ) തളിക്കുക."
-          ],
-          prevTitle: "ദീർഘകാല സംരക്ഷണ രീതികൾ:",
-          prevList: [
-            "<strong>നീർവാർച്ച സൗകര്യം:</strong> തോട്ടത്തിൽ വെള്ളം കെട്ടിക്കിടക്കാതിരിക്കാൻ 2-3 അടി ആഴത്തിൽ ചാലുകൾ കീറുക.",
-            "<strong>മതിയായ അകലം:</strong> സൂര്യപ്രകാശവും വായുസഞ്ചാരവും ലഭിക്കാൻ മരങ്ങൾ തമ്മിൽ 2.7 മീറ്റർ അകലം പാലിക്കുക.",
-            "<strong>മഴയ്ക്ക് മുമ്പുള്ള ശുചീകരണം:</strong> വേനൽക്കാലത്ത് തന്നെ മരങ്ങളുടെ ഉണങ്ങിയ പട്ടകളും അവശിഷ്ടങ്ങളും വൃത്തിയാക്കുക."
-          ],
-          advisoryText: "<strong>ICAR-CPCRI മുന്നറിയിപ്പ്:</strong> മഴക്കാലത്തിന് മുമ്പ് 1% ബോർഡോ മിശ്രിതം തളിക്കുന്നതാണ് കൊളെറോഗയ്ക്കെതിരെയുള്ള ഏറ്റവും ഫലപ്രദമായ പ്രതിരോധം. കൂടുതൽ വിവരങ്ങൾക്ക് അടുത്തുള്ള കൃഷിഭവനുമായോ KVK യുമായോ ബന്ധപ്പെടുക."
-        }
-      },
-      yld: {
-        en: {
-          leftKicker: "PATHOLOGY & FIELD DIAGNOSIS",
-          leftTitle: "Yellow Leaf Disease (YLD) — Pathological Profile",
-          leftRisk: "CHRONIC RISK",
-          pathogenLabel: "Associated Pathogen",
-          pathogenVal: "Phytoplasma organisms (phloem-inhabiting, cell-wall-less prokaryotes)",
-          lossLabel: "Expected Crop Impact",
-          lossVal: "60% to 80% yield reduction over 3–5 years",
-          triggersTitle: "Insect Vectors & Transmission:",
-          triggersDesc: "Transmitted between palms by phloem-feeding plant hoppers (<em>Proutista moesta</em>) and lace bugs (<em>Stephanitis typica</em>). Predisposing triggers include waterlogging, severe soil acidity (pH <5.0), and potassium/magnesium deficiency.",
-          symptomsTitle: "Diagnostic Symptoms & Field Identification:",
-          symptoms: [
-            "<strong>Foliar Chlorosis:</strong> Intense yellowing initiates at tips of outer leaflets in lower whorls, progressing inward while midribs remain green.",
-            "<strong>Crown Reduction:</strong> Leaves become short, stiff, and brittle. Crown shrinks, giving the trunk a tapered pencil-point look.",
-            "<strong>Kernel Degeneration:</strong> Nuts become small, corrugated, and cracked with spongy blackened endosperm.",
-            "<strong>Root Dieback:</strong> Feeder roots turn black, decay, and suffer cortical breakdown."
-          ],
-          actionsTitle: "Immediate Field Actions (Do Today):",
-          actions: [
-            "<strong>Excavate Drainage Channels:</strong> Dig 2–3 ft deep trenches immediately to relieve water stagnation.",
-            "<strong>Foliar Micronutrients:</strong> Spray 0.5% Zinc Sulfate + 0.1% Boric Acid onto fronds to stimulate chlorophyll.",
-            "<strong>Vector Trapping:</strong> Install yellow sticky traps (15–20 traps/acre) at canopy level."
-          ],
-          rightKicker: "ICAR-CPCRI REHABILITATION SYSTEM",
-          rightTitle: "Yellow Leaf Disease (YLD) — Nutritional Cure & Prevention",
-          rightPill: "REHABILITATION",
-          treatTitle: "ICAR-CPCRI Rehabilitation & Nutritional Management:",
-          treatList: [
-            "<strong>Balanced NPK Dosage (per palm/year):</strong> 100 g Nitrogen (220 g Urea), 40 g Phosphorus (200 g Rock Phosphate), 140 g Potassium (230 g Muriate of Potash) in 2 equal splits (May–June and Sept–Oct).",
-            "<strong>Organic Soil Enrichment:</strong> Apply 12 kg Farmyard Manure (FYM) or vermicompost + 12 kg green leaf mulch per palm annually.",
-            "<strong>Magnesium Correction:</strong> Apply 200 g Magnesium Sulfate (MgSO₄) per palm per year in two splits.",
-            "<strong>Soil Liming:</strong> Apply agricultural lime or dolomite at 1 kg per palm once every 2 years in acidic soils (pH <5.5)."
-          ],
-          prevTitle: "Long-Term Prevention & Intercropping:",
-          prevList: [
-            "<strong>Multi-Species Cropping:</strong> Intercrop with cocoa, banana, and pepper to improve soil organic matter and root aeration.",
-            "<strong>Vector Management:</strong> Spray neem-based formulation (Azadirachtin 0.03% @ 5 mL/L) on fronds during post-monsoon vector season."
-          ],
-          advisoryText: "<strong>ICAR-CPCRI Advisory:</strong> Phytoplasma is systemic within vascular phloem; disease mitigation relies on integrated soil rehabilitation, drainage, balanced NPK+Mg nutrition, and vector control."
-        },
-        kn: {
-          leftKicker: "ರೋಗಶಾಸ್ತ್ರ ಮತ್ತು ಕ್ಷೇತ್ರ ರೋಗನಿರ್ಣಯ",
-          leftTitle: "ಹಳದಿ ಎಲೆ ರೋಗ (ವೈಎಲ್ ಡಿ) — ರೋಗದ ಪ್ರೊಫೈಲ್",
-          leftRisk: "ದೀರ್ಘಕಾಲಿಕ ಅಪಾಯ",
-          pathogenLabel: "ಸಂಬಂಧಿತ ರೋಗಕಾರಕ",
-          pathogenVal: "ಫೈಟೋಪ್ಲಾಸ್ಮಾ ಸೂಕ್ಷ್ಮಜೀವಿಗಳು (ಫ್ಲೋಯಮ್ ನರಗಳಲ್ಲಿ ವಾಸಿಸುವ ಜೀವಿಗಳು)",
-          lossLabel: "ನಿರೀಕ್ಷಿತ ಬೆಳೆ ನಷ್ಟ",
-          lossVal: "೩-೫ ವರ್ಷಗಳಲ್ಲಿ ೬೦% ರಿಂದ ೮೦% ಇಳುವರಿ ಕುಸಿತ",
-          triggersTitle: "ವಾಹಕ ಕೀಟಗಳು ಮತ್ತು ಹರಡುವಿಕೆ:",
-          triggersDesc: "ಸಸ್ಯ ರಸ ಹೀರುವ ಜಿಗಿ ಹುಳುಗಳು (<em>ಪ್ರೌಟಿಸ್ಟಾ ಮೊಯೆಸ್ಟಾ</em>) ಮತ್ತು ಲೇಸ್ ಬಗ್ (<em>ಸ್ಟೆಫಾನಿಟಿಸ್ ಟಿಪಿಕಾ</em>) ಕೀಟಗಳ ಮೂಲಕ ಹರಡುತ್ತದೆ. ಜಲಾವೃತ ಮಣ್ಣು, ತೀವ್ರ ಆಮ್ಲೀಯತೆ (pH < 5.0) ಮತ್ತು ಪೊಟ್ಯಾಶ್/ಮೆಗ್ನೀಸಿಯಮ್ ಕೊರತೆಯು ರೋಗವನ್ನು ತೀವ್ರಗೊಳಿಸುತ್ತದೆ.",
-          symptomsTitle: "ರೋಗನಿರ್ಣಯದ ಲಕ್ಷಣಗಳು ಮತ್ತು ಗುರುತಿಸುವಿಕೆ:",
-          symptoms: [
-            "<strong>ಎಲೆಯ ಹಳದಿ ಬಣ್ಣ:</strong> ಕೆಳಭಾಗದ ಗರಿಗಳ ತುದಿಯಲ್ಲಿ ತೀವ್ರ ಹಳದಿ ಬಣ್ಣ ಪ್ರಾರಂಭವಾಗಿ ಒಳಮುಖವಾಗಿ ಹರಡುತ್ತದೆ; ನಡುದಿಂಡು ಹಸಿರಾಗಿಯೇ ಇರುತ್ತದೆ.",
-            "<strong>ಸುಳಿ ಕಿರಿದಾಗುವಿಕೆ:</strong> ಎಲೆಗಳು ಗಿಡ್ಡವಾಗಿ, ಗಟ್ಟಿಯಾಗಿ ಮತ್ತು ಸುಲಭವಾಗಿ ಮುರಿಯುತ್ತವೆ. ಮರದ ತುದಿ ಸಣ್ಣದಾಗಿ ಪೆನ್ಸಿಲ್ ಮೊನೆಯಂತೆ ಕಾಣುತ್ತದೆ.",
-            "<strong>ಅಡಿಕೆ ಗುಣಮಟ್ಟ ಹಾಳು:</strong> ಅಡಿಕೆಗಳು ಸಣ್ಣದಾಗಿ ಬಿರುಕು ಬಿಡುತ್ತವೆ ಮತ್ತು ಒಳಗಿನ ಚಾಲಿ ಕಪ್ಪಾಗಿ ಸ್ಪಂಜಿನಂತಾಗುತ್ತದೆ.",
-            "<strong>ಬೇರು ಕೊಳೆಯುವಿಕೆ:</strong> ಆಹಾರ ಹೀರುವ ಬೇರುಗಳು ಕಪ್ಪಾಗಿ ಕೊಳೆಯುತ್ತವೆ, ಇದರಿಂದ ಪೋಷಕಾಂಶ ಹೀರುವಿಕೆ ಕುಂಠಿತಗೊಳ್ಳುತ್ತದೆ."
-          ],
-          actionsTitle: "ತಕ್ಷಣದ ಕ್ಷೇತ್ರ ಕ್ರಮಗಳು (ಇಂದೇ ಮಾಡಿ):",
-          actions: [
-            "<strong>ಚರಂಡಿ ತೋಡುವುದು:</strong> ಬೇರಿನ ವಲಯದಲ್ಲಿ ನೀರು ನಿಲ್ಲದಂತೆ ತಕ್ಷಣ ೨-೩ ಅಡಿ ಆಳದ ಒಳಚರಂಡಿ ಕಾಲುವೆಗಳನ್ನು ತೋಡಿ.",
-            "<strong>ಸೂಕ್ಷ್ಮ ಪೋಷಕಾಂಶ ಸಿಂಪಡಣೆ:</strong> ಕ್ಲೋರೊಫಿಲ್ ಪುನರುಜ್ಜೀವನಕ್ಕೆ ೦.೫% ಜಿಂಕ್ ಸಲ್ಫೇಟ್ + ೦.೧% ಬೋರಿಕ್ ಆಮ್ಲವನ್ನು ಎಲೆಗಳಿಗೆ ಸಿಂಪಡಿಸಿ.",
-            "<strong>ಜಿಗಿಹುಳುಗಳ ನಿಯಂತ್ರಣ:</strong> ವಾಹಕ ಕೀಟಗಳನ್ನು ಹಿಡಿಯಲು ಪ್ರತಿ ಎಕರೆಗೆ ೧೫-೨೦ ಹಳದಿ ಜಿಗುಟು ಬಲೆಗಳನ್ನು (Yellow Sticky Traps) ಅಳವಡಿಸಿ."
-          ],
-          rightKicker: "ICAR-CPCRI ಪುನಶ್ಚೇತನ ವ್ಯವಸ್ಥೆ",
-          rightTitle: "ಹಳದಿ ಎಲೆ ರೋಗ (ವೈಎಲ್ ಡಿ) — ಪೌಷ್ಟಿಕ ಚಿಕಿತ್ಸೆ ಮತ್ತು ತಡೆಗಟ್ಟುವಿಕೆ",
-          rightPill: "ಪುನಶ್ಚೇತನ",
-          treatTitle: "ICAR-CPCRI ಪುನಶ್ಚೇತನ ಮತ್ತು ಪೌಷ್ಟಿಕಾಂಶ ನಿರ್ವಹಣೆ:",
-          treatList: [
-            "<strong>ಸಮತೋಲಿತ NPK ಗೊಬ್ಬರ (ಪ್ರತಿ ಮರಕ್ಕೆ/ವರ್ಷಕ್ಕೆ):</strong> ೧೦೦ ಗ್ರಾಂ ಸಾರಜನಕ (೨೨೦ ಗ್ರಾಂ ಯೂರಿಯಾ), ೪೦ ಗ್ರಾಂ ರಂಜಕ (೨೦೦ ಗ್ರಾಂ ರಾಕ್ ಫಾಸ್ಫೇಟ್), ೧೪೦ ಗ್ರಾಂ ಪೊಟ್ಯಾಶ್ (೨೩೦ ಗ್ರಾಂ ಎಂಒಪಿ) - ಮೇ-ಜೂನ್ ಮತ್ತು ಸೆಪ್ಟೆಂಬರ್-ಅಕ್ಟೋಬರ್‌ನಲ್ಲಿ ೨ ಸಮಾನ ಕಂತುಗಳಲ್ಲಿ ನೀಡಿ.",
-            "<strong>ಸಾವಯವ ಮಣ್ಣಿನ ಪುಷ್ಟೀಕರಣ:</strong> ಪ್ರತಿ ಮರಕ್ಕೆ ವಾರ್ಷಿಕವಾಗಿ ೧೨ ಕೆಜಿ ಕೊಟ್ಟಿಗೆ ಗೊಬ್ಬರ/ಎರೆಹುಳು ಗೊಬ್ಬರ + ೧೨ ಕೆಜಿ ಹಸಿರೆಲೆ ಗೊಬ್ಬರ ಹಾಕಿ.",
-            "<strong>ಮೆಗ್ನೀಸಿಯಮ್ ತಿದ್ದುಪಡಿ:</strong> ಎಲೆಗಳ ಹಳದಿ ಬಣ್ಣ ಹೋಗಲಾಡಿಸಲು ಪ್ರತಿ ಮರಕ್ಕೆ ವರ್ಷಕ್ಕೆ ೨೦೦ ಗ್ರಾಂ ಮೆಗ್ನೀಸಿಯಮ್ ಸಲ್ಫೇಟ್ (MgSO₄) ಅನ್ನು ೨ ಕಂತುಗಳಲ್ಲಿ ನೀಡಿ.",
-            "<strong>ಕೃಷಿ ಸುಣ್ಣ ಬಳಕೆ:</strong> ಆಮ್ಲೀಯ ಮಣ್ಣಿನಲ್ಲಿ (pH <5.5) ಪ್ರತಿ ೨ ವರ್ಷಕ್ಕೊಮ್ಮೆ ಮರಕ್ಕೆ ೧ ಕೆಜಿ ಕೃಷಿ ಸುಣ್ಣ ಅಥವಾ ಡಾಲಮೈಟ್ ಹಾಕಿ."
-          ],
-          prevTitle: "ದೀರ್ಘಕಾಲೀನ ತಡೆಗಟ್ಟುವಿಕೆ ಮತ್ತು ಮಿಶ್ರ ಬೆಳೆ:",
-          prevList: [
-            "<strong>ಮಿಶ್ರ ಬೆಳೆ ಪದ್ಧತಿ:</strong> ಮಣ್ಣಿನ ಸಾವಯವ ಅಂಶ ಮತ್ತು ಬೇರುಗಳ ಆರೋಗ್ಯ ಸುಧಾರಿಸಲು ಕೋಕೋ, ಬಾಳೆ ಮತ್ತು ಕಾಳುಮೆಣಸು ಮಿಶ್ರಬೆಳೆಯಾಗಿ ಬೆಳೆಯಿರಿ.",
-            "<strong>ಕೀಟ ನಿಯಂತ್ರಣ:</strong> ಮಳೆಗಾಲದ ನಂತರ ಕೀಟಗಳು ಬರದಂತೆ ಬೇವಿನ ಎಣ್ಣೆ ಆಧಾರಿತ ಕೀಟನಾಶಕವನ್ನು (ಅಜಾಡಿರಾಕ್ಟಿನ್ ೦.೦೩% @ ೫ ಮಿಲಿ/ಲೀಟರ್) ಸಿಂಪಡಿಸಿ."
-          ],
-          advisoryText: "<strong>ICAR-CPCRI ಸಲಹೆ:</strong> ಫೈಟೋಪ್ಲಾಸ್ಮಾ ಮರದ ನಾಳಗಳ ಒಳಗೆ ಇರುವುದರಿಂದ ಕೇವಲ ರಾಸಾಯನಿಕ ಸಿಂಪಡಣೆಯಿಂದ ಗುಣಪಡಿಸಲಾಗುವುದಿಲ್ಲ. ಮಣ್ಣಿನ ಸುಧಾರಣೆ, ಒಳಚರಂಡಿ, ಸಮತೋಲಿತ NPK+ಮೆಗ್ನೀಸಿಯಮ್ ಪೋಷಣೆ ಮತ್ತು ಕೀಟ ನಿಯಂತ್ರಣದಿಂದ ಮರಗಳನ್ನು ರಕ್ಷಿಸಬಹುದು."
-        },
-        hi: {
-          leftKicker: "पैथोलॉजी और क्षेत्रीय निदान",
-          leftTitle: "पीली पत्ती रोग (YLD) — रोग प्रोफ़ाइल",
-          leftRisk: "दीर्घकालिक जोखिम",
-          pathogenLabel: "संबंधित रोगज़नक़",
-          pathogenVal: "फाइटोप्लाज्मा जीव (फ्लोएम में रहने वाले परजीवी)",
-          lossLabel: "अपेक्षित फसल नुकसान",
-          lossVal: "3-5 वर्षों में 60% से 80% पैदावार में गिरावट",
-          triggersTitle: "कीट वाहक और संचरण:",
-          triggersDesc: "पौधों का रस चूसने वाले फुदके (<em>प्राउटिस्टा मोएस्टा</em>) और लेस बग कीटों द्वारा फैलता है। जलभराव, मिट्टी की अम्लता (pH <5.0) और पोटाश/मैग्नीशियम की कमी से रोग बढ़ता है।",
-          symptomsTitle: "पहचान के लक्षण:",
-          symptoms: [
-            "<strong>पत्तियों का पीलापन:</strong> निचली पत्तियों के सिरों से तीव्र पीलापन शुरू होकर अंदर की ओर बढ़ता है, मध्य शिरा हरी रहती है।",
-            "<strong>छत्र में कमी:</strong> पत्तियां छोटी, सख्त और भंगुर हो जाती हैं। तना ऊपर से पतला होकर पेंसिल जैसा हो जाता है।",
-            "<strong>सुपारी का क्षरण:</strong> फल छोटे, झुर्रीदार होते हैं और अंदर की गिरी काली व स्पंजी हो जाती है।",
-            "<strong>जड़ों का सड़ना:</strong> पोषक तत्व सोखने वाली जड़ें काली पड़कर सड़ जाती हैं।"
-          ],
-          actionsTitle: "तत्काल कार्रवाई (आज ही करें):",
-          actions: [
-            "<strong>नालियां बनाएं:</strong> जड़ों में पानी का ठहराव रोकने के लिए 2-3 फीट गहरी नालियां खोदें।",
-            "<strong>सूक्ष्म पोषक तत्व छिड़काव:</strong> क्लोरोफिल बढ़ाने के लिए पत्तियों पर 0.5% जिंक सल्फेट + 0.1% बोरिक एसिड छिड़कें।",
-            "<strong>कीट नियंत्रण:</strong> कीटों को पकड़ने के लिए प्रति एकड़ 15-20 पीले चिपचिपे जाल (Yellow Sticky Traps) लगाएं।"
-          ],
-          rightKicker: "ICAR-CPCRI पुनर्वास प्रणाली",
-          rightTitle: "पीली पत्ती रोग (YLD) — पोषण उपचार एवं रोकथाम",
-          rightPill: "पुनर्वास",
-          treatTitle: "ICAR-CPCRI पुनर्वास एवं पोषण प्रबंधन:",
-          treatList: [
-            "<strong>संतुलित NPK खुराक (प्रति पेड़/वर्ष):</strong> 100 ग्राम नाइट्रोजन (220 ग्राम यूरिया), 40 ग्राम फास्फोरस (200 ग्राम रॉक फास्फेट), 140 ग्राम पोटाश (230 ग्राम MOP) - मई-जून और सितंबर-अक्टूबर में दो बराबर किश्तों में दें।",
-            "<strong>जैविक खाद:</strong> प्रति पेड़ प्रति वर्ष 12 किलो गोबर की खाद/केंचुआ खाद + 12 किलो हरी पत्ती की खाद डालें।",
-            "<strong>मैग्नीशियम सुधार:</strong> पत्तियों का पीलापन दूर करने के लिए प्रति पेड़ प्रति वर्ष 200 ग्राम मैग्नीशियम सल्फेट (MgSO₄) दो बार दें।",
-            "<strong>कृषि चूना:</strong> अम्लीय मिट्टी में हर 2 साल में एक बार प्रति पेड़ 1 किलो कृषि चूना या डोलोमाइट डालें।"
-          ],
-          prevTitle: "दीर्घकालिक रोकथाम और मिश्रित खेती:",
-          prevList: [
-            "<strong>मिश्रित फसलें:</strong> मिट्टी में सुधार के लिए कोको, केला और काली मिर्च को मिश्रित फसल के रूप में लगाएं।",
-            "<strong>वाहक नियंत्रण:</strong> मानसून के बाद नीम आधारित कीटनाशक (एज़ाडिराक्टिन 0.03% @ 5 मिली/लीटर) का छिड़काव करें।"
-          ],
-          advisoryText: "<strong>ICAR-CPCRI सलाह:</strong> फाइटोप्लाज्मा संवहनी ऊतकों के अंदर रहता है, इसलिए केवल रासायनिक कीटनाशकों से इलाज संभव नहीं है। मिट्टी की सेहत, जल निकासी, संतुलित NPK+Mg पोषण और कीट नियंत्रण से ही पेड़ स्वस्थ रह सकते हैं।"
-        },
-        ml: {
-          leftKicker: "പാത്തോളജിയും രോഗനിർണ്ണയവും",
-          leftTitle: "മഞ്ഞളിപ്പ് രോഗം (YLD) — രോഗവിവരങ്ങൾ",
-          leftRisk: "ദീർഘകാല അപകടസാധ്യത",
-          pathogenLabel: "രോഗകാരിയായ ജീവി",
-          pathogenVal: "ഫൈറ്റോപ്ലാസ്മ (സസ്യ കോശങ്ങളിൽ വസിക്കുന്ന ജീവി)",
-          lossLabel: "പ്രതീക്ഷിക്കുന്ന വിളനഷ്ടം",
-          lossVal: "3-5 വർഷത്തിനുള്ളിൽ 60% മുതൽ 80% വരെ വിളനഷ്ടം",
-          triggersTitle: "വാഹക പ്രാണികളും വ്യാപനവും:",
-          triggersDesc: "നീരൂറ്റിക്കുടിക്കുന്ന ചെള്ളുകൾ (<em>പ്രൗട്ടിസ്റ്റ മോയെസ്റ്റ</em>), ലേസ് ബഗ്ഗുകൾ എന്നിവ വഴി പകരുന്നു. മണ്ണിലെ വെള്ളക്കെട്ടും അസിഡിറ്റിയും (pH <5.0) പൊട്ടാഷ്/മഗ്നീഷ്യം കുറവും രോഗം മൂർച്ഛിപ്പിക്കുന്നു.",
-          symptomsTitle: "പ്രധാന രോഗലക്ഷണങ്ങൾ:",
-          symptoms: [
-            "<strong>ഓല മഞ്ഞളിപ്പ്:</strong> താഴത്തെ ഓലകളുടെ അഗ്രഭാഗത്തുനിന്ന് ആരംഭിച്ച് ഉള്ളിലേക്ക് പടരുന്ന കടുത്ത മഞ്ഞനിറം; ഈർക്കിൽ പച്ചയായി തുടരും.",
-            "<strong>തലപ്പ് ചുരുങ്ങൽ:</strong> ഓലകൾ ചെറുതും കട്ടിയുള്ളതുമാകുന്നു. മരത്തിന്റെ തലപ്പ് ചുരുങ്ങി പെൻസിൽ പോലെ കൂർത്ത രൂപത്തിലാകുന്നു.",
-            "<strong>അടയ്ക്ക നശിക്കൽ:</strong> അടയ്ക്കകൾ ചെറുതായി ചുരുങ്ങുകയും ഉള്ളിലെ കാമ്പ് കറുത്ത് പഞ്ഞിപോലെയാവുകയും ചെയ്യുന്നു.",
-            "<strong>വേര് ചീയൽ:</strong> ആഹാരം വലിച്ചെടുക്കുന്ന വേരുകൾ കറുത്ത് ചീഞ്ഞുപോകുന്നു."
-          ],
-          actionsTitle: "ഉടൻ ചെയ്യേണ്ട ഫീൽഡ് നടപടികൾ:",
-          actions: [
-            "<strong>നീർവാർച്ച ചാലുകൾ:</strong> വേരുകളിൽ വെള്ളം കെട്ടിനിൽക്കാതിരിക്കാൻ ഉടൻ 2-3 അടി ആഴത്തിൽ ചാലുകൾ കീറുക.",
-            "<strong>സൂക്ഷ്മ മൂലക പ്രയോഗം:</strong> ഹരിതകം വീണ്ടെടുക്കാൻ 0.5% സിങ്ക് സൾഫേറ്റും 0.1% ബോറിക് ആസിഡും ഓലകളിൽ തളിക്കുക.",
-            "<strong>പ്രാണി നിയന്ത്രണം:</strong> തോട്ടത്തിൽ മഞ്ഞക്കെണികൾ (ഏക്കറിന് 15-20 എണ്ണം) സ്ഥാപിക്കുക."
-          ],
-          rightKicker: "ICAR-CPCRI പുനരുജ്ജീവന പദ്ധതി",
-          rightTitle: "മഞ്ഞളിപ്പ് രോഗം (YLD) — പോഷണ ചികിത്സയും പ്രതിരോധവും",
-          rightPill: "പുനരുജ്ജീവനം",
-          treatTitle: "ICAR-CPCRI പോഷണ മാനേജ്മെന്റ്:",
-          treatList: [
-            "<strong>സന്തുലിത NPK വളപ്രയോഗം (പ്രതിവർഷം ഒരു മരത്തിന്):</strong> 100 ഗ്രാം നൈട്രജൻ (220 ഗ്രാം യൂറിയ), 40 ഗ്രാം ഫോസ്ഫറസ് (200 ഗ്രാം രാജ്ഫോസ്), 140 ഗ്രാം പൊട്ടാഷ് (230 ഗ്രാം എം.ഒ.പി) - മെയ്-ജൂൺ, സെപ്റ്റംബർ-ഒക്ടോബർ മാസങ്ങളിലായി തുല്യ തവണകളായി നൽകുക.",
-            "<strong>ജൈവവളം:</strong> പ്രതിവർഷം 12 കിലോ കാലിവളം/കമ്പോസ്റ്റ് + 12 കിലോ പച്ചിലവളം നൽകുക.",
-            "<strong>മഗ്നീഷ്യം പോഷണം:</strong> മഞ്ഞളിപ്പ് മാറ്റാൻ പ്രതിവർഷം 200 ഗ്രാം മഗ്നീഷ്യം സൾഫേറ്റ് (MgSO₄) രണ്ട് തവണയായി നൽകുക.",
-            "<strong>കുമ്മായ പ്രയോഗം:</strong> അമ്ലത്വമുള്ള മണ്ണിൽ രണ്ട് വർഷത്തിലൊരിക്കൽ 1 കിലോ കുമ്മായം അല്ലെങ്കിൽ ഡോളമൈറ്റ് ചേർക്കുക."
-          ],
-          prevTitle: "ദീർഘകാല പ്രതിരോധവും ഇടവിളകളും:",
-          prevList: [
-            "<strong>ഇടവിള കൃഷി:</strong> മണ്ണിന്റെ ഫലഭൂയിഷ്ഠത കൂട്ടാൻ കൊക്കോ, വാഴ, കുരുമുളക് എന്നിവ ഇടവിളയായി കൃഷി ചെയ്യുക.",
-            "<strong>കീട നിയന്ത്രണം:</strong> വേപ്പെണ്ണ അധിഷ്ഠിത കീടനാശിനി (അസാഡിറാക്റ്റിൻ 0.03% @ 5 മി.ലി/ലിറ്റർ) തളിക്കുക."
-          ],
-          advisoryText: "<strong>ICAR-CPCRI നിർദ്ദേശം:</strong> ഫൈറ്റോപ്ലാസ്മ മരത്തിന്റെ രസായന നാളികൾക്കുള്ളിൽ ഉള്ളതിനാൽ രാസകീടനാശിനികൾ കൊണ്ട് പൂർണ്ണമായി മാറ്റാനാവില്ല. മണ്ണിലെ നീർവാർച്ച, സന്തുലിത NPK+Mg പോഷണം, കീടനിയന്ത്രണം എന്നിവയിലൂടെ മാത്രമേ മരങ്ങളെ സംരക്ഷിക്കാനാകൂ."
-        }
-      },
-      healthy_nut: {
-        en: {
-          leftKicker: "AGRONOMIC HEALTH & QUALITY PROFILE",
-          leftTitle: "Healthy Nut Specimen — Morphological Standards",
-          leftRisk: "OPTIMAL GRADE",
-          pathogenLabel: "Crop Health Status",
-          pathogenVal: "Pristine Drupe Cluster — No Pathological Lesions",
-          lossLabel: "Expected Harvest Yield",
-          lossVal: "Peak Market Grade A Yield (Optimal Dry Chali)",
-          triggersTitle: "Optimal Field Environment:",
-          triggersDesc: "Healthy nuts indicate balanced nutrition, regular summer irrigation, and timely prophylactic fungal management. Continue seasonal surveillance.",
-          symptomsTitle: "Healthy Botanical Characteristics Observed:",
-          symptoms: [
-            "<strong>Intact Epicarp:</strong> Smooth, firm, deep green outer skin with zero water-soaked lesions or rotting.",
-            "<strong>Firm Calyx Perianth:</strong> Strong attachment to bunch stalk with tight calyx cups and no dark margin discoloration.",
-            "<strong>Normal Fruit Cluster:</strong> High fruit retention count (30–50 nuts per bunch) without abnormal shedding.",
-            "<strong>Absence of Mycelium:</strong> Clean fruit surfaces completely free from white fluffy mycelial felts."
-          ],
-          actionsTitle: "Early Warning Symptoms to Monitor in Field:",
-          actions: [
-            "Tiny water-soaked dark spots appearing near the nut perianth stalk.",
-            "Sudden shedding of green buttons (more than 5 green nuts per day under a palm)."
-          ],
-          rightKicker: "PROACTIVE CROP PROTECTION",
-          rightTitle: "Healthy Nut — Protection Protocols & Care Calendar",
-          rightPill: "BEST PRACTICES",
-          treatTitle: "Proactive Crop Protection (Prevent Koleroga & Drop):",
-          treatList: [
-            "<strong>Pre-Monsoon Bunch Bagging:</strong> Tie 125-gauge polythene covers (75 × 60 cm) over bunches in May to protect developing nuts.",
-            "<strong>Prophylactic 1% Bordeaux Spray:</strong> Apply fine spray over bunches before southwest monsoon rains commence.",
-            "<strong>Nutrient Support:</strong> Apply Borax (12 g/palm) and Zinc Sulfate (20 g/palm) for uniform kernel fill.",
-            "<strong>Summer Irrigation:</strong> Maintain 175–200 L per palm every 4 to 6 days during dry summer months."
-          ],
-          prevTitle: "Seasonal Nut Care & Harvest Calendar:",
-          prevList: [
-            "<strong>May–June:</strong> Pre-monsoon bunch bagging and 1st Bordeaux mixture spray.",
-            "<strong>July–August:</strong> Mid-monsoon break inspection and 2nd prophylactic spray.",
-            "<strong>October–December:</strong> Harvest mature ripe nuts; clean plantation floor."
-          ],
-          advisoryText: "<strong>ICAR-CPCRI Guidance:</strong> Maintain clean palm basins and prophylactic spray schedules to safeguard your high-grade harvest."
-        },
-        kn: {
-          leftKicker: "ಕೃಷಿ ಆರೋಗ್ಯ ಮತ್ತು ಗುಣಮಟ್ಟ ಪ್ರೊಫೈಲ್",
-          leftTitle: "ಆರೋಗ್ಯಕರ ಅಡಿಕೆ ಕಾಯಿ — ಕೃಷಿ ಮಾನದಂಡಗಳು",
-          leftRisk: "ಉತ್ತಮ ಶ್ರೇಣಿ",
-          pathogenLabel: "ಬೆಳೆ ಆರೋಗ್ಯ ಸ್ಥಿತಿ",
-          pathogenVal: "ಉತ್ತಮ ಅಡಿಕೆ ಗೊನೆ — ಯಾವುದೇ ರೋಗಲಕ್ಷಣಗಳಿಲ್ಲ",
-          lossLabel: "ನಿರೀಕ್ಷಿತ ಇಳುವರಿ",
-          lossVal: "ಗರಿಷ್ಠ ಮಾರುಕಟ್ಟೆ 'ಎ' ಗ್ರೇಡ್ ಇಳುವರಿ (ಉತ್ತಮ ಚಾಲಿ)",
-          triggersTitle: "ಉತ್ತಮ ತೋಟಗಾರಿಕಾ ಪರಿಸರ:",
-          triggersDesc: "ಆರೋಗ್ಯಕರ ಕಾಯಿಗಳು ಸಮತೋಲಿತ ಪೋಷಣೆ, ನಿಯಮಿತ ಬೇಸಿಗೆ ನೀರಾವರಿ ಮತ್ತು ಸಕಾಲಿಕ ಶಿಲೀಂಧ್ರ ನಿರ್ವಹಣೆಯನ್ನು ಸೂಚಿಸುತ್ತವೆ.",
-          symptomsTitle: "ಗಮನಿಸಲಾದ ಆರೋಗ್ಯಕರ ಲಕ್ಷಣಗಳು:",
-          symptoms: [
-            "<strong>ಉತ್ತಮ ಸಿಪ್ಪೆ:</strong> ಮೃದುವಾದ, ದೃಢವಾದ ಕಡು ಹಸಿರು ಹೊರಮೈ, ನೀರಿನ ಕಲೆಗಳು ಅಥವಾ ಕೊಳೆತ ಇರುವುದಿಲ್ಲ.",
-            "<strong>ಭದ್ರವಾದ ತೊಟ್ಟು:</strong> ತೊಟ್ಟಿಗೆ ಬಲವಾದ ಜೋಡಣೆ, ಯಾವುದೇ ಕಪ್ಪು ಬಣ್ಣದ ಕಲೆಗಳಿರುವುದಿಲ್ಲ.",
-            "<strong>ಸಾಮಾನ್ಯ ಗೊನೆ:</strong> ಅಕಾಲಿಕ ಉದುರುವಿಕೆ ಇಲ್ಲದೆ ಗೊನೆಯಲ್ಲಿ ೩೦-೫೦ ಕಾಯಿಗಳು ಭದ್ರವಾಗಿರುತ್ತವೆ.",
-            "<strong>ಶಿಲೀಂಧ್ರ ಮುಕ್ತ:</strong> ಕಾಯಿಗಳ ಮೇಲೆ ಯಾವುದೇ ಬಿಳಿ ಶಿಲೀಂಧ್ರದ ಕುರುಹುಗಳಿರುವುದಿಲ್ಲ."
-          ],
-          actionsTitle: "ತೋಟದಲ್ಲಿ ಗಮನಿಸಬೇಕಾದ ಆರಂಭಿಕ ಎಚ್ಚರಿಕೆಗಳು:",
-          actions: [
-            "ಅಡಿಕೆ ತೊಟ್ಟಿನ ಬಳಿ ಸಣ್ಣ ನೀರಿನ ಕಲೆಗಳು ಕಾಣಿಸಿಕೊಳ್ಳುವುದು.",
-            "ದಿನಕ್ಕೆ ೫ಕ್ಕಿಂತ ಹೆಚ್ಚು ಹಸಿರು ಅಡಿಕೆಗಳು ಅಕಾಲಿಕವಾಗಿ ಉದುರುವುದು."
-          ],
-          rightKicker: "ಮುನ್ನೆಚ್ಚರಿಕೆ ಬೆಳೆ ರಕ್ಷಣೆ",
-          rightTitle: "ಆರೋಗ್ಯಕರ ಅಡಿಕೆ — ರಕ್ಷಣಾ ಪ್ರೋಟೋಕಾಲ್ ಮತ್ತು ಆರೈಕೆ ಕ್ಯಾಲೆಂಡರ್",
-          rightPill: "ಉತ್ತಮ ಪದ್ಧತಿಗಳು",
-          treatTitle: "ಮುನ್ನೆಚ್ಚರಿಕೆ ರಕ್ಷಣೆ (ಕೊಳೆರೋಗ ಮತ್ತು ಉದುರುವಿಕೆ ತಡೆಗಟ್ಟಿ):",
-          treatList: [
-            "<strong>ಮಾನ್ಸೂನ್ ಪೂರ್ವ ಗೊನೆ ಚೀಲ ಕಟ್ಟುವುದು:</strong> ಬೆಳೆಯುತ್ತಿರುವ ಕಾಯಿಗಳನ್ನು ರಕ್ಷಿಸಲು ಮೇ ತಿಂಗಳಲ್ಲಿ ಗೊನೆಗಳಿಗೆ ೧೨೫-ಗೇಜ್ ಪಾಲಿಥೀನ್ ಚೀಲಗಳನ್ನು ಕಟ್ಟಿ.",
-            "<strong>೧% ಬೋರ್ಡೋ ಸಿಂಪಡಣೆ:</strong> ನೈಋತ್ಯ ಮುಂಗಾರು ಆರಂಭವಾಗುವ ಮುನ್ನ ಗೊನೆಗಳಿಗೆ ಬೋರ್ಡೋ ದ್ರಾವಣ ಸಿಂಪಡಿಸಿ.",
-            "<strong>ಪೋಷಕಾಂಶ ಬೆಂಬಲ:</strong> ಕಾಯಿಗಳು ಗಟ್ಟಿಯಾಗಲು ಬೋರಾಕ್ಸ್ (೧೨ ಗ್ರಾಂ) ಮತ್ತು ಜಿಂಕ್ ಸಲ್ಫೇಟ್ (೨೦ ಗ್ರಾಂ) ನೀಡಿ.",
-            "<strong>ಬೇಸಿಗೆ ನೀರಾವರಿ:</strong> ಒಣ ಬೇಸಿಗೆಯಲ್ಲಿ ಪ್ರತಿ ೪-೬ ದಿನಗಳಿಗೊಮ್ಮೆ ಮರಕ್ಕೆ ೧೭೫-೨೦೦ ಲೀಟರ್ ನೀರು ನೀಡಿ."
-          ],
-          prevTitle: "ಋತುಮಾನದ ಅಡಿಕೆ ಆರೈಕೆ ಮತ್ತು ಕೊಯ್ಲು ಕ್ಯಾಲೆಂಡರ್:",
-          prevList: [
-            "<strong>ಮೇ–ಜೂನ್:</strong> ಮುಂಗಾರು ಪೂರ್ವ ಗೊನೆ ಚೀಲ ಕಟ್ಟುವುದು ಮತ್ತು ೧ನೇ ಬೋರ್ಡೋ ಸಿಂಪಡಣೆ.",
-            "<strong>ಜುಲೈ–ಆಗಸ್ಟ್:</strong> ಮಳೆಯ ಬಿಡುವಿನ ಸಮಯದಲ್ಲಿ ಪರಿಶೀಲನೆ ಮತ್ತು ೨ನೇ ರಕ್ಷಣಾತ್ಮಕ ಸಿಂಪಡಣೆ.",
-            "<strong>ಅಕ್ಟೋಬರ್–ಡಿಸೆಂಬರ್:</strong> ಹಣ್ಣಾದ ಅಡಿಕೆ ಕೊಯ್ಲು ಮತ್ತು ತೋಟದ ಸ್ವಚ್ಛತೆ."
-          ],
-          advisoryText: "<strong>ICAR-CPCRI ಮಾರ್ಗದರ್ಶನ:</strong> ನಿಮ್ಮ ಉತ್ತಮ ಗುಣಮಟ್ಟದ ಇಳುವರಿಯನ್ನು ಉಳಿಸಿಕೊಳ್ಳಲು ತೋಟದ ಸ್ವಚ್ಛತೆ ಮತ್ತು ರಕ್ಷಣಾತ್ಮಕ ಸಿಂಪಡಣಾ ವೇಳಾಪಟ್ಟಿಯನ್ನು ಮುಂದುವರಿಸಿ."
-        },
-        hi: {
-          leftKicker: "कृषि स्वास्थ्य एवं गुणवत्ता प्रोफ़ाइल",
-          leftTitle: "स्वस्थ सुपारी फल — मानक",
-          leftRisk: "सर्वोत्तम ग्रेड",
-          pathogenLabel: "फसल स्वास्थ्य स्थिति",
-          pathogenVal: "स्वस्थ फल गुच्छा — कोई रोग नहीं",
-          lossLabel: "अपेक्षित पैदावार",
-          lossVal: "उच्चतम बाजार 'ए' ग्रेड पैदावार",
-          triggersTitle: "अनुकूल बाग का माहौल:",
-          triggersDesc: "स्वस्थ फल संतुलित पोषण, नियमित सिंचाई और समय पर रोग प्रबंधन का संकेत देते हैं।",
-          symptomsTitle: "देखे गए स्वस्थ लक्षण:",
-          symptoms: [
-            "<strong>स्वस्थ छिलका:</strong> चिकनी, मजबूत, गहरे हरे रंग की बाहरी त्वचा, कोई धब्बा या सड़न नहीं।",
-            "<strong>मजबूत डंठल:</strong> डंठल से मजबूत जुड़ाव, कोई कालापन नहीं।",
-            "<strong>सामान्य गुच्छा:</strong> प्रति गुच्छा 30-50 फल बिना किसी असामान्य झड़ने के।",
-            "<strong>फफूंद मुक्त:</strong> फल की सतह पर कोई सफेद फफूंद नहीं।"
-          ],
-          actionsTitle: "बाग में ध्यान देने योग्य चेतावनी संकेत:",
-          actions: [
-            "डंठल के पास पानी जैसे छोटे धब्बे दिखाई देना।",
-            "प्रतिदिन 5 से अधिक हरे फलों का अचानक झड़ना।"
-          ],
-          rightKicker: "सक्रिय फसल सुरक्षा",
-          rightTitle: "स्वस्थ सुपारी — सुरक्षा प्रोटोकॉल एवं देखभाल कैलेंडर",
-          rightPill: "सर्वोत्तम अभ्यास",
-          treatTitle: "सक्रिय फसल सुरक्षा (सड़न और फल झड़ने से बचाएं):",
-          treatList: [
-            "<strong>गुच्छों को ढकना:</strong> मई में गुच्छों को 125-गेज पॉलीथीन कवर (75 × 60 सेमी) से बांधें।",
-            "<strong>1% बोर्डो छिड़काव:</strong> मानसून शुरू होने से पहले गुच्छों पर बोर्डो मिश्रण का छिड़काव करें।",
-            "<strong>पोषक तत्व सहायता:</strong> फल भरने के लिए बोरेक्स (12 ग्राम) और जिंक सल्फेट (20 ग्राम) डालें।",
-            "<strong>गर्मी में सिंचाई:</strong> गर्मियों में हर 4-6 दिन में प्रति पेड़ 175-200 लीटर पानी दें।"
-          ],
-          prevTitle: "मौसमी देखभाल और कटाई कैलेंडर:",
-          prevList: [
-            "<strong>मई–जून:</strong> गुच्छों को ढकना और पहला बोर्डो छिड़काव।",
-            "<strong>जुलाई–अगस्त:</strong> बारिश के बीच निरीक्षण और दूसरा छिड़काव।",
-            "<strong>अक्टूबर–दिसंबर:</strong> पकी सुपारी की तुड़ाई और बाग की सफाई।"
-          ],
-          advisoryText: "<strong>ICAR-CPCRI मार्गदर्शन:</strong> अपनी उच्च गुणवत्ता वाली पैदावार बनाए रखने के लिए समय पर छिड़काव और देखभाल जारी रखें।"
-        },
-        ml: {
-          leftKicker: "കാർഷിക ഗുണനിലവാര വിവരങ്ങൾ",
-          leftTitle: "ആരോഗ്യമുള്ള അടയ്ക്ക — മാനദണ്ഡങ്ങൾ",
-          leftRisk: "മികച്ച ഗ്രേഡ്",
-          pathogenLabel: "വിള ആരോഗ്യ നില",
-          pathogenVal: "രോഗബാധയില്ലാത്ത അടയ്ക്ക കുല",
-          lossLabel: "പ്രതീക്ഷിക്കുന്ന വിളവ്",
-          lossVal: "ഉയർന്ന വിപണി മൂല്യമുള്ള 'എ' ഗ്രേഡ് വിളവ്",
-          triggersTitle: "അനുകൂല തോട്ടാന്തരീക്ഷം:",
-          triggersDesc: "ആരോഗ്യമുള്ള അടയ്ക്കകൾ സന്തുലിത പോഷണത്തെയും കൃത്യമായ വേനൽക്കാല നനയെയും സൂചിപ്പിക്കുന്നു.",
-          symptomsTitle: "കണ്ടെത്തിയ നല്ല ലക്ഷണങ്ങൾ:",
-          symptoms: [
-            "<strong>നല്ല തൊണ്ട്:</strong> മൃദുവായതും ഉറപ്പുള്ളതുമായ കടുംപച്ച തൊണ്ട്, പാടുകളോ ചീയലോ ഇല്ല.",
-            "<strong>ഉറപ്പുള്ള ഞെട്ട്:</strong> ഞെട്ടിൽ ബലമായി ചേർന്നിരിക്കുന്നു, കറുത്ത പാടുകളില്ല.",
-            "<strong>കുലയുടെ ഘടന:</strong> കൊഴിച്ചിലില്ലാതെ കുലയിൽ 30-50 അടയ്ക്കകൾ ഭദ്രമാണ്.",
-            "<strong>കുമിൾരഹിതം:</strong> അടയ്ക്കയിൽ പഞ്ഞിപോലുള്ള കുമിൾ വളർച്ചയില്ല."
-          ],
-          actionsTitle: "ശ്രദ്ധിക്കേണ്ട ആദ്യ ലക്ഷണങ്ങൾ:",
-          actions: [
-            "ഞെട്ടിന് സമീപം വെള്ളം നനഞ്ഞ ചെറിയ പാടുകൾ കാണുന്നത്.",
-            "ദിവസവും 5 എണ്ണത്തിലധികം പച്ച അടയ്ക്കകൾ അകാരണമായി കൊഴിയുന്നത്."
-          ],
-          rightKicker: "മുൻകരുതൽ വിള സംരക്ഷണം",
-          rightTitle: "ആരോഗ്യമുള്ള അടയ്ക്ക — സംരക്ഷണ കലണ്ടർ",
-          rightPill: "ശാസ്ത്രീയ രീതി",
-          treatTitle: "പ്രതിരോധ മാർഗ്ഗങ്ങൾ (കൊളെറോഗയും കൊഴിച്ചിലും തടയാൻ):",
-          treatList: [
-            "<strong>പോളിത്തീൻ കവർ കെട്ടൽ:</strong> മെയ് മാസത്തിൽ കുലകൾക്ക് 125 ഗേജ് പോളിത്തീൻ കവറുകൾ കെട്ടുക.",
-            "<strong>1% ബോർഡോ തളിക്കൽ:</strong> കാലവർഷത്തിന് മുമ്പ് കുലകളിൽ ബോർഡോ മിശ്രിതം തളിക്കുക.",
-            "<strong>പോഷകങ്ങൾ:</strong> ബോറാക്സ് (12 ഗ്രാം), സിങ്ക് സൾഫേറ്റ് (20 ഗ്രാം) എന്നിവ നൽകുക.",
-            "<strong>വേനൽക്കാല നന:</strong> വേനൽക്കാലത്ത് 4-6 ദിവസത്തിലൊരിക്കൽ 175-200 ലിറ്റർ വെള്ളം നൽകുക."
-          ],
-          prevTitle: "സീസണൽ കലണ്ടർ:",
-          prevList: [
-            "<strong>മെയ്–ജൂൺ:</strong> കവർ കെട്ടലും ഒന്നാം ബോർഡോ തളിക്കലും.",
-            "<strong>ജൂലൈ–ആഗസ്റ്റ്:</strong> പരിശോധനയും രണ്ടാം തളിക്കലും.",
-            "<strong>ഒക്ടോബർ–ഡിസംബർ:</strong> വിളവെടുപ്പും തോട്ടം വൃത്തിയാക്കലും."
-          ],
-          advisoryText: "<strong>ICAR-CPCRI നിർദ്ദേശം:</strong> മികച്ച വിളവ് നിലനിർത്താൻ ശുചിത്വവും ബോർഡോ മിശ്രിതം തളിക്കലും മുടങ്ങാതെ ചെയ്യുക."
-        }
-      },
-      healthy_leaf: {
-        en: {
-          leftKicker: "CANOPY HEALTH & FOLIAR WELLNESS",
-          leftTitle: "Healthy Leaf Specimen — Frond Standards",
-          leftRisk: "OPTIMAL GRADE",
-          pathogenLabel: "Foliar Vigor Status",
-          pathogenVal: "Optimal Photosynthetic Health — Zero Necrosis",
-          lossLabel: "Yield Potential",
-          lossVal: "Sustained Peak Canopy Productivity",
-          triggersTitle: "Canopy Ecosystem:",
-          triggersDesc: "Healthy foliage reflects balanced root-zone moisture, optimal nutrient uptake, and absence of phloem-dwelling phytoplasma vectors.",
-          symptomsTitle: "Healthy Foliar Characteristics Observed:",
-          symptoms: [
-            "<strong>Vigorous Chlorophyll:</strong> Deep uniform green color across all leaflets with balanced photosynthetic pigmentation.",
-            "<strong>Healthy Venation:</strong> Strong prominent parallel veins with zero interveinal chlorosis or marginal necrosis.",
-            "<strong>Pinnate Architecture:</strong> Full arching fronds with healthy turgidity and no crinkling or leaf shortening.",
-            "<strong>Erect Central Spindle:</strong> Upright, healthy growing spear leaf free from crown rot or bud rot."
-          ],
-          actionsTitle: "Early Foliar Symptoms to Watch For:",
-          actions: [
-            "Yellowing beginning at outer leaflet tips (primary trigger sign of YLD).",
-            "Brown necrotic spots with yellow halos (leaf spot / Colletotrichum blight)."
-          ],
-          rightKicker: "CANOPY CARE & SURVEILLANCE",
-          rightTitle: "Healthy Leaf — Nutrition Schedule & Surveillance",
-          rightPill: "BEST PRACTICES",
-          treatTitle: "Routine Canopy Maintenance & Nutrient Management:",
-          treatList: [
-            "<strong>Maintain 9–12 Functional Fronds:</strong> Retain at least 9 to 12 active green fronds per palm crown to sustain peak photosynthetic yield.",
-            "<strong>Balanced NPK Nutrition:</strong> Apply 100g N, 40g P, and 140g K per palm in 2 splits (May–June and Sept–Oct).",
-            "<strong>Organic Mulching:</strong> Mulch palm basins with 12 kg dry leaves or coconut husk to retain moisture and foster beneficial mycorrhizae.",
-            "<strong>Basin Drainage:</strong> Ensure root basins have gentle slopes leading to drainage ditches to prevent root hypoxia during monsoon."
-          ],
-          prevTitle: "Annual Foliar Surveillance Calendar:",
-          prevList: [
-            "<strong>January–April:</strong> Basin mulching and drip irrigation (175–200 L/palm/day).",
-            "<strong>May–June:</strong> Pre-monsoon crown cleaning, remove dead fronds, apply 1st fertilizer split.",
-            "<strong>September–October:</strong> Post-monsoon drainage maintenance, 2nd fertilizer split + MgSO₄.",
-            "<strong>December:</strong> General orchard phytosanitation, rake and burn debris."
-          ],
-          advisoryText: "<strong>ICAR-CPCRI Guidance:</strong> Maintain balanced organic mulching and crown phytosanitation to keep your palms healthy and vigorous."
-        },
-        kn: {
-          leftKicker: "ಗರಿ ಆರೋಗ್ಯ ಮತ್ತು ಸಸ್ಯ ಸಂರಕ್ಷಣೆ",
-          leftTitle: "ಆರೋಗ್ಯಕರ ಅಡಿಕೆ ಗರಿ — ಗುಣಮಟ್ಟದ ಮಾನದಂಡಗಳು",
-          leftRisk: "ಉತ್ತಮ ಶ್ರೇಣಿ",
-          pathogenLabel: "ಎಲೆಯ ಆರೋಗ್ಯ ಸ್ಥಿತಿ",
-          pathogenVal: "ಉತ್ತಮ ಕ್ಲೋರೊಫಿಲ್ — ರೋಗಮುಕ್ತ ಹಸಿರು ಗರಿ",
-          lossLabel: "ಇಳುವರಿ ಸಾಮರ್ಥ್ಯ",
-          lossVal: "ಗರಿಷ್ಠ ದ್ಯುತಿಸಂಶ್ಲೇಷಣೆ ಮತ್ತು ಸಮೃದ್ಧ ಇಳುವರಿ",
-          triggersTitle: "ಆರೋಗ್ಯಕರ ಪರಿಸರ:",
-          triggersDesc: "ಆರೋಗ್ಯಕರ ಗರಿಗಳು ಮಣ್ಣಿನಲ್ಲಿ ಉತ್ತಮ ಪೋಷಕಾಂಶ, ಬೇರುಗಳಲ್ಲಿ ಸರಿಯಾದ ತೇವಾಂಶ ಮತ್ತು ರೋಗಾಣುಗಳ ಅನುಪಸ್ಥಿತಿಯನ್ನು ಸೂಚಿಸುತ್ತವೆ.",
-          symptomsTitle: "ಗಮನಿಸಲಾದ ಉತ್ತಮ ಲಕ್ಷಣಗಳು:",
-          symptoms: [
-            "<strong>ಸಮೃದ್ಧ ಹಸಿರು ಬಣ್ಣ:</strong> ಎಲ್ಲಾ ಎಲೆಗಳಲ್ಲೂ ಸಮಾನವಾದ ಕಡು ಹಸಿರು ಕ್ಲೋರೊಫಿಲ್ ಬಣ್ಣವಿದೆ.",
-            "<strong>ಸ್ಪಷ್ಟ ನರಗಳು:</strong> ಎಲೆಗಳಲ್ಲಿ ಯಾವುದೇ ಹಳದಿ ಅಥವಾ ಕಂದು ಬಣ್ಣದ ಕಲೆಗಳಿಲ್ಲದೆ ಬಲವಾದ ನರಗಳಿವೆ.",
-            "<strong>ಉತ್ತಮ ಗರಿಯ ರಚನೆ:</strong> ಸುರುಟಿಕೊಳ್ಳದೆ ಅಥವಾ ಗಿಡ್ಡವಾಗದೆ ಪೂರ್ಣವಾಗಿ ಹರಡಿದ ಗರಿಗಳು.",
-            "<strong>ನೇರವಾದ ಸುಳಿ:</strong> ಸುಳಿಕೊಳೆ ಇಲ್ಲದೆ ನೇರವಾಗಿ ಬೆಳೆಯುತ್ತಿರುವ ಆರೋಗ್ಯಕರ ಸುಳಿ ಎಲೆ."
-          ],
-          actionsTitle: "ಗಮನಿಸಬೇಕಾದ ಆರಂಭಿಕ ಲಕ್ಷಣಗಳು:",
-          actions: [
-            "ಎಲೆಗಳ ತುದಿಯಲ್ಲಿ ಹಳದಿ ಬಣ್ಣ ಆರಂಭವಾಗುವುದು (ವೈಎಲ್ ಡಿ ಆರಂಭಿಕ ಲಕ್ಷಣ).",
-            "ಕಂದು ಬಣ್ಣದ ಕಲೆಗಳ ಸುತ್ತ ಹಳದಿ ವೃತ್ತ ಕಾಣಿಸಿಕೊಳ್ಳುವುದು (ಎಲೆ ಚುಕ್ಕೆ ರೋಗ)."
-          ],
-          rightKicker: "ಗರಿ ಆರೈಕೆ ಮತ್ತು ಕಣ್ಗಾವಲು",
-          rightTitle: "ಆರೋಗ್ಯಕರ ಎಲೆ — ಪೋಷಕಾಂಶ ವೇಳಾಪಟ್ಟಿ ಮತ್ತು ನಿರ್ವಹಣೆ",
-          rightPill: "ಉತ್ತಮ ಪದ್ಧತಿಗಳು",
-          treatTitle: "ದೈನಂದಿನ ಗರಿ ನಿರ್ವಹಣೆ ಮತ್ತು ಪೋಷಕಾಂಶಗಳು:",
-          treatList: [
-            "<strong>೯-೧೨ ಹಸಿರು ಗರಿಗಳನ್ನು ಉಳಿಸಿಕೊಳ್ಳಿ:</strong> ಗರಿಷ್ಠ ಇಳುವರಿಗಾಗಿ ಮರದಲ್ಲಿ ಕನಿಷ್ಠ ೯ ರಿಂದ ೧೨ ಸಕ್ರಿಯ ಹಸಿರು ಗರಿಗಳು ಇರಬೇಕು.",
-            "<strong>ಸಮತೋಲಿತ NPK ಗೊಬ್ಬರ:</strong> ಪ್ರತಿ ಮರಕ್ಕೆ ೧೦೦ ಗ್ರಾಂ N, ೪೦ ಗ್ರಾಂ P ಮತ್ತು ೧೪೦ ಗ್ರಾಂ K ಅನ್ನು ಮೇ-ಜೂನ್ ಮತ್ತು ಸೆಪ್ಟೆಂಬರ್-ಅಕ್ಟೋಬರ್‌ನಲ್ಲಿ ನೀಡಿ.",
-            "<strong>ಸಾವಯವ ಹೊದಿಕೆ:</strong> ತೇವಾಂಶ ಉಳಿಸಿಕೊಳ್ಳಲು ಮರದ ಬುಡಕ್ಕೆ ೧೨ ಕೆಜಿ ಒಣ ಎಲೆಗಳು ಅಥವಾ ಅಡಿಕೆ ಸಿಪ್ಪೆಯ ಹೊದಿಕೆ ಹಾಕಿ.",
-            "<strong>ಒಳಚರಂಡಿ:</strong> ಮಳೆಗಾಲದಲ್ಲಿ ಬೇರು ಕೊಳೆಯುವುದನ್ನು ತಪ್ಪಿಸಲು ಬುಡದಲ್ಲಿ ನೀರು ನಿಲ್ಲದಂತೆ ಇಳಿಜಾರು ಚರಂಡಿ ಮಾಡಿ."
-          ],
-          prevTitle: "ವಾರ್ಷಿಕ ಗರಿ ಕಣ್ಗಾವಲು ಕ್ಯಾಲೆಂಡರ್:",
-          prevList: [
-            "<strong>ಜನವರಿ–ಏಪ್ರಿಲ್:</strong> ಮರದ ಬುಡಕ್ಕೆ ಹೊದಿಕೆ ಮತ್ತು ಹನಿ ನೀರಾವರಿ (೧೭೫-೨೦೦ ಲೀ/ಮರ/ದಿನ).",
-            "<strong>ಮೇ–ಜೂನ್:</strong> ಮುಂಗಾರು ಪೂರ್ವ ಮರದ ಸುಳಿ ಸ್ವಚ್ಛತೆ, ಒಣ ಗರಿ ತೆಗೆಯುವುದು ಮತ್ತು ೧ನೇ ಕಂತಿನ ಗೊಬ್ಬರ.",
-            "<strong>ಸೆಪ್ಟೆಂಬರ್–ಅಕ್ಟೋಬರ್:</strong> ಚರಂಡಿ ನಿರ್ವಹಣೆ, ೨ನೇ ಕಂತಿನ ಗೊಬ್ಬರ + ಮೆಗ್ನೀಸಿಯಮ್ ಸಲ್ಫೇಟ್.",
-            "<strong>ಡಿಸೆಂಬರ್:</strong> ತೋಟದ ಸ್ವಚ್ಛತೆ, ಒಣ ತ್ಯಾಜ್ಯ ತೆಗೆದುಹಾಕುವುದು."
-          ],
-          advisoryText: "<strong>ICAR-CPCRI ಮಾರ್ಗದರ್ಶನ:</strong> ಮರಗಳನ್ನು ಸಮೃದ್ಧವಾಗಿ ಮತ್ತು ರೋಗಮುಕ್ತವಾಗಿಡಲು ಸಾವಯವ ಹೊದಿಕೆ ಮತ್ತು ಮರದ ಸುಳಿಯ ಸ್ವಚ್ಛತೆಯನ್ನು ಕಾಪಾಡಿಕೊಳ್ಳಿ."
-        },
-        hi: {
-          leftKicker: "पत्ती स्वास्थ्य एवं गुणवत्ता प्रोफ़ाइल",
-          leftTitle: "स्वस्थ पत्ती — मानक",
-          leftRisk: "सर्वोत्तम ग्रेड",
-          pathogenLabel: "पत्ती स्वास्थ्य स्थिति",
-          pathogenVal: "उत्तम क्लोरोफिल — रोगमुक्त पत्ती",
-          lossLabel: "पैदावार क्षमता",
-          lossVal: "निरंतर उच्च उत्पादकता",
-          triggersTitle: "स्वस्थ वातावरण:",
-          triggersDesc: "स्वस्थ पत्तियां जड़ों में उचित नमी, संतुलित पोषण और कीटों की अनुपस्थिति का प्रमाण हैं।",
-          symptomsTitle: "देखे गए स्वस्थ लक्षण:",
-          symptoms: [
-            "<strong>गहरा हरा रंग:</strong> सभी पत्तियों पर एक समान गहरा हरा रंग।",
-            "<strong>मजबूत नसें:</strong> पत्तियों में कोई पीलापन या सूखापन नहीं।",
-            "<strong>पत्तियों का सामान्य फैलाव:</strong> पत्तियां मुड़ी हुई या छोटी नहीं हैं।",
-            "<strong>स्वस्थ केंद्रीय कली:</strong> शीर्ष पत्ती सीधी और स्वस्थ है।"
-          ],
-          actionsTitle: "शुरुआती लक्षण जिन पर नजर रखें:",
-          actions: [
-            "पत्ती के सिरों से पीलापन शुरू होना (YLD का लक्षण)।",
-            "पत्तियों पर भूरे धब्बे पड़ना (लीफ स्पॉट)।"
-          ],
-          rightKicker: "छत्र देखभाल और निगरानी",
-          rightTitle: "स्वस्थ पत्ती — पोषण अनुसूची एवं निगरानी",
-          rightPill: "सर्वोत्तम अभ्यास",
-          treatTitle: "नियमित पत्ती रखरखाव और पोषण प्रबंधन:",
-          treatList: [
-            "<strong>9-12 हरी पत्तियां रखें:</strong> अच्छी पैदावार के लिए पेड़ पर कम से कम 9 से 12 हरी पत्तियां होनी चाहिए।",
-            "<strong>संतुलित NPK खाद:</strong> 100g N, 40g P, 140g K को दो किश्तों (मई-जून और सितंबर-अक्टूबर) में दें।",
-            "<strong>जैविक मल्चिंग:</strong> नमी बनाए रखने के लिए पेड़ के थाले में 12 किलो सूखी पत्तियां या छिलके बिछाएं।",
-            "<strong>जल निकासी:</strong> जड़ों में पानी का जमाव रोकने के लिए उचित ढलान वाली नालियां बनाएं।"
-          ],
-          prevTitle: "वार्षिक निगरानी कैलेंडर:",
-          prevList: [
-            "<strong>जनवरी–अप्रैल:</strong> मल्चिंग और ड्रिप सिंचाई (175-200 लीटर/पेड़)।",
-            "<strong>मई–जून:</strong> मानसून पूर्व सफाई, सूखी पत्तियां हटाना और पहली खाद।",
-            "<strong>सितंबर–अक्टूबर:</strong> नाली की सफाई, दूसरी खाद + मैग्नीशियम सल्फेट।",
-            "<strong>दिसंबर:</strong> बाग की समग्र सफाई।"
-          ],
-          advisoryText: "<strong>ICAR-CPCRI मार्गदर्शन:</strong> पेड़ों को स्वस्थ और मजबूत बनाए रखने के लिए जैविक खाद और नियमित सफाई जारी रखें।"
-        },
-        ml: {
-          leftKicker: "ഓല ആരോഗ്യ വിവരങ്ങൾ",
-          leftTitle: "ആരോഗ്യമുള്ള ഓല — മാനദണ്ഡങ്ങൾ",
-          leftRisk: "മികച്ച ഗ്രേഡ്",
-          pathogenLabel: "ഓലയുടെ ആരോഗ്യ നില",
-          pathogenVal: "ഉത്തമ ഹരിതകം — രോഗരഹിതം",
-          lossLabel: "ഉത്പാദന ശേഷി",
-          lossVal: "ഉയർന്ന വിളവ് ഉറപ്പാക്കുന്നു",
-          triggersTitle: "നല്ല തോട്ടാന്തരീക്ഷം:",
-          triggersDesc: "ആരോഗ്യമുള്ള ഓലകൾ വേരുകളിലെ ശരിയായ ഈർപ്പത്തെയും രോഗമില്ലായ്മയെയും കാണിക്കുന്നു.",
-          symptomsTitle: "നല്ല ലക്ഷണങ്ങൾ:",
-          symptoms: [
-            "<strong>കടും പച്ച നിറം:</strong> എല്ലാ ഓലകളിലും ഒരുപോലെയുള്ള കടും പച്ചനിറം.",
-            "<strong>വ്യക്തമായ ഈർക്കിൽ:</strong> ഓലകളിൽ മഞ്ഞനിറമോ കരിഞ്ഞുണങ്ങലോ ഇല്ല.",
-            "<strong>ഓലകളുടെ ഘടന:</strong> വളച്ചിലോ ചുരുങ്ങലോ ഇല്ലാതെ വിടർന്ന ഓലകൾ.",
-            "<strong>നേരായ കൂമ്പ്:</strong> ചീയലില്ലാതെ വളരുന്ന ആരോഗ്യമുള്ള നാമ്പ്."
-          ],
-          actionsTitle: "ശ്രദ്ധിക്കേണ്ട ആദ്യ ലക്ഷണങ്ങൾ:",
-          actions: [
-            "ഓലയുടെ അറ്റത്ത് മഞ്ഞനിറം തുടങ്ങുന്നത്.",
-            "ഓലകളിൽ തവിട്ടുനിറത്തിലുള്ള പുള്ളികൾ കാണുന്നത്."
-          ],
-          rightKicker: "ഓല പരിചരണവും നിരീക്ഷണവും",
-          rightTitle: "ആരോഗ്യമുള്ള ഓല — വളപ്രയോഗ കലണ്ടർ",
-          rightPill: "ശാസ്ത്രീയ രീതി",
-          treatTitle: "പോഷണ മാനേജ്മെന്റും പരിചരണവും:",
-          treatList: [
-            "<strong>9-12 പച്ച ഓലകൾ നിലനിർത്തുക:</strong> നല്ല വിളവിന് ഒരു മരത്തിൽ 9-12 പച്ച ഓലകൾ ഉണ്ടായിരിക്കണം.",
-            "<strong>സന്തുലിത NPK വളം:</strong> 100g N, 40g P, 140g K രണ്ട് തവണകളായി (മെയ്-ജൂൺ, സെപ്റ്റംബർ-ഒക്ടോബർ) നൽകുക.",
-            "<strong>പുതയിടൽ:</strong> ഈർപ്പം നിലനിർത്താൻ തടത്തിൽ 12 കിലോ ഉണങ്ങിയ ഇലകളോ ചകിരിയോ ഇടുക.",
-            "<strong>നീർവാർച്ച:</strong> മഴക്കാലത്ത് വേര് ചീയൽ തടയാൻ നീർവാർച്ച സൗകര്യം ഉറപ്പാക്കുക."
-          ],
-          prevTitle: "വാർഷിക നിരീക്ഷണ കലണ്ടർ:",
-          prevList: [
-            "<strong>ജനുവരി–ഏപ്രിൽ:</strong> പുതയിടലും തുള്ളിനനയും (175-200 ലിറ്റർ/മരം).",
-            "<strong>മെയ്–ജൂൺ:</strong> തലപ്പ് ശുചീകരണവും ഒന്നാം വളപ്രയോഗവും.",
-            "<strong>സെപ്റ്റംബർ–ഒക്ടോബർ:</strong> ചാലുകൾ വൃത്തിയാക്കലും രണ്ടാം വളപ്രയോഗവും + മഗ്നീഷ്യം സൾഫേറ്റും.",
-            "<strong>ഡിസംബർ:</strong> തോട്ടം വൃത്തിയാക്കൽ."
-          ],
-          advisoryText: "<strong>ICAR-CPCRI നിർദ്ദേശം:</strong> മരങ്ങളുടെ കരുത്ത് നിലനിർത്താൻ ജൈവവള പ്രയോഗവും നാമ്പ് ശുചീകരണവും കൃത്യമായി പാലിക്കുക."
-        }
-      }
-    };
-
-    const d = DATA[clsKey] ? DATA[clsKey][l] : DATA.yld[l];
-
-    const leftIntelHtml = `
-      <div class="intel-header-badge disease-badge">
-        <div class="intel-badge-content">
-          <span class="intel-badge-kicker">${d.leftKicker}</span>
-          <h3 class="intel-badge-title">${d.leftTitle}</h3>
-        </div>
-        <span class="intel-risk-pill">${d.leftRisk}</span>
-      </div>
-      <div class="intel-info-row">
-        <div class="intel-info-col">
-          <span class="intel-label">${d.pathogenLabel}</span>
-          <span class="intel-val">${d.pathogenVal}</span>
-        </div>
-        <div class="intel-info-col">
-          <span class="intel-label">${d.lossLabel}</span>
-          <span class="intel-val" style="color: #b54747; font-weight: 800;">${d.lossVal}</span>
-        </div>
-      </div>
-      <div class="intel-action-box alert-neutral">
-        <div class="intel-box-title"><strong>${d.triggersTitle}</strong></div>
-        <p class="intel-box-desc">${d.triggersDesc}</p>
-      </div>
-      <div class="intel-action-box alert-red">
-        <div class="intel-box-title"><strong>${d.symptomsTitle}</strong></div>
-        <ul class="intel-bullet-list">
-          ${d.symptoms.map(s => `<li>${s}</li>`).join('')}
-        </ul>
-      </div>
-      <div class="intel-action-box alert-orange">
-        <div class="intel-box-title"><strong>${d.actionsTitle}</strong></div>
-        <ul class="intel-bullet-list">
-          ${d.actions.map(a => `<li>${a}</li>`).join('')}
-        </ul>
-      </div>
-    `;
-
-    const rightIntelHtml = `
-      <div class="intel-header-badge disease-badge">
-        <div class="intel-badge-content">
-          <span class="intel-badge-kicker">${d.rightKicker}</span>
-          <h3 class="intel-badge-title">${d.rightTitle}</h3>
-        </div>
-        <span class="intel-risk-pill" style="background: rgba(36, 107, 80, 0.12); color: #246B50; border-color: rgba(36, 107, 80, 0.25);">${d.rightPill}</span>
-      </div>
-      <div class="intel-action-box alert-blue">
-        <div class="intel-box-title"><strong>${d.treatTitle}</strong></div>
-        <ol class="intel-ordered-list">
-          ${d.treatList.map(t => `<li>${t}</li>`).join('')}
-        </ol>
-      </div>
-      <div class="intel-action-box alert-green">
-        <div class="intel-box-title"><strong>${d.prevTitle}</strong></div>
-        <ul class="intel-bullet-list">
-          ${d.prevList.map(p => `<li>${p}</li>`).join('')}
-        </ul>
-      </div>
-      <div class="intel-expert-footer">
-        <span>${d.advisoryText}</span>
-      </div>
-    `;
-
-    return { leftIntelHtml, rightIntelHtml };
-  }
+  
 
   function buildResultHtmlFromItem(item) {
     const rawDisease = item.disease || 'Yellow Leaf Disease (YLD)';
